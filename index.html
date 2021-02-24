@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Covid Support</title>
+    <title>Profile</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -13,10 +13,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/myapp.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -29,99 +28,73 @@
   </head>
 <body>
     <main>
-        <div id="search-section">
-            <div class="input-group">
-                <div class="form-outline">
-                <input type="search" id="form1" class="form-control" />
-                <label class="form-label" for="form1">Search For Information...</label>
-                </div>
-                <button type="button" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-                </button>
-            </div>
+        <div class="search-section">
+            <input class="searchbox" type="text" placeholder="Search for information">
         </div>
-        <div id="local-section">
-            <p id="location">Glasgow, Scotland</p>
-            <h1 id="stage">Stage 4</h1>
-            <div id="local-details-boxes">
-                <div class="local-details-box">
-                    <div class="local-details-title-container">
-                        <p class="local-details-box-title">Cases</p>
-                    </div>
-                    <div class="local-details-number-container">
-                        <p class="local-details-box-number">0000</p>
-                    </div>
+
+        <div id="profile-section">
+            <div id="profile-text-container">
+                <div id="profile-text">
+                    <p class="location">Glasgow, Scotland</p>
+                    <h1 class="username">Your name</h1>
                 </div>
-                <div class="local-details-box">
-                    <div class="local-details-title-container">
-                        <p class="local-details-box-title">Deaths</p>
-                    </div>
-                    <div class="local-details-number-container">
-                        <p class="local-details-box-number">0000</p>
-                    </div>
-                </div>
-                <div class="local-details-box">
-                    <div class="local-details-title-container">
-                        <p class="local-details-box-title">Vaccinations</p>
-                    </div>
-                    <div class="local-details-number-container">
-                        <p class="local-details-box-number">0000</p>
-                    </div>
+                <div id="profile-arrow">
+                    <i class="fas fa-arrow-right fa-lg" aria-hidden="true"></i>
                 </div>
             </div>
-        </div>
-        <div id="global-details-buttons">
-            <div class="global-details-btn-container">
-                <button class="global-details-btn selected-btn"><i class="fa fa-location-arrow"></i> Nationwide</button>
-            </div>
-            <div class="global-details-btn-container">
-                <button class="global-details-btn"><i class="fa fa-globe"></i> Worldwide</button>
-            </div>
-        </div>  
-        <hr>
-        <div id="nationwide-details">
-            <div class="nationwide-details-box">
-                <div class="nationwide-details-title-container">
-                    <p class="nationwide-details-box-title">Cases</p>
+            <div id="profile-pic-section">
+                <div>
+                    <img id="profile-pic" src="img/icon128.png" alt="Profile picture">
                 </div>
-                <div class="nationwide-details-number-container">
-                    <p class="nationwide-details-box-number">0000</p>
+                <div>
+                    <button id="symptoms-btn">No Symptoms</button>
+                </div>
+                <div>
+                    <p id="last-checked">Last checked: DD/MM/YYYY</p>
                 </div>
             </div>
-            <div class="nationwide-details-box">
-                <div class="nationwide-details-title-container">
-                    <p class="nationwide-details-box-title">Deaths</p>
+            <hr>
+            <div id="check-symptoms-container">
+                <div id="check-symptoms-text">
+                    <p>Take a moment to check whether you have symptoms</p>
                 </div>
-                <div class="nationwide-details-number-container">
-                    <p class="nationwide-details-box-number">0000</p>
+                <div id="check-symptoms-arrow">
+                    <i class="fas fa-arrow-right fa-lg" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="nationwide-details-box">
-                <div class="nationwide-details-title-container">
-                    <p class="nationwide-details-box-title">Vaccinations</p>
-                </div>
-                <div class="nationwide-details-number-container">
-                    <p class="nationwide-details-box-number">0000</p>
-                </div>
+
+            <div id="profile-page-carousels">
+                <h1 class="profile-page-title">Stay informed</h1>
+                <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
+                    <div class="card card-block mx-2" style="min-width: 200px; min-height:200px">Card</div>
+                    <div class="card card-block mx-2" style="min-width: 200px; min-height:200px">Card</div>
+                    <div class="card card-block mx-2" style="min-width: 200px; min-height:200px">Card</div>            
+              </div>
+
+
+
+
+                <h1 class="profile-page-title">Prevention</h1>
+                <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
+                    <div class="card card-block mx-2" style="min-width: 200px; min-height:200px">Card</div>
+                    <div class="card card-block mx-2" style="min-width: 200px; min-height:200px">Card</div>
+                    <div class="card card-block mx-2" style="min-width: 200px; min-height:200px">Card</div>            
+              </div>
             </div>
         </div>
     </main>
     <nav>
         <a href="index.html" class="selected-nav nav-button" >
-            <i class="fa fa-home fa-lg" aria-hidden="true"></i>
-            <p class="nav-text">Home</p>
+            <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+            <p class="nav-text">Profile</p>
         </a>
-        <a href="#" class="nav-button" >
-            <i class="fa fa-compass fa-lg" aria-hidden="true"></i>
-            <p class="nav-text">Test</p>
+        <a href="statistics.html" class="nav-button" >
+            <i class="fa fa-chart-bar fa-lg" aria-hidden="true"></i>
+            <p class="nav-text">Statistics</p>
         </a>
-        <a href="#" class="nav-button" >
-            <i class="fa fa-compass fa-lg" aria-hidden="true"></i>
-            <p class="nav-text">Test</p>
-        </a>
-        <a href="#" class="nav-button" >
-            <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
-            <p class="nav-text">Settings</p>
+        <a href="news.html" class="nav-button" >
+            <i class="fa fa-newspaper fa-lg" aria-hidden="true"></i>
+            <p class="nav-text">News</p>
         </a>
     </nav>
     <!-- for simple javascript without MVC use myapp.js -->

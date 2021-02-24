@@ -16,7 +16,7 @@ body {
 }
 
 main {
-    margin: 0 0 10vh 0;
+    margin: 0 0 13vh 0;
     padding: 5vh 5vw;
 }
 
@@ -48,7 +48,7 @@ nav {
     background-color: #e1e1e1;
 }
 
-.fa-home {
+.fa-user {
     margin-bottom: 0.5vh;
     padding: 0;
     color: dimgray;
@@ -60,7 +60,13 @@ nav {
     color: dimgray;
 }
 
-.fa-compass {
+.fa-newspaper {
+    margin-bottom: 0.5vh;
+    padding: 0;
+    color: dimgray;
+}
+
+.fa-chart-bar {
     margin-bottom: 0.5vh;
     padding: 0;
     color: dimgray;
@@ -70,6 +76,13 @@ nav {
     margin: 0;
     padding: 0;
     color: dimgray;
+}
+
+.fa-arrow-right {
+    margin: 0;
+    padding: 0;
+    color: gray;
+    opacity: 0.7;
 }
 
 .selected-nav i {
@@ -82,32 +95,161 @@ nav {
 
 
 /* HOME PAGE */
-.form-outline {
-    width: 60%;
-    border: grey solid 1px;
+
+.card-body {
+    min-height: 300px;
+    min-width: 300px;
+    margin-right: 5px;
 }
 
-#search-section {
+/* PROFILE PAGE */
+
+.profile-section {
 
 }
 
-#searchbox {
+.username {
+    margin: 0 0 0 5vw;
+    padding: 0;
+}
+
+#profile-section {
+
+}
+
+#profile-text-container {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#profile-text {
+    float: left;
+    width: 90%;
+}
+
+#profile-arrow {
+    margin: 5vh 0 0 0;
+    float: right;
+    width: 10%;
+    cursor: pointer;
+}
+
+#profile-pic-section {
+    margin: 2vh 0;
+    text-align: center;
+}
+
+#symptoms-btn {
+    margin: 3vh 0 0 0;
+    padding: 1vh 3vw;
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: #aed6fd;
+    color: dodgerblue;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+#last-checked {
+    margin: 0.5vh 0;
+    padding: 0;
+    color: dimgray;
+    font-size: 0.8rem;
+}
+
+#check-symptoms-container {
+    width: 100%;
+    margin: 3vh 0 0 0;
+    padding: 1vh 1vw 1vh 3vw;
+    display: inline-block;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+#check-symptoms-text {
+    margin: 0 15% 0 0;
+    padding: 0;
+    float: left;
+    width: 75%;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#check-symptoms-text p {
+    margin: 0;
+    padding: 0;
+}
+
+#check-symptoms-arrow {
+    margin: 0;
+    padding: 0;
+    float: right;
+    width: 10%;
+}
+
+#profile-page-carousels {
+
+}
+
+.profile-page-title {
+    margin: 3vh 0 2vh 0;
+    font-weight: bold;
+    padding: 0;
+    font-size: 1.3rem;
+}
+
+.profile-page-carousel {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 40%;
+}
+
+.carousel-read-length {
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.3rem;
+}
+
+.carousel-topic {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* STATISTICS PAGE */
+
+.search-section {
+
+}
+
+.searchbox {
     padding: 1vh 1vw;
-    width: calc(100% - 2.5vw);
+    width: 100%;
 }
 
 #local-section {
 
 }
 
-#location {
+.location {
     margin: 3vh 0 0 5vw;
     padding: 0;
     color: dimgray;
     font-size: 0.7rem;
 }
 
-#stage {
+.stage {
     margin: 0 0 0 5vw;
     padding: 0;
 }
@@ -121,11 +263,11 @@ nav {
 }
 
 .local-details-box {
-    width: 21vw;
+    width: 27vw;
     padding: 2vh 3vw;
     margin: 0;
     height: 20vh;
-    border-radius: 5%;
+    border-radius: 8px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -193,7 +335,7 @@ nav {
     margin-top: 3vh;
     padding: 2vh 3vw;
     height: 20vh;
-    border-radius: 5%;
+    border-radius: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
