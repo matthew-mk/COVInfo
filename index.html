@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>COVID Support</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="myapp.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- User scalable=0 prevents double tap but is accessibility problem -->
+    <link rel="apple-touch-icon" sizes="128x128" href="icon128.png">
+    <link rel="icon" sizes="192x192" href="icon192.png">
+</head>
+<!-- Icon made by www.freepik.com" - replace, buy or attribute if distributing -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<body>
+    <main>
+        <div id="search-section">
+            <input id="searchbox" type="text" placeholder="Search for information">
+        </div>
+        <div id="local-section">
+            <p id="location">Glasgow, Scotland</p>
+            <h1 id="stage">Stage 4</h1>
+            <div id="local-details-boxes">
+                <div class="local-details-box">
+                    <div class="local-details-title-container">
+                        <p class="local-details-box-title">Cases</p>
+                    </div>
+                    <div class="local-details-number-container">
+                        <p class="local-details-box-number">0000</p>
+                    </div>
+                </div>
+                <div class="local-details-box">
+                    <div class="local-details-title-container">
+                        <p class="local-details-box-title">Deaths</p>
+                    </div>
+                    <div class="local-details-number-container">
+                        <p class="local-details-box-number">0000</p>
+                    </div>
+                </div>
+                <div class="local-details-box">
+                    <div class="local-details-title-container">
+                        <p class="local-details-box-title">Vaccinations</p>
+                    </div>
+                    <div class="local-details-number-container">
+                        <p class="local-details-box-number">0000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="global-details-buttons">
+            <div class="global-details-btn-container">
+                <button class="global-details-btn selected-btn"><i class="fa fa-location-arrow"></i> Nationwide</button>
+            </div>
+            <div class="global-details-btn-container">
+                <button class="global-details-btn"><i class="fa fa-globe"></i> Worldwide</button>
+            </div>
+        </div>
+        <hr>
+        <div id="nationwide-details">
+            <div class="nationwide-details-box">
+                <div class="nationwide-details-title-container">
+                    <p class="nationwide-details-box-title">Cases</p>
+                </div>
+                <div class="nationwide-details-number-container">
+                    <p class="nationwide-details-box-number">0000</p>
+                </div>
+            </div>
+            <div class="nationwide-details-box">
+                <div class="nationwide-details-title-container">
+                    <p class="nationwide-details-box-title">Deaths</p>
+                </div>
+                <div class="nationwide-details-number-container">
+                    <p class="nationwide-details-box-number">0000</p>
+                </div>
+            </div>
+            <div class="nationwide-details-box">
+                <div class="nationwide-details-title-container">
+                    <p class="nationwide-details-box-title">Vaccinations</p>
+                </div>
+                <div class="nationwide-details-number-container">
+                    <p class="nationwide-details-box-number">0000</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <nav>
+        <a href="index.html" class="selected-nav nav-button" >
+            <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+            <p class="nav-text">Home</p>
+        </a>
+        <a href="#" class="nav-button" >
+            <i class="fa fa-compass fa-lg" aria-hidden="true"></i>
+            <p class="nav-text">Test</p>
+        </a>
+        <a href="#" class="nav-button" >
+            <i class="fa fa-compass fa-lg" aria-hidden="true"></i>
+            <p class="nav-text">Test</p>
+        </a>
+        <a href="#" class="nav-button" >
+            <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+            <p class="nav-text">Settings</p>
+        </a>
+    </nav>
+    <!-- for simple javascript without MVC use myapp.js -->
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>
