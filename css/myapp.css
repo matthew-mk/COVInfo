@@ -82,6 +82,10 @@ nav {
 
 
 /* HOME PAGE */
+.form-outline {
+    width: 60%;
+    border: grey solid 1px;
+}
 
 #search-section {
 
