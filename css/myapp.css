@@ -48,7 +48,7 @@ nav {
     background-color: #e1e1e1;
 }
 
-.fa-home {
+.fa-user {
     margin-bottom: 0.5vh;
     padding: 0;
     color: dimgray;
@@ -60,7 +60,13 @@ nav {
     color: dimgray;
 }
 
-.fa-compass {
+.fa-newspaper {
+    margin-bottom: 0.5vh;
+    padding: 0;
+    color: dimgray;
+}
+
+.fa-chart-bar {
     margin-bottom: 0.5vh;
     padding: 0;
     color: dimgray;
