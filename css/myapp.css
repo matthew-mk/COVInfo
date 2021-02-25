@@ -309,8 +309,8 @@ nav {
 }
 
 .statistics-page-carousel{
-    min-height: 175px;
     min-width: 125px;
+    min-height: 125px;
 }
 
 .local-details-box {
@@ -322,26 +322,26 @@ nav {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-.local-details-box-title {
-    margin: 0;
+.box-title {
+    margin: 0 0 3vh 0;
     padding: 0;
     color: dimgray;
     font-size: 0.7rem;
 }
 
-.local-details-title-container {
-    height: 80%;
+.box-number {
+    margin: 1vh 0 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
 }
 
-.local-details-box-number {
+.box-date {
     margin: 0;
     padding: 0;
-    font-size: 3.5vh;
-    font-weight: bold;
-}
-
-.local-details-number-container {
-    height: 20%;
+    color: dimgray;
+    font-size: 0.8rem;
 }
 
 .global-details-buttons {
@@ -385,31 +385,8 @@ nav {
 .nationwide-details-box {
     margin-top: 3vh;
     padding: 2vh 3vw;
-    height: 20vh;
     border-radius: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-}
-
-.nationwide-details-box-title {
-    margin: 0;
-    padding: 0;
-    color: dimgray;
-    font-size: 0.7rem;
-}
-
-.nationwide-details-title-container {
-    height: 80%;
-}
-
-.nationwide-details-box-number {
-    margin: 0;
-    padding: 0;
-    font-size: 3.5vh;
-    font-weight: bold;
-}
-
-.nationwide-details-number-container {
-    height: 20%;
 }
 
 
