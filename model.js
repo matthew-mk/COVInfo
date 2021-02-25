@@ -83,7 +83,10 @@ class Model{
     getFirstDoseVaccinated(){
         return this.firstDoseVaccinated;
     }
-      
+    
+    // adds commas to numbers & formats
+    formatNumber(num){
+        return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    }
 }
-
 
