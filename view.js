@@ -13,6 +13,18 @@ class View{
         document.getElementById("glasgow-new-cases").innerText = cases;
     }
 
+    updateNationalNewCases(cases){
+        document.getElementById("national-new-cases").innerText = cases;
+    }
+
+    updateNationalNewDeaths(cases){
+        document.getElementById("national-new-deaths").innerText = cases;
+    }
+
+    updateFirstDoseVaccinated(total){
+        document.getElementById("first-dose-vaccinated").innerText = total;
+    }
 
 
+    
 }

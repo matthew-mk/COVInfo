@@ -12,6 +12,12 @@ const initialise = evt => {
     //update scotland new cases
     view.updateGlasgowNewCases(model.getNewGlasgowCases());
 
+    view.updateNationalNewCases(model.getNationalNewCases()[0].newCasesByPublishDate) //we only want the last day of data not the week
+
+    view.updateNationalNewDeaths(model.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate)
+
+    view.updateFirstDoseVaccinated(model.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate)
+
 
 };
 
