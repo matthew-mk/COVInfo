@@ -101,6 +101,33 @@ nav {
 }
 
 
+/* SEARCH BAR */
+.search .form-control {
+    padding-left: 2.375rem;
+    padding-right: 2.375rem;
+}
+
+.search .form-control-left {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.settings-btn{
+    float:right;
+    display: inline-block;
+    z-index: 99;
+    position: relative;
+}
+
+
+
 /* HOME PAGE */
 
 .card-body {
