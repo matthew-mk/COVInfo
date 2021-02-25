@@ -3,52 +3,13 @@
 class Model{
     constructor() {
         //Most data is given as an array of the last 7 days data
-        //this.scotlandNewCases = this.setNewGlasgowCases();
         this.nationalNewCases = this.setNationalData("newCasesByPublishDate");
         this.nationalNewDeaths = this.setNationalData("newDeaths28DaysByPublishDate");
         this.firstDoseVaccinated = this.setNationalData("cumPeopleVaccinatedFirstDoseByPublishDate");
-
+        //USER INPUT WILL BE ADDED
         this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate")  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECSION
         this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate")
     }
-
-
-
-
-    getUserDefinedLocationNewCases(){
-        return this.userDefinedLocationNewCases;
-    }
-    getUserDefinedLocationNewDeaths(){
-        return this.userDefinedLocationNewDeaths;
-    }
-
-
-
-    setData(location, typeOfData) { 
-        let returnData;
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaName="+location+"&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}",
-            async: false, //MUST BE ASYNC FALSE
-            success: function(data){
-                let tempArr = data.data;
-                tempArr.length = 6; //only want last 7 days
-                returnData = tempArr;
-            }
-        });
-        if(typeOfData == "newCasesByPublishDate"){
-            this.userDefinedLocationNewCases = returnData;
-        }
-        else if(typeOfData == "newCasesByPublishDate"){
-            this.userDefinedLocationNewDeaths = returnData;
-        }
-        return returnData;
-    };
-
-
-
-
 
 
     //National Data and specific location data uses a different api call to get so use correct function.
@@ -80,6 +41,37 @@ class Model{
         return returnData;
     };
 
+
+    setData(location, typeOfData) { 
+        let returnData;
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaName="+location+"&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}",
+            async: false, //MUST BE ASYNC FALSE
+            success: function(data){
+                let tempArr = data.data;
+                tempArr.length = 6; //only want last 7 days
+                returnData = tempArr;
+            }
+        });
+        if(typeOfData == "newCasesByPublishDate"){
+            this.userDefinedLocationNewCases = returnData;
+        }
+        else if(typeOfData == "newCasesByPublishDate"){
+            this.userDefinedLocationNewDeaths = returnData;
+        }
+        return returnData;
+    };
+
+
+    getUserDefinedLocationNewCases(){
+        return this.userDefinedLocationNewCases;
+    }
+    getUserDefinedLocationNewDeaths(){
+        return this.userDefinedLocationNewDeaths;
+    }
+
     getNationalNewCases(){
         return this.nationalNewCases;
     }
@@ -91,9 +83,6 @@ class Model{
     getFirstDoseVaccinated(){
         return this.firstDoseVaccinated;
     }
-    
-    //https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22newCases%22:%22newDeaths28DaysByPublishDate%22}
-    
       
 }
 
