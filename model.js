@@ -2,35 +2,58 @@
 
 class Model{
     constructor() {
-        this.scotlandNewCases = this.setNewGlasgowCases();
+        //Most data is given as an array of the last 7 days data
+        //this.scotlandNewCases = this.setNewGlasgowCases();
         this.nationalNewCases = this.setNationalData("newCasesByPublishDate");
         this.nationalNewDeaths = this.setNationalData("newDeaths28DaysByPublishDate");
         this.firstDoseVaccinated = this.setNationalData("cumPeopleVaccinatedFirstDoseByPublishDate");
+
+        this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate")  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECSION
+        this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate")
     }
 
 
-    // updates the number of new cases in scotland
-    setNewGlasgowCases() {
-    let returnData; // data to be returned
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaName=Glasgow City&structure={%22date%22:%22date%22,%22newCases%22:%22newCasesByPublishDate%22}",
-        async: false, //MUST BE ASYNC FALSE
-        success: function(data){
-            returnData = data.data[0].newCases;
+
+
+    getUserDefinedLocationNewCases(){
+        return this.userDefinedLocationNewCases;
+    }
+    getUserDefinedLocationNewDeaths(){
+        return this.userDefinedLocationNewDeaths;
+    }
+
+
+
+    setData(location, typeOfData) { 
+        let returnData;
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaName="+location+"&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}",
+            async: false, //MUST BE ASYNC FALSE
+            success: function(data){
+                let tempArr = data.data;
+                tempArr.length = 6; //only want last 7 days
+                returnData = tempArr;
+            }
+        });
+        if(typeOfData == "newCasesByPublishDate"){
+            this.userDefinedLocationNewCases = returnData;
         }
-    });
-    this.scotlandNewCases = returnData; //update the models data
-    return returnData;
+        else if(typeOfData == "newCasesByPublishDate"){
+            this.userDefinedLocationNewDeaths = returnData;
+        }
+        return returnData;
     };
 
-    //getter to return the new cases in scotland. Called by the controller.
-    getNewGlasgowCases(){
-        return this.scotlandNewCases;
-    }
 
 
+
+
+
+    //National Data and specific location data uses a different api call to get so use correct function.
+    //setNationalData is only for returning uk wide data
+    //setData is used to return data for a specific area in the uk e.g. 'Glasgow City', 'Stirling'
 
     setNationalData(typeOfData) { // VALID INPUTS: newCasesByPublishDate, newDeaths28DaysByPublishDate, cumPeopleVaccinatedFirstDoseByPublishDate
         let returnData; // data to be returned

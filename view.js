@@ -9,8 +9,14 @@ class View{
     }
 
     // when called by controller will update the number of new cases in glasgow
-    updateGlasgowNewCases(cases) {
-        document.getElementById("glasgow-new-cases").innerText = cases;
+    updateUserDefinedLocationNewCases(cases) {
+        console.log("got: ", cases)
+        document.getElementById("user-defined-location-new-cases").innerText = cases;
+    }
+
+    updateUserDefinedLocationNewDeaths(cases) {
+        console.log("got: ", cases)
+        document.getElementById("user-defined-location-new-deaths").innerText = cases;
     }
 
     updateNationalNewCases(cases){
