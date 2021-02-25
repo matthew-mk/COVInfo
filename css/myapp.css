@@ -395,7 +395,7 @@ nav {
 }
 
 .news-container {
-    display: inline-block;
+    display: flex;
     margin: 2vh 0 0 0;
     padding: 2vh 5%;
     border-radius: 10px;
@@ -404,15 +404,16 @@ nav {
 }
 
 .news-text-section {
-    float: left;
-    width: 70%;
+    flex: 3;
+    margin-right: 3vw;
 }
 
 .news-img-section {
-    float: right;
-    text-align: right;
-    width: 30%;
-    height: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-content: end;
+    flex-direction: column;
 }
 
 .news-img-section img {
