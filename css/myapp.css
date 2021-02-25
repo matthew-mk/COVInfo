@@ -119,11 +119,13 @@ nav {
     color: #aaa;
 }
 
-.settings-btn{
-    float:right;
-    display: inline-block;
-    z-index: 99;
-    position: relative;
+.setting-btn,.setting-btn:active,.setting-btn:focus{
+    background-color: white;
+    color:white;
+    height: 2.330rem;
+    box-shadow: none;
+	background:none;
+	outline:none;
 }
 
 
