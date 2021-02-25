@@ -8,7 +8,11 @@ class View{
         // document.getElementById("xxxxxxx").addEventListener("click", listener);
     }
 
-    viewmethod1() {
-
+    // when called by controller will update the number of new cases in glasgow
+    updateGlasgowNewCases(cases) {
+        document.getElementById("glasgow-new-cases").innerText = cases;
     }
+
+
+
 }

@@ -7,6 +7,12 @@ const initialise = evt => {
     model = new Model();
     view = new View();
     //do any initialisation and "plumbing" here
+
+
+    //update scotland new cases
+    view.updateGlasgowNewCases(model.getNewGlasgowCases());
+
+
 };
 
 window.addEventListener("load", initialise);
