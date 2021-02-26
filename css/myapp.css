@@ -620,7 +620,6 @@ nav {
     font-size: 1.6rem;
     font-weight: bold;
     color: #e96b64;
-    text-align: left;
 }
 
 .negative-desc {
@@ -628,7 +627,6 @@ nav {
     padding: 0;
     font-size: 0.9rem;
     color: #e96b64;
-    text-align: left;
 }
 
 .negative-desc p {
@@ -671,15 +669,14 @@ nav {
 
 /* DETAILS PAGE */
 
-.details-container {
+.details-img-container {
     margin: 3vh 0 0 0;
     text-align: center;
 }
 
-.last-checked-negative {
+.negative-last-checked {
     margin: 3vh 0 0 0;
     padding: 0;
-    text-align: left;
     font-size: 0.8rem;
     color: #e96b64;
 }
