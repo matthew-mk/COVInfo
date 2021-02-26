@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Symptoms</title>
+    <!-- Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/myapp.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- User scalable=0 prevents double tap but is accessibility problem -->
+    <link rel="apple-touch-icon" sizes="128x128" href="img/icon128.png">
+    <link rel="icon" sizes="192x192" href="img/icon192.png">
+    <!-- Icon made by www.freepik.com" - replace, buy or attribute if distributing -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<main>
+    <div class="settings-page-container">
+
+        <div class="header-container">
+            <a href="index.html"><i class="header-arrow fas fa-arrow-left fa-lg" aria-hidden="true"></i></a>
+            <h1 class="header-title">Symptoms checker</h1>
+        </div>
+        <hr>
+
+        <form name="symptomsform" action="symptomsresults.html" method="post" onsubmit="">
+            <div class="settings-box-container">
+                <p class="settings-topic">Symptoms</p>
+                <h1 class="settings-title">Select which of the following symptoms you have.</h1>
+                <div class="toggle-container">
+                    <div class="toggle-container-text">
+                        <p class="symptoms-selected">A high temperature (fever)</p>
+                    </div>
+                    <div class="toggle-container-btn">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" name="highTemperature" />
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="toggle-container">
+                    <div class="toggle-container-text">
+                        <p class="symptoms-selected">A new, continuous cough</p>
+                    </div>
+                    <div class="toggle-container-btn">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" name="cough" />
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="toggle-container">
+                    <div class="toggle-container-text">
+                        <p class="symptoms-selected">A loss of smell, or a loss of taste</p>
+                    </div>
+                    <div class="toggle-container-btn">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" name="lossOfSmell" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-box-container">
+                <p class="settings-topic">Breathing</p>
+                <h1 class="settings-title">Are you struggling to breath?</h1>
+                <p class="symptoms-subtitle">This means you are so breathless that you are unable to speak more than a few words.</p>
+                <div class="toggle-container">
+                    <div class="toggle-container-text">
+                        <p class="symptoms-selected">Yes</p>
+                    </div>
+                    <div class="toggle-container-btn">
+                        <div class="form-check form-switch">
+                            <input type="radio" name="breathing" />
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="toggle-container">
+                    <div class="toggle-container-text">
+                        <p class="symptoms-selected">No</p>
+                    </div>
+                    <div class="toggle-container-btn">
+                        <div class="form-check form-switch">
+                            <input type="radio" name="breathing" />
+                        </div>
+                    </div>
+                </div>
+                <div class="help-btn-container">
+                    <button class="help-button">Help <i class="fas fa-arrow-right fa-sm help-button-arrow" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <div class="settings-box-container">
+                <p class="settings-topic">Activities</p>
+                <h1 class="settings-title">Are you able to do your daily activities?</h1>
+                <p class="symptoms-subtitle">Do you feel well enough to get out of bed, watch TV, use your phone or read the newspaper?</p>
+                <div class="toggle-container">
+                    <div class="toggle-container-text">
+                        <p class="symptoms-selected">Yes</p>
+                    </div>
+                    <div class="toggle-container-btn">
+                        <div class="form-check form-switch">
+                            <input type="radio" name="activities" />
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="toggle-container">
+                    <div class="toggle-container-text">
+                        <p class="symptoms-selected">No</p>
+                    </div>
+                    <div class="toggle-container-btn">
+                        <div class="form-check form-switch">
+                            <input type="radio" name="activities" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-form-container">
+                <button class="clear-button">Clear<p class="clear-buttton-X">X</p></button>
+                <button class="submit-button"><input class="submit-input" type="submit" name="submit"> <i class="fas fa-arrow-right fa-sm submit-button-arrow" aria-hidden="true"></i></button>
+            </div>
+        </form>
+
+    </div>
+</main>
+<!-- for simple javascript without MVC use myapp.js -->
+<script src="model.js"></script>
+<script src="view.js"></script>
+<script src="controller.js"></script>
+</body>
+</html>

@@ -189,13 +189,6 @@ nav {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
-#last-checked {
-    margin: 0.5vh 0;
-    padding: 0;
-    color: dimgray;
-    font-size: 0.8rem;
-}
-
 #check-symptoms-container {
     width: 100%;
     margin: 3vh 0 0 0;
@@ -451,7 +444,12 @@ nav {
 
 /* SETTINGS PAGE */
 
-.settings-header-container {
+.settings-page-container {
+    margin: 0 0 -13vh 0;
+    padding: 0;
+}
+
+.header-container {
     margin: 0 0 2vh 0;
 }
 
@@ -510,4 +508,158 @@ nav {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+}
+
+/* SYMPTOMS FORM PAGE */
+
+.submit-form-container {
+    margin: 3vh 0 0 0;
+    padding: 0;
+    text-align: right;
+}
+
+.symptoms-subtitle {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.symptoms-selected {
+    margin: 2vh 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.clear-button {
+    display: inline;
+    margin: 0 3vw 0 0;
+    padding: 1vh 3vw;
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: #f8c4c1;
+    color: #e96b64;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+.clear-buttton-X {
+    margin: 0 0 0 4vw;
+    padding: 0;
+    display: inline;
+}
+
+.submit-button {
+    display: inline;
+    margin: 0;
+    padding: 1vh 3vw;
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: #aed6fd;
+    color: dodgerblue;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+.submit-input {
+    margin: 0;
+    padding: 0;
+    background-color: #aed6fd;
+    color: dodgerblue;
+    border: 0;
+}
+
+.submit-button-arrow {
+    margin: 0 0 0 4vw;
+    padding: 0;
+    color: dodgerblue;
+}
+
+
+/* SYMPTOMS RESULTS PAGE */
+
+.positive {
+    background-color: mediumseagreen;
+}
+
+.negative {
+    background-color: #f8c4c1;
+}
+
+.negative-top-section {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.negative-title-container {
+    margin: 0;
+    padding: 0;
+    flex: 9;
+}
+
+.negative-arrow-container {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    text-align: right;
+}
+
+.negative-arrow {
+    color: #e96b64;
+}
+
+.negative-title {
+    margin: 0 0 1vh 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #e96b64;
+}
+
+.negative-desc {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #e96b64;
+}
+
+.negative-desc p {
+    margin: 0;
+    padding: 0;
+}
+
+.symptoms-ul {
+    margin-bottom: 0;
+}
+
+.symptoms-li {
+    font-size: 0.9rem;
+}
+
+.help-btn-container {
+    margin: 2vh 0 0 0;
+    padding: 0;
+    text-align: right;
+}
+
+.help-button {
+    margin: 0;
+    padding: 0.75vh 2vw;
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: #aed6fd;
+    color: dodgerblue;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+.help-button-arrow {
+    margin: 0 0 0 2vw;
+    padding: 0;
+    color: dodgerblue;
 }
