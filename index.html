@@ -41,10 +41,6 @@
             </div>
         </div>
   
-
-
-        
-
         <div id="profile-section">
             <div id="profile-text-container">
                 <div id="profile-text">
@@ -52,7 +48,7 @@
                     <h1 class="username">Your name</h1>
                 </div>
                 <div id="profile-arrow">
-                    <i class="fas fa-arrow-right fa-lg" aria-hidden="true"></i>
+                    <a href="profiledetails.html"><i class="fas fa-arrow-right fa-lg small-arrow-hover" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div id="profile-pic-section">
@@ -60,16 +56,16 @@
                     <img id="profile-pic" src="img/icon128.png" alt="Profile picture" width="128px" height="128px">
                 </div>
                 <div>
-                    <button id="symptoms-btn">No Symptoms</button>
+                    <button id="symptoms-btn" onclick="location.href='symptomsresults.html'">No Symptoms</button>
                 </div>
             </div>
             <hr>
             <div class="check-symptoms-container">
                 <div class="check-symptoms-text">
-                    <p>Take a moment to check whether you have symptoms</p>
+                    <a href="symptomsform.html"><p>Take a moment to check whether you have symptoms</p></a>
                 </div>
                 <div class="check-symptoms-arrow">
-                    <i class="fas fa-arrow-right fa-lg" aria-hidden="true"></i>
+                    <i id="check-symptoms-arrow" class="fas fa-arrow-right fa-lg" aria-hidden="true"></i>
                 </div>
             </div>
 
