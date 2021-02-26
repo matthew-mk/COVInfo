@@ -189,7 +189,7 @@ nav {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
-#check-symptoms-container {
+.check-symptoms-container {
     width: 100%;
     margin: 3vh 0 0 0;
     padding: 1vh 1vw 1vh 3vw;
@@ -198,9 +198,10 @@ nav {
     border-radius: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
+    text-align: left;
 }
 
-#check-symptoms-text {
+.check-symptoms-text {
     margin: 0 15% 0 0;
     padding: 0;
     float: left;
@@ -209,16 +210,17 @@ nav {
     font-weight: bold;
 }
 
-#check-symptoms-text p {
+.check-symptoms-text p {
     margin: 0;
     padding: 0;
 }
 
-#check-symptoms-arrow {
+.check-symptoms-arrow {
     margin: 0;
     padding: 0;
     float: right;
     width: 10%;
+    text-align: center;
 }
 
 #profile-page-carousels {
@@ -618,6 +620,7 @@ nav {
     font-size: 1.6rem;
     font-weight: bold;
     color: #e96b64;
+    text-align: left;
 }
 
 .negative-desc {
@@ -625,6 +628,7 @@ nav {
     padding: 0;
     font-size: 0.9rem;
     color: #e96b64;
+    text-align: left;
 }
 
 .negative-desc p {
@@ -662,4 +666,20 @@ nav {
     margin: 0 0 0 2vw;
     padding: 0;
     color: dodgerblue;
+}
+
+
+/* DETAILS PAGE */
+
+.details-container {
+    margin: 3vh 0 0 0;
+    text-align: center;
+}
+
+.last-checked-negative {
+    margin: 3vh 0 0 0;
+    padding: 0;
+    text-align: left;
+    font-size: 0.8rem;
+    color: #e96b64;
 }
