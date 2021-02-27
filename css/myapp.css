@@ -531,7 +531,7 @@ nav {
     display: inline;
     margin: 0 1vw 0 0;
     padding: 1vh 3vw;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     text-align: center;
     background-color: #f8c4c1;
     color: #e96b64;
@@ -544,7 +544,7 @@ nav {
     display: inline;
     margin: 0;
     padding: 1vh 3vw;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     text-align: center;
     background-color: #aed6fd;
     color: dodgerblue;
@@ -557,18 +557,17 @@ nav {
     margin: 0 0 2vh 0;
     padding: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 .pic-settings-text {
-    flex: 1;
+
 }
 
 .pic-settings-btns {
-    flex: 3;
-    text-align: right;
+    margin: 0.5vh 0 0 0;
+    padding: 0;
+    text-align: left;
 }
 
 /* SYMPTOMS FORM PAGE */
