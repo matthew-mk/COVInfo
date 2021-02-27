@@ -20,7 +20,14 @@
     <link rel="stylesheet" href="css/mdb.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/myapp.css">
+    <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
+    <script type = "text/javascript">
+        function loadStyle(){
+            if (localStorage.getItem("theme") !== null)
+                document.getElementById("themeSheet").href = localStorage.getItem("theme")
+        }
+        window.onload = loadStyle();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- User scalable=0 prevents double tap but is accessibility problem -->
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon128.png">
@@ -39,9 +46,34 @@
         <hr>
         <div class="settings-box-container">
             <p class="settings-topic">Appearance</p>
-            <h1 class="settings-title">Theme</h1>
-            <p class="settings-selected">Light</p>
+            <div class="toggle-container">
+                <div class="toggle-container-text">
+                    <h1 class="settings-title">Dark Theme</h1>
+                    <p class="settings-selected">Enabled</p>
+                </div>
+                <div class="toggle-container-btn">
+                    <div class="form-check form-switch">
+                        <button class = "btn btn-primary" id = btnLight onclick = "swapTheme('css/myapp.css')">Light</button>
+                        <button class = "btn btn-primary" id = btnDark onclick = "swapTheme('css/darkTheme.css')">Dark</button>
+                      <!-- <input id ="btnTheme" class="form-check-input" onclick = "swapTheme type="checkbox"/> -->
+                        <script type = "text/javascript">
+                            let setTheme = localStorage.getItem("theme")
+                            console.log("saved theme", setTheme)
+                            if (setTheme == null){
+                                swapTheme('css/myapp.css')
+                            } else {
+                                swapTheme(setTheme)
+                            }
+                            function swapTheme(sheet){
+                                document.getElementById("themeSheet").href = sheet
+                                    localStorage.setItem("theme",sheet)
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="settings-box-container">
             <p class="settings-topic">Location</p>
             <h1 class="settings-title">City</h1>

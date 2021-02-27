@@ -13,6 +13,7 @@ body {
     margin:0;
     padding: 0;
     font-family: Avenir, sans-serif;
+    background: #202125;
 }
 
 main {
@@ -26,8 +27,9 @@ hr {
 }
 
 .small-arrow-hover:hover{
-    color:black;
+    color:dimgrey;
 }
+
 
 /* NAVIGATION */
 
@@ -38,7 +40,7 @@ nav {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
+    background-color: #202125;
 }
 
 .nav-button {
@@ -49,7 +51,7 @@ nav {
 }
 
 .nav-button:active {
-    background-color: #e1e1e1;
+    background-color: slategray;
 }
 
 .fa-user {
@@ -85,23 +87,23 @@ nav {
 .fa-arrow-right {
     margin: 0;
     padding: 0;
-    color: gray;
+    color: #6099DA;
     opacity: 0.7;
 }
 
 .fa-arrow-left {
     margin: 0;
     padding: 0;
-    color: gray;
+    color: #6099DA;
     opacity: 0.7;
 }
 
 .selected-nav i {
-    color: dodgerblue;
+    color: #6099DA;
 }
 
 .selected-nav p {
-    color: dodgerblue;
+    color: #6099DA;
 }
 
 
@@ -109,6 +111,7 @@ nav {
 .search .form-control {
     padding-left: 2.375rem;
     padding-right: 2.375rem;
+    background-color:#303135;
 }
 
 .search .form-control-left {
@@ -120,16 +123,16 @@ nav {
     line-height: 2.375rem;
     text-align: center;
     pointer-events: none;
-    color: #aaa;
+    color: #6099DA;
 }
 
 .setting-btn,.setting-btn:active,.setting-btn:focus{
-    background-color: white;
-    color:white;
+    background-color: #303135;
+    color:#303135;
     height: 2.330rem;
     box-shadow: none;
-	background:none;
-	outline:none;
+    background: none;
+    outline:none;
 }
 
 
@@ -167,6 +170,7 @@ nav {
 #profile-text {
     float: left;
     width: 90%;
+    color: white;
 }
 
 #profile-arrow {
@@ -174,6 +178,7 @@ nav {
     float: right;
     width: 10%;
     cursor: pointer;
+    color: #6099DA;
 }
 
 #profile-pic-section {
@@ -186,8 +191,8 @@ nav {
     padding: 1vh 3vw;
     font-size: 0.75rem;
     text-align: center;
-    background-color: #aed6fd;
-    color: dodgerblue;
+    background-color: #6099DA;
+    color: white;
     border: 0;
     border-radius: 8px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
@@ -203,6 +208,7 @@ nav {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
     text-align: left;
+    color: white;
 }
 
 .check-symptoms-text {
@@ -216,11 +222,11 @@ nav {
 
 .check-symptoms-text a {
     text-decoration: none;
-    color:#545454;
+    color:white;
 }
 
 .check-symptoms-text a:hover{
-    color:black;
+    color:dimgrey;
 }
 
 .check-symptoms-text p {
@@ -245,6 +251,7 @@ nav {
     font-weight: bold;
     padding: 0;
     font-size: 1.3rem;
+    color : white;
 }
 
 .profile-page-carousel {
@@ -255,6 +262,7 @@ nav {
     min-width: 175px;
     min-height: 125px;
     cursor: pointer;
+    background: #303135;
 }
 
 .carousel-read-length {
@@ -262,6 +270,7 @@ nav {
     padding: 0;
     height: 20%;
     font-size: 0.65rem;
+    color: grey;
 }
 
 .carousel-title {
@@ -270,6 +279,7 @@ nav {
     font-size: 1.3rem;
     font-weight: bold;
     height: 65%;
+    color: white;
 }
 
 .carousel-topic {
@@ -277,7 +287,7 @@ nav {
     padding: 0;
     height: 15%;
     font-size: 0.8rem;
-    color: dodgerblue;
+    color: lightskyblue;
 }
 
 
@@ -294,7 +304,7 @@ nav {
 }
 
 #local-section {
-
+    color:white;
 }
 
 .location {
@@ -315,11 +325,13 @@ nav {
     margin-top: 2vh;
     align-items: center;
     justify-content: space-between;
+    color:white;
 }
 
 .statistics-page-carousel{
     min-width: 125px;
     min-height: 125px;
+    background: #303135;
 }
 
 .local-details-box {
@@ -328,8 +340,7 @@ nav {
     margin: 10px;
     height: 20vh;
     border-radius: 8px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-}
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);}
 
 .box-title {
     margin: 0 0 3vh 0;
@@ -368,12 +379,12 @@ nav {
 }
 
 .global-details-btn-container i {
-    color: dodgerblue;
+    color: lightskyblue;
 }
 
 .global-details-btn {
     padding-bottom: 1vh;
-    color: dodgerblue;
+    color: lightskyblue;
     font-size: 0.8rem;
     font-weight: bold;
     border: 0;
@@ -382,7 +393,7 @@ nav {
 }
 
 .selected-btn {
-    border-bottom: 3px solid dodgerblue;
+    border-bottom: 3px solid lightskyblue;
 }
 
 #nationwide-details {
@@ -396,6 +407,8 @@ nav {
     padding: 2vh 3vw;
     border-radius: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background: #303135;
+    color:white;
 }
 
 
@@ -417,11 +430,13 @@ nav {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
     cursor: pointer;
+    background: #303135;
 }
 
 .news-text-section {
     flex: 3;
     margin-right: 3vw;
+    color: white;
 }
 
 .news-img-section {
@@ -433,7 +448,7 @@ nav {
 }
 
 .news-img-section img {
-    background-color: blue;
+    background-color: #303135;
     width: 75px;
     height: 75px;
 }
@@ -468,6 +483,7 @@ nav {
 
 .header-container {
     margin: 0 0 2vh 0;
+    color:white;
 }
 
 .header-arrow {
@@ -490,26 +506,29 @@ nav {
     border-radius: 10px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
+    background: #303135;
 }
+
 
 .settings-topic {
     margin: 0;
     padding: 0;
     font-size: 0.8rem;
-    color: #545454;
+    color: grey;
 }
 
 .settings-title {
     margin: 2vh 0 0 0;
     font-size: 1.2rem;
     font-weight: bolder;
+    color:white;
 }
 
 .settings-selected {
     margin: 0 0 2vh 0;
     padding: 0;
     font-size: 0.9rem;
-    color: #545454;
+    color: grey;
 }
 
 .toggle-container {
@@ -555,8 +574,8 @@ nav {
     padding: 1vh 3vw;
     font-size: 1.1rem;
     text-align: center;
-    background-color: #f8c4c1;
-    color: #e96b64;
+    background-color: #D32F2F;
+    color: white;
     border: 0;
     border-radius: 8px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
@@ -574,8 +593,8 @@ nav {
     padding: 1vh 3vw;
     font-size: 1.1rem;
     text-align: center;
-    background-color: #aed6fd;
-    color: dodgerblue;
+    background-color: #6099DA;
+    color: white;
     border: 0;
     border-radius: 8px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
@@ -584,15 +603,15 @@ nav {
 .submit-input {
     margin: 0;
     padding: 0;
-    background-color: #aed6fd;
-    color: dodgerblue;
+    background-color: #6099DA;
+    color: white;
     border: 0;
 }
 
 .submit-button-arrow {
     margin: 0 0 0 4vw;
     padding: 0;
-    color: dodgerblue;
+    color: white;
 }
 
 
@@ -661,6 +680,7 @@ nav {
     margin: 2vh 0 0 0;
     padding: 0;
     text-align: right;
+    color: white;
 }
 
 .help-button {
@@ -668,8 +688,8 @@ nav {
     padding: 0.75vh 2vw;
     font-size: 0.9rem;
     text-align: center;
-    background-color: #aed6fd;
-    color: dodgerblue;
+    background-color: #6099DA;
+    color: white;
     border: 0;
     border-radius: 8px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
@@ -678,7 +698,7 @@ nav {
 .help-button-arrow {
     margin: 0 0 0 2vw;
     padding: 0;
-    color: dodgerblue;
+    color: white;
 }
 
 

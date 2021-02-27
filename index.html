@@ -19,7 +19,14 @@
     <link rel="stylesheet" href="css/mdb.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/myapp.css">
+    <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
+      <script type = "text/javascript">
+          function loadStyle(){
+              if (localStorage.getItem("theme") !== null)
+              document.getElementById("themeSheet").href = localStorage.getItem("theme")
+          }
+          window.onload = loadStyle();
+      </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- User scalable=0 prevents double tap but is accessibility problem -->
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon128.png">
@@ -62,7 +69,7 @@
             <hr>
             <a href="symptomsform.html"><div class="check-symptoms-container">
                 <div class="check-symptoms-text">
-                    <a href="symptomsform.html"><p style="color: #4f4f4f">Take a moment to check whether you have symptoms</p></a>
+                    <a href="symptomsform.html"><p>Take a moment to check whether you have symptoms</p></a>
                 </div>
                 <div class="check-symptoms-arrow">
                     <i id="check-symptoms-arrow" class="fas fa-arrow-right fa-lg" aria-hidden="true"></i>
