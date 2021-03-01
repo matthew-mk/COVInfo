@@ -1,6 +1,10 @@
 'use strict';
 
 class View{
+    statsDates = document.querySelectorAll(".box-date");
+    nationwideStatsButton = document.getElementById("nationwideStatsBtn");
+    worldwideStatsButton = document.getElementById("worldwideStatsBtn");
+
     constructor() {
     }
 
