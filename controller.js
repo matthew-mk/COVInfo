@@ -18,7 +18,7 @@ const initialise = evt => {
 
 
 
-    // update stats daily and display the stats
+    //update stats daily and display the stats
     if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
         model.storeUpdatedStats();
         displayStats();
@@ -28,6 +28,34 @@ const initialise = evt => {
 
     //display the date when stats were updated under each statistic
     model.displayDates(view.statsDates);
+
+
+    //Event Listeners
+    //Stats Page
+    if (document.URL.includes("statistics.html")) {
+        view.nationwideStatsButton.addEventListener("click", () => {
+            model.toggleNationwide(view.nationwideStatsButton, view.worldwideStatsButton);
+            //add function to display nationwide stats here
+        });
+
+        view.worldwideStatsButton.addEventListener("click", () => {
+            model.toggleWorldwide(view.nationwideStatsButton, view.worldwideStatsButton);
+            //add function to display worldwide stats here
+        });
+    }
+
+    //News Page
+    if (document.URL.includes("news.html")) {
+        view.nationwideNewsButton.addEventListener("click", () => {
+            model.toggleNationwide(view.nationwideNewsButton, view.worldwideNewsButton);
+            //add function to display nationwide news here
+        });
+
+        view.worldwideNewsButton.addEventListener("click", () => {
+            model.toggleWorldwide(view.nationwideNewsButton, view.worldwideNewsButton);
+            //add function to display worldwide news here
+        });
+    }
 
 };
 

@@ -4,6 +4,8 @@ class View{
     statsDates = document.querySelectorAll(".box-date");
     nationwideStatsButton = document.getElementById("nationwideStatsBtn");
     worldwideStatsButton = document.getElementById("worldwideStatsBtn");
+    nationwideNewsButton = document.getElementById("nationwideNewsBtn");
+    worldwideNewsButton = document.getElementById("worldwideNewsBtn");
 
     constructor() {
     }

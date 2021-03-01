@@ -87,6 +87,16 @@ class Model{
         }
     };
 
+    toggleNationwide(nationwideButton, worldwideButton) {
+        nationwideButton.classList.add("selected-btn");
+        worldwideButton.classList.remove("selected-btn");
+    };
+
+    toggleWorldwide(nationwideButton, worldwideButton) {
+        worldwideButton.classList.add("selected-btn");
+        nationwideButton.classList.remove("selected-btn");
+    };
+
     storeUpdatedStats() {
         localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
         localStorage.setItem("userDefinedLocationNewDeaths", this.getUserDefinedLocationNewDeaths()[0].newDeaths28DaysByPublishDate);
