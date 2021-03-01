@@ -48,12 +48,14 @@ const initialise = evt => {
     if (document.URL.includes("news.html")) {
         view.nationwideNewsButton.addEventListener("click", () => {
             model.toggleNationwide(view.nationwideNewsButton, view.worldwideNewsButton);
-            //add function to display nationwide news here
+            model.hideDiv(view.worldwideNewsDiv);
+            model.showDiv(view.nationwideNewsDiv);
         });
 
         view.worldwideNewsButton.addEventListener("click", () => {
             model.toggleWorldwide(view.nationwideNewsButton, view.worldwideNewsButton);
-            //add function to display worldwide news here
+            model.hideDiv(view.nationwideNewsDiv);
+            model.showDiv(view.worldwideNewsDiv);
         });
     }
 

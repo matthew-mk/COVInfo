@@ -6,6 +6,8 @@ class View{
     worldwideStatsButton = document.getElementById("worldwideStatsBtn");
     nationwideNewsButton = document.getElementById("nationwideNewsBtn");
     worldwideNewsButton = document.getElementById("worldwideNewsBtn");
+    nationwideNewsDiv = document.getElementById("nationwide-news");
+    worldwideNewsDiv = document.getElementById("worldwide-news");
 
     constructor() {
     }

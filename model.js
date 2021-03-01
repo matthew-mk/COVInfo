@@ -87,6 +87,14 @@ class Model{
         }
     };
 
+    showDiv(element) {
+        element.style.display = "block";
+    };
+
+    hideDiv(element) {
+        element.style.display = "none";
+    }
+
     toggleNationwide(nationwideButton, worldwideButton) {
         nationwideButton.classList.add("selected-btn");
         worldwideButton.classList.remove("selected-btn");
