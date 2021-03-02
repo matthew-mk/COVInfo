@@ -458,7 +458,6 @@ nav {
     color: dimgray;
 }
 
-
 /* SETTINGS PAGE */
 
 .settings-page-container {
@@ -525,6 +524,49 @@ nav {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+}
+
+.remove-button {
+    display: inline;
+    margin: 0 1vw 0 0;
+    padding: 1vh 3vw;
+    font-size: 0.65rem;
+    text-align: center;
+    background-color: #f8c4c1;
+    color: #e96b64;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+.change-button {
+    display: inline;
+    margin: 0;
+    padding: 1vh 3vw;
+    font-size: 0.65rem;
+    text-align: center;
+    background-color: #aed6fd;
+    color: dodgerblue;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pic-settings-container {
+    margin: 0 0 2vh 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.pic-settings-text {
+
+}
+
+.pic-settings-btns {
+    margin: 0.5vh 0 0 0;
+    padding: 0;
+    text-align: left;
 }
 
 /* SYMPTOMS FORM PAGE */
@@ -599,7 +641,64 @@ nav {
 /* SYMPTOMS RESULTS PAGE */
 
 .positive {
-    background-color: mediumseagreen;
+    background-color: #aed6fd;
+}
+
+.positive-top-section {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.positive-title-container {
+    margin: 0;
+    padding: 0;
+    flex: 9;
+}
+
+.positive-arrow-container {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    text-align: right;
+}
+
+.positive-arrow {
+    color: dodgerblue;
+}
+
+.positive-title {
+    margin: 0 0 1vh 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+.positive-desc {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: dodgerblue;
+}
+
+.positive-desc p {
+    margin: 0;
+    padding: 0;
+}
+
+.positive-only-contact-nhs {
+    margin: 2vh 0 0 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: red;
+}
+
+.negative-only-contact-nhs {
+    margin: 2vh 0 0 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #e96b64;
 }
 
 .negative {
@@ -694,4 +793,11 @@ nav {
     padding: 0;
     font-size: 0.8rem;
     color: #e96b64;
+}
+
+.positive-last-checked {
+    margin: 3vh 0 0 0;
+    padding: 0;
+    font-size: 0.8rem;
+    color: dodgerblue;
 }

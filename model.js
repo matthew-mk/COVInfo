@@ -1,6 +1,21 @@
 'use strict';
 
 class Model{
+    dateNumToName = {
+        1: "Jan",
+        2: "Feb",
+        3: "Mar",
+        4: "Apr",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "Aug",
+        9: "Sep",
+        10: "Oct",
+        11: "Nov",
+        12: "Dec"
+    };
+
     constructor() {
         //Most data is given as an array of the last 7 days data
         this.nationalNewCases = this.setNationalData("newCasesByPublishDate");
@@ -9,7 +24,7 @@ class Model{
         //USER INPUT WILL BE ADDED
         this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate")  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECSION
         this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate")
-    }
+    };
 
 
     //National Data and specific location data uses a different api call to get so use correct function.
@@ -64,29 +79,72 @@ class Model{
         return returnData;
     };
 
+    displayDates(dates) {
+        if (localStorage.getItem("statsLastUpdated")) {
+            for (let d of dates) {
+                d.textContent = this.getDate();
+            }
+        }
+    };
+
+    showDiv(element) {
+        element.style.display = "block";
+    };
+
+    hideDiv(element) {
+        element.style.display = "none";
+    }
+
+    toggleNationwide(nationwideButton, worldwideButton) {
+        nationwideButton.classList.add("selected-btn");
+        worldwideButton.classList.remove("selected-btn");
+    };
+
+    toggleWorldwide(nationwideButton, worldwideButton) {
+        worldwideButton.classList.add("selected-btn");
+        nationwideButton.classList.remove("selected-btn");
+    };
+
+    storeUpdatedStats() {
+        localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
+        localStorage.setItem("userDefinedLocationNewDeaths", this.getUserDefinedLocationNewDeaths()[0].newDeaths28DaysByPublishDate);
+        localStorage.setItem("nationalNewCases", this.getNationalNewCases()[0].newCasesByPublishDate);
+        localStorage.setItem("nationalNewDeaths", this.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate);
+        localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
+        localStorage.setItem("statsLastUpdated", this.getDate());
+        console.log("Stats updated!");
+    };
 
     getUserDefinedLocationNewCases(){
         return this.userDefinedLocationNewCases;
-    }
+    };
+
     getUserDefinedLocationNewDeaths(){
         return this.userDefinedLocationNewDeaths;
-    }
+    };
 
     getNationalNewCases(){
         return this.nationalNewCases;
-    }
+    };
 
     getNationalNewDeaths(){
         return this.nationalNewDeaths;
-    }
+    };
 
     getFirstDoseVaccinated(){
         return this.firstDoseVaccinated;
-    }
+    };
+
+    getDate(){
+        let day = new Date().getDate();
+        let monthNum = new Date().getMonth() + 1;
+        let monthName = this.dateNumToName[monthNum];
+        return (day + " " + monthName);
+    };
     
     // adds commas to numbers & formats
     formatNumber(num){
         return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    }
+    };
 }
 

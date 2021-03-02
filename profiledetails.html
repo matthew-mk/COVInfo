@@ -44,10 +44,12 @@
             <h1 class="header-title">Details</h1>
         </div>
         <hr>
+
         <div class="details-img-container">
             <img id="profile-pic" src="img/icon128.png" alt="Profile picture" width="128px" height="128px">
         </div>
-        <div class="settings-box-container negative">
+
+        <div id="display-negative-details" class="settings-box-container negative">
             <div class="negative-top-section">
                 <div class="negative-title-container">
                     <h1 class="negative-title">2 symptoms</h1>
@@ -64,6 +66,22 @@
             </div>
             <p class="negative-last-checked">Last checked: DD/MM/YYYY</p>
         </div>
+
+        <div id="display-positive-details" class="settings-box-container positive">
+            <div class="positive-top-section">
+                <div class="positive-title-container">
+                    <h1 class="positive-title">0 symptoms</h1>
+                </div>
+                <div class="positive-arrow-container">
+                    <i class="fas fa-arrow-right fa-lg positive-arrow" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="positive-desc">
+                <p>Feel free to use the symptoms checker whenever you're unwell.</p>
+            </div>
+            <p class="positive-last-checked">Last checked: DD/MM/YYYY</p>
+        </div>
+
         <div class="check-symptoms-container">
             <div class="check-symptoms-text">
                 <a href="settings.html"><p style="color: #4f4f4f">Edit your profile in settings</p></a>
@@ -72,6 +90,7 @@
                 <a href="settings.html"><i class="fas fa-arrow-right fa-lg" aria-hidden="true" style="color: dodgerblue"></i></a>
             </div>
         </div>
+
     </div>
 </main>
 <!-- for simple javascript without MVC use myapp.js -->
