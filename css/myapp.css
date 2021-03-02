@@ -106,9 +106,16 @@ nav {
 
 
 /* SEARCH BAR */
+
+
 .search .form-control {
     padding-left: 2.375rem;
     padding-right: 2.375rem;
+    padding-top: 0.7rem;
+    border-radius: 25px;
+    border: 0.5px solid grey;
+    border-radius: 25px;
+    color: black;
 }
 
 .search .form-control-left {
@@ -124,13 +131,15 @@ nav {
 }
 
 .setting-btn,.setting-btn:active,.setting-btn:focus{
-    background-color: white;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
     color:white;
-    height: 2.330rem;
+    height: 2.25rem;
     box-shadow: none;
-	background:none;
+	background:white;
 	outline:none;
 }
+
 
 
 
