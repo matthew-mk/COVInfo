@@ -115,6 +115,14 @@ class Model{
         console.log("Stats updated!");
     };
 
+    toggleSettingEnabledOrDisabled(text, btn) {
+        if (btn.checked === true) {
+            text.textContent = "Enabled";
+        } else {
+            text.textContent = "Disabled";
+        }
+    };
+
     getUserDefinedLocationNewCases(){
         return this.userDefinedLocationNewCases;
     };

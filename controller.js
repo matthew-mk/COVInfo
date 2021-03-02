@@ -69,6 +69,28 @@ const initialise = evt => {
         });
     }
 
+    //Settings Page
+    if (document.URL.includes("settings.html")) {
+        view.localStatsSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.localStatsSettingText, view.localStatsSettingBtn);
+        });
+
+        view.dailySymptomsCheckSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.dailySymptomsCheckSettingText, view.dailySymptomsCheckSettingBtn);
+        });
+
+        view.symptomsCheckSettingBtn.addEventListener("click", () => {
+           model.toggleSettingEnabledOrDisabled(view.symptomsCheckSettingText, view.symptomsCheckSettingBtn);
+        });
+
+        view.basicInfoSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.basicInfoSettingText, view.basicInfoSettingBtn);
+        });
+
+        view.precautionInfoSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.precautionInfoSettingText, view.precautionInfoSettingBtn);
+        });
+    }
 };
 
 window.addEventListener("load", initialise);
