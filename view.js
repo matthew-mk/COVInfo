@@ -1,6 +1,7 @@
 'use strict';
 
 class View{
+    //stats elements
     statsDates = document.querySelectorAll(".box-date");
     nationwideStatsButton = document.getElementById("nationwideStatsBtn");
     worldwideStatsButton = document.getElementById("worldwideStatsBtn");
@@ -8,6 +9,18 @@ class View{
     worldwideNewsButton = document.getElementById("worldwideNewsBtn");
     nationwideNewsDiv = document.getElementById("nationwide-news");
     worldwideNewsDiv = document.getElementById("worldwide-news");
+
+    //settings elements
+    localStatsSettingText = document.getElementById("localstats-setting-text");
+    localStatsSettingBtn = document.getElementById("localstats-setting-btn");
+    dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
+    dailySymptomsCheckSettingBtn = document.getElementById("dailysymptomscheck-settings-btn");
+    symptomsCheckSettingText = document.getElementById("symptomscheck-settings-text");
+    symptomsCheckSettingBtn = document.getElementById("symptomscheck-settings-btn");
+    basicInfoSettingText = document.getElementById("basicinfo-settings-text");
+    basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
+    precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
+    precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
 
     constructor() {
     }

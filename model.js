@@ -115,6 +115,14 @@ class Model{
         console.log("Stats updated!");
     };
 
+    toggleSettingEnabledOrDisabled(text, btn) {
+        if (btn.checked === true) {
+            text.textContent = "Enabled";
+        } else {
+            text.textContent = "Disabled";
+        }
+    };
+
     getUserDefinedLocationNewCases(){
         return this.userDefinedLocationNewCases;
     };
@@ -140,6 +148,14 @@ class Model{
         let monthNum = new Date().getMonth() + 1;
         let monthName = this.dateNumToName[monthNum];
         return (day + " " + monthName);
+    };
+
+    getFullDate(){
+        let day = new Date().getDate();
+        let month = new Date().getMonth() + 1;
+        let year = new Date().getFullYear();
+        console.log(day + "/" + month + "/" + year);
+        return (day + "/" + month + "/" + year);
     };
     
     // adds commas to numbers & formats

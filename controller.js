@@ -6,41 +6,51 @@ let model, view;
 const initialise = evt => {
     model = new Model();
     view = new View();
-    //do any initialisation and "plumbing" here
 
-    const displayStats = function () {
+    //FUNCTIONS
+    const displayLocalStats = function () {
         view.updateUserDefinedLocationNewCases(model.formatNumber(localStorage.getItem("userDefinedLocationNewCases")));
         view.updateUserDefinedLocationNewDeaths(model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths")));
+    };
+
+    const displayNationwideStats = function () {
         view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases"))); //we only want the last day of data not the week
         view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")));
         view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
     };
 
+    const displayWorldwideStats = function () {
+        //replace placeholder numbers with real numbers
+        view.updateNationalNewCases("100,000");
+        view.updateNationalNewDeaths("200,000");
+        view.updateFirstDoseVaccinated("50,000,000");
+    };
 
 
+    //INITIALISATION
     //update stats daily and display the stats
     if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
         model.storeUpdatedStats();
-        displayStats();
+        displayLocalStats();
+        displayNationwideStats();
     } else {
-        displayStats();
+        displayLocalStats();
+        displayNationwideStats();
     }
-
-    //display the date when stats were updated under each statistic
-    model.displayDates(view.statsDates);
+    model.displayDates(view.statsDates);  //display the date when stats were updated under each statistic
 
 
-    //Event Listeners
+    //EVENT LISTENERS
     //Stats Page
     if (document.URL.includes("statistics.html")) {
         view.nationwideStatsButton.addEventListener("click", () => {
             model.toggleNationwide(view.nationwideStatsButton, view.worldwideStatsButton);
-            //add function to display nationwide stats here
+            displayNationwideStats();
         });
 
         view.worldwideStatsButton.addEventListener("click", () => {
             model.toggleWorldwide(view.nationwideStatsButton, view.worldwideStatsButton);
-            //add function to display worldwide stats here
+            displayWorldwideStats();
         });
     }
 
@@ -59,6 +69,28 @@ const initialise = evt => {
         });
     }
 
+    //Settings Page
+    if (document.URL.includes("settings.html")) {
+        view.localStatsSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.localStatsSettingText, view.localStatsSettingBtn);
+        });
+
+        view.dailySymptomsCheckSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.dailySymptomsCheckSettingText, view.dailySymptomsCheckSettingBtn);
+        });
+
+        view.symptomsCheckSettingBtn.addEventListener("click", () => {
+           model.toggleSettingEnabledOrDisabled(view.symptomsCheckSettingText, view.symptomsCheckSettingBtn);
+        });
+
+        view.basicInfoSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.basicInfoSettingText, view.basicInfoSettingBtn);
+        });
+
+        view.precautionInfoSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(view.precautionInfoSettingText, view.precautionInfoSettingBtn);
+        });
+    }
 };
 
 window.addEventListener("load", initialise);

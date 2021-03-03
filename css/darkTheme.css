@@ -27,7 +27,7 @@ hr {
 }
 
 .small-arrow-hover:hover{
-    color:dimgrey;
+    color:#b3adad;
 }
 
 
@@ -87,14 +87,14 @@ nav {
 .fa-arrow-right {
     margin: 0;
     padding: 0;
-    color: #6099DA;
+    color: dodgerblue;
     opacity: 0.7;
 }
 
 .fa-arrow-left {
     margin: 0;
     padding: 0;
-    color: #6099DA;
+    color: dodgerblue;
     opacity: 0.7;
 }
 
@@ -108,10 +108,16 @@ nav {
 
 
 /* SEARCH BAR */
+
 .search .form-control {
     padding-left: 2.375rem;
     padding-right: 2.375rem;
-    background-color:#303135;
+    padding-top: 0.7rem;
+    border-radius: 25px;
+    border: 0.5px solid dimgray;
+    border-radius: 25px;
+    background:#202125 ;
+    color:white;
 }
 
 .search .form-control-left {
@@ -123,15 +129,16 @@ nav {
     line-height: 2.375rem;
     text-align: center;
     pointer-events: none;
-    color: #6099DA;
+    color: white;
 }
 
 .setting-btn,.setting-btn:active,.setting-btn:focus{
-    background-color: #303135;
-    color:#303135;
-    height: 2.330rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    color:white;
+    height: 2.25rem;
     box-shadow: none;
-    background: none;
+    background:#202125;
     outline:none;
 }
 
@@ -178,7 +185,7 @@ nav {
     float: right;
     width: 10%;
     cursor: pointer;
-    color: #6099DA;
+    color: dodgerblue;
 }
 
 #profile-pic-section {
@@ -218,6 +225,7 @@ nav {
     width: 75%;
     font-size: 0.9rem;
     font-weight: bold;
+    color: white;
 }
 
 .check-symptoms-text a {
@@ -226,7 +234,7 @@ nav {
 }
 
 .check-symptoms-text a:hover{
-    color:dimgrey;
+    color:#b3adad;
 }
 
 .check-symptoms-text p {
@@ -270,7 +278,7 @@ nav {
     padding: 0;
     height: 20%;
     font-size: 0.65rem;
-    color: grey;
+    color: #b3adad;
 }
 
 .carousel-title {
@@ -310,7 +318,7 @@ nav {
 .location {
     margin: 3vh 0 0 5vw;
     padding: 0;
-    color: dimgray;
+    color: #b3adad;
     font-size: 0.7rem;
 }
 
@@ -345,7 +353,7 @@ nav {
 .box-title {
     margin: 0 0 3vh 0;
     padding: 0;
-    color: dimgray;
+    color: #b3adad;
     font-size: 0.7rem;
 }
 
@@ -360,7 +368,7 @@ nav {
 .box-date {
     margin: 0;
     padding: 0;
-    color: dimgray;
+    color: #b3adad;
     font-size: 0.8rem;
 }
 
@@ -457,7 +465,7 @@ nav {
     margin: 0;
     padding: 0;
     font-size: 0.65rem;
-    color: #545454;
+    color: #b3adad;
 }
 
 .news-title {
@@ -470,7 +478,7 @@ nav {
     margin: 0.5vh 0 0 0.75%;
     padding: 0;
     font-size: 0.65rem;
-    color: dimgray;
+    color: #b3adad;
 }
 
 
