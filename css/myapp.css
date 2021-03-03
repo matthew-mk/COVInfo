@@ -871,15 +871,18 @@ nav {
     border: 1px solid #1086fc;
 }
 
-.signup-bottom-container {
-    height: 20vh;
-    width: 100%;
+.signup-carousel-btns-container {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-.signup-carousel-btns-container {
-    margin: 10vh 0 0 0;
-    padding: 5vh 0;
-    text-align: center;
+.signup-bottom-container {
+    position: fixed;
+    bottom: 5vh;
+    width: 90%;
+    margin: 0;
+    padding: 0;
 }
 
 .skip-btn-container {
