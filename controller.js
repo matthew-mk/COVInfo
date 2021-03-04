@@ -90,6 +90,10 @@ const initialise = evt => {
         view.precautionInfoSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(view.precautionInfoSettingText, view.precautionInfoSettingBtn);
         });
+
+        view.themeBtn.addEventListener("click",() =>{
+            model.toggleTheme(view.themeText, view.themeBtn);
+        });
     }
 };
 

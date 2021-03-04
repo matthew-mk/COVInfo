@@ -118,8 +118,39 @@ class Model{
     toggleSettingEnabledOrDisabled(text, btn) {
         if (btn.checked === true) {
             text.textContent = "Enabled";
+            localStorage.setItem(text, "Enabled");
+            console.log(text);
         } else {
-            text.textContent = "Disabled";
+            text.textContent = "Disabled"
+            localStorage.setItem(text, "Disabled");
+            console.log(text);
+        }
+    };
+
+    toggleTheme(text,btn){
+        let sheet = "";
+        let setTheme = localStorage.getItem("theme")
+
+        if (setTheme == null){
+            sheet = "css/myapp.css"
+            localStorage.setItem("theme",sheet);
+        } else{
+            sheet = setTheme
+            localStorage.setItem("theme",sheet);
+        };
+
+        if (btn.checked === true){
+            text.textContent = "Dark";
+            sheet = "css/darkTheme.css";
+            localStorage.setItem("theme",sheet);
+            localStorage.setItem("theme-text","Dark");
+            location.reload();
+        } else{
+            text.textContent = "Light";
+            sheet = "css/myapp.css";
+            localStorage.setItem("theme",sheet);
+            localStorage.setItem("theme-text","Light");
+            location.reload();
         }
     };
 

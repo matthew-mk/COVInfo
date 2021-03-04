@@ -21,6 +21,8 @@ class View{
     basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
     precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
     precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
+    themeBtn = document.getElementById("theme-btn");
+    themeText = document.getElementById("theme-Text");
 
     constructor() {
     }
@@ -60,5 +62,4 @@ class View{
         }
     }
 
-    
 }

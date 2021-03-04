@@ -67,35 +67,28 @@
         </div>
 
         <div class="settings-box-container">
-            <p class="settings-topic">Appearance</p>
+            <p class="settings-topic">Theme</p>
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Theme</h1>
-                    <p class="settings-selected">Light</p>
+                    <p id="theme-Text" class="settings-selected"></p>
+                    <script type="text/javascript"> document.getElementById("theme-Text").innerHTML = localStorage.getItem("theme-text");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <button class = "btn btn-primary" id = btnLight onclick = "swapTheme('css/myapp.css')">Light</button>
-                        <button class = "btn btn-primary" id = btnDark onclick = "swapTheme('css/darkTheme.css')">Dark</button>
-                      <!-- <input id ="btnTheme" class="form-check-input" onclick = "swapTheme type="checkbox"/> -->
+                        <input id="theme-btn" class="form-check-input" type="checkbox" onClick="save()"/>
                         <script type = "text/javascript">
-                            let setTheme = localStorage.getItem("theme")
-                            console.log("saved theme", setTheme)
-                            if (setTheme == null){
-                                swapTheme('css/myapp.css')
-                            } else {
-                                swapTheme(setTheme)
+                            function save() {
+                                let themeBox = document.getElementById("theme-btn");
+                                localStorage.setItem("theme-btn",themeBox.checked);
                             }
-                            function swapTheme(sheet){
-                                document.getElementById("themeSheet").href = sheet
-                                localStorage.setItem("theme",sheet)
-                            }
+                            let checked = JSON.parse(localStorage.getItem("theme-btn"));
+                            document.getElementById("theme-btn").checked = checked;
                         </script>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="settings-box-container">
             <p class="settings-topic">Location</p>
             <h1 class="settings-title">City</h1>
@@ -136,7 +129,7 @@
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="symptomscheck-settings-btn" class="form-check-input" type="checkbox" />
+                        <input id="symptomscheck-settings-btn" class="form-check-input" type="checkbox" checked />
                     </div>
                 </div>
             </div>
@@ -156,11 +149,11 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Precaution information</h1>
-                    <p id="precautioninfo-settings-text" class="settings-selected">Enabled</p>
+                    <p id="precautioninfo-settings-text" class="settings-selected" type="checkbox" checked >Enabled</p>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="precautioninfo-settings-btn" class="form-check-input" type="checkbox" />
+                        <input id="precautioninfo-settings-btn" class="form-check-input" type="checkbox" checked />
                     </div>
                 </div>
             </div>
