@@ -641,7 +641,7 @@ nav {
 }
 
 .submit-button-arrow {
-    margin: 0 0 0 4vw;
+    margin: 0 0 0 3vw;
     padding: 0;
     color: dodgerblue;
 }
@@ -694,6 +694,21 @@ nav {
 .positive-desc p {
     margin: 0;
     padding: 0;
+}
+
+.positive-symptom {
+    color: dodgerblue;
+}
+
+.negative-symptom {
+    color: #e96b64;
+}
+
+.last-checked-date {
+    margin: 0 0 2vh 0;
+    padding: 0;
+    font-size: 0.8rem;
+    color: grey;
 }
 
 .positive-only-contact-nhs {
@@ -788,6 +803,25 @@ nav {
     padding: 0;
     color: dodgerblue;
 }
+
+.erase-data-container {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.erase-button {
+    margin: 0;
+    padding: 1vh 3vw;
+    font-size: 2.3vh;
+    text-align: center;
+    background-color: #f8c4c1;
+    color: #e96b64;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 
 /* DETAILS PAGE */
@@ -959,10 +993,9 @@ nav {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
-.skip-button-X {
-    margin: 0 0 0 5vw;
+.skip-button-bin {
+    margin: 0 0 0 3vw;
     padding: 0;
-    display: inline;
 }
 
 .edit-button {

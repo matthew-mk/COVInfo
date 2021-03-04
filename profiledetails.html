@@ -46,7 +46,23 @@
         <hr>
 
         <div class="details-img-container">
-            <img id="profile-pic" src="img/icon128.png" alt="Profile picture" width="128px" height="128px">
+            <img id="profile-pic" src="res/graphics/default-profile.png" alt="Profile picture" width="128px" height="128px">
+        </div>
+
+        <div class="check-symptoms-container">
+            <div class="check-symptoms-text">
+                <a href="settings.html">Edit your profile in settings</p></a>
+            </div>
+            <div class="check-symptoms-arrow">
+                <a href="settings.html"><i class="fas fa-arrow-right fa-lg" aria-hidden="true" style="color: dodgerblue"></i></a>
+            </div>
+        </div>
+
+        <div id="display-nochecks">
+            <div class="settings-box-container">
+                <p class="settings-topic">Previous checks</p>
+                <h1 class="settings-title">You have not done any symptoms checks yet</h1>
+            </div>
         </div>
 
         <div id="display-negative-details" class="settings-box-container negative">
@@ -82,12 +98,20 @@
             <p class="positive-last-checked">Last checked: DD/MM/YYYY</p>
         </div>
 
-        <div class="check-symptoms-container">
-            <div class="check-symptoms-text">
-                <a href="settings.html">Edit your profile in settings</p></a>
-            </div>
-            <div class="check-symptoms-arrow">
-                <a href="settings.html"><i class="fas fa-arrow-right fa-lg" aria-hidden="true" style="color: dodgerblue"></i></a>
+        <div id="display-checks-history">
+            <div class="settings-box-container">
+                <p class="settings-topic">Previous checks</p>
+                <h1 class="settings-title negative-symptom">2 symptoms</h1>
+                <p class="last-checked-date">DD/MM/YYYY</p>
+                <hr>
+                <h1 class="settings-title positive-symptom">0 symptoms</h1>
+                <p class="last-checked-date">DD/MM/YYYY</p>
+                <hr>
+                <h1 class="settings-title positive-symptom">0 symptoms</h1>
+                <p class="last-checked-date">DD/MM/YYYY</p>
+                <div class="erase-data-container">
+                    <button class="erase-button">Erase data <i class="fa fa-trash" aria-hidden="true" style="margin-left: 4vw"></i></button>
+                </div>
             </div>
         </div>
 
