@@ -73,22 +73,32 @@ const initialise = evt => {
     if (document.URL.includes("settings.html")) {
         view.localStatsSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(view.localStatsSettingText, view.localStatsSettingBtn);
+            model.saveSettingCheckbox("localBox",view.localStatsSettingBtn);
+            model.saveSettingText("localText",view.localStatsSettingText);
         });
 
         view.dailySymptomsCheckSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(view.dailySymptomsCheckSettingText, view.dailySymptomsCheckSettingBtn);
+            model.saveSettingCheckbox("dailySymptomsBox",view.dailySymptomsCheckSettingBtn);
+            model.saveSettingText("dailySymptomsText",view.dailySymptomsCheckSettingText);
         });
 
         view.symptomsCheckSettingBtn.addEventListener("click", () => {
            model.toggleSettingEnabledOrDisabled(view.symptomsCheckSettingText, view.symptomsCheckSettingBtn);
+            model.saveSettingCheckbox("symptomsCheckBox",view.symptomsCheckSettingBtn);
+            model.saveSettingText("symptomsCheckText",view.symptomsCheckSettingText);
         });
 
         view.basicInfoSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(view.basicInfoSettingText, view.basicInfoSettingBtn);
+            model.saveSettingCheckbox("basicBox",view.basicInfoSettingBtn);
+            model.saveSettingText("basicText",view.basicInfoSettingText);
         });
 
         view.precautionInfoSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(view.precautionInfoSettingText, view.precautionInfoSettingBtn);
+            model.saveSettingCheckbox("precautionBox",view.precautionInfoSettingBtn);
+            model.saveSettingText("precautionText",view.precautionInfoSettingText);
         });
 
         view.themeBtn.addEventListener("click",() =>{

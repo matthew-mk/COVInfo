@@ -118,19 +118,27 @@ class Model{
     toggleSettingEnabledOrDisabled(text, btn) {
         if (btn.checked === true) {
             text.textContent = "Enabled";
-            localStorage.setItem(text, "Enabled");
-            console.log(text);
         } else {
-            text.textContent = "Disabled"
-            localStorage.setItem(text, "Disabled");
-            console.log(text);
+            text.textContent = "Disabled";
+        }
+    };
+
+    saveSettingCheckbox(settingType,btn){
+        localStorage.setItem(settingType, btn.checked);
+    }
+
+    saveSettingText(settingType,textElement){
+        if (textElement.innerHTML == "Enabled"){
+            localStorage.setItem(settingType, "Enabled");
+        }else{
+            localStorage.setItem(settingType, "Disabled");
         }
     };
 
     toggleTheme(text,btn){
         let sheet = "";
         let setTheme = localStorage.getItem("theme")
-
+        let themeBox = document.getElementById("theme-btn");
         if (setTheme == null){
             sheet = "css/myapp.css"
             localStorage.setItem("theme",sheet);
@@ -144,15 +152,22 @@ class Model{
             sheet = "css/darkTheme.css";
             localStorage.setItem("theme",sheet);
             localStorage.setItem("theme-text","Dark");
+            localStorage.setItem("theme-btn",themeBox.checked);
             location.reload();
         } else{
             text.textContent = "Light";
             sheet = "css/myapp.css";
             localStorage.setItem("theme",sheet);
             localStorage.setItem("theme-text","Light");
+            localStorage.setItem("theme-btn",themeBox.checked);
             location.reload();
         }
     };
+
+    save() {
+        let themeBox = document.getElementById("theme-btn");
+        localStorage.setItem("theme-btn",themeBox.checked);
+    }
 
     getUserDefinedLocationNewCases(){
         return this.userDefinedLocationNewCases;

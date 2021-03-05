@@ -71,17 +71,13 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Theme</h1>
-                    <p id="theme-Text" class="settings-selected"></p>
+                    <p id="theme-Text" class="settings-selected">Light</p>
                     <script type="text/javascript"> document.getElementById("theme-Text").innerHTML = localStorage.getItem("theme-text");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="theme-btn" class="form-check-input" type="checkbox" onClick="save()"/>
+                        <input id="theme-btn" class="form-check-input" type="checkbox"/>
                         <script type = "text/javascript">
-                            function save() {
-                                let themeBox = document.getElementById("theme-btn");
-                                localStorage.setItem("theme-btn",themeBox.checked);
-                            }
                             let checked = JSON.parse(localStorage.getItem("theme-btn"));
                             document.getElementById("theme-btn").checked = checked;
                         </script>
@@ -98,10 +94,15 @@
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Local statistics</h1>
                     <p id="localstats-setting-text" class="settings-selected">Enabled</p>
+                    <script type="text/javascript"> document.getElementById("localstats-setting-text").innerHTML = localStorage.getItem("localText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="localstats-setting-btn" class="form-check-input" type="checkbox" checked />
+                        <input id="localstats-setting-btn" class="form-check-input" type="checkbox" checked/>
+                        <script type="text/javascript">
+                            let setting1 = JSON.parse(localStorage.getItem("localBox"));
+                            document.getElementById("localstats-setting-btn").checked = setting1;
+                        </script>
                     </div>
                 </div>
             </div>
@@ -112,10 +113,15 @@
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Daily symptoms check</h1>
                     <p id="dailysymptomscheck-settings-text" class="settings-selected">Enabled</p>
+                    <script type="text/javascript"> document.getElementById("dailysymptomscheck-settings-text").innerHTML = localStorage.getItem("dailySymptomsText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
                         <input id="dailysymptomscheck-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <script type="text/javascript">
+                            let setting2 = JSON.parse(localStorage.getItem("dailySymptomsBox"));
+                            document.getElementById("dailysymptomscheck-settings-btn").checked = setting2;
+                        </script>
                     </div>
                 </div>
             </div>
@@ -126,10 +132,15 @@
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Symptoms check</h1>
                     <p id="symptomscheck-settings-text" class="settings-selected">Enabled</p>
+                    <script type="text/javascript"> document.getElementById("symptomscheck-settings-text").innerHTML = localStorage.getItem("symptomsCheckText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
                         <input id="symptomscheck-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <script type="text/javascript">
+                            let setting3 = JSON.parse(localStorage.getItem("symptomsCheckBox"));
+                            document.getElementById("symptomscheck-settings-btn").checked = setting3;
+                        </script>
                     </div>
                 </div>
             </div>
@@ -138,10 +149,15 @@
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Basic information</h1>
                     <p id="basicinfo-settings-text" class="settings-selected">Enabled</p>
+                    <script type="text/javascript"> document.getElementById("basicinfo-settings-text").innerHTML = localStorage.getItem("basicText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
                         <input id="basicinfo-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <script type="text/javascript">
+                            let setting4 = JSON.parse(localStorage.getItem("basicBox"));
+                            document.getElementById("basicinfo-settings-btn").checked = setting4;
+                        </script>
                     </div>
                 </div>
             </div>
@@ -150,10 +166,15 @@
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Precaution information</h1>
                     <p id="precautioninfo-settings-text" class="settings-selected" type="checkbox" checked >Enabled</p>
+                    <script type="text/javascript"> document.getElementById("precautioninfo-settings-text").innerHTML = localStorage.getItem("precautionText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
                         <input id="precautioninfo-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <script type="text/javascript">
+                            let setting5 = JSON.parse(localStorage.getItem("precautionBox"));
+                            document.getElementById("precautioninfo-settings-btn").checked = setting5;
+                        </script>
                     </div>
                 </div>
             </div>
