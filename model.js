@@ -1,20 +1,6 @@
 'use strict';
 
 class Model{
-    dateNumToName = {
-        1: "Jan",
-        2: "Feb",
-        3: "Mar",
-        4: "Apr",
-        5: "May",
-        6: "June",
-        7: "July",
-        8: "Aug",
-        9: "Sep",
-        10: "Oct",
-        11: "Nov",
-        12: "Dec"
-    };
 
     constructor() {
         //Most data is given as an array of the last 7 days data
@@ -22,9 +8,9 @@ class Model{
         this.nationalNewDeaths = this.setNationalData("newDeaths28DaysByPublishDate");
         this.firstDoseVaccinated = this.setNationalData("cumPeopleVaccinatedFirstDoseByPublishDate");
         //USER INPUT WILL BE ADDED
-        this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate")  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECSION
-        this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate")
-    };
+        this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate");  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECISION
+        this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate");
+    }
 
 
     //National Data and specific location data uses a different api call to get so use correct function.
@@ -44,17 +30,17 @@ class Model{
                 returnData = tempArr;
             }
         });
-        if(typeOfData == "newCasesByPublishDate"){
+        if(typeOfData === "newCasesByPublishDate"){
             this.nationalNewCases = returnData;
         }
-        else if(typeOfData == "newCasesByPublishDate"){
+        else if(typeOfData === "newCasesByPublishDate"){
             this.nationalNewDeaths = returnData;
         }
-        else if(typeOfData == "cumPeopleVaccinatedFirstDoseByPublishDate"){
+        else if(typeOfData === "cumPeopleVaccinatedFirstDoseByPublishDate"){
             this.firstDoseVaccinated = returnData;
         }
         return returnData;
-    };
+    }
 
 
     setData(location, typeOfData) { 
@@ -70,14 +56,14 @@ class Model{
                 returnData = tempArr;
             }
         });
-        if(typeOfData == "newCasesByPublishDate"){
+        if(typeOfData === "newCasesByPublishDate"){
             this.userDefinedLocationNewCases = returnData;
         }
-        else if(typeOfData == "newCasesByPublishDate"){
+        else if(typeOfData === "newCasesByPublishDate"){
             this.userDefinedLocationNewDeaths = returnData;
         }
         return returnData;
-    };
+    }
 
     displayDates(dates) {
         if (localStorage.getItem("statsLastUpdated")) {
@@ -85,11 +71,11 @@ class Model{
                 d.textContent = this.getDate();
             }
         }
-    };
+    }
 
     showDiv(element) {
         element.style.display = "block";
-    };
+    }
 
     hideDiv(element) {
         element.style.display = "none";
@@ -98,12 +84,12 @@ class Model{
     toggleNationwide(nationwideButton, worldwideButton) {
         nationwideButton.classList.add("selected-btn");
         worldwideButton.classList.remove("selected-btn");
-    };
+    }
 
     toggleWorldwide(nationwideButton, worldwideButton) {
         worldwideButton.classList.add("selected-btn");
         nationwideButton.classList.remove("selected-btn");
-    };
+    }
 
     storeUpdatedStats() {
         localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
@@ -113,7 +99,7 @@ class Model{
         localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
         localStorage.setItem("statsLastUpdated", this.getDate());
         console.log("Stats updated!");
-    };
+    }
 
     toggleSettingEnabledOrDisabled(text, btn) {
         if (btn.checked === true) {
@@ -121,31 +107,31 @@ class Model{
         } else {
             text.textContent = "Disabled";
         }
-    };
+    }
 
     saveSettingCheckbox(settingType,btn){
         localStorage.setItem(settingType, btn.checked);
     }
 
     saveSettingText(settingType,textElement){
-        if (textElement.innerHTML == "Enabled"){
+        if (textElement.innerHTML === "Enabled"){
             localStorage.setItem(settingType, "Enabled");
         }else{
             localStorage.setItem(settingType, "Disabled");
         }
-    };
+    }
 
     toggleTheme(text,btn){
         let sheet = "";
-        let setTheme = localStorage.getItem("theme")
+        let setTheme = localStorage.getItem("theme");
         let themeBox = document.getElementById("theme-btn");
-        if (setTheme == null){
-            sheet = "css/myapp.css"
+        if (setTheme === null){
+            sheet = "css/myapp.css";
             localStorage.setItem("theme",sheet);
         } else{
-            sheet = setTheme
+            sheet = setTheme;
             localStorage.setItem("theme",sheet);
-        };
+        }
 
         if (btn.checked === true){
             text.textContent = "Dark";
@@ -162,7 +148,7 @@ class Model{
             localStorage.setItem("theme-btn",themeBox.checked);
             location.reload();
         }
-    };
+    }
 
     save() {
         let themeBox = document.getElementById("theme-btn");
@@ -171,30 +157,45 @@ class Model{
 
     getUserDefinedLocationNewCases(){
         return this.userDefinedLocationNewCases;
-    };
+    }
 
     getUserDefinedLocationNewDeaths(){
         return this.userDefinedLocationNewDeaths;
-    };
+    }
 
     getNationalNewCases(){
         return this.nationalNewCases;
-    };
+    }
 
     getNationalNewDeaths(){
         return this.nationalNewDeaths;
-    };
+    }
 
     getFirstDoseVaccinated(){
         return this.firstDoseVaccinated;
-    };
+    }
 
     getDate(){
+        const dateNumToName = {
+            1: "Jan",
+            2: "Feb",
+            3: "Mar",
+            4: "Apr",
+            5: "May",
+            6: "June",
+            7: "July",
+            8: "Aug",
+            9: "Sep",
+            10: "Oct",
+            11: "Nov",
+            12: "Dec"
+        };
+
         let day = new Date().getDate();
         let monthNum = new Date().getMonth() + 1;
-        let monthName = this.dateNumToName[monthNum];
+        let monthName = dateNumToName[monthNum];
         return (day + " " + monthName);
-    };
+    }
 
     getFullDate(){
         let day = new Date().getDate();
@@ -202,11 +203,11 @@ class Model{
         let year = new Date().getFullYear();
         console.log(day + "/" + month + "/" + year);
         return (day + "/" + month + "/" + year);
-    };
+    }
     
     // adds commas to numbers & formats
     formatNumber(num){
         return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    };
+    }
 }
 
