@@ -26,83 +26,109 @@ const initialise = evt => {
         view.updateFirstDoseVaccinated("50,000,000");
     };
 
+    //update stats daily and display the stats
+    const initStats = function () {
+        if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
+            model.storeUpdatedStats();
+            displayLocalStats();
+            displayNationwideStats();
+        } else {
+            displayLocalStats();
+            displayNationwideStats();
+        }
+        const statsDates = document.querySelectorAll(".box-date");
+        model.displayDates(statsDates);  //display the date when stats were updated under each statistic
+    };
+
 
     //INITIALISATION
-    //update stats daily and display the stats
-    if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
-        model.storeUpdatedStats();
-        displayLocalStats();
-        displayNationwideStats();
-    } else {
-        displayLocalStats();
-        displayNationwideStats();
-    }
-    model.displayDates(view.statsDates);  //display the date when stats were updated under each statistic
+    initStats();
 
 
     //EVENT LISTENERS
     //Stats Page
     if (document.URL.includes("statistics.html")) {
-        view.nationwideStatsButton.addEventListener("click", () => {
-            model.toggleNationwide(view.nationwideStatsButton, view.worldwideStatsButton);
+        const nationwideStatsButton = document.getElementById("nationwideStatsBtn");
+        const worldwideStatsButton = document.getElementById("worldwideStatsBtn");
+
+        nationwideStatsButton.addEventListener("click", () => {
+            model.toggleNationwide(nationwideStatsButton, worldwideStatsButton);
             displayNationwideStats();
         });
 
-        view.worldwideStatsButton.addEventListener("click", () => {
-            model.toggleWorldwide(view.nationwideStatsButton, view.worldwideStatsButton);
+        worldwideStatsButton.addEventListener("click", () => {
+            model.toggleWorldwide(nationwideStatsButton, worldwideStatsButton);
             displayWorldwideStats();
         });
     }
 
     //News Page
     if (document.URL.includes("news.html")) {
-        view.nationwideNewsButton.addEventListener("click", () => {
-            model.toggleNationwide(view.nationwideNewsButton, view.worldwideNewsButton);
-            model.hideDiv(view.worldwideNewsDiv);
-            model.showDiv(view.nationwideNewsDiv);
+        const nationwideNewsButton = document.getElementById("nationwideNewsBtn");
+        const worldwideNewsButton = document.getElementById("worldwideNewsBtn");
+        const nationwideNewsDiv = document.getElementById("nationwide-news");
+        const worldwideNewsDiv = document.getElementById("worldwide-news");
+
+        nationwideNewsButton.addEventListener("click", () => {
+            model.toggleNationwide(nationwideNewsButton, worldwideNewsButton);
+            model.hideDiv(worldwideNewsDiv);
+            model.showDiv(nationwideNewsDiv);
         });
 
-        view.worldwideNewsButton.addEventListener("click", () => {
-            model.toggleWorldwide(view.nationwideNewsButton, view.worldwideNewsButton);
-            model.hideDiv(view.nationwideNewsDiv);
-            model.showDiv(view.worldwideNewsDiv);
+        worldwideNewsButton.addEventListener("click", () => {
+            model.toggleWorldwide(nationwideNewsButton, worldwideNewsButton);
+            model.hideDiv(nationwideNewsDiv);
+            model.showDiv(worldwideNewsDiv);
         });
     }
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
-        view.localStatsSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(view.localStatsSettingText, view.localStatsSettingBtn);
-            model.saveSettingCheckbox("localBox",view.localStatsSettingBtn);
-            model.saveSettingText("localText",view.localStatsSettingText);
+        const localStatsSettingText = document.getElementById("localstats-setting-text");
+        const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
+        const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
+        const dailySymptomsCheckSettingBtn = document.getElementById("dailysymptomscheck-settings-btn");
+        const symptomsCheckSettingText = document.getElementById("symptomscheck-settings-text");
+        const symptomsCheckSettingBtn = document.getElementById("symptomscheck-settings-btn");
+        const basicInfoSettingText = document.getElementById("basicinfo-settings-text");
+        const basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
+        const precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
+        const precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
+        const themeBtn = document.getElementById("theme-btn");
+        const themeText = document.getElementById("theme-Text");
+
+        localStatsSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(localStatsSettingText, localStatsSettingBtn);
+            model.saveSettingCheckbox("localBox",localStatsSettingBtn);
+            model.saveSettingText("localText",localStatsSettingText);
         });
 
-        view.dailySymptomsCheckSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(view.dailySymptomsCheckSettingText, view.dailySymptomsCheckSettingBtn);
-            model.saveSettingCheckbox("dailySymptomsBox",view.dailySymptomsCheckSettingBtn);
-            model.saveSettingText("dailySymptomsText",view.dailySymptomsCheckSettingText);
+        dailySymptomsCheckSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(dailySymptomsCheckSettingText, dailySymptomsCheckSettingBtn);
+            model.saveSettingCheckbox("dailySymptomsBox",dailySymptomsCheckSettingBtn);
+            model.saveSettingText("dailySymptomsText",dailySymptomsCheckSettingText);
         });
 
-        view.symptomsCheckSettingBtn.addEventListener("click", () => {
-           model.toggleSettingEnabledOrDisabled(view.symptomsCheckSettingText, view.symptomsCheckSettingBtn);
-            model.saveSettingCheckbox("symptomsCheckBox",view.symptomsCheckSettingBtn);
-            model.saveSettingText("symptomsCheckText",view.symptomsCheckSettingText);
+        symptomsCheckSettingBtn.addEventListener("click", () => {
+           model.toggleSettingEnabledOrDisabled(symptomsCheckSettingText, symptomsCheckSettingBtn);
+            model.saveSettingCheckbox("symptomsCheckBox",symptomsCheckSettingBtn);
+            model.saveSettingText("symptomsCheckText",symptomsCheckSettingText);
         });
 
-        view.basicInfoSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(view.basicInfoSettingText, view.basicInfoSettingBtn);
-            model.saveSettingCheckbox("basicBox",view.basicInfoSettingBtn);
-            model.saveSettingText("basicText",view.basicInfoSettingText);
+        basicInfoSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(basicInfoSettingText, basicInfoSettingBtn);
+            model.saveSettingCheckbox("basicBox",basicInfoSettingBtn);
+            model.saveSettingText("basicText",basicInfoSettingText);
         });
 
-        view.precautionInfoSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(view.precautionInfoSettingText, view.precautionInfoSettingBtn);
-            model.saveSettingCheckbox("precautionBox",view.precautionInfoSettingBtn);
-            model.saveSettingText("precautionText",view.precautionInfoSettingText);
+        precautionInfoSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(precautionInfoSettingText, precautionInfoSettingBtn);
+            model.saveSettingCheckbox("precautionBox",precautionInfoSettingBtn);
+            model.saveSettingText("precautionText",precautionInfoSettingText);
         });
 
-        view.themeBtn.addEventListener("click",() =>{
-            model.toggleTheme(view.themeText, view.themeBtn);
+        themeBtn.addEventListener("click",() =>{
+            model.toggleTheme(themeText, themeBtn);
         });
     }
 };
