@@ -12,23 +12,29 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
-
     <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="..\imports\mdb\css\mdb.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/normalize.css">
-    <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
+    <link rel="stylesheet" href="..\css\normalize.css">
+    <link id = "themeSheet" rel="stylesheet" href="..\css\myapp.css">
+      <script type = "text/javascript">
+          function loadStyle() {
+              if (localStorage.getItem("theme") !== null)
+              document.getElementById("themeSheet").href = localStorage.getItem("theme")
+          }
+          window.onload = loadStyle();
+      </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- User scalable=0 prevents double tap but is accessibility problem -->
-    <link rel="apple-touch-icon" sizes="128x128" href="img/icon128.png">
-    <link rel="icon" sizes="192x192" href="img/icon192.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="../../res\images\icon128.png">
+    <link rel="icon" sizes="192x192" href="../../res\images\icon192.png">
     <!-- Icon made by www.freepik.com" - replace, buy or attribute if distributing -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-</head>
+  </head>
 <body>
 <main class="signup-page">
     <div id="signup-page-2" class="signup-page-container">
@@ -68,8 +74,8 @@
     </div>
 </main>
 <!-- for simple javascript without MVC use myapp.js -->
-<script src="model.js"></script>
-<script src="view.js"></script>
-<script src="controller.js"></script>
+<script src="../js/model.js"></script>
+<script src="../js/view.js"></script>
+<script src="../js/controller.js"></script>
 </body>
 </html>
