@@ -22,6 +22,12 @@ class View{
         }
     }
 
+    updateUserDefinedLocationAlertLevel(level){
+        if(document.getElementById("local-alert-level")!==null){
+            document.getElementById("local-alert-level").innerText = level;
+        }
+    }
+
     updateNationalNewCases(cases){
         if(document.getElementById("national-new-cases")!==null){
             document.getElementById("national-new-cases").innerText = cases;

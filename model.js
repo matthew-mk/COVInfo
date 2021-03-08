@@ -12,6 +12,7 @@ class Model{
         //USER INPUT WILL BE ADDED
         this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate");  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECISION
         this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate");
+        this.userDefinedLocationAlertLevel = this.setData("Glasgow City", "alertLevel");
 
         //Global data
         this.globalNewCases = this.setGlobalData("newCases");
@@ -68,6 +69,9 @@ class Model{
         }
         else if(typeOfData === "newCasesByPublishDate"){
             this.userDefinedLocationNewDeaths = returnData;
+        }
+        else if(typeOfData === "alertLevel"){
+            this.userDefinedLocationAlertLevel = returnData;
         }
         return returnData;
     }
@@ -130,6 +134,7 @@ class Model{
     storeUpdatedStats() {
         localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
         localStorage.setItem("userDefinedLocationNewDeaths", this.getUserDefinedLocationNewDeaths()[0].newDeaths28DaysByPublishDate);
+        localStorage.setItem("userDefinedLocationAlertLevel", this.userDefinedLocationAlertLevel[0].alertLevel);
         localStorage.setItem("nationalNewCases", this.getNationalNewCases()[0].newCasesByPublishDate);
         localStorage.setItem("nationalNewDeaths", this.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate);
         localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
