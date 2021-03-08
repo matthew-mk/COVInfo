@@ -1,3 +1,5 @@
+/*jshint globalstrict: true*/
+/*global localStorage: false, console: false, $: false, document:false, location:false*/
 'use strict';
 
 class Model{
@@ -10,6 +12,11 @@ class Model{
         //USER INPUT WILL BE ADDED
         this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate");  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECISION
         this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate");
+
+        //Global data
+        this.globalNewCases = this.setGlobalData("newCases");
+        this.globalNewDeaths = this.setGlobalData("newDeaths");
+        this.globalTotalDeaths = this.setGlobalData("totalDeaths");
     }
 
 
@@ -65,6 +72,35 @@ class Model{
         return returnData;
     }
 
+
+    setGlobalData(typeOfData) { 
+        let returnData;
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "https://api.covid19api.com/summary",
+            async: false, //MUST BE ASYNC FALSE
+            success: function(data){
+                let tempArr = data.Global;
+                returnData = tempArr;
+            }
+        });
+        if(typeOfData === "newCases"){
+            this.globalNewCases = returnData.NewConfirmed;
+            return this.globalNewCases;
+        }
+        if(typeOfData === "newDeaths"){
+            this.globalNewDeaths = returnData.NewDeaths;
+            return this.globalNewDeaths;
+        }
+        if(typeOfData === "totalDeaths"){
+            this.globalTotalDeaths = returnData.TotalDeaths;
+            return this.globalTotalDeaths;
+        }
+    }
+
+
+
     displayDates(dates) {
         if (localStorage.getItem("statsLastUpdated")) {
             for (let d of dates) {
@@ -97,6 +133,9 @@ class Model{
         localStorage.setItem("nationalNewCases", this.getNationalNewCases()[0].newCasesByPublishDate);
         localStorage.setItem("nationalNewDeaths", this.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate);
         localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
+        localStorage.setItem("globalNewCases", this.globalNewCases);
+        localStorage.setItem("globalNewDeaths", this.globalNewDeaths);
+        localStorage.setItem("globalTotalDeaths", this.globalTotalDeaths);
         localStorage.setItem("statsLastUpdated", this.getDate());
         console.log("Stats updated!");
     }
