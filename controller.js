@@ -18,6 +18,7 @@ const initialise = evt => {
         view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases"))); //we only want the last day of data not the week
         view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")));
         view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
+        view.updateNationalTotalCases(model.formatNumber(localStorage.getItem("nationalTotalCases")));
     };
 
     const displayWorldwideStats = function () {
@@ -25,6 +26,7 @@ const initialise = evt => {
         view.updateGlobalNewCases(model.formatNumber(localStorage.getItem("globalNewCases")));
         view.updateGlobalNewDeaths(model.formatNumber(localStorage.getItem("globalNewDeaths")));
         view.updateGlobalTotalDeaths(model.formatNumber(localStorage.getItem("globalTotalDeaths")));
+        view.updateGlobalTotalCases(model.formatNumber(localStorage.getItem("globalTotalCases")));
     };
 
     //update stats daily and display the stats
