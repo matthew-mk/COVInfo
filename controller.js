@@ -11,28 +11,33 @@ const initialise = evt => {
     const displayLocalStats = function () {
         view.updateUserDefinedLocationNewCases(model.formatNumber(localStorage.getItem("userDefinedLocationNewCases")));
         view.updateUserDefinedLocationNewDeaths(model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths")));
+        view.updateUserDefinedLocationAlertLevel(model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel")));
     };
 
     const displayNationwideStats = function () {
         view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases"))); //we only want the last day of data not the week
         view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")));
         view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
+        view.updateNationalTotalCases(model.formatNumber(localStorage.getItem("nationalTotalCases")));
     };
 
     const displayWorldwideStats = function () {
         //replace placeholder numbers with real numbers
-        view.updateNationalNewCases("100,000");
-        view.updateNationalNewDeaths("200,000");
-        view.updateFirstDoseVaccinated("50,000,000");
+        view.updateGlobalNewCases(model.formatNumber(localStorage.getItem("globalNewCases")));
+        view.updateGlobalNewDeaths(model.formatNumber(localStorage.getItem("globalNewDeaths")));
+        view.updateGlobalTotalDeaths(model.formatNumber(localStorage.getItem("globalTotalDeaths")));
+        view.updateGlobalTotalCases(model.formatNumber(localStorage.getItem("globalTotalCases")));
     };
 
     //update stats daily and display the stats
     const initStats = function () {
         if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
-            model.storeUpdatedStats();
+            model.storeUpdatedStats(); // important to always update global first since that tab needs overridden by national untill global button is pressed
+            displayWorldwideStats();
             displayLocalStats();
             displayNationwideStats();
         } else {
+            displayWorldwideStats(); // important to always update global first since that tab needs overridden by national untill global button is pressed
             displayLocalStats();
             displayNationwideStats();
         }

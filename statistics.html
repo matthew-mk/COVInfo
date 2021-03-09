@@ -45,7 +45,7 @@
     </div>
     <div id="local-section">
         <p class="location">Glasgow, Scotland</p>
-        <h1 class="stage">Stage 4</h1>
+        <h1 class="stage">Stage <span id="local-alert-level">0</span></h1>
 
         <div id="local-details-boxes">
             <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
@@ -60,7 +60,7 @@
                     <p class="box-date"></p>
                 </div>
                 <div class="card card-block mx-2 statistics-page-carousel local-details-box">
-                    <p class="box-title">Vaccinations</p>
+                    <p class="box-title">Vaccines</p>
                     <p class="box-number">0000</p>
                     <p class="box-date"></p>
                 </div>
@@ -93,8 +93,13 @@
             <p class="box-date"></p>
         </div>
         <div class="nationwide-details-box">
-            <p class="box-title">First Dose Vaccinations</p>
+            <p class="box-title" id="thirdbox">First Dose Vaccinations</p>
             <p id="first-dose-vaccinated" class="box-number">0000</p>
+            <p class="box-date"></p>
+        </div>
+        <div class="nationwide-details-box">
+            <p class="box-title" id="fourthbox">Total Cases</p>
+            <p id="fourth-box-data" class="box-number">0000</p>
             <p class="box-date"></p>
         </div>
     </div>

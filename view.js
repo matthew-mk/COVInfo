@@ -22,9 +22,21 @@ class View{
         }
     }
 
+    updateUserDefinedLocationAlertLevel(level){
+        if(document.getElementById("local-alert-level")!==null){
+            document.getElementById("local-alert-level").innerText = level;
+        }
+    }
+
     updateNationalNewCases(cases){
         if(document.getElementById("national-new-cases")!==null){
             document.getElementById("national-new-cases").innerText = cases;
+        }
+    }
+
+    updateNationalTotalCases(cases){
+        if(document.getElementById("fourth-box-data")!==null){
+            document.getElementById("fourth-box-data").innerText = cases;
         }
     }
 
@@ -37,6 +49,35 @@ class View{
     updateFirstDoseVaccinated(total){
         if(document.getElementById("first-dose-vaccinated")!==null){
             document.getElementById("first-dose-vaccinated").innerText = total;
+            document.getElementById("thirdbox").innerText = "First Dose Vaccinations";
+        }
+    }
+
+    //for global data we are just modifying the existing boxes for national so ids are wrongly names but work
+
+    updateGlobalNewCases(cases){
+        if(document.getElementById("national-new-cases") !== null){
+            document.getElementById("national-new-cases").innerText = cases;
+        }
+    }
+
+    updateGlobalNewDeaths(deaths){
+        if(document.getElementById("national-new-deaths") !== null){
+            document.getElementById("national-new-deaths").innerText = deaths;
+            //document.getElementById("thirdbox").innerText = "test";
+        }
+    }
+
+    updateGlobalTotalDeaths(deaths){
+        if(document.getElementById("first-dose-vaccinated") !== null){
+            document.getElementById("first-dose-vaccinated").innerText = deaths;
+            document.getElementById("thirdbox").innerText = "Total Deaths"; //rename from vaccination box to total deaths because we dont have reliable global vaccination data
+        }
+    }
+
+    updateGlobalTotalCases(cases){
+        if(document.getElementById("fourth-box-data") !== null){
+            document.getElementById("fourth-box-data").innerText = cases;
         }
     }
 
