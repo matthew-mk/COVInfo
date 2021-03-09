@@ -43,7 +43,7 @@ nav {
 
 .nav-button {
     flex: 1;
-    padding: 1vh 1vw;
+    padding: 1vh 0;
     text-align: center;
     text-decoration: none;
 }
@@ -52,26 +52,7 @@ nav {
     background-color: #e1e1e1;
 }
 
-.fa-user {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
 .fa-cog {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-newspaper {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-chart-bar {
-    margin-bottom: 0.5vh;
     padding: 0;
     color: dimgray;
 }
@@ -79,6 +60,8 @@ nav {
 .nav-text {
     margin: 0;
     padding: 0;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
     color: dimgray;
 }
 
@@ -96,12 +79,29 @@ nav {
     opacity: 0.7;
 }
 
-.selected-nav i {
+.nav-button span {
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-button:active {
+    color: dodgerblue;
+}
+
+.selected-nav span {
     color: dodgerblue;
 }
 
 .selected-nav p {
     color: dodgerblue;
+}
+
+.unselected-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
 }
 
 
@@ -114,7 +114,6 @@ nav {
     padding-top: 0.7rem;
     border-radius: 25px;
     border: 0.5px solid grey;
-    border-radius: 25px;
     color: black;
 }
 
@@ -941,8 +940,9 @@ nav {
     justify-content: center;
 }
 
-.permission-image i {
-    margin-top: 0.5vh;
+.permission-image span {
+    margin-top: 0.1vh;
+    font-size: 3vh;
 }
 
 .permission-text {

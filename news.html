@@ -18,7 +18,7 @@
 
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
     <script type = "text/javascript">
@@ -43,7 +43,7 @@
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
             <div class="setting-btn" type="button">
-                <a href="settings.html"><i class="fas fa-cog form-control-right"></i></a>
+                <a href="settings.html"><span class="material-icons" style="color: grey;">settings</span></a>
             </div>
         </div>
     </div>
@@ -112,16 +112,14 @@
     </div>
 </main>
 <nav>
-    <a href="index.html" class="nav-button" >
-        <i class="fa fa-user fa-lg" aria-hidden="true"></i>
-        <p class="nav-text">For you</p>
+    <a href="index.html" class="nav-button unselected-nav" >
+        <span class="material-icons">perm_identity</span>
     </a>
-    <a href="statistics.html" class="nav-button" >
-        <i class="fa fa-chart-bar fa-lg" aria-hidden="true"></i>
-        <p class="nav-text">Statistics</p>
+    <a href="statistics.html" class="nav-button unselected-nav" >
+        <span class="material-icons">analytics</span>
     </a>
-    <a href="news.html" class="selected-nav nav-button" >
-        <i class="fa fa-newspaper fa-lg" aria-hidden="true"></i>
+    <a href="news.html" class="nav-button selected-nav" >
+        <span class="material-icons">feed</span>
         <p class="nav-text">News</p>
     </a>
 </nav>
