@@ -5,27 +5,27 @@
 class Model{
 
     constructor() {
-        //Most data is given as an array of the last 7 days data
-        this.nationalNewCases = this.setNationalData("newCasesByPublishDate");
-        this.nationalNewDeaths = this.setNationalData("newDeaths28DaysByPublishDate");
-        this.firstDoseVaccinated = this.setNationalData("cumPeopleVaccinatedFirstDoseByPublishDate");
-        this.nationalTotalCases = this.setNationalData("cumCasesByPublishDate");
-        //USER INPUT WILL BE ADDED
-        this.userDefinedLocationNewCases = this.setData("Glasgow City", "newCasesByPublishDate");  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECISION
-        this.userDefinedLocationNewDeaths = this.setData("Glasgow City", "newDeaths28DaysByPublishDate");
-        this.userDefinedLocationAlertLevel = this.setData("Glasgow City", "alertLevel");
-
-        //Global data
-        this.globalNewCases = this.setGlobalData("newCases");
-        this.globalNewDeaths = this.setGlobalData("newDeaths");
-        this.globalTotalDeaths = this.setGlobalData("totalDeaths");
-        this.globalTotalCases = this.setGlobalData("totalCases");
+        if (localStorage.getItem("statsLastUpdated") !== this.getDate()) {
+            //Most data is given as an array of the last 7 days data
+            this.nationalNewCases = this.setNationalData("newCasesByPublishDate");
+            this.nationalNewDeaths = this.setNationalData("newDeaths28DaysByPublishDate");
+            this.firstDoseVaccinated = this.setNationalData("cumPeopleVaccinatedFirstDoseByPublishDate");
+            this.nationalTotalCases = this.setNationalData("cumCasesByPublishDate");
+            //USER INPUT WILL BE ADDED
+            this.userDefinedLocationNewCases = this.setLocalData("Glasgow City", "newCasesByPublishDate");  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECISION
+            this.userDefinedLocationNewDeaths = this.setLocalData("Glasgow City", "newDeaths28DaysByPublishDate");
+            this.userDefinedLocationAlertLevel = this.setLocalData("Glasgow City", "alertLevel");
+            //Global data
+            this.globalNewCases = this.setGlobalData("newCases");
+            this.globalNewDeaths = this.setGlobalData("newDeaths");
+            this.globalTotalDeaths = this.setGlobalData("totalDeaths");
+            this.globalTotalCases = this.setGlobalData("totalCases");
+        }
     }
-
 
     //National Data and specific location data uses a different api call to get so use correct function.
     //setNationalData is only for returning uk wide data
-    //setData is used to return data for a specific area in the uk e.g. 'Glasgow City', 'Stirling'
+    //setLocalData is used to return data for a specific area in the uk e.g. 'Glasgow City', 'Stirling'
 
     setNationalData(typeOfData) { // VALID INPUTS: newCasesByPublishDate, newDeaths28DaysByPublishDate, cumPeopleVaccinatedFirstDoseByPublishDate
         let returnData; // data to be returned
@@ -55,8 +55,7 @@ class Model{
         return returnData;
     }
 
-
-    setData(location, typeOfData) { 
+    setLocalData(location, typeOfData) {
         let returnData;
         $.ajax({
             type: "GET",
@@ -80,7 +79,6 @@ class Model{
         }
         return returnData;
     }
-
 
     setGlobalData(typeOfData) { 
         let returnData;
@@ -112,7 +110,21 @@ class Model{
         }
     }
 
-
+    storeUpdatedStats() {
+        localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
+        localStorage.setItem("userDefinedLocationNewDeaths", this.getUserDefinedLocationNewDeaths()[0].newDeaths28DaysByPublishDate);
+        localStorage.setItem("userDefinedLocationAlertLevel", this.userDefinedLocationAlertLevel[0].alertLevel);
+        localStorage.setItem("nationalNewCases", this.getNationalNewCases()[0].newCasesByPublishDate);
+        localStorage.setItem("nationalNewDeaths", this.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate);
+        localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
+        localStorage.setItem("nationalTotalCases", this.nationalTotalCases[0].cumCasesByPublishDate);
+        localStorage.setItem("globalNewCases", this.globalNewCases);
+        localStorage.setItem("globalNewDeaths", this.globalNewDeaths);
+        localStorage.setItem("globalTotalDeaths", this.globalTotalDeaths);
+        localStorage.setItem("globalTotalCases", this.globalTotalCases);
+        localStorage.setItem("statsLastUpdated", this.getDate());
+        console.log("Stats updated!");
+    }
 
     displayDates(dates) {
         if (localStorage.getItem("statsLastUpdated")) {
@@ -138,22 +150,6 @@ class Model{
     toggleWorldwide(nationwideButton, worldwideButton) {
         worldwideButton.classList.add("selected-btn");
         nationwideButton.classList.remove("selected-btn");
-    }
-
-    storeUpdatedStats() {
-        localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
-        localStorage.setItem("userDefinedLocationNewDeaths", this.getUserDefinedLocationNewDeaths()[0].newDeaths28DaysByPublishDate);
-        localStorage.setItem("userDefinedLocationAlertLevel", this.userDefinedLocationAlertLevel[0].alertLevel);
-        localStorage.setItem("nationalNewCases", this.getNationalNewCases()[0].newCasesByPublishDate);
-        localStorage.setItem("nationalNewDeaths", this.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate);
-        localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
-        localStorage.setItem("nationalTotalCases", this.nationalTotalCases[0].cumCasesByPublishDate);
-        localStorage.setItem("globalNewCases", this.globalNewCases);
-        localStorage.setItem("globalNewDeaths", this.globalNewDeaths);
-        localStorage.setItem("globalTotalDeaths", this.globalTotalDeaths);
-        localStorage.setItem("globalTotalCases", this.globalTotalCases);
-        localStorage.setItem("statsLastUpdated", this.getDate());
-        console.log("Stats updated!");
     }
 
     toggleSettingEnabledOrDisabled(text, btn) {
