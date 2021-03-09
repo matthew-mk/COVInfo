@@ -14,7 +14,7 @@
 
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
     <script type = "text/javascript">
@@ -34,12 +34,16 @@
 </head>
 <body>
 <main>
-    <div class="input-group search">
-        <span class="fa fa-search form-control-left"></span>
-        <input type="text" class="form-control" placeholder="Search">
-        <div class="input-group-append">
-            <div class="setting-btn" type="button">
-                <a href="settings.html"><span class="material-icons" style="color: grey;">settings</span></a>
+    <div class="search-container">
+        <div class="input-group search">
+            <div class="search-icon-container">
+                <span class="fa fa-search form-control-left"></span>
+            </div>
+            <input type="text" class="form-control shadow-none" placeholder="Search for information">
+            <div class="input-group-append">
+                <div class="setting-btn" type="button">
+                    <a href="settings.html"><span class="material-icons-outlined" style="color: grey;">settings</span></a>
+                </div>
             </div>
         </div>
     </div>
@@ -106,14 +110,14 @@
 </main>
 <nav>
     <a href="index.html" class="nav-button unselected-nav" >
-        <span class="material-icons">perm_identity</span>
+        <span class="material-icons-outlined">perm_identity</span>
     </a>
     <a href="statistics.html" class="nav-button selected-nav" >
-        <span class="material-icons">analytics</span>
+        <span class="material-icons-outlined">analytics</span>
         <p class="nav-text">Statistics</p>
     </a>
     <a href="news.html" class="nav-button unselected-nav" >
-        <span class="material-icons">feed</span>
+        <span class="material-icons-outlined">feed</span>
     </a>
 </nav>
 <!-- for simple javascript without MVC use myapp.js -->
