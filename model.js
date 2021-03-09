@@ -143,7 +143,7 @@ class Model{
     storeUpdatedStats() {
         localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
         localStorage.setItem("userDefinedLocationNewDeaths", this.getUserDefinedLocationNewDeaths()[0].newDeaths28DaysByPublishDate);
-        localStorage.setItem("*", this.userDefinedLocationAlertLevel[0].alertLevel);
+        localStorage.setItem("userDefinedLocationAlertLevel", this.userDefinedLocationAlertLevel[0].alertLevel);
         localStorage.setItem("nationalNewCases", this.getNationalNewCases()[0].newCasesByPublishDate);
         localStorage.setItem("nationalNewDeaths", this.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate);
         localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
