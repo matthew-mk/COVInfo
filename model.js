@@ -172,14 +172,6 @@ class Model{
         }
     }
 
-    checkNullSettings(settingText,settingState,element){
-        if (localStorage.getItem(settingText) === null){
-            localStorage.setItem(settingText, "Enabled")
-            localStorage.setItem(settingState, element.checked);
-        }
-    }
-
-
     toggleTheme(text,btn){
         let sheet = "";
         let setTheme = localStorage.getItem("theme");
