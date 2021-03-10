@@ -6,124 +6,8 @@ class Model{
 
     constructor() {
         if (localStorage.getItem("statsLastUpdated") !== this.getDate()) {
-            //Most data is given as an array of the last 7 days data
-            this.nationalNewCases = this.setNationalData("newCasesByPublishDate");
-            this.nationalNewDeaths = this.setNationalData("newDeaths28DaysByPublishDate");
-            this.firstDoseVaccinated = this.setNationalData("cumPeopleVaccinatedFirstDoseByPublishDate");
-            this.nationalTotalCases = this.setNationalData("cumCasesByPublishDate");
-            //USER INPUT WILL BE ADDED
-            this.userDefinedLocationNewCases = this.setLocalData("Glasgow City", "newCasesByPublishDate");  //SET GLASGOW CITY TEMP WILL EVENTUALLY BE USERS DECISION
-            this.userDefinedLocationNewDeaths = this.setLocalData("Glasgow City", "newDeaths28DaysByPublishDate");
-            this.userDefinedLocationAlertLevel = this.setLocalData("Glasgow City", "alertLevel");
-            //Global data
-            this.globalNewCases = this.setGlobalData("newCases");
-            this.globalNewDeaths = this.setGlobalData("newDeaths");
-            this.globalTotalDeaths = this.setGlobalData("totalDeaths");
-            this.globalTotalCases = this.setGlobalData("totalCases");
+            this.statUpdate();
         }
-    }
-
-    //National Data and specific location data uses a different api call to get so use correct function.
-    //setNationalData is only for returning uk wide data
-    //setLocalData is used to return data for a specific area in the uk e.g. 'Glasgow City', 'Stirling'
-
-    setNationalData(typeOfData) { // VALID INPUTS: newCasesByPublishDate, newDeaths28DaysByPublishDate, cumPeopleVaccinatedFirstDoseByPublishDate
-        let returnData; // data to be returned
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}",
-            async: false, //MUST BE ASYNC FALSE
-            success: function(data){
-                let tempArr = data.data;
-                tempArr.length = 6; //only want last 7 days
-                returnData = tempArr;
-            }
-        });
-        if(typeOfData === "newCasesByPublishDate"){
-            this.nationalNewCases = returnData;
-        }
-        else if(typeOfData === "newCasesByPublishDate"){
-            this.nationalNewDeaths = returnData;
-        }
-        else if(typeOfData === "cumPeopleVaccinatedFirstDoseByPublishDate"){
-            this.firstDoseVaccinated = returnData;
-        }
-        else if(typeOfData === "cumCasesByPublishDate"){
-            this.nationalTotalCases = returnData;
-        }
-        return returnData;
-    }
-
-    setLocalData(location, typeOfData) {
-        let returnData;
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaName="+location+"&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}",
-            async: false, //MUST BE ASYNC FALSE
-            success: function(data){
-                let tempArr = data.data;
-                tempArr.length = 6; //only want last 7 days
-                returnData = tempArr;
-            }
-        });
-        if(typeOfData === "newCasesByPublishDate"){
-            this.userDefinedLocationNewCases = returnData;
-        }
-        else if(typeOfData === "newCasesByPublishDate"){
-            this.userDefinedLocationNewDeaths = returnData;
-        }
-        else if(typeOfData === "alertLevel"){
-            this.userDefinedLocationAlertLevel = returnData;
-        }
-        return returnData;
-    }
-
-    setGlobalData(typeOfData) { 
-        let returnData;
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "https://api.covid19api.com/summary",
-            async: false, //MUST BE ASYNC FALSE
-            success: function(data){
-                let tempArr = data.Global;
-                returnData = tempArr;
-            }
-        });
-        if(typeOfData === "newCases"){
-            this.globalNewCases = returnData.NewConfirmed;
-            return this.globalNewCases;
-        }
-        if(typeOfData === "newDeaths"){
-            this.globalNewDeaths = returnData.NewDeaths;
-            return this.globalNewDeaths;
-        }
-        if(typeOfData === "totalDeaths"){
-            this.globalTotalDeaths = returnData.TotalDeaths;
-            return this.globalTotalDeaths;
-        }
-        if(typeOfData === "totalCases"){
-            this.globalTotalCases = returnData.TotalConfirmed;
-            return this.globalTotalCases;
-        }
-    }
-
-    storeUpdatedStats() {
-        localStorage.setItem("userDefinedLocationNewCases", this.getUserDefinedLocationNewCases()[0].newCasesByPublishDate);
-        localStorage.setItem("userDefinedLocationNewDeaths", this.getUserDefinedLocationNewDeaths()[0].newDeaths28DaysByPublishDate);
-        localStorage.setItem("userDefinedLocationAlertLevel", this.userDefinedLocationAlertLevel[0].alertLevel);
-        localStorage.setItem("nationalNewCases", this.getNationalNewCases()[0].newCasesByPublishDate);
-        localStorage.setItem("nationalNewDeaths", this.getNationalNewDeaths()[0].newDeaths28DaysByPublishDate);
-        localStorage.setItem("firstDoseVaccinated", this.getFirstDoseVaccinated()[0].cumPeopleVaccinatedFirstDoseByPublishDate);
-        localStorage.setItem("nationalTotalCases", this.nationalTotalCases[0].cumCasesByPublishDate);
-        localStorage.setItem("globalNewCases", this.globalNewCases);
-        localStorage.setItem("globalNewDeaths", this.globalNewDeaths);
-        localStorage.setItem("globalTotalDeaths", this.globalTotalDeaths);
-        localStorage.setItem("globalTotalCases", this.globalTotalCases);
-        localStorage.setItem("statsLastUpdated", this.getDate());
-        console.log("Stats updated!");
     }
 
     displayDates(dates) {
@@ -206,26 +90,6 @@ class Model{
         localStorage.setItem("theme-btn",themeBox.checked);
     }
 
-    getUserDefinedLocationNewCases(){
-        return this.userDefinedLocationNewCases;
-    }
-
-    getUserDefinedLocationNewDeaths(){
-        return this.userDefinedLocationNewDeaths;
-    }
-
-    getNationalNewCases(){
-        return this.nationalNewCases;
-    }
-
-    getNationalNewDeaths(){
-        return this.nationalNewDeaths;
-    }
-
-    getFirstDoseVaccinated(){
-        return this.firstDoseVaccinated;
-    }
-
     getDate(){
         const dateNumToName = {
             1: "Jan",
@@ -260,5 +124,80 @@ class Model{
     formatNumber(num){
         return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
+
+    statUpdate(){
+        getNationalData("newCasesByPublishDate").then(data => localStorage.setItem("nationalNewCases", Number(data)));
+        getNationalData("newDeaths28DaysByPublishDate").then(data => localStorage.setItem("nationalNewDeaths", Number(data)));
+        getNationalData("cumPeopleVaccinatedFirstDoseByPublishDate").then(data => localStorage.setItem("firstDoseVaccinated", Number(data)));
+        getNationalData("cumCasesByPublishDate").then(data => localStorage.setItem("nationalTotalCases", Number(data)));
+        setLocalData("Glasgow City", "newCasesByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewCases", Number(data)));
+        setLocalData("Glasgow City", "newDeaths28DaysByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewDeaths", Number(data)));
+        setLocalData("Glasgow City", "alertLevel").then(data => localStorage.setItem("userDefinedLocationAlertLevel", Number(data)));
+        setLocalData("Glasgow City", "alertLevel").then(data => localStorage.setItem("userDefinedLocationAlertLevel", Number(data)));
+        setGlobalData("newCases").then(data => localStorage.setItem("globalNewCases", Number(data)));
+        setGlobalData("newDeaths").then(data => localStorage.setItem("globalNewDeaths", Number(data)));
+        setGlobalData("totalDeaths").then(data => localStorage.setItem("globalTotalDeaths", Number(data)));
+        setGlobalData("totalCases").then(data => localStorage.setItem("globalTotalCases", Number(data)));
+        localStorage.setItem("statsLastUpdated", this.getDate());
+        console.log("Stats updated!");
+    }
+    
+} //END OF MODEL CLASS
+
+
+async function getNationalData(typeOfData) {
+    //await the response of the fetch call
+   let response = await fetch("https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}");
+    //proceed once the first promise is resolved.
+   let data = await response.json();
+    //proceed only when the second promise is resolved
+    if(typeOfData === "newCasesByPublishDate"){
+        return data.data[0].newCasesByPublishDate;
+    }
+    else if(typeOfData === "newDeaths28DaysByPublishDate"){
+        return data.data[0].newDeaths28DaysByPublishDate;
+    }
+    else if(typeOfData === "cumPeopleVaccinatedFirstDoseByPublishDate"){
+        return data.data[0].cumPeopleVaccinatedFirstDoseByPublishDate;
+    }
+    else if(typeOfData === "cumCasesByPublishDate"){
+        return data.data[0].cumCasesByPublishDate;
+    }
 }
 
+async function setLocalData(location, typeOfData){
+    //await the response of the fetch call
+   let response = await fetch("https://api.coronavirus.data.gov.uk/v1/data?filters=areaName="+location+"&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}");
+    //proceed once the first promise is resolved.
+   let data = await response.json();
+    //proceed only when the second promise is resolved
+    if(typeOfData === "newCasesByPublishDate"){
+        return data.data[0].newCasesByPublishDate;
+    }
+    else if(typeOfData === "newDeaths28DaysByPublishDate"){
+        return data.data[0].newDeaths28DaysByPublishDate;
+    }
+    else if(typeOfData === "alertLevel"){
+        return data.data[0].alertLevel;
+    }
+}
+
+async function setGlobalData(typeOfData) {
+    //await the response of the fetch call
+   let response = await fetch("https://api.covid19api.com/summary");
+    //proceed once the first promise is resolved.
+   let data = await response.json();
+    //proceed only when the second promise is resolved
+    if(typeOfData === "newCases"){
+        return data.Global.NewConfirmed;
+    }
+    else if(typeOfData === "newDeaths"){
+        return data.Global.NewDeaths;
+    }
+    else if(typeOfData === "totalDeaths"){
+        return data.Global.TotalDeaths;
+    }
+    else if(typeOfData === "totalCases"){
+        return data.Global.TotalConfirmed;
+    }
+}
