@@ -15,16 +15,10 @@ const initialise = evt => {
     };
 
     const displayNationwideStats = function () {
-        // ATTEMPT AT WAITING FOR THE MODEL TO FINISH BEFORE VIEW IS UPDATED AND PASSED A NULL VALUE
-        let promise = new Promise((resolve, reject) => {
-            resolve(model.statUpdate());
-        });
-        promise.then(()=>{
             view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases"))); //we only want the last day of data not the week
             view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")));
             view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
             view.updateNationalTotalCases(model.formatNumber(localStorage.getItem("nationalTotalCases")));
-        });
     };
 
     const displayWorldwideStats = function () {
