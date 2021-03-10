@@ -45,63 +45,42 @@ nav {
 
 .nav-button {
     flex: 1;
-    padding: 1vh 1vw;
+    padding: 1vh 0;
     text-align: center;
     text-decoration: none;
-}
-
-
-
-.fa-user {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-cog {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-newspaper {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-chart-bar {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
 }
 
 .nav-text {
     margin: 0;
     padding: 0;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
     color: dimgray;
 }
 
 .fa-arrow-right {
     margin: 0;
     padding: 0;
-    color: dodgerblue;
+    color: lightskyblue;
     opacity: 0.7;
 }
 
 .fa-arrow-left {
     margin: 0;
     padding: 0;
-    color: dodgerblue;
+    color: lightskyblue;
     opacity: 0.7;
 }
 
-.selected-nav i {
-    color: #6099DA;
+.nav-button:active, .selected-nav span, .selected-nav p  {
+    color: lightskyblue;
 }
 
-.nav-button:active, .selected-nav span, .selected-nav p  {
-    color: dodgerblue;
+.unselected-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: dimgray;
 }
 
 
@@ -113,16 +92,7 @@ nav {
     padding: 0 3vw;
     border-radius: 10px;
     box-shadow: 0 1px 6px 0 black;
-    background: #303135;
-}
-
-.search .form-control {
-    padding-left: 2.375rem;
-    padding-right: 2.375rem;
-    padding-top: 0.7rem;
-    border-radius: 25px;
-    border: 0.5px solid black;
-    color: white;
+    background-color: #303135;
 }
 
 .search-icon-container {
@@ -131,18 +101,29 @@ nav {
 }
 
 .search .form-control-left {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
     margin: 0;
     padding: 0;
     text-align: center;
     pointer-events: none;
-    color: dimgrey;
+    color: #aaa;
 }
+
+.search .form-control {
+    padding-top: 0.7rem;
+    border: 0;
+    color: white;
+    height: 100%;
+}
+
+.setting-btn,.setting-btn:active,.setting-btn:focus{
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    box-shadow: none;
+    outline:none;
+}
+
 
 
 .search .form-control {
@@ -206,7 +187,7 @@ nav {
     float: right;
     width: 10%;
     cursor: pointer;
-    color: dodgerblue;
+    color: lightskyblue;
 }
 
 #profile-pic-section {
@@ -222,7 +203,7 @@ nav {
     background-color: dodgerblue;
     color: white;
     border: 0;
-    border-radius: 8px;
+    border-radius: 25px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -351,7 +332,7 @@ nav {
     padding: 0;
     height: 15%;
     font-size: 0.8rem;
-    color: dodgerblue;
+    color: lightskyblue;
 }
 
 
