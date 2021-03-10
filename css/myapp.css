@@ -85,15 +85,7 @@ nav {
     padding: 0;
 }
 
-.nav-button:active {
-    color: dodgerblue;
-}
-
-.selected-nav span {
-    color: dodgerblue;
-}
-
-.selected-nav p {
+.nav-button:active, .selected-nav span, .selected-nav p  {
     color: dodgerblue;
 }
 
@@ -107,35 +99,39 @@ nav {
 
 /* SEARCH BAR */
 
+.search-container {
+    margin: 0;
+    padding: 0 3vw;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px 0 darkgrey;
+}
 
-.search .form-control {
-    padding-left: 2.375rem;
-    padding-right: 2.375rem;
-    padding-top: 0.7rem;
-    border-radius: 25px;
-    border: 0.5px solid grey;
-    color: black;
+.search-icon-container {
+    display: flex;
+    align-items: center;
 }
 
 .search .form-control-left {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
+    margin: 0;
+    padding: 0;
     text-align: center;
     pointer-events: none;
     color: #aaa;
 }
 
+.search .form-control {
+    padding-top: 0.7rem;
+    border: 0;
+    color: black;
+    height: 100%;
+}
+
 .setting-btn,.setting-btn:active,.setting-btn:focus{
+    display: flex;
+    align-items: center;
     padding-top: 0.5rem;
     padding-left: 0.5rem;
-    color:white;
-    height: 2.25rem;
     box-shadow: none;
-	background:white;
 	outline:none;
 }
 
@@ -198,7 +194,7 @@ nav {
     color: dodgerblue;
     border: 0;
     border-radius: 8px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .check-symptoms-container {
@@ -208,7 +204,7 @@ nav {
     display: inline-block;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
     cursor: pointer;
     text-align: left;
 }
@@ -258,11 +254,20 @@ nav {
 .profile-page-carousel {
     margin: 1vh 2vw;
     padding: 2vh 5%;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
     min-width: 175px;
     min-height: 125px;
     cursor: pointer;
+}
+
+.virus-carousel {
+    background: url(../res/graphics/virus-full.png);
+    background-size: 100% 100%;
+}
+
+.syringe-carousel {
+    background: url(../res/graphics/syringe-full.png);
+    background-size: 100% 100%;
 }
 
 .carousel-read-length {
@@ -336,7 +341,7 @@ nav {
     margin: 10px;
     height: 20vh;
     border-radius: 8px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .box-title {
@@ -403,7 +408,7 @@ nav {
     margin-top: 3vh;
     padding: 2vh 3vw;
     border-radius: 10px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 
@@ -422,7 +427,7 @@ nav {
     margin: 2vh 0 0 0;
     padding: 2vh 5%;
     border-radius: 10px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
     width: 100%;
     cursor: pointer;
 }
@@ -495,7 +500,7 @@ nav {
     margin: 3vh 0 0 0;
     padding: 2vh 5%;
     border-radius: 10px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
     width: 100%;
 }
 
@@ -544,7 +549,7 @@ nav {
     color: #e96b64;
     border: 0;
     border-radius: 8px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .change-button {
@@ -557,7 +562,7 @@ nav {
     color: dodgerblue;
     border: 0;
     border-radius: 8px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .pic-settings-container {
@@ -609,7 +614,7 @@ nav {
     color: #e96b64;
     border: 0;
     border-radius: 8px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .clear-buttton-X {
@@ -628,7 +633,7 @@ nav {
     color: dodgerblue;
     border: 0;
     border-radius: 8px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .submit-input {
@@ -794,7 +799,7 @@ nav {
     color: dodgerblue;
     border: 0;
     border-radius: 8px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .help-button-arrow {
@@ -818,7 +823,7 @@ nav {
     color: #e96b64;
     border: 0;
     border-radius: 4px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 
@@ -972,7 +977,7 @@ nav {
     color: #1086fc;
     border: 0;
     border-radius: 4px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .next-button-arrow {
@@ -990,7 +995,7 @@ nav {
     color: #e96b64;
     border: 0;
     border-radius: 4px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .skip-button-bin {
@@ -1008,6 +1013,6 @@ nav {
     background-color: whitesmoke;
     color: #1086fc;
     border: 1px solid darkgrey;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 6px 0 darkgrey;
 }
 

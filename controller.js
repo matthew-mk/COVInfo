@@ -29,17 +29,19 @@ const initialise = evt => {
         view.updateGlobalTotalCases(model.formatNumber(localStorage.getItem("globalTotalCases")));
     };
 
-    //update stats daily and display the stats
+    const displayAllStats = function () {
+        displayWorldwideStats();    // update global first since that tab needs overridden by national until global button is pressed
+        displayLocalStats();
+        displayNationwideStats();
+    };
+
     const initStats = function () {
+        //update stats daily and display the stats
         if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
-            model.storeUpdatedStats(); // important to always update global first since that tab needs overridden by national untill global button is pressed
-            displayWorldwideStats();
-            displayLocalStats();
-            displayNationwideStats();
+            model.storeUpdatedStats();
+            displayAllStats();
         } else {
-            displayWorldwideStats(); // important to always update global first since that tab needs overridden by national untill global button is pressed
-            displayLocalStats();
-            displayNationwideStats();
+            displayAllStats();
         }
         const statsDates = document.querySelectorAll(".box-date");
         model.displayDates(statsDates);  //display the date when stats were updated under each statistic
