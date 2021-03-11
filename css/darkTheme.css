@@ -17,8 +17,8 @@ body {
 }
 
 main {
-    margin: 0 0 13vh 0;
-    padding: 5vh 5vw;
+    margin: 0 0 3vh 0;
+    padding: 0 5vw;
 }
 
 hr {
@@ -87,12 +87,25 @@ nav {
 
 /* SEARCH BAR */
 
+.searchbar-section {
+    position: sticky;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 3vh 5vw 0 5vw;
+    background-color: #202125;
+    z-index: 10;
+}
+
 .search-container {
     margin: 0;
     padding: 0 3vw;
     border-radius: 10px;
     box-shadow: 0 1px 6px 0 black;
     background-color: #303135;
+    width: 100%;
 }
 
 .search-icon-container {
@@ -124,8 +137,6 @@ nav {
     outline:none;
 }
 
-
-
 .search .form-control {
     padding-top: 0.7rem;
     border: 0;
@@ -143,6 +154,35 @@ nav {
     box-shadow: none;
     background:#303135;
     outline:none;
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0 0 2vh 0;
+    padding: 4vh 0 2vh 0;
+    box-shadow: 0 1px 6px 0 black;
+    width: 100%;
+    background-color: #303135;
+    color: white;
+    z-index: 10;
+}
+
+.header-arrow {
+    margin: 0 3vw;
+    padding: 0;
+    display: inline;
+}
+
+.header-title {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 
@@ -519,16 +559,6 @@ nav {
 
 
 /* SETTINGS PAGE */
-
-.settings-page-container {
-    margin: 0 0 -13vh 0;
-    padding: 0;
-}
-
-.header-container {
-    margin: 0 0 2vh 0;
-    color:white;
-}
 
 .header-arrow {
     margin: 0 3vw;
