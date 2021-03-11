@@ -16,7 +16,7 @@ body {
 }
 
 main {
-    margin: 0 0 13vh 0;
+    margin: 0 0 3vh 0;
     padding: 0 5vw;
 }
 
@@ -508,11 +508,6 @@ header {
 }
 
 /* SETTINGS PAGE */
-
-.settings-page-container {
-    margin: 0 0 -13vh 0;
-    padding: 0;
-}
 
 .settings-box-container {
     margin: 3vh 0 0 0;
