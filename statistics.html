@@ -78,6 +78,16 @@
             </div>
         </div>
     </div>
+    <script>
+        if(localStorage.getItem("localBox") === "false"){
+            let x = document.getElementById("local-section");
+            x.style.display = "none";
+        }
+        else{
+            let x = document.getElementById("local-section");
+            x.style.display = "block";
+        }
+    </script>
     <div class="global-details-buttons">
         <div class="global-details-btn-container">
             <button id="nationwideStatsBtn" class="global-details-btn selected-btn"><i class="fa fa-location-arrow"></i> Nationwide</button>
