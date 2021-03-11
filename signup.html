@@ -8,6 +8,7 @@
     <!-- Ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -15,6 +16,8 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
@@ -27,28 +30,92 @@
     <!-- Icon made by www.freepik.com" - replace, buy or attribute if distributing -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-</head>
-<body class="blue-theme">
-<main class="signup-page">
-    <div id="signup-page-1" class="signup-page-container">
-        <h1 class="signup-title">Welcome</h1>
-        <p class="signup-subtitle">All of your COVID-19 statistics, news and information in one place.</p>
-        <div class="signup-img-container">
-            <img src="res/graphics/swinging.png">
-        </div>
-        <div class="signup-carousel-btns-container">
+    </head>
 
-        </div>
-        <div class="signup-bottom-container">
-            <div class="next-btn-container">
-                <button class="next-button">Next <i class="fas fa-arrow-right fa-sm next-button-arrow" aria-hidden="true"></i></button>
+    <body class="blue-theme">
+        <main class="signup-page">
+            <div id="welcome" class="signup-page-container">
+                <h1 class="signup-title">Welcome</h1>
+                <p class="signup-subtitle">All of your COVID-19 statistics, news and information in one place.</p>
+                <div class="signup-img-container">
+                    <img src="res/graphics/swinging.png">
+                </div>
+                <div class="signup-carousel-btns-container">
+
+                </div>
+                <div class="signup-bottom-container">
+                    <div class="next-btn-container">
+                        <button class="next-button">Next <i class="fas fa-arrow-right fa-sm next-button-arrow" aria-hidden="true"></i></button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</main>
-<!-- for simple javascript without MVC use myapp.js -->
-<script src="model.js"></script>
-<script src="view.js"></script>
-<script src="controller.js"></script>
-</body>
+
+            <div id="profile" class="signup-page-container">
+                <h1 class="signup-title">Create a profile</h1>
+                <p class="signup-subtitle">Create a profile to access personalized information on the homescreen.</p>
+                <div class="signup-middle-container">
+                    <img id="signup-profile-pic" src="res/graphics/default-profile.png" width="128px" height="128px">
+                    <p><button class="edit-button btn-rounded">Edit <span class="material-icons-outlined" style="font-size: 3vh; margin-left: 1.5vw">create</span></button></p>
+                    <p><input class="signup-input" type="text" placeholder="First name"></p>
+                    <p><input class="signup-input" type="text" placeholder="Last name"></p>
+                </div>
+                <div class="signup-carousel-btns-container">
+        
+                </div>
+                <div class="signup-bottom-container">
+                    <div class="next-btn-container">
+                        <button class="next-button">Next <i class="fas fa-arrow-right fa-sm next-button-arrow" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="perms" class="signup-page-container">
+                <h1 class="signup-title">Permissions</h1>
+                <p class="signup-subtitle">Give permissions to enhance your overall experience.</p>
+                <div class="signup-middle-container">
+                    <div class="permission-container">
+                        <div class="permission-image">
+                            <span class="material-icons-outlined">room</span>
+                        </div>
+                        <div class="permission-text">
+                            <h1 class="permission-title">Location access</h1>
+                            <p class="permission-desc">Allows you to get stats and information specific to your city.</p>
+                        </div>
+                    </div>
+                    <div class="permission-container">
+                        <div class="permission-image">
+                            <span class="material-icons-outlined">notification_important</span>
+                        </div>
+                        <div class="permission-text">
+                            <h1 class="permission-title">Notifications</h1>
+                            <p class="permission-desc">Enables a weekly reminder to do your symptoms check.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="done" class="signup-page-container">
+                <h1 class="signup-title">All set!</h1>
+                <p class="signup-subtitle">Enjoy using our app to stay informed about COVID-19, stress free!</p>
+                <div class="signup-img-container">
+                    <img src="res/graphics/zombieing.png">
+                </div>
+            </div>
+
+            <div class="signup-bottom-container">
+                <div class="skip-btn-container">
+                    <button class="skip-button" id="skip-button">Skip <span class='material-icons-outlined' style='margin-left: 1.5vw'>clear</span></button>
+                </div>
+                <div class="next-btn-container">
+                    <button class="next-button" id="next-button">Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span></i></button>
+                </div>
+            </div>
+        </main>
+        
+        <!-- for simple javascript without MVC use myapp.js -->
+        <script src="model.js"></script>
+        <script src="view.js"></script>
+        <script src="controller.js"></script>
+        <script src="src/signup.js"></script>
+    </body>
 </html>

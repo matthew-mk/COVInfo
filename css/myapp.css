@@ -843,9 +843,21 @@ nav {
 
 /* SIGNUP PAGES */
 
+body {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
 .blue-theme {
     background-color: #1086fc;
     color: white;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .signup-page-container {
@@ -962,13 +974,20 @@ nav {
 .next-button {
     margin: 0;
     padding: 1vh 4vw;
-    font-size: 3vh;
+    font-size: 2.5vh;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #aed6fd;
     color: #1086fc;
     border: 0;
     border-radius: 4px;
     box-shadow: 0 1px 6px 0 darkgrey;
+}
+
+.next-button span, .skip-button span {
+    font-size: 3vh;
 }
 
 .next-button-arrow {
@@ -980,8 +999,11 @@ nav {
 .skip-button {
     margin: 0;
     padding: 1vh 4vw;
-    font-size: 3vh;
+    font-size: 2.5vh;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #f8c4c1;
     color: #e96b64;
     border: 0;
@@ -997,10 +1019,13 @@ nav {
 .edit-button {
     position: relative;
     bottom: 2vh;
-    margin: 0;
+    margin: 0 auto;
     padding: 1vh 4vw;
-    font-size: 2.7vh;
+    font-size: 2.5vh;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: whitesmoke;
     color: #1086fc;
     border: 1px solid darkgrey;
