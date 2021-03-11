@@ -145,7 +145,8 @@ class Model{
         setLocalData("Glasgow City", "newCasesByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewCases", Number(data)));
         setLocalData("Glasgow City", "newDeaths28DaysByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewDeaths", Number(data)));
         setLocalData("Glasgow City", "alertLevel").then(data => localStorage.setItem("userDefinedLocationAlertLevel", Number(data)));
-        setLocalData("Glasgow City", "alertLevel").then(data => localStorage.setItem("userDefinedLocationAlertLevel", Number(data)));
+        setLocalData("Glasgow City", "cumCasesByPublishDate").then(data => localStorage.setItem("userDefinedTotalCases", Number(data)));
+        setLocalData("Glasgow City", "cumDeaths28DaysByPublishDate").then(data => localStorage.setItem("userDefinedTotalDeaths", Number(data)));
         setGlobalData("newCases").then(data => localStorage.setItem("globalNewCases", Number(data)));
         setGlobalData("newDeaths").then(data => localStorage.setItem("globalNewDeaths", Number(data)));
         setGlobalData("totalDeaths").then(data => localStorage.setItem("globalTotalDeaths", Number(data)));
@@ -191,6 +192,12 @@ async function setLocalData(location, typeOfData){
     }
     else if(typeOfData === "alertLevel"){
         return data.data[0].alertLevel;
+    }
+    else if(typeOfData === "cumCasesByPublishDate"){
+        return data.data[0].cumCasesByPublishDate;
+    }
+    else if(typeOfData === "cumDeaths28DaysByPublishDate"){
+        return data.data[0].cumDeaths28DaysByPublishDate;
     }
 }
 

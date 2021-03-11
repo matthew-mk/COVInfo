@@ -28,6 +28,18 @@ class View{
         }
     }
 
+    updateUserDefinedTotalCases(cases){
+        if(document.getElementById("user-defined-total-cases")!==null){
+            document.getElementById("user-defined-total-cases").innerText = cases;
+        }
+    }
+
+    updateUserDefinedTotalDeaths(deaths){
+        if(document.getElementById("user-defined-total-deaths")!==null){
+            document.getElementById("user-defined-total-deaths").innerText = deaths;
+        }
+    }
+
     updateNationalNewCases(cases){
         if(document.getElementById("national-new-cases")!==null){
             document.getElementById("national-new-cases").innerText = cases;
