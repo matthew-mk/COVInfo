@@ -22,7 +22,12 @@ const initialise = evt => {
     };
 
     const displayWorldwideStats = function () {
-        //replace placeholder numbers with real numbers
+        // temp trick until something better works to fix the first time loading page bug
+        if(localStorage.getItem("globalNewCases") === null){
+            setTimeout(function(){
+                window.location.reload(1);
+             }, 1000); 
+        }
         view.updateGlobalNewCases(model.formatNumber(localStorage.getItem("globalNewCases")));
         view.updateGlobalNewDeaths(model.formatNumber(localStorage.getItem("globalNewDeaths")));
         view.updateGlobalTotalDeaths(model.formatNumber(localStorage.getItem("globalTotalDeaths")));
@@ -50,7 +55,6 @@ const initialise = evt => {
 
     //INITIALISATION
     initStats();
-
 
     //EVENT LISTENERS
     //Stats Page

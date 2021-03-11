@@ -3,7 +3,6 @@
 'use strict';
 
 class Model{
-
     constructor() {
         if (localStorage.getItem("statsLastUpdated") !== this.getDate()) {
             this.statUpdate();
