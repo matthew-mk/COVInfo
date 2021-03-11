@@ -17,7 +17,7 @@ body {
 
 main {
     margin: 0 0 13vh 0;
-    padding: 5vh 5vw;
+    padding: 0 5vw;
 }
 
 hr {
@@ -95,7 +95,7 @@ nav {
 /* SEARCH BAR */
 
 .searchbar-section {
-    position: fixed;
+    position: sticky;
     display: flex;
     top: 0;
     left: 0;
@@ -144,11 +144,35 @@ nav {
 	outline:none;
 }
 
-.searchbar-placeholder {
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0 0 2vh 0;
+    padding: 4vh 0 2vh 0;
+    box-shadow: 0 1px 6px 0 darkgrey;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+}
+
+.header-arrow {
+    margin: 0 3vw;
+    padding: 0;
+    display: inline;
+}
+
+.header-title {
     margin: 0;
     padding: 0;
-    height: calc(2.375rem - 2vh);
+    display: inline;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
+
 
 
 /* HOME PAGE */
@@ -488,24 +512,6 @@ nav {
 .settings-page-container {
     margin: 0 0 -13vh 0;
     padding: 0;
-}
-
-.header-container {
-    margin: 0 0 2vh 0;
-}
-
-.header-arrow {
-    margin: 0 3vw;
-    padding: 0;
-    display: inline;
-}
-
-.header-title {
-    margin: 0;
-    padding: 0;
-    display: inline;
-    font-size: 1.4rem;
-    font-weight: bold;
 }
 
 .settings-box-container {
