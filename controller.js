@@ -15,10 +15,10 @@ const initialise = evt => {
     };
 
     const displayNationwideStats = function () {
-        view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases"))); //we only want the last day of data not the week
-        view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")));
-        view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
-        view.updateNationalTotalCases(model.formatNumber(localStorage.getItem("nationalTotalCases")));
+            view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases"))); //we only want the last day of data not the week
+            view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")));
+            view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
+            view.updateNationalTotalCases(model.formatNumber(localStorage.getItem("nationalTotalCases")));
     };
 
     const displayWorldwideStats = function () {
@@ -38,7 +38,7 @@ const initialise = evt => {
     const initStats = function () {
         //update stats daily and display the stats
         if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
-            model.storeUpdatedStats();
+            model.statUpdate();
             displayAllStats();
         } else {
             displayAllStats();
@@ -101,8 +101,13 @@ const initialise = evt => {
         const basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
         const precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
         const precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
+        const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
+
+        nameChangeBtn.addEventListener("click", () => {
+            model.nameChange();
+        });
 
         localStatsSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(localStatsSettingText, localStatsSettingBtn);

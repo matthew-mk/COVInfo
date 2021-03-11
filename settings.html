@@ -37,14 +37,12 @@
     <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
+<header>
+    <a href="index.html"><i class="header-arrow fas fa-arrow-left fa-lg" aria-hidden="true"></i></a>
+    <h1 class="header-title">Settings</h1>
+</header>
 <main>
     <div class="settings-page-container">
-        <div class="header-container">
-            <a href="index.html"><i class="header-arrow fas fa-arrow-left fa-lg" aria-hidden="true"></i></a>
-            <h1 class="header-title">Settings</h1>
-        </div>
-        <hr>
-
         <div class="settings-box-container">
             <p class="settings-topic">Profile</p>
             <div id="profile-pic-section">
@@ -62,7 +60,13 @@
             <hr>
             <div class="toggle-container-text">
                 <h1 class="settings-title">Name</h1>
-                <p class="settings-selected">Your name</p>
+                <p class="settings-selected" id = "usernameElement"></p>
+                <script type = "text/javascript">
+                if (localStorage.getItem("userName") === null){ localStorage.setItem("userName","Your Name")}
+                document.getElementById("usernameElement").innerHTML = localStorage.getItem("userName");</script>
+                <div class="name-settings-btns">
+                <button class = "change-button" id="change-name-button">Change Name <span class="material-icons" style="font-size: 0.65rem;margin-left: 1vw">create</span></button>
+                </div>
             </div>
         </div>
 
@@ -71,8 +75,10 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Theme</h1>
-                    <p id="theme-Text" class="settings-selected">Light</p>
-                    <script type="text/javascript"> document.getElementById("theme-Text").innerHTML = localStorage.getItem("theme-text");</script>
+                    <p id="theme-Text" class="settings-selected"></p>
+                    <script type="text/javascript">
+                        if (localStorage.getItem("theme-text") === null){ localStorage.setItem("theme-text","Light")}
+                        document.getElementById("theme-Text").innerHTML = localStorage.getItem("theme-text");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
@@ -93,14 +99,17 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Local statistics</h1>
-                    <p id="localstats-setting-text" class="settings-selected">Enabled</p>
-                    <script type="text/javascript"> document.getElementById("localstats-setting-text").innerHTML = localStorage.getItem("localText");</script>
+                    <p id="localstats-setting-text" class="settings-selected"></p>
+                    <script type="text/javascript">
+                        if (localStorage.getItem("localText") === null){ localStorage.setItem("localText","Enabled")}
+                        document.getElementById("localstats-setting-text").innerHTML = localStorage.getItem("localText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="localstats-setting-btn" class="form-check-input" type="checkbox" checked/>
+                        <input id="localstats-setting-btn" class="form-check-input" type="checkbox" />
                         <script type="text/javascript">
                             let setting1 = JSON.parse(localStorage.getItem("localBox"));
+                            if (setting1 === null){setting1 = true}
                             document.getElementById("localstats-setting-btn").checked = setting1;
                         </script>
                     </div>
@@ -112,14 +121,17 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Daily symptoms check</h1>
-                    <p id="dailysymptomscheck-settings-text" class="settings-selected">Enabled</p>
-                    <script type="text/javascript"> document.getElementById("dailysymptomscheck-settings-text").innerHTML = localStorage.getItem("dailySymptomsText");</script>
+                    <p id="dailysymptomscheck-settings-text" class="settings-selected"></p>
+                    <script type="text/javascript">
+                        if (localStorage.getItem("dailySymptomsText") === null){ localStorage.setItem("dailySymptomsText","Enabled")}
+                        document.getElementById("dailysymptomscheck-settings-text").innerHTML = localStorage.getItem("dailySymptomsText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="dailysymptomscheck-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <input id="dailysymptomscheck-settings-btn" class="form-check-input" type="checkbox"  />
                         <script type="text/javascript">
                             let setting2 = JSON.parse(localStorage.getItem("dailySymptomsBox"));
+                            if (setting2 === null){setting2 = true}
                             document.getElementById("dailysymptomscheck-settings-btn").checked = setting2;
                         </script>
                     </div>
@@ -131,14 +143,17 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Symptoms check</h1>
-                    <p id="symptomscheck-settings-text" class="settings-selected">Enabled</p>
-                    <script type="text/javascript"> document.getElementById("symptomscheck-settings-text").innerHTML = localStorage.getItem("symptomsCheckText");</script>
+                    <p id="symptomscheck-settings-text" class="settings-selected"></p>
+                    <script type="text/javascript">
+                        if (localStorage.getItem("symptomsCheckText") === null){ localStorage.setItem("symptomsCheckText","Enabled")}
+                        document.getElementById("symptomscheck-settings-text").innerHTML = localStorage.getItem("symptomsCheckText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="symptomscheck-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <input id="symptomscheck-settings-btn" class="form-check-input" type="checkbox"  />
                         <script type="text/javascript">
                             let setting3 = JSON.parse(localStorage.getItem("symptomsCheckBox"));
+                            if (setting3 === null){setting3 = true}
                             document.getElementById("symptomscheck-settings-btn").checked = setting3;
                         </script>
                     </div>
@@ -148,14 +163,17 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Basic information</h1>
-                    <p id="basicinfo-settings-text" class="settings-selected">Enabled</p>
-                    <script type="text/javascript"> document.getElementById("basicinfo-settings-text").innerHTML = localStorage.getItem("basicText");</script>
+                    <p id="basicinfo-settings-text" class="settings-selected"></p>
+                    <script type="text/javascript">
+                        if (localStorage.getItem("basicText") === null){ localStorage.setItem("basicText","Enabled")}
+                        document.getElementById("basicinfo-settings-text").innerHTML = localStorage.getItem("basicText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="basicinfo-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <input id="basicinfo-settings-btn" class="form-check-input" type="checkbox"  />
                         <script type="text/javascript">
                             let setting4 = JSON.parse(localStorage.getItem("basicBox"));
+                            if (setting4 === null){setting4 = true}
                             document.getElementById("basicinfo-settings-btn").checked = setting4;
                         </script>
                     </div>
@@ -165,14 +183,17 @@
             <div class="toggle-container">
                 <div class="toggle-container-text">
                     <h1 class="settings-title">Precaution information</h1>
-                    <p id="precautioninfo-settings-text" class="settings-selected" type="checkbox" checked >Enabled</p>
-                    <script type="text/javascript"> document.getElementById("precautioninfo-settings-text").innerHTML = localStorage.getItem("precautionText");</script>
+                    <p id="precautioninfo-settings-text" class="settings-selected" type="checkbox"  ></p>
+                    <script type="text/javascript">
+                        if (localStorage.getItem("precautionText") === null){ localStorage.setItem("precautionText","Enabled")}
+                        document.getElementById("precautioninfo-settings-text").innerHTML = localStorage.getItem("precautionText");</script>
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="precautioninfo-settings-btn" class="form-check-input" type="checkbox" checked />
+                        <input id="precautioninfo-settings-btn" class="form-check-input" type="checkbox" />
                         <script type="text/javascript">
                             let setting5 = JSON.parse(localStorage.getItem("precautionBox"));
+                            if (setting5 === null){setting5 = true}
                             document.getElementById("precautioninfo-settings-btn").checked = setting5;
                         </script>
                     </div>

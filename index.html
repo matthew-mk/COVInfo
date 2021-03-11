@@ -36,8 +36,7 @@
     <meta name="mobile-web-app-capable" content="yes">
   </head>
 <body>
-    <main>
-
+    <div class="searchbar-section">
         <div class="search-container">
             <div class="input-group search">
                 <div class="search-icon-container">
@@ -51,12 +50,16 @@
                 </div>
             </div>
         </div>
-  
+    </div>
+    <main>
         <div id="profile-section">
             <div id="profile-text-container">
                 <div id="profile-text">
                     <p class="location">Glasgow, Scotland</p>
-                    <h1 class="username">Your name</h1>
+                    <h1 class="username" id = "usernameElement"></h1>
+                    <script type = "text/javascript">
+                        if (localStorage.getItem("userName") === null){ localStorage.setItem("userName","Your Name")}
+                        document.getElementById("usernameElement").innerHTML = localStorage.getItem("userName");</script>
                 </div>
                 <div id="profile-arrow">
                     <a href="profiledetails.html"><i class="fas fa-arrow-right fa-lg small-arrow-hover" aria-hidden="true"></i></a>
@@ -80,26 +83,20 @@
                 </div>
             </div>
 
-            <style> /* temporarily remove the box shadow until we decide on final article image background*/
-                .profile-page-carousel{
-                    box-shadow:none;
-                }
-            </style>
-
             <div id="profile-page-carousels">
                 <h1 class="profile-page-title">Stay informed</h1>
                 <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
-                    <div class="card card-block mx-2 profile-page-carousel" style="background: url(res/graphics/virus-full.png);background-size: 100% 100%;">
+                    <div class="card card-block mx-2 profile-page-carousel virus-carousel" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);}">
                         <p class="carousel-read-length">4 minute read</p>
                         <h2 class="carousel-title">What is novel coronavirus?</h2>
                         <p class="carousel-topic">Basics</p>
                     </div>
-                    <div class="card card-block mx-2 profile-page-carousel" style="background: url(res/graphics/syringe-full.png);background-size: 100% 100%;">
+                    <div class="card card-block mx-2 profile-page-carousel syringe-carousel" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);}">
                         <p class="carousel-read-length">6 minute read</p>
                         <h2 class="carousel-title">Does the vaccine work?</h2>
                         <p class="carousel-topic">Preventions</p>
                     </div>
-                    <div class="card card-block mx-2 profile-page-carousel" style="background: url(res/graphics/virus-full.png);background-size: 100% 100%;">
+                    <div class="card card-block mx-2 profile-page-carousel virus-carousel" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);}">
                         <p class="carousel-read-length">5 minute read</p>
                         <h2 class="carousel-title">Does the vaccine work?</h2>
                         <p class="carousel-topic">Preventions</p>
@@ -108,17 +105,17 @@
 
                 <h1 class="profile-page-title">Prevention</h1>
                 <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
-                    <div class="card card-block mx-2 profile-page-carousel" style="background: url(res/graphics/virus-full.png);background-size: 100% 100%;">
+                    <div class="card card-block mx-2 profile-page-carousel virus-carousel" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);}">
                         <p class="carousel-read-length">4 minute read</p>
                         <h2 class="carousel-title">What is novel coronavirus?</h2>
                         <p class="carousel-topic">Basics</p>
                     </div>
-                    <div class="card card-block mx-2 profile-page-carousel" style="background: url(res/graphics/syringe-full.png);background-size: 100% 100%;">
+                    <div class="card card-block mx-2 profile-page-carousel syringe-carousel" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);}">
                         <p class="carousel-read-length">6 minute read</p>
                         <h2 class="carousel-title">Does the vaccine work?</h2>
                         <p class="carousel-topic">Preventions</p>
                     </div>
-                    <div class="card card-block mx-2 profile-page-carousel" style="background: url(res/graphics/virus-full.png);background-size: 100% 100%;">
+                    <div class="card card-block mx-2 profile-page-carousel virus-carousel" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);}">
                         <p class="carousel-read-length">5 minute read</p>
                         <h2 class="carousel-title">Does the vaccine work?</h2>
                         <p class="carousel-topic">Preventions</p>

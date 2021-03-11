@@ -45,103 +45,105 @@ nav {
 
 .nav-button {
     flex: 1;
-    padding: 1vh 1vw;
+    padding: 1vh 0;
     text-align: center;
     text-decoration: none;
-}
-
-.nav-button:active {
-    background-color: slategray;
-}
-
-.fa-user {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-cog {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-newspaper {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
-}
-
-.fa-chart-bar {
-    margin-bottom: 0.5vh;
-    padding: 0;
-    color: dimgray;
 }
 
 .nav-text {
     margin: 0;
     padding: 0;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
     color: dimgray;
 }
 
 .fa-arrow-right {
     margin: 0;
     padding: 0;
-    color: dodgerblue;
+    color: lightskyblue;
     opacity: 0.7;
 }
 
 .fa-arrow-left {
     margin: 0;
     padding: 0;
-    color: dodgerblue;
+    color: lightskyblue;
     opacity: 0.7;
 }
 
-.selected-nav i {
-    color: #6099DA;
+.nav-button:active, .selected-nav span, .selected-nav p  {
+    color: lightskyblue;
 }
 
-.selected-nav p {
-    color: #6099DA;
+.unselected-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: dimgray;
 }
+
 
 
 /* SEARCH BAR */
 
-.search .form-control {
-    padding-left: 2.375rem;
-    padding-right: 2.375rem;
-    padding-top: 0.7rem;
-    border-radius: 25px;
-    border: 0.5px solid dimgray;
-    border-radius: 25px;
-    background:#202125 ;
-    color:white;
+.search-container {
+    margin: 0;
+    padding: 0 3vw;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px 0 black;
+    background-color: #303135;
+}
+
+.search-icon-container {
+    display: flex;
+    align-items: center;
 }
 
 .search .form-control-left {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
+    margin: 0;
+    padding: 0;
     text-align: center;
     pointer-events: none;
+    color: #aaa;
+}
+
+.search .form-control {
+    padding-top: 0.7rem;
+    border: 0;
     color: white;
+    height: 100%;
 }
 
 .setting-btn,.setting-btn:active,.setting-btn:focus{
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    box-shadow: none;
+    outline:none;
+}
+
+
+
+.search .form-control {
+    padding-top: 0.7rem;
+    border: 0;
+    height: 100%;
+    background: #303135;
+}
+
+.setting-btn,.setting-btn:active,.setting-btn:focus{
+    display: flex;
+    align-items: center;
     padding-top: 0.5rem;
     padding-left: 0.5rem;
     color:white;
     height: 2.25rem;
     box-shadow: none;
-    background:#202125;
+    background:#303135;
     outline:none;
 }
-
 
 
 /* HOME PAGE */
@@ -185,7 +187,7 @@ nav {
     float: right;
     width: 10%;
     cursor: pointer;
-    color: dodgerblue;
+    color: lightskyblue;
 }
 
 #profile-pic-section {
@@ -198,10 +200,10 @@ nav {
     padding: 1vh 3vw;
     font-size: 0.75rem;
     text-align: center;
-    background-color: #6099DA;
+    background-color: dodgerblue;
     color: white;
     border: 0;
-    border-radius: 8px;
+    border-radius: 25px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -216,6 +218,7 @@ nav {
     cursor: pointer;
     text-align: left;
     color: white;
+    background-color: #303135;
 }
 
 .check-symptoms-text {
@@ -270,7 +273,6 @@ nav {
     min-width: 175px;
     min-height: 125px;
     cursor: pointer;
-    background: #303135;
 }
 
 .carousel-read-length {
@@ -298,6 +300,40 @@ nav {
     color: lightskyblue;
 }
 
+.virus-carousel {
+    background: url(../res/graphics/virus-full.png);
+    background-size: 100% 100%;
+    background-color:#303135 ;
+}
+
+.syringe-carousel {
+    background: url(../res/graphics/syringe-full.png);
+    background-size: 100% 100%;
+    background-color:#303135 ;
+}
+
+.carousel-read-length {
+    margin: 0;
+    padding: 0;
+    height: 20%;
+    font-size: 0.65rem;
+}
+
+.carousel-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    height: 65%;
+}
+
+.carousel-topic {
+    margin: 0;
+    padding: 0;
+    height: 15%;
+    font-size: 0.8rem;
+    color: lightskyblue;
+}
 
 
 /* STATISTICS PAGE */
