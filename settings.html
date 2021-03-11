@@ -62,7 +62,13 @@
             <hr>
             <div class="toggle-container-text">
                 <h1 class="settings-title">Name</h1>
-                <p class="settings-selected">Your name</p>
+                <p class="settings-selected" id = "usernameElement"></p>
+                <script type = "text/javascript">
+                if (localStorage.getItem("userName") === null){ localStorage.setItem("userName","Your Name")}
+                document.getElementById("usernameElement").innerHTML = localStorage.getItem("userName");</script>
+                <div class="name-settings-btns">
+                <button class = "change-button" id="change-name-button">Change Name <span class="material-icons" style="font-size: 0.65rem;margin-left: 1vw">create</span></button>
+                </div>
             </div>
         </div>
 

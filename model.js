@@ -56,6 +56,19 @@ class Model{
         }
     }
 
+    nameChange(){
+        let name;
+        let namePrompt = prompt("Please enter your new name:", "Enter New Name");
+
+        if (namePrompt == null || namePrompt == "" || namePrompt == "Enter New Name"){
+            window.alert("Name not changed");
+        } else {
+            name = namePrompt;
+            localStorage.setItem("userName", name);
+            location.reload();
+        }
+    }
+
     toggleTheme(text,btn){
         let sheet = "";
         let setTheme = localStorage.getItem("theme");

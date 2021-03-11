@@ -56,7 +56,10 @@
             <div id="profile-text-container">
                 <div id="profile-text">
                     <p class="location">Glasgow, Scotland</p>
-                    <h1 class="username">Your name</h1>
+                    <h1 class="username" id = "usernameElement"></h1>
+                    <script type = "text/javascript">
+                        if (localStorage.getItem("userName") === null){ localStorage.setItem("userName","Your Name")}
+                        document.getElementById("usernameElement").innerHTML = localStorage.getItem("userName");</script>
                 </div>
                 <div id="profile-arrow">
                     <a href="profiledetails.html"><i class="fas fa-arrow-right fa-lg small-arrow-hover" aria-hidden="true"></i></a>

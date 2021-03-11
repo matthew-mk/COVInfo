@@ -101,8 +101,13 @@ const initialise = evt => {
         const basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
         const precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
         const precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
+        const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
+
+        nameChangeBtn.addEventListener("click", () => {
+            model.nameChange();
+        });
 
         localStatsSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(localStatsSettingText, localStatsSettingBtn);
