@@ -59,7 +59,7 @@ class Model{
         let name;
         let namePrompt = prompt("Please enter your new name:", "Enter New Name");
 
-        if (namePrompt == null || namePrompt == "" || namePrompt == "Enter New Name"){
+        if (namePrompt === null || namePrompt === "" || namePrompt === "Enter New Name"){
             window.alert("Name not changed");
         } else {
             name = namePrompt;

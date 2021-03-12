@@ -603,11 +603,15 @@ header {
     text-align: right;
 }
 
-.symptoms-subtitle {
+.symptoms-subtitle, .symptoms-subtitle-ul li {
     margin: 0;
     padding: 0;
     font-size: 0.9rem;
     color: gray;
+}
+
+.symptoms-subtitle-ul {
+    margin-bottom: 0;
 }
 
 .symptoms-selected {
