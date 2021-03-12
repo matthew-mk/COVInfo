@@ -10,9 +10,10 @@
 }
 
 body {
-    margin:0;
+    margin: 0;
     padding: 0;
     font-family: Avenir, sans-serif;
+    background-color: ;
 }
 
 main {
@@ -919,7 +920,6 @@ body {
 
 .signup-middle-container {
     text-align: center;
-    height: 35vh;
     width: 100%;
 }
 
@@ -927,15 +927,8 @@ body {
     margin: 0;
     height: 20vh;
     width: auto;
-}
-
-.signup-input {
-    padding: 1vh 1vw;
-    width: 80%;
-}
-
-.signup-input:focus {
-    border: 1px solid #1086fc;
+    border-radius: 5000px;
+    box-shadow: 0 8px 25px 0 darkgrey;
 }
 
 .signup-carousel-btns-container {
@@ -946,8 +939,8 @@ body {
 
 .signup-bottom-container {
     position: fixed;
-    bottom: 5vh;
-    width: 90%;
+    bottom: 10vw;
+    width: 90vw;
     margin: 0;
     padding: 0;
 }
@@ -997,64 +990,93 @@ body {
     color: #545454;
 }
 
-.next-button {
-    margin: 0;
-    padding: 1vh 4vw;
-    font-size: 2.5vh;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #aed6fd;
-    color: #1086fc;
-    border: 0;
-    border-radius: 4px;
-    box-shadow: 0 1px 6px 0 darkgrey;
-}
-
-.next-button span, .skip-button span {
-    font-size: 3vh;
-}
-
-.next-button-arrow {
-    margin: 0 0 0 3vw;
-    padding: 0;
-    color: #1086fc;
-}
-
-.skip-button {
-    margin: 0;
-    padding: 1vh 4vw;
-    font-size: 2.5vh;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8c4c1;
-    color: #e96b64;
-    border: 0;
-    border-radius: 4px;
-    box-shadow: 0 1px 6px 0 darkgrey;
-}
-
 .skip-button-bin {
     margin: 0 0 0 3vw;
     padding: 0;
 }
 
-.edit-button {
-    position: relative;
-    bottom: 2vh;
-    margin: 0 auto;
-    padding: 1vh 4vw;
-    font-size: 2.5vh;
+.button {
+    padding: 1vh 3vw;
+    font-size: 1.15rem;
     text-align: center;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: whitesmoke;
-    color: #1086fc;
-    border: 1px solid darkgrey;
+
+    border: 1px solid #9c9c9c;
+    border-radius: 5px;
     box-shadow: 0 1px 6px 0 darkgrey;
 }
 
+.button span {
+    font-size: 3vh;
+    margin-left: 0.85rem;
+}
+
+.next-button {
+    background-color: #aed6fd;
+    color: #1086fc;
+}
+
+.skip-button {
+    background-color: #f8c4c1;
+    color: #e96b64;
+}
+
+.edit-button {
+    padding: 1vh 4vw;
+    position: relative;
+    bottom: 2vh;
+    margin: 0 auto;
+
+    background-color: whitesmoke;
+    color: #1086fc;
+    border-radius: 500px;
+    box-shadow: 0 1px 6px 0 darkgrey;
+}
+
+.signup-form {
+    width: 100%;
+    margin-top: 3vh;
+}
+
+.signup-input__container {
+    height: 4.5vh;
+    text-align: left !important;
+    margin: 1.5vh;
+}
+
+.signup-input__container > label {
+    position: relative;
+    bottom: 4.25vh;
+    left: 3vw;
+
+    background-color: white;
+    padding: 0rem;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    color: #9c9c9c;
+
+    pointer-events: none;
+}
+
+.signup-input {
+    height: 4.5vh;
+    padding: 0 3vw;
+    border: 1.5px solid #9c9c9c;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.signup-input:focus, .signup-input:valid {
+    border: 2px solid #1086fc;
+}
+  
+.signup-input:focus~label, .signup-input:valid~label {
+    bottom: 6.25vh;
+    color: #1086fc;
+    font-size: 0.7rem;
+    padding: 0.25rem;
+}

@@ -3,6 +3,8 @@ $(document).ready(function(){
         value: 0
     }
 
+    var empty = false;
+
     $("#welcome").hide();
     $("#profile").hide();
     $("#perms").hide();
@@ -20,16 +22,28 @@ $(document).ready(function(){
     });
 
     var increment = function(page) {
-        page.value++;
+        // TODO: Save profile info in localStorage?
+
+        empty = $('input[type="text"]').get().every(item => item.value !== '');
+
+        if (page.value != 1) {
+            page.value++;
+        }
+        else {
+            if (empty === true) page.value++;
+        }
 
         // Change page:
         if (page.value === 1) {
             $("body").removeClass("blue-theme");
+
+            //$("#next-button").removeAttr("type").attr("type", "submit").attr("form", "signup-form")
         
             $("#welcome").fadeOut(500);
             $("#profile").delay(500).fadeIn(500);
         }
         else if (page.value === 2) {
+
             $("#profile").fadeOut(500);
             $("#perms").delay(500).fadeIn(500);
                     
