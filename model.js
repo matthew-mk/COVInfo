@@ -220,3 +220,31 @@ async function setGlobalData(typeOfData) {
         return data.Global.TotalConfirmed;
     }
 }
+
+function getUserLocation() {
+    var startPos;
+    var geoSuccess = async function(position) {
+        var startPos;
+        startPos = position;
+        //longitude and latitude
+        let lat = startPos.coords.latitude;
+        let long = startPos.coords.longitude;
+        console.log(lat);
+        console.log(long);
+
+        //using the bigdatacloud api to convert long and lat into a city
+        let response = await fetch("https://api.bigdatacloud.net/data/reverse-geocode-client?latitude="+lat+"&longitude="+long+"&localityLanguage=en");
+        let data = await response.json();
+
+        console.log(data.locality);
+        console.log(data.city);
+        console.log(data.principalSubdivision);
+        //storing the location data for future use
+        localStorage.setItem("userLocality", data.locality);
+        localStorage.setItem("userCity", data.city);
+        localStorage.setItem("userCountry", data.principalSubdivision);
+        return data
+
+    };
+    navigator.geolocation.getCurrentPosition(geoSuccess);
+};
