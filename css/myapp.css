@@ -1049,7 +1049,7 @@ body {
 
 .signup-input__container > label {
     position: relative;
-    bottom: 4.25vh;
+    bottom: 2.25rem;
     left: 3vw;
 
     background-color: white;
@@ -1062,7 +1062,7 @@ body {
 }
 
 .signup-input {
-    height: 4.5vh;
+    height: 2.5rem;
     padding: 0 3vw;
     border: 1.5px solid #9c9c9c;
     border-radius: 5px;
@@ -1075,8 +1075,8 @@ body {
 }
   
 .signup-input:focus~label, .signup-input:valid~label {
-    bottom: 6.25vh;
+    bottom: 3.35rem;
     color: #1086fc;
     font-size: 0.7rem;
-    padding: 0.25rem;
+    padding: 0.05rem 0.25rem;
 }
