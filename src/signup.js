@@ -31,6 +31,12 @@ $(document).ready(function(){
         }
         else {
             if (empty === true) page.value++;
+            else {
+                //.filter(function() { return this.value === ''; })
+                $('input[type="text"]').each(function(){
+                    $(this).addClass("signup-input-error");
+                });
+            }
         }
 
         // Change page:
