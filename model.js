@@ -203,21 +203,21 @@ async function setLocalData(location, typeOfData){
 
 async function setGlobalData(typeOfData) {
     //await the response of the fetch call
-   let response = await fetch("https://api.covid19api.com/summary");
+   let response = await fetch("https://corona-api.com/timeline");
     //proceed once the first promise is resolved.
    let data = await response.json();
     //proceed only when the second promise is resolved
     if(typeOfData === "newCases"){
-        return data.Global.NewConfirmed;
+        return data.data[0].new_confirmed;
     }
     else if(typeOfData === "newDeaths"){
-        return data.Global.NewDeaths;
+        return data.data[0].new_deaths;
     }
     else if(typeOfData === "totalDeaths"){
-        return data.Global.TotalDeaths;
+        return data.data[0].deaths;
     }
     else if(typeOfData === "totalCases"){
-        return data.Global.TotalConfirmed;
+        return data.data[0].confirmed;
     }
 }
 
