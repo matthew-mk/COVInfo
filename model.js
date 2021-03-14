@@ -102,6 +102,14 @@ class Model{
         localStorage.setItem("theme-btn",themeBox.checked);
     }
 
+    toggleShowElement(element){
+        if (element.style.display === "none" ){
+            element.style.display = "block"
+        } else {
+            element.style.display = "none";
+        }
+    }
+
     getDate(){
         const dateNumToName = {
             1: "Jan",
