@@ -13,11 +13,11 @@ $(document).ready(function(){
 
     $("#welcome").fadeIn(500);
 
-    $(".skip-button").click(function() {
+    $("#skip-button").click(function() {
         increment(currentPage);
     });
 
-    $(".next-button").click(function() {
+    $("#next-button").click(function() {
         increment(currentPage);
     });
 
