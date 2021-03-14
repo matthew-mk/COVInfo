@@ -101,12 +101,15 @@ const initialise = evt => {
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
         const dailySymptomsCheckSettingBtn = document.getElementById("dailysymptomscheck-settings-btn");
+        /*
         const symptomsCheckSettingText = document.getElementById("symptomscheck-settings-text");
         const symptomsCheckSettingBtn = document.getElementById("symptomscheck-settings-btn");
         const basicInfoSettingText = document.getElementById("basicinfo-settings-text");
         const basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
         const precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
         const precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
+
+         */
         const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
@@ -126,7 +129,7 @@ const initialise = evt => {
             model.saveSettingCheckbox("dailySymptomsBox",dailySymptomsCheckSettingBtn);
             model.saveSettingText("dailySymptomsText",dailySymptomsCheckSettingText);
         });
-
+        /*
         symptomsCheckSettingBtn.addEventListener("click", () => {
            model.toggleSettingEnabledOrDisabled(symptomsCheckSettingText, symptomsCheckSettingBtn);
             model.saveSettingCheckbox("symptomsCheckBox",symptomsCheckSettingBtn);
@@ -144,6 +147,8 @@ const initialise = evt => {
             model.saveSettingCheckbox("precautionBox",precautionInfoSettingBtn);
             model.saveSettingText("precautionText",precautionInfoSettingText);
         });
+
+         */
 
         themeBtn.addEventListener("click",() =>{
             model.toggleTheme(themeText, themeBtn);
