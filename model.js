@@ -134,7 +134,12 @@ class Model{
     
     // adds commas to numbers & formats
     formatNumber(num){
-        return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        if(num === null){
+            return 0;
+        }
+        else{
+            return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        }
     }
 
     statUpdate(){
