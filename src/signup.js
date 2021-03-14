@@ -39,6 +39,9 @@ $(document).ready(function(){
             }
         }
 
+        $(".carrousel-circle__active").removeClass("carrousel-circle__active");
+        $(".carrousel-circle").eq(page.value).addClass("carrousel-circle__active");
+
         // Change page:
         if (page.value === 1) {
             $("body").removeClass("blue-theme");

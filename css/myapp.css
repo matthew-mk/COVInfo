@@ -887,6 +887,10 @@ body {
     transition: all 0.5s ease;
 }
 
+.blue-theme .carrousel-circle__active {
+    background-color: #FFFFFF;
+}
+
 .signup-page-container {
     height: 100%;
     width: 100%;
@@ -953,6 +957,31 @@ body {
     justify-content: space-between;
     align-content: stretch;
     flex-direction: row; 
+}
+
+.signup-carrousel-indicators__container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;  
+}
+
+.carrousel-circle {
+    width: 1.1vh;
+    height: 1.1vh;
+    margin: 1.1vw;
+
+    border: 1px solid #9C9C9C;
+    background-color: #B4D5F9;
+
+    -webkit-border-radius: 1.1vh;
+    -moz-border-radius: 1.1vh;
+    border-radius: 1.1vh;
+}
+
+.carrousel-circle__active {
+    border: 1px solid #282828;
+    background-color: #1086fc;
 }
 
 .skip-btn-container {
