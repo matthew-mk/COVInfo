@@ -243,8 +243,8 @@ function getUserLocation() {
         localStorage.setItem("userLocality", data.locality);
         localStorage.setItem("userCity", data.city);
         localStorage.setItem("userCountry", data.principalSubdivision);
-        return data
+        return data;
 
     };
     navigator.geolocation.getCurrentPosition(geoSuccess);
-};
+}
