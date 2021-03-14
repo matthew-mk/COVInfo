@@ -55,7 +55,9 @@
         <div id="profile-section">
             <div id="profile-text-container">
                 <div id="profile-text">
+                    <div id = "location-text">
                     <p class="location">Glasgow, Scotland</p>
+                    </div><script type = "text/javascript">if(localStorage.getItem("localBox") === "false"){document.getElementById("location-text").style.visibility = "hidden"}</script>
                     <h1 class="username" id = "usernameElement"></h1>
                     <script type = "text/javascript">
                         if (localStorage.getItem("userName") === null){ localStorage.setItem("userName","Your Name")}

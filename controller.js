@@ -113,6 +113,7 @@ const initialise = evt => {
         const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
+        const locationDiv = document.getElementById("active-location");
 
         nameChangeBtn.addEventListener("click", () => {
             model.nameChange();
@@ -122,6 +123,7 @@ const initialise = evt => {
             model.toggleSettingEnabledOrDisabled(localStatsSettingText, localStatsSettingBtn);
             model.saveSettingCheckbox("localBox",localStatsSettingBtn);
             model.saveSettingText("localText",localStatsSettingText);
+            model.toggleShowElement(locationDiv);
         });
 
         dailySymptomsCheckSettingBtn.addEventListener("click", () => {
