@@ -36,6 +36,8 @@ $(document).ready(function(){
                 $('input[type="text"]').each(function(){
                     $(this).addClass("signup-input-error");
                 });
+
+                return;
             }
         }
 

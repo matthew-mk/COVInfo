@@ -13,7 +13,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: Avenir, sans-serif;
-    background-color: ;
 }
 
 main {
@@ -977,11 +976,15 @@ body {
     -webkit-border-radius: 1.1vh;
     -moz-border-radius: 1.1vh;
     border-radius: 1.1vh;
+
+    transition: all 0.2;
 }
 
 .carrousel-circle__active {
     border: 1px solid #282828;
     background-color: #1086fc;
+
+    transition: all 0.2;
 }
 
 .skip-btn-container {
@@ -1107,14 +1110,20 @@ body {
     border-radius: 5px;
     width: 100%;
     font-size: 0.95rem;
+
+    transition: all 0.2;
 }
 
 .signup-input-error {
     border: 2px solid #E96B82;
+
+    transition: all 0.2;
 }
 
 .signup-input:focus, .signup-input:valid {
     border: 2px solid #1086fc;
+    
+    transition: all 0.2;
 }
   
 .signup-input:focus~label, .signup-input:valid~label {
@@ -1122,8 +1131,12 @@ body {
     color: #1086fc;
     font-size: 0.7rem;
     padding: 0.05rem 0.25rem;
+
+    transition: all 0.2;
 }
 
 .signup-input-error + label {
     color: #E96B82;
+
+    transition: all 0.2;
 }
