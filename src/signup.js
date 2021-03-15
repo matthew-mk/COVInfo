@@ -4,6 +4,8 @@ $(document).ready(function(){
     }
 
     var empty = false;
+    var location = false;
+    var notification = false;
 
     $("#welcome").hide();
     $("#profile").hide();
@@ -85,8 +87,22 @@ $(document).ready(function(){
 
     function saveLocation(position) {
         //window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
-        var location = [{latitude: position.coords.latitude, longitude: longitude}];
+        var location = [{latitude: position.coords.latitude, longitude: position.coords.longitude}];
 
         localStorage.setItem("location", JSON.stringify(location));
+
+        $("#next-button").removeClass("skip__button")
+        .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>")
+
+        /*
+        location = true; notification = true;
+
+        if (location === true && notification === true) {
+            window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
+
+            $("#next-button").removeClass("skip__button")
+            .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>")
+        }
+        */
     }
 });
