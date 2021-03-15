@@ -13,12 +13,20 @@ $(document).ready(function(){
 
     $("#welcome").fadeIn(500);
 
-    $("#skip-button").click(function() {
+    $("#next-button").click(function() {
         increment(currentPage);
     });
 
-    $("#next-button").click(function() {
-        increment(currentPage);
+    $("#location-perm").click(function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(saveLocation);
+        }
+    });
+
+    $("#notification-perm").click(function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(saveLocation);
+        }
     });
 
     var increment = function(page) {
@@ -26,7 +34,7 @@ $(document).ready(function(){
 
         empty = $('input[type="text"]').get().every(item => item.value !== '');
 
-        if (page.value != 1) {
+        if (page.value !== 1) {
             page.value++;
         }
         else {
@@ -54,11 +62,11 @@ $(document).ready(function(){
             $("#profile").delay(500).fadeIn(500);
         }
         else if (page.value === 2) {
-
             $("#profile").fadeOut(500);
             $("#perms").delay(500).fadeIn(500);
-                    
-            $("#skip-button").fadeIn(500);
+
+            $("#next-button").addClass("skip__button")
+            .html("Skip <span class='material-icons-outlined' style='margin-left: 1.5vw'>clear</span>")
         }
         else if (page.value === 3) {
             $("body").addClass("blue-theme");
@@ -69,19 +77,16 @@ $(document).ready(function(){
             $("#skip-button").fadeOut(500);
         
             $("#next-button")
+            .removeClass("skip__button")
             .wrap("<a href='./index.html'</a>")
             .html("Done <span class='material-icons-outlined' style='margin-left: 1.5vw'>done</span>")
         }
+    }
 
-        /*
-        $( window ).unload(function() { 
-            $("body").removeClass("blue-theme");
+    function saveLocation(position) {
+        //window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
+        var location = [{latitude: position.coords.latitude, longitude: longitude}];
 
-            $("#done").fadeIn(500);
-                    
-            $("#skip-button").fadeOut(500);
-            $("#next-button").fadeOut(500);
-        });
-        */
+        localStorage.setItem("location", JSON.stringify(location));
     }
 });
