@@ -4,6 +4,8 @@ $(document).ready(function(){
     }
 
     var empty = false;
+    var location = false;
+    var notification = false;
 
     $("#welcome").hide();
     $("#profile").hide();
@@ -13,12 +15,20 @@ $(document).ready(function(){
 
     $("#welcome").fadeIn(500);
 
-    $("#skip-button").click(function() {
+    $("#next-button").click(function() {
         increment(currentPage);
     });
 
-    $("#next-button").click(function() {
-        increment(currentPage);
+    $("#location-perm").click(function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(saveLocation);
+        }
+    });
+
+    $("#notification-perm").click(function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(saveLocation);
+        }
     });
 
     var increment = function(page) {
@@ -26,7 +36,7 @@ $(document).ready(function(){
 
         empty = $('input[type="text"]').get().every(item => item.value !== '');
 
-        if (page.value != 1) {
+        if (page.value !== 1) {
             page.value++;
         }
         else {
@@ -54,11 +64,11 @@ $(document).ready(function(){
             $("#profile").delay(500).fadeIn(500);
         }
         else if (page.value === 2) {
-
             $("#profile").fadeOut(500);
             $("#perms").delay(500).fadeIn(500);
-                    
-            $("#skip-button").fadeIn(500);
+
+            $("#next-button").addClass("skip__button")
+            .html("Skip <span class='material-icons-outlined' style='margin-left: 1.5vw'>clear</span>")
         }
         else if (page.value === 3) {
             $("body").addClass("blue-theme");
@@ -69,19 +79,30 @@ $(document).ready(function(){
             $("#skip-button").fadeOut(500);
         
             $("#next-button")
+            .removeClass("skip__button")
             .wrap("<a href='./index.html'</a>")
             .html("Done <span class='material-icons-outlined' style='margin-left: 1.5vw'>done</span>")
         }
+    }
+
+    function saveLocation(position) {
+        //window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
+        var location = [{latitude: position.coords.latitude, longitude: position.coords.longitude}];
+
+        localStorage.setItem("location", JSON.stringify(location));
+
+        $("#next-button").removeClass("skip__button")
+        .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>")
 
         /*
-        $( window ).unload(function() { 
-            $("body").removeClass("blue-theme");
+        location = true; notification = true;
 
-            $("#done").fadeIn(500);
-                    
-            $("#skip-button").fadeOut(500);
-            $("#next-button").fadeOut(500);
-        });
+        if (location === true && notification === true) {
+            window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
+
+            $("#next-button").removeClass("skip__button")
+            .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>")
+        }
         */
     }
 });
