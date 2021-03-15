@@ -92,9 +92,7 @@
     </div>
     <div class="settings-box-container">
         <p class="settings-topic">Location</p>
-        <h1 class="settings-title">City</h1>
-        <p class="settings-selected">Glasgow, Scotland</p>
-        <hr>
+
         <div class="toggle-container">
             <div class="toggle-container-text">
                 <h1 class="settings-title">Local statistics</h1>
@@ -114,6 +112,21 @@
                 </div>
             </div>
         </div>
+        <div id="active-location">
+            <hr>
+            <script type = "text/javascript"> if (setting1 == false){document.getElementById("active-location").style.display="none"} </script>
+            <div class="toggle-container">
+                <div class="toggle-container-text">
+                <h1 class="settings-title">City</h1>
+                <p class="settings-selected">Glasgow, Scotland</p>
+                </div>
+            <div class="toggle-container-btn">
+                <div class="form-check form-switch">
+                    <button class = "change-button" id="refreshLocationbtn">Refresh<span class="material-icons" style="font-size: 0.65rem;margin-left: 1vw">refresh</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <div class="settings-box-container">
         <p class="settings-topic">Notifications</p>
@@ -137,6 +150,9 @@
             </div>
         </div>
     </div>
+
+    <!-- COMMENTED OUT FOR YOU SETTINGS TEMPORARILY
+
     <div class="settings-box-container">
         <p class="settings-topic">For you</p>
         <div class="toggle-container">
@@ -199,6 +215,7 @@
             </div>
         </div>
     </div>
+    -->
 </main>
 <!-- for simple javascript without MVC use myapp.js -->
 <script src="model.js"></script>

@@ -9,16 +9,16 @@ const initialise = evt => {
 
     //FUNCTIONS
     const displayLocalStats = function () {
-        view.updateUserDefinedLocationNewCases(model.formatNumber(localStorage.getItem("userDefinedLocationNewCases")));
-        view.updateUserDefinedLocationNewDeaths(model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths")));
+        view.updateUserDefinedLocationNewCases(model.formatNumber(localStorage.getItem("userDefinedLocationNewCases")), model.formatNumber(localStorage.getItem("userDefinedLocationNewCasesYesterday")));
+        view.updateUserDefinedLocationNewDeaths(model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths")), model.formatNumber(localStorage.getItem("userDefinedLocationNewDeathsYesterday")));
         view.updateUserDefinedLocationAlertLevel(model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel")));
         view.updateUserDefinedTotalCases(model.formatNumber(localStorage.getItem("userDefinedTotalCases")));
         view.updateUserDefinedTotalDeaths(model.formatNumber(localStorage.getItem("userDefinedTotalDeaths")));
     };
 
     const displayNationwideStats = function () {
-            view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases"))); //we only want the last day of data not the week
-            view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")));
+            view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases")), model.formatNumber(localStorage.getItem("nationalNewCasesYesterday"))); //we only want the last day of data not the week
+            view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")), model.formatNumber(localStorage.getItem("nationalNewDeathsYesterday")));
             view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
             view.updateNationalTotalCases(model.formatNumber(localStorage.getItem("nationalTotalCases")));
     };
@@ -28,10 +28,10 @@ const initialise = evt => {
         if(localStorage.getItem("globalNewCases") === null){
             setTimeout(function(){
                 window.location.reload(1);
-             }, 1000); 
+             }, 3000); 
         }
-        view.updateGlobalNewCases(model.formatNumber(localStorage.getItem("globalNewCases")));
-        view.updateGlobalNewDeaths(model.formatNumber(localStorage.getItem("globalNewDeaths")));
+        view.updateGlobalNewCases(model.formatNumber(localStorage.getItem("globalNewCases")), model.formatNumber(localStorage.getItem("globalNewCasesYesterday")));
+        view.updateGlobalNewDeaths(model.formatNumber(localStorage.getItem("globalNewDeaths")), model.formatNumber(localStorage.getItem("globalNewDeathsYesterday")));
         view.updateGlobalTotalDeaths(model.formatNumber(localStorage.getItem("globalTotalDeaths")));
         view.updateGlobalTotalCases(model.formatNumber(localStorage.getItem("globalTotalCases")));
     };
@@ -101,15 +101,19 @@ const initialise = evt => {
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
         const dailySymptomsCheckSettingBtn = document.getElementById("dailysymptomscheck-settings-btn");
+        /*
         const symptomsCheckSettingText = document.getElementById("symptomscheck-settings-text");
         const symptomsCheckSettingBtn = document.getElementById("symptomscheck-settings-btn");
         const basicInfoSettingText = document.getElementById("basicinfo-settings-text");
         const basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
         const precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
         const precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
+
+         */
         const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
+        const locationDiv = document.getElementById("active-location");
 
         nameChangeBtn.addEventListener("click", () => {
             model.nameChange();
@@ -119,6 +123,7 @@ const initialise = evt => {
             model.toggleSettingEnabledOrDisabled(localStatsSettingText, localStatsSettingBtn);
             model.saveSettingCheckbox("localBox",localStatsSettingBtn);
             model.saveSettingText("localText",localStatsSettingText);
+            model.toggleShowElement(locationDiv);
         });
 
         dailySymptomsCheckSettingBtn.addEventListener("click", () => {
@@ -126,7 +131,7 @@ const initialise = evt => {
             model.saveSettingCheckbox("dailySymptomsBox",dailySymptomsCheckSettingBtn);
             model.saveSettingText("dailySymptomsText",dailySymptomsCheckSettingText);
         });
-
+        /*
         symptomsCheckSettingBtn.addEventListener("click", () => {
            model.toggleSettingEnabledOrDisabled(symptomsCheckSettingText, symptomsCheckSettingBtn);
             model.saveSettingCheckbox("symptomsCheckBox",symptomsCheckSettingBtn);
@@ -144,6 +149,8 @@ const initialise = evt => {
             model.saveSettingCheckbox("precautionBox",precautionInfoSettingBtn);
             model.saveSettingText("precautionText",precautionInfoSettingText);
         });
+
+         */
 
         themeBtn.addEventListener("click",() =>{
             model.toggleTheme(themeText, themeBtn);

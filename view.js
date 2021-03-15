@@ -10,15 +10,31 @@ class View{
     }
 
     // when called by controller will update the number of new cases in glasgow
-    updateUserDefinedLocationNewCases(cases) {
+    updateUserDefinedLocationNewCases(cases, yesterday) {
         if(document.getElementById("user-defined-location-new-cases")!==null){ //checks that the page actually has the div so it doesnt try it on the wrong page
-            document.getElementById("user-defined-location-new-cases").innerText = cases;
+            if(cases > yesterday){
+                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span style='color:red'>↑</span>";
+            }
+            else if(cases === yesterday){
+                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span style='color:grey'>-</span>";
+            }
+            else{
+                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span style='color:green'>↓</span>";
+            }
           }
     }
 
-    updateUserDefinedLocationNewDeaths(cases) {
+    updateUserDefinedLocationNewDeaths(cases, yesterday) {
         if(document.getElementById("user-defined-location-new-deaths")!==null){
-            document.getElementById("user-defined-location-new-deaths").innerText = cases;
+            if(cases > yesterday){
+                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span style='color:red'>↑</span>";
+            }
+            else if(cases === yesterday){
+                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span style='color:grey'>-</span>";
+            }
+            else{
+                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span style='color:green'>↓</span>";
+            }
         }
     }
 
@@ -40,43 +56,74 @@ class View{
         }
     }
 
-    updateNationalNewCases(cases){
+    updateNationalNewCases(cases, yesterday){
         if(document.getElementById("national-new-cases")!==null){
-            document.getElementById("national-new-cases").innerText = cases;
+            if(cases > yesterday){
+                document.getElementById("national-new-cases").innerHTML = cases + " <span style='color:red'>↑</span>";
+            }
+            else if(cases === yesterday){
+                document.getElementById("national-new-cases").innerHTML = cases + " <span style='color:grey'>-</span>";
+            }
+            else{
+                document.getElementById("national-new-cases").innerHTML = cases + " <span style='color:green'>↓</span>";
+            }
         }
     }
 
-    updateNationalTotalCases(cases){
+    updateNationalTotalCases(cases, yesterday){
         if(document.getElementById("fourth-box-data")!==null){
-            document.getElementById("fourth-box-data").innerText = cases;
+            document.getElementById("fourth-box-data").innerHTML = cases;
         }
     }
 
-    updateNationalNewDeaths(cases){
+    updateNationalNewDeaths(cases, yesterday){
         if(document.getElementById("national-new-deaths")!==null){
-            document.getElementById("national-new-deaths").innerText = cases;
+            if(cases > yesterday){
+                document.getElementById("national-new-deaths").innerHTML = cases + " <span style='color:red'>↑</span>";
+            }
+            else if(cases === yesterday){
+                document.getElementById("national-new-deaths").innerHTML = cases + " <span style='color:grey'>-</span>";
+            }
+            else{
+                document.getElementById("national-new-deaths").innerHTML = cases + " <span style='color:green'>↓</span>";
+            }
         }
     }
 
-    updateFirstDoseVaccinated(total){
+    updateFirstDoseVaccinated(total, yesterday){
         if(document.getElementById("first-dose-vaccinated")!==null){
-            document.getElementById("first-dose-vaccinated").innerText = total;
+            document.getElementById("first-dose-vaccinated").innerHTML = total;
             document.getElementById("thirdbox").innerText = "First Dose Vaccinations";
         }
     }
 
     //for global data we are just modifying the existing boxes for national so ids are wrongly names but work
 
-    updateGlobalNewCases(cases){
+    updateGlobalNewCases(cases, yesterday){
         if(document.getElementById("national-new-cases") !== null){
-            document.getElementById("national-new-cases").innerText = cases;
+            if(cases > yesterday){
+                document.getElementById("national-new-cases").innerHTML = cases + " <span style='color:red'>↑</span>";
+            }
+            else if(cases === yesterday){
+                document.getElementById("national-new-cases").innerHTML = cases + " <span style='color:grey'>-</span>";
+            }
+            else{
+                document.getElementById("national-new-cases").innerHTML = cases + " <span style='color:green'>↓</span>";
+            }
         }
     }
 
-    updateGlobalNewDeaths(deaths){
+    updateGlobalNewDeaths(deaths, yesterday){
         if(document.getElementById("national-new-deaths") !== null){
-            document.getElementById("national-new-deaths").innerText = deaths;
-            //document.getElementById("thirdbox").innerText = "test";
+            if(deaths > yesterday){
+                document.getElementById("national-new-deaths").innerHTML = deaths + " <span style='color:red'>↑</span>";
+            }
+            else if(deaths === yesterday){
+                document.getElementById("national-new-deaths").innerHTML = deaths + " <span style='color:grey'>-</span>";
+            }
+            else{
+                document.getElementById("national-new-deaths").innerHTML = deaths + " <span style='color:green'>↓</span>";
+            }
         }
     }
 

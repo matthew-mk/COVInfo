@@ -102,6 +102,14 @@ class Model{
         localStorage.setItem("theme-btn",themeBox.checked);
     }
 
+    toggleShowElement(element){
+        if (element.style.display === "none" ){
+            element.style.display = "block"
+        } else {
+            element.style.display = "none";
+        }
+    }
+
     getDate(){
         const dateNumToName = {
             1: "Jan",
@@ -134,7 +142,12 @@ class Model{
     
     // adds commas to numbers & formats
     formatNumber(num){
-        return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        if(num === null){
+            return 0;
+        }
+        else{
+            return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        }
     }
 
     statUpdate(){
@@ -165,9 +178,11 @@ async function getNationalData(typeOfData) {
    let data = await response.json();
     //proceed only when the second promise is resolved
     if(typeOfData === "newCasesByPublishDate"){
+        localStorage.setItem("nationalNewCasesYesterday", data.data[1].newCasesByPublishDate);
         return data.data[0].newCasesByPublishDate;
     }
     else if(typeOfData === "newDeaths28DaysByPublishDate"){
+        localStorage.setItem("nationalNewDeathsYesterday", data.data[1].newDeaths28DaysByPublishDate);
         return data.data[0].newDeaths28DaysByPublishDate;
     }
     else if(typeOfData === "cumPeopleVaccinatedFirstDoseByPublishDate"){
@@ -185,9 +200,11 @@ async function setLocalData(location, typeOfData){
    let data = await response.json();
     //proceed only when the second promise is resolved
     if(typeOfData === "newCasesByPublishDate"){
+        localStorage.setItem("userDefinedLocationNewCasesYesterday", data.data[1].newCasesByPublishDate);
         return data.data[0].newCasesByPublishDate;
     }
     else if(typeOfData === "newDeaths28DaysByPublishDate"){
+        localStorage.setItem("userDefinedLocationNewDeathsYesterday", data.data[0].newDeaths28DaysByPublishDate);
         return data.data[0].newDeaths28DaysByPublishDate;
     }
     else if(typeOfData === "alertLevel"){
@@ -208,9 +225,11 @@ async function setGlobalData(typeOfData) {
    let data = await response.json();
     //proceed only when the second promise is resolved
     if(typeOfData === "newCases"){
+        localStorage.setItem("globalNewCasesYesterday", data.data[1].new_confirmed);
         return data.data[0].new_confirmed;
     }
     else if(typeOfData === "newDeaths"){
+        localStorage.setItem("globalNewDeathsYesterday", data.data[1].new_deaths);
         return data.data[0].new_deaths;
     }
     else if(typeOfData === "totalDeaths"){
@@ -243,8 +262,8 @@ function getUserLocation() {
         localStorage.setItem("userLocality", data.locality);
         localStorage.setItem("userCity", data.city);
         localStorage.setItem("userCountry", data.principalSubdivision);
-        return data
+        return data;
 
     };
     navigator.geolocation.getCurrentPosition(geoSuccess);
-};
+}

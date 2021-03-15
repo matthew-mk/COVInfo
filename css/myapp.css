@@ -21,8 +21,8 @@ body {
 }
 
 main {
-    margin: 0 0 3vh 0;
-    padding: 0 5vw;
+    margin: 0;
+    padding: 0 5vw 3vh 5vw;
 }
 
 hr {
@@ -1029,14 +1029,14 @@ body {
     -moz-border-radius: 1.1vh;
     border-radius: 1.1vh;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 
 .carrousel-circle__active {
     border: 1px solid #282828;
     background-color: #1086fc;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 
 .button {
@@ -1091,7 +1091,7 @@ body {
     left: 3vw;
 
     background-color: white;
-    padding: 0rem;
+    padding: 0;
     font-size: 0.85rem;
     transition: all 0.2s;
     color: #9c9c9c;
@@ -1107,19 +1107,19 @@ body {
     width: 100%;
     font-size: 0.95rem;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 
 .signup-input-error {
     border: 2px solid #E96B82;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 
 .signup-input:focus, .signup-input:valid {
     border: 2px solid #1086fc;
     
-    transition: all 0.2;
+    transition: all 0.2s;
 }
   
 .signup-input:focus~label, .signup-input:valid~label {
@@ -1128,11 +1128,11 @@ body {
     font-size: 0.7rem;
     padding: 0.05rem 0.25rem;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 
 .signup-input-error + label {
     color: #E96B82;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
