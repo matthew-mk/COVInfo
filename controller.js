@@ -28,7 +28,7 @@ const initialise = evt => {
         if(localStorage.getItem("globalNewCases") === null){
             setTimeout(function(){
                 window.location.reload(1);
-             }, 1000); 
+             }, 3000); 
         }
         view.updateGlobalNewCases(model.formatNumber(localStorage.getItem("globalNewCases")), model.formatNumber(localStorage.getItem("globalNewCasesYesterday")));
         view.updateGlobalNewDeaths(model.formatNumber(localStorage.getItem("globalNewDeaths")), model.formatNumber(localStorage.getItem("globalNewDeathsYesterday")));
