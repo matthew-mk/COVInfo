@@ -4,8 +4,6 @@ $(document).ready(function(){
     }
 
     var empty = false;
-    var location = false;
-    var notification = false;
 
     $("#welcome").hide();
     $("#profile").hide();
