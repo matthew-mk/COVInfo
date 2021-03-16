@@ -280,21 +280,16 @@ header > * {
     margin: 1.5vh 0 !important;
 }
 
-#profile-main a > .horizontal__container {
+#profile-main .vertical__container > .d-flex {
     -webkit-overflow-scrolling: touch;
 }
 
-#profile-main .vertical__container > .horizontal__container {
-    justify-content: stretch;
-}
-
-#profile-main .horizontal__container::-webkit-scrollbar {
+#profile-main .d-flex::-webkit-scrollbar {
     display: none;
 }
 
-#profile-main  .horizontal__container > .box {
-    width: 12rem;
-    flex: 0 0 12rem;
+#profile-main  .d-flex > .box {
+    min-width: 12rem;
 }
 
 #profile-main .box > .small-title__text {
@@ -312,12 +307,6 @@ header > * {
     min-height: 300px;
     min-width: 300px;
     margin-right: 5px;
-}
-
-/* PROFILE PAGE */
-
-.profile-section {
-
 }
 
 .username {
@@ -419,16 +408,6 @@ header > * {
 
 .accent__color {
     color: #1086fc;
-}
-
-/* Carousels */
-.profile-page-carousel {
-    margin: 1vh 2vw;
-    padding: 2vh 5%;
-    border-radius: 10px;
-    min-width: 175px;
-    min-height: 125px;
-    cursor: pointer;
 }
 
 .virus-carousel {
