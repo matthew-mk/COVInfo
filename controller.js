@@ -114,6 +114,7 @@ const initialise = evt => {
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
         const locationDiv = document.getElementById("active-location");
+        const refreshBtn = document.getElementById("refreshLocation");
 
         nameChangeBtn.addEventListener("click", () => {
             model.nameChange();
@@ -125,6 +126,10 @@ const initialise = evt => {
             model.saveSettingText("localText",localStatsSettingText);
             model.toggleShowElement(locationDiv);
         });
+
+        refreshBtn.addEventListener("click", () => {
+            model.refreshLocation();
+        })
 
         dailySymptomsCheckSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(dailySymptomsCheckSettingText, dailySymptomsCheckSettingBtn);

@@ -97,6 +97,16 @@ class Model{
         }
     }
 
+    refreshLocation(){
+        const promptBox = confirm("Would you like to refresh your location?");
+        if (promptBox == true) {
+            location.reload()
+            alert("Location refreshed");
+        } else{
+            alert("Cancelled Refresh");
+        }
+    }
+
     save() {
         let themeBox = document.getElementById("theme-btn");
         localStorage.setItem("theme-btn",themeBox.checked);
