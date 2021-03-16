@@ -280,8 +280,12 @@ header > * {
     margin: 1.5vh 0 !important;
 }
 
-#profile-main .vertical__container > .horizontal__container {
+#profile-main a > .horizontal__container {
     -webkit-overflow-scrolling: touch;
+}
+
+#profile-main .vertical__container > .horizontal__container {
+    justify-content: stretch;
 }
 
 #profile-main .horizontal__container::-webkit-scrollbar {
