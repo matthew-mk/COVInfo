@@ -55,32 +55,30 @@
             </div>
         </div>
 
-        <div id="display-nochecks">
+        <div id="display-nochecks" style="display: none">
             <div class="settings-box-container">
                 <p class="settings-topic">Previous checks</p>
                 <h1 class="settings-title">You have not done any symptoms checks yet</h1>
             </div>
         </div>
 
-        <div id="display-negative-details" class="settings-box-container negative">
+        <div id="display-negative-details" class="settings-box-container negative" style="display: none">
             <div class="negative-top-section">
                 <div class="negative-title-container">
-                    <h1 class="negative-title">2 symptoms</h1>
+                    <h1 id="num-of-symptoms" class="negative-title">2 symptoms</h1>
                 </div>
                 <div class="negative-arrow-container">
                     <i class="fas fa-arrow-right fa-lg negative-arrow" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="negative-desc">
-                <ul class="symptoms-ul">
-                    <li class="symptoms-li">A high temperature (fever)</li>
-                    <li class="symptoms-li">Struggling to breathe</li>
+                <ul id="symptoms-list" class="symptoms-ul">
                 </ul>
             </div>
             <p class="negative-last-checked">Last checked: DD/MM/YYYY</p>
         </div>
 
-        <div id="display-positive-details" class="settings-box-container positive">
+        <div id="display-positive-details" class="settings-box-container positive" style="display: none">
             <div class="positive-top-section">
                 <div class="positive-title-container">
                     <h1 class="positive-title">0 symptoms</h1>
@@ -92,22 +90,17 @@
             <div class="positive-desc">
                 <p>Feel free to use the symptoms checker whenever you're unwell.</p>
             </div>
-            <p class="positive-last-checked">Last checked: DD/MM/YYYY</p>
+            <p class="positive-last-checked">Last checked: </p>
         </div>
 
         <div id="display-checks-history">
             <div class="settings-box-container">
                 <p class="settings-topic">Previous checks</p>
-                <h1 class="settings-title negative-symptom">2 symptoms</h1>
-                <p class="last-checked-date">DD/MM/YYYY</p>
-                <hr>
-                <h1 class="settings-title positive-symptom">0 symptoms</h1>
-                <p class="last-checked-date">DD/MM/YYYY</p>
-                <hr>
-                <h1 class="settings-title positive-symptom">0 symptoms</h1>
-                <p class="last-checked-date">DD/MM/YYYY</p>
+                <div id="symptoms-history">
+
+                </div>
                 <div class="erase-data-container">
-                    <button class="erase-button">Erase data <i class="fa fa-trash" aria-hidden="true" style="margin-left: 4vw"></i></button>
+                    <button id="erase-data-btn" class="erase-button">Erase data <i class="fa fa-trash" aria-hidden="true" style="margin-left: 4vw"></i></button>
                 </div>
             </div>
         </div>
