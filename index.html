@@ -36,7 +36,7 @@
     <meta name="mobile-web-app-capable" content="yes">
   </head>
 <body>
-    <header class="home vertical__container">
+    <header class="home tab__header vertical__container">
         <div class="box search-bar__container horizontal__container">
             <div class=" horizontal__container">
                 <span class="material-icons-outlined form-control-left">search</span>
@@ -44,7 +44,8 @@
             </div>
             <a href="settings.html"><span class="material-icons-outlined">settings</span></a>
         </div>
-        <div id="profile-header">
+
+        <div id="profile-header" class="home__header">
             <div class="horizontal__container">
                 <div class="vertical__container">
                     <p id="profile-location" class="small__text"> Glasgow, Scotland </p>
@@ -62,9 +63,50 @@
                 <button id="symptoms-btn">No Symptoms</button>
             </div>
         </div>
+
+        <div id="stats-header" class="home__header">
+            <div id="local-stats">
+                <div class="horizontal__container">
+                    <div class="vertical__container">
+                        <p id="stats-location" class="small__text"> Glasgow, Scotland </p>
+                        <h1 id="stats-alert-level" class="signup__title"> Stage 5 </h1>
+                    </div>
+                    <a href="profiledetails.html"><span class="accent__color material-icons-outlined form-control-left">arrow_forward</span></a>
+                </div>
+                <div class="vertical__container">
+                    <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
+                        <div class="box vertical__container">
+                            <p class="small__text"> New cases </p>
+                            <h2 class="small-title__text"> 0000 </h2>
+                            <p class="small__text accent__color"> 00 Jan </p>
+                        </div>
+                        <div class="box vertical__container">
+                            <p class="small__text"> New deaths </p>
+                            <h2 class="small-title__text"> 0000 </h2>
+                            <p class="small__text accent__color"> 00 Jan </p>
+                        </div>
+                        <div class="box vertical__container">
+                            <p class="small__text"> Total cases </p>
+                            <h2 class="small-title__text"> 0000 </h2>
+                            <p class="small__text accent__color"> 00 Jan </p>
+                        </div>
+                        <div class="box vertical__container">
+                            <p class="small__text"> Total deaths </p>
+                            <h2 class="small-title__text"> 0000 </h2>
+                            <p class="small__text accent__color"> 00 Jan </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tabs-header" class="horizontal__container">
+            <button id="nationwide-tab" class="accent__color small__text horizontal__container selected-tab"><span class="material-icons-outlined">near_me</span> <p> Nationwide </p></button>
+            <button id="worldwide-tab" class="accent__color small__text horizontal__container"><span class="material-icons-outlined">public</span> <p> Worldwide </p></button>
+        </div>
     </header>
     <main>
-        <div id="profile-main">
+        <div id="profile-main" class="home__main">
             <a href="symptomsform.html">
                 <div class="box horizontal__container">
                     <p>Take a moment to check whether you have symptoms</p> 
@@ -72,7 +114,7 @@
                 </div>
             </a>
 
-            <div id="vertical__container">
+            <div class="vertical__container">
                 <h1 class="small-title__text"> Stay informed </h1>
                 <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
                     <div class="box vertical__container">
@@ -96,7 +138,7 @@
                 </div>
             </div>
 
-            <div id="vertical__container">
+            <div class="vertical__container">
                 <h1 class="small-title__text"> Prevention </h1>
                 <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
                     <div class="box vertical__container">
@@ -120,17 +162,108 @@
                 </div>
             </div>
         </div>
+
+        <div id="stats-main" class="home__main">
+            <div id="nationwide-stats" class="vertical__container">
+                <div class="box vertical__container">
+                    <p class="small__text"> New cases </p>
+                    <div>
+                        <h2 class="small-title__text"> 0000 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+                <div class="box vertical__container">
+                    <p class="small__text"> New deaths </p>
+                    <div>
+                        <h2 class="small-title__text"> 0000 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+                <div class="box vertical__container">
+                    <p class="small__text"> First-dose vaccinations </p>
+                    <div>
+                        <h2 class="small-title__text"> 0000 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+                <div class="box vertical__container">
+                    <p class="small__text"> Total cases </p>
+                    <div>
+                        <h2 class="small-title__text"> 0000 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="worldwide-stats" class="vertical__container">
+                <div class="box vertical__container">
+                    <p class="small__text"> New cases </p>
+                    <div>
+                        <h2 class="small-title__text"> 1111 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+                <div class="box vertical__container">
+                    <p class="small__text"> New deaths </p>
+                    <div>
+                        <h2 class="small-title__text"> 1111 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+                <div class="box vertical__container">
+                    <p class="small__text"> First-dose vaccinations </p>
+                    <div>
+                        <h2 class="small-title__text"> 1111 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+                <div class="box vertical__container">
+                    <p class="small__text"> Total cases </p>
+                    <div>
+                        <h2 class="small-title__text"> 1111 </h2>
+                        <p class="small__text accent__color"> 00 Jan </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="news-main" class="home__main">
+            <div id="nationwide-news">
+                <div class="box horizontal__container">
+                    <div class="vertical__container">
+                        <p class="small__text"> BBC News <strong>·</strong> 8 hours ago </p>
+                        <div>
+                            <h2 class="small-title__text"> UK Biobank scans aim to reveal health legacy </h2>
+                            <p class="small__text"> A major study by biomedical database UK Biobank will examine the long-term impacts of coronavirus. </p>
+                        </div>
+                    </div>
+                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/134EA/production/_117528097_whatsubject.jpg" />
+                </div>
+            </div>
+            <div id="worldwide-news">
+                <div class="box horizontal__container">
+                    <div class="vertical__container">
+                        <p class="small__text"> 5 BBC News <strong>·</strong> 8 hours ago </p>
+                        <div>
+                            <h2 class="small-title__text"> UK Biobank scans aim to reveal health legacy </h2>
+                            <p class="small__text"> A major study by biomedical database UK Biobank will examine the long-term impacts of coronavirus. </p>
+                        </div>
+                    </div>
+                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/134EA/production/_117528097_whatsubject.jpg" />
+                </div>
+            </div>
+        </div>
     </main>
     <div style="height: calc(3rem + 3vh)"></div>
     <nav class="horizontal__container">
-        <a href="index.html" class="vertical__container" >
+        <a id="profile-link" class="vertical__container" >
             <span class="accent__color material-icons-outlined">perm_identity</span>
             <p class="accent__color">For you</p>
         </a>
-        <a href="statistics.html" class="vertical__container" >
+        <a id="stats-link" class="vertical__container" >
             <span class="material-icons-outlined">analytics</span>
         </a>
-        <a href="news.html" class="vertical__container" >
+        <a id="news-link" class="vertical__container" >
             <span class="material-icons-outlined">feed</span>
         </a>
     </nav>
@@ -138,5 +271,6 @@
     <script src="model.js"></script>
     <script src="view.js"></script>
     <script src="controller.js"></script>
+    <script src="src/app.js"></script>
 </body>
 </html>

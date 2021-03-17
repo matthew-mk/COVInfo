@@ -55,13 +55,13 @@ a, a:hover, a:visited, a:active {
 
 
 .small__text {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 }
 
 .small-title__text {
     font-size: 3vh;
     font-weight: bolder;
-    margin-bottom: 2vh;;
+    margin-bottom: 2vh;
 }
 
 
@@ -103,11 +103,13 @@ nav {
 
     background-color: #F2F2F2;
 
-    justify-content: space-between !important;
+    justify-content: space-around !important;
+
+    transition: all 0.5;
 }
 
 nav > a {
-    margin: 0 10vw;
+    width: 33.333%;
 }
 
 nav span {
@@ -151,6 +153,8 @@ nav span {
 .box {
     position: relative;
 
+    width: 90vw;
+
     margin: 0 2vw;
     padding: 2vh 5vw;
 
@@ -165,14 +169,6 @@ nav span {
     overflow: hidden;
 }
 
-.box:first-child {
-    margin-left: 0;
-}
-
-.box:last-child {
-    margin-right: 0;
-}
-
 .box .box-image {
     height: 7.5rem;
     width: auto;
@@ -184,6 +180,23 @@ nav span {
     opacity: 0.35;
 }
 
+.box .small-title__text {
+    font-size: 2.5vh;
+}
+
+.box:first-child {
+    margin-left: 0;
+}
+
+.box:last-child {
+    margin-right: 0;
+}
+
+
+.hidden {
+    height: 0 !important;
+    transition: all 0.3;
+}
 
 /* HEADER */
 
@@ -198,6 +211,10 @@ header {
     width: 100%;
     background-color: white;
     z-index: 10;
+
+    max-height: 100vh;
+
+    transition: all 0.5;
 }
 
 header > * {
@@ -209,23 +226,30 @@ header > * {
     margin: 0;
 }
 
-#profile-header {
+.home__header {
     width: 90vw;
 }
 
-#profile-header > * {
-    margin: 2vh 0 2vh 0;
+.home__header > * {
+    margin: 2vh 0;
 }
 
-#profile-header .horizontal__container {
+.home__header .horizontal__container:first-child {
     justify-content: space-between;
     align-items: center;
 }
 
-#profile-header .vertical__container:nth-child(1) {
+.home__header .vertical__container:first-child {
     justify-content: flex-start;
     align-items: flex-start;
 }
+
+
+.tab__header {
+    padding-bottom: 0 !important;
+}
+
+
 
 #profile-header img {
     height: 20vh;
@@ -235,29 +259,119 @@ header > * {
 }
 
 
-
-#profile-main > * {
-    margin: 1.5vh 0 !important;
+#stats-header > *:last-child {
+    margin: 0;
 }
 
-#profile-main .vertical__container > .d-flex {
+#stats-header #local-stats > *:not(:last-child) {
+    margin: 2vh 0 2vh 0;
+}
+
+#stats-header .vertical__container {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#stats-header .d-flex > .box {
+    min-width: 6.75rem;
+}
+
+#stats-header .box .small-title__text {
+    margin-bottom: 0;
+}
+
+
+
+#tabs-header.horizontal__container {
+    justify-content: space-around;
+    margin-top: 2vh;
+    margin-bottom: 0;
+}
+
+#tabs-header button {
+    position: relative;
+    font-weight: bold;
+    border: 0;
+    background-color: transparent;
+}
+
+#tabs-header button > * {
+    margin: 0 0.75vw 10% 0.75vw;
+}
+
+.selected-tab::after {
+    content : "";
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+    height: 1px;
+    width: 50%;
+    border-bottom: 3px solid #1086fc;
+}
+
+
+
+
+.d-flex {
     -webkit-overflow-scrolling: touch;
 }
 
-#profile-main .d-flex::-webkit-scrollbar {
+.d-flex::-webkit-scrollbar {
     display: none;
 }
+
+
+.home__main > * {
+    margin: 1.5vh 0 !important;
+}
+
+.home__main .vertical__container {
+    align-items: flex-start;
+}
+
+
 
 #profile-main  .d-flex > .box {
     min-width: 12rem;
 }
 
-#profile-main .box > .small-title__text {
-    font-size: 2.5vh;
+
+
+#stats-main .vertical__container > *{
+    margin: 1vh 0 !important;
 }
 
-#profile-main .vertical__container {
-    align-items: flex-start;
+#stats-main .box .small-title__text, 
+#news-main .box .small-title__text {
+    margin: 0;
+}
+
+#stats-main .box .small-title__text {
+    font-size: 3.5vh;
+}
+
+#news-main .box > * {
+    margin: 0 2.5vw !important;
+}
+
+#news-main .vertical__container > * {
+    margin: 0.75vh 0 !important;
+}
+
+#news-main > .horizontal__container {
+    padding: 0.5rem !important;
+    justify-content: space-between;
+}
+
+#news-main .box .small-title__text {
+    margin-bottom: 0.5vh;
+    font-size: 2vh;
+}
+
+#news-main .box img {
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
 }
 
 
@@ -485,20 +599,6 @@ header > * {
 
 .global-details-btn-container i {
     color: dodgerblue;
-}
-
-.global-details-btn {
-    padding-bottom: 1vh;
-    color: dodgerblue;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.selected-btn {
-    border-bottom: 3px solid dodgerblue;
 }
 
 #nationwide-details {
