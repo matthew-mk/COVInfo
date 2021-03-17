@@ -320,7 +320,7 @@ const initialise = evt => {
 
         changeIMGbtn.addEventListener("click",() =>{
             model.changeProfileimg(this,changeIMGbtn,profileIMG);
-        })
+        });
         nameChangeBtn.addEventListener("click", () => {
             model.nameChange();
         });

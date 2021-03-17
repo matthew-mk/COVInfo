@@ -104,15 +104,15 @@ class Model{
                 reader = new FileReader();
                 reader.onload = function(e){
                     preview.setAttribute('src',e.target.result);
-                }
-                reader.readAsDataURL(input.files[0])
+                };
+                reader.readAsDataURL(input.files[0]);
             }
     }
 
     refreshLocation(){
         const promptBox = confirm("Would you like to refresh your location?");
-        if (promptBox == true) {
-            location.reload()
+        if (promptBox === true) {
+            location.reload();
             alert("Location refreshed");
         } else{
             alert("Cancelled Refresh");
@@ -126,7 +126,7 @@ class Model{
 
     toggleShowElement(element){
         if (element.style.display === "none" ){
-            element.style.display = "block"
+            element.style.display = "block";
         } else {
             element.style.display = "none";
         }
