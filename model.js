@@ -12,7 +12,7 @@ class Model{
     displayDates(dates) {
         if (localStorage.getItem("statsLastUpdated")) {
             for (let d of dates) {
-                d.textContent = this.getDate();
+                d.textContent = localStorage.getItem("statsLastUpdated");
             }
         }
     }
