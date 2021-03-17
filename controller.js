@@ -46,11 +46,12 @@ const initialise = evt => {
         //update stats daily and display the stats
         if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
             model.statUpdate();
+            localStorage.setItem("statsLastUpdated", model.getDate());
             displayAllStats();
         } else {
             displayAllStats();
         }
-        const statsDates = document.querySelectorAll(".box-date");
+        const statsDates = document.querySelectorAll(".stats-date");
         model.displayDates(statsDates);  //display the date when stats were updated under each statistic
     };
 
@@ -63,15 +64,17 @@ const initialise = evt => {
     if (document.URL.includes("index.html")) {
         const symptomsButton = document.getElementById("symptoms-btn");
 
-        let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
-        if (numberOfSymptoms > 0) {
-            if (numberOfSymptoms === 1) {
-                symptomsButton.textContent = `1 symptom`;
-            } else {
-                symptomsButton.textContent = `${numberOfSymptoms} symptoms`;
+        if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")) !== null) {
+            let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
+            if (numberOfSymptoms > 0) {
+                if (numberOfSymptoms === 1) {
+                    symptomsButton.textContent = `1 symptom`;
+                } else {
+                    symptomsButton.textContent = `${numberOfSymptoms} symptoms`;
+                }
+                symptomsButton.style.backgroundColor = "#f8c4c1";
+                symptomsButton.style.color = "#e96b64";
             }
-            symptomsButton.style.backgroundColor = "#f8c4c1";
-            symptomsButton.style.color = "#e96b64";
         }
     }
 
@@ -359,8 +362,8 @@ const initialise = evt => {
         });
 
         refreshBtn.addEventListener("click", () => {
-            model.refreshLocation()
-        })
+            model.refreshLocation();
+        });
 
 
         dailySymptomsCheckSettingBtn.addEventListener("click", () => {

@@ -575,13 +575,6 @@ header > * {
     line-height: 1.8rem;
 }
 
-.box-date {
-    margin: 0;
-    padding: 0;
-    color: dimgray;
-    font-size: 0.8rem;
-}
-
 .global-details-buttons {
     display: flex;
     flex-direction: row;
