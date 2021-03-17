@@ -65,7 +65,11 @@ const initialise = evt => {
 
         let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
         if (numberOfSymptoms > 0) {
-            symptomsButton.textContent = `${numberOfSymptoms} symptoms`;
+            if (numberOfSymptoms === 1) {
+                symptomsButton.textContent = `1 symptom`;
+            } else {
+                symptomsButton.textContent = `${numberOfSymptoms} symptoms`;
+            }
             symptomsButton.style.backgroundColor = "#f8c4c1";
             symptomsButton.style.color = "#e96b64";
         }
@@ -200,10 +204,16 @@ const initialise = evt => {
                 h1.classList.add("settings-title");
                 if (numSymptoms > 0) {
                     h1.classList.add("negative-symptom");
+                    if (numSymptoms === 1) {
+                        h1.textContent = `1 symptom`;
+                    } else {
+                        h1.textContent = `${numSymptoms} symptoms`;
+                    }
                 } else {
                     h1.classList.add("positive-symptom");
+                    h1.textContent = "0 symptoms";
                 }
-                h1.textContent = `${numSymptoms} symptoms`;
+
 
                 //Create p element
                 let p = document.createElement("p");
@@ -231,7 +241,12 @@ const initialise = evt => {
             displaySymptomsHistory();
             model.showDiv(positiveDetailsDiv);
         } else {
-            document.getElementById("num-of-symptoms").textContent = `${JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length} symptoms`;
+            let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
+            if (numberOfSymptoms === 1) {
+                document.getElementById("num-of-symptoms").textContent = "1 symptom";
+            } else {
+                document.getElementById("num-of-symptoms").textContent = `${numberOfSymptoms} symptoms`;
+            }
             //Add user's symptoms to symptoms-list div
             const symptomsList = document.getElementById("symptoms-list");
             for (let symptom of JSON.parse(localStorage.getItem("lastSymptomsCheckResults"))) {
