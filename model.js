@@ -1,5 +1,7 @@
 /*jshint globalstrict: true*/
 /*global localStorage: false, console: false, $: false, document:false, location:false*/
+/*jshint esversion: 8 */
+
 'use strict';
 
 class Model{
@@ -191,7 +193,6 @@ class Model{
     }
     
 } //END OF MODEL CLASS
-
 
 async function getNationalData(typeOfData) {
     //await the response of the fetch call
