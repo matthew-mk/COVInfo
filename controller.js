@@ -332,10 +332,10 @@ const initialise = evt => {
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
-
-        changeIMGbtn.addEventListener("click",() =>{
+        changeIMGbtn.addEventListener("click",() => {
             model.changeProfileimg(this,changeIMGbtn,profileIMG);
         });
+
         nameChangeBtn.addEventListener("click", () => {
             model.nameChange();
         });
@@ -347,9 +347,7 @@ const initialise = evt => {
             model.toggleShowElement(locationDiv);
         });
 
-        refreshBtn.addEventListener("click", () => {
-            model.refreshLocation();
-        });
+
 
         dailySymptomsCheckSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(dailySymptomsCheckSettingText, dailySymptomsCheckSettingBtn);
