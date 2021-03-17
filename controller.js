@@ -296,6 +296,8 @@ const initialise = evt => {
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
+        const changeIMGbtn = document.getElementById("changeIMGbtn");
+        const profileIMG = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
@@ -315,6 +317,10 @@ const initialise = evt => {
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
+
+        changeIMGbtn.addEventListener("click",() =>{
+            model.changeProfileimg(this,changeIMGbtn,profileIMG);
+        })
         nameChangeBtn.addEventListener("click", () => {
             model.nameChange();
         });

@@ -53,7 +53,7 @@
             </div>
             <div class="pic-settings-btns">
                 <button class="remove-button">Remove <i class="fa fa-trash" aria-hidden="true" style="margin-left: 1vw"></i></button>
-                <button class="change-button">Change <span class="material-icons-outlined" style="font-size: 0.65rem;margin-left: 1vw">create</span></button>
+                <input class="change-button" id ="changeIMGbtn" type="file"  onchange="document.getElementById('profile-pic').src = window.URL.createObjectURL(this.files[0])" required="required">Change <span class="material-icons-outlined" style="font-size: 0.65rem;margin-left: 1vw">create</span></input>
             </div>
         </div>
         <hr>
