@@ -358,6 +358,9 @@ const initialise = evt => {
             model.toggleShowElement(locationDiv);
         });
 
+        refreshBtn.addEventListener("click", () => {
+            model.refreshLocation()
+        })
 
 
         dailySymptomsCheckSettingBtn.addEventListener("click", () => {
