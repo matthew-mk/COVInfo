@@ -105,7 +105,7 @@ nav {
 
     justify-content: space-around !important;
 
-    transition: all 0.5;
+    transition: all 0.5s;
 }
 
 nav > a {
@@ -126,7 +126,6 @@ nav span {
     left: 0;
     margin-top: 2vh !important;
     padding: 0.75rem 0.75rem !important;
-    margin: 0;
     z-index: 10;
 
     color: #63676C;
@@ -195,7 +194,7 @@ nav span {
 
 .hidden {
     height: 0 !important;
-    transition: all 0.3;
+    transition: all 0.3s;
 }
 
 /* HEADER */
@@ -214,7 +213,7 @@ header {
 
     max-height: 100vh;
 
-    transition: all 0.5;
+    transition: all 0.5s;
 }
 
 header > * {

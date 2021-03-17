@@ -70,7 +70,7 @@ class View{
         }
     }
 
-    updateNationalTotalCases(cases, yesterday){
+    updateNationalTotalCases(cases){
         if(document.getElementById("fourth-box-data")!==null){
             document.getElementById("fourth-box-data").innerHTML = cases;
         }
@@ -93,50 +93,48 @@ class View{
     updateFirstDoseVaccinated(total, yesterday){
         if(document.getElementById("first-dose-vaccinated")!==null){
             document.getElementById("first-dose-vaccinated").innerHTML = total;
-            document.getElementById("thirdbox").innerText = "First Dose Vaccinations";
         }
     }
 
     //for global data we are just modifying the existing boxes for national so ids are wrongly names but work
 
     updateGlobalNewCases(cases, yesterday){
-        if(document.getElementById("national-new-cases") !== null){
+        if(document.getElementById("global-new-cases") !== null){
             if(cases > yesterday){
-                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
             }
             else if(cases === yesterday){
-                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons' style='color:grey'>remove</span>";
             }
             else{
-                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
             }
         }
     }
 
     updateGlobalNewDeaths(deaths, yesterday){
-        if(document.getElementById("national-new-deaths") !== null){
+        if(document.getElementById("global-new-deaths") !== null){
             if(deaths > yesterday){
-                document.getElementById("national-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
             }
             else if(deaths === yesterday){
-                document.getElementById("national-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:grey'>remove</span>";
             }
             else{
-                document.getElementById("national-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
             }
         }
     }
 
     updateGlobalTotalDeaths(deaths){
-        if(document.getElementById("first-dose-vaccinated") !== null){
-            document.getElementById("first-dose-vaccinated").innerText = deaths;
-            document.getElementById("thirdbox").innerText = "Total Deaths"; //rename from vaccination box to total deaths because we dont have reliable global vaccination data
+        if(document.getElementById("global-total-deaths") !== null){
+            document.getElementById("global-total-deaths").innerText = deaths;
         }
     }
 
     updateGlobalTotalCases(cases){
-        if(document.getElementById("fourth-box-data") !== null){
-            document.getElementById("fourth-box-data").innerText = cases;
+        if(document.getElementById("global-total-cases") !== null){
+            document.getElementById("global-total-cases").innerText = cases;
         }
     }
 

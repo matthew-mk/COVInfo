@@ -87,22 +87,24 @@ const initialise = evt => {
         const highTemperature = document.getElementById("highTemperature");
         const cough = document.getElementById("cough");
         const lossOfSmell = document.getElementById("lossOfSmell");
+        const shortnessOfBreath = document.getElementById("shortnessOfBreath");
         const noneOfTheAbove = document.getElementById("noneOfTheAbove");
-        const breathingYes = document.getElementById("breathingYes");
-        const breathingNo = document.getElementById("breathingNo");
+
 
         const clearFormInput = function () {
             highTemperature.checked = false;
             cough.checked = false;
             lossOfSmell.checked = false;
+            shortnessOfBreath.checked = false;
             noneOfTheAbove.checked = false;
-            breathingYes.checked = false;
-            breathingNo.checked = false;
             invalidInput.textContent = "";
         };
 
         const isFormInputValid = function () {
-            if ((highTemperature.checked || cough.checked || lossOfSmell.checked || noneOfTheAbove.checked) && (breathingYes.checked  || breathingNo.checked)) {
+            if ((!noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
+                return true;
+            }
+            if ((noneOfTheAbove.checked) && (!highTemperature.checked && !cough.checked && !lossOfSmell.checked && !shortnessOfBreath.checked)) {
                 return true;
             }
             return false;
@@ -119,10 +121,19 @@ const initialise = evt => {
             if (lossOfSmell.checked) {
                 symptoms.push("A loss of smell, or a loss of taste");
             }
-            if (breathingYes.checked) {
-                symptoms.push("Struggling to breath");
+            if (shortnessOfBreath.checked) {
+                symptoms.push("Shortness of breath");
             }
             return symptoms;
+        };
+
+        const displayInvalidInput = function () {
+            if (!noneOfTheAbove.checked && !highTemperature.checked && !cough.checked && !lossOfSmell.checked && !shortnessOfBreath.checked) {
+                invalidInput.textContent = "You must tick atleast one box before submitting.";
+            }
+            if ((noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
+                invalidInput.textContent = 'Invalid input. Cannot select both "none of the above" and one of the symptoms.';
+            }
         };
 
         const isFormInputPositive = function () {
@@ -175,7 +186,7 @@ const initialise = evt => {
                 }
             } else {
                 //Invalid input
-                invalidInput.textContent = "You must answer every question before submitting.";
+                displayInvalidInput();
             }
         });
 
