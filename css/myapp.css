@@ -733,9 +733,6 @@ header > * {
     color: dodgerblue;
 }
 
-
-/* SYMPTOMS RESULTS PAGE */
-
 .positive {
     background-color: #aed6fd;
 }
@@ -900,7 +897,7 @@ header > * {
 .erase-button {
     margin: 0;
     padding: 1vh 3vw;
-    font-size: 2.3vh;
+    font-size: 1rem;
     text-align: center;
     background-color: #f8c4c1;
     color: #e96b64;
