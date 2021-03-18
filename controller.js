@@ -100,6 +100,15 @@ const initialise = evt => {
             }
         }
     }
+    //Signup page
+    if (document.URL.includes("signup.html")) {
+        const imgSelectBox = document.getElementById("image-select");
+        const profileImage = document.getElementById("signup-profile-pic");
+
+        imgSelectBox.addEventListener("change", () => {
+            model.imageChange(imgSelectBox, profileImage);
+        });
+    }
 
     //Symptoms form page
     if (document.URL.includes("symptomsform.html")) {
@@ -398,7 +407,6 @@ const initialise = evt => {
         refreshBtn.addEventListener("click", () => {
             model.refreshLocation();
         });
-
 
         weeklySymptomsCheckSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(weeklySymptomsCheckSettingText, weeklySymptomsCheckSettingBtn);
