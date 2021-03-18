@@ -492,7 +492,7 @@ const initialise = evt => {
         };
 
         const searchFunctionality = function () {
-            let search = searchbarInput.value.toLowerCase();
+            let search = searchbarInput.value.trimEnd().toLowerCase();
             if (search !== "") {
                 let infoResultsArr = [];
                 let statsResultsArr = [];
@@ -532,9 +532,7 @@ const initialise = evt => {
                 //Only display containers for which corresponding arrays aren't empty
                 if (infoResultsArr.length === 0 && statsResultsArr.length === 0 && newsResultsArr.length === 0) {
                     //No results found
-                    model.hideDiv(infoResultsDiv);
-                    model.hideDiv(statsResultsDiv);
-                    model.hideDiv(newsResultsDiv);
+                    hideContainers();
                     model.showDiv(noResultsFound);
                 } else {
                     //Results found
