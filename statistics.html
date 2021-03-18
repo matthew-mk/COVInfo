@@ -17,13 +17,6 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
-    <script type = "text/javascript">
-        function loadStyle(){
-            if (localStorage.getItem("theme") !== null)
-                document.getElementById("themeSheet").href = localStorage.getItem("theme")
-        }
-        window.onload = loadStyle();
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- User scalable=0 prevents double tap but is accessibility problem -->
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon128.png">
@@ -52,7 +45,6 @@
     <div id="local-section">
         <p class="location">Glasgow, Scotland</p>
         <h1 class="stage">Stage <span id="local-alert-level">0</span></h1>
-
         <div id="local-details-boxes">
             <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
                 <div class="card card-block mx-2 statistics-page-carousel local-details-box">
@@ -78,16 +70,6 @@
             </div>
         </div>
     </div>
-    <script>
-        if(localStorage.getItem("localBox") === "false"){
-            let x = document.getElementById("local-section");
-            x.style.display = "none";
-        }
-        else{
-            let x = document.getElementById("local-section");
-            x.style.display = "block";
-        }
-    </script>
     <div class="global-details-buttons">
         <div class="global-details-btn-container">
             <button id="nationwideStatsBtn" class="global-details-btn selected-btn"><i class="fa fa-location-arrow"></i> Nationwide</button>

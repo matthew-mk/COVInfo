@@ -21,13 +21,6 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
-    <script type = "text/javascript">
-        function loadStyle(){
-            if (localStorage.getItem("theme") !== null)
-                document.getElementById("themeSheet").href = localStorage.getItem("theme")
-        }
-        window.onload = loadStyle();
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- User scalable=0 prevents double tap but is accessibility problem -->
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon128.png">
@@ -104,8 +97,7 @@
                     <h1 class="small-title__text"> Local statistics </h1>
                     <p id="localstats-setting-text" class="grey__color"></p>
                     <script type="text/javascript">
-                        if (localStorage.getItem("localText") === null){ localStorage.setItem("localText","Enabled")}
-                        document.getElementById("localstats-setting-text").innerHTML = localStorage.getItem("localText");</script>
+                       </script>
                 </div>
                 <div class="form-check form-switch">
                     <input id="localstats-setting-btn" class="form-check-input" type="checkbox" />
@@ -202,17 +194,13 @@
                 </div>
                 <div class="toggle-container-btn">
                     <div class="form-check form-switch">
-                        <input id="precautioninfo-settings-btn" class="form-check-input" type="checkbox" />
+                        <input id="weeklysymptomscheck-settings-btn" class="form-check-input" type="checkbox"  />
                         <script type="text/javascript">
-                            let setting5 = JSON.parse(localStorage.getItem("precautionBox"));
-                            if (setting5 === null){setting5 = true}
-                            document.getElementById("precautioninfo-settings-btn").checked = setting5;
                         </script>
                     </div>
                 </div>
             </div>
         </div>
-        -->
     </main>
 <!-- for simple javascript without MVC use myapp.js -->
 <script src="model.js"></script>

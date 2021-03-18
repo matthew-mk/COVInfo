@@ -75,6 +75,7 @@ const initialise = evt => {
 
     //INITIALISATION
     initStats();
+    view.loadTheme();
 
     //EVENT LISTENERS
     //Index page
@@ -83,6 +84,8 @@ const initialise = evt => {
 
         const profileImage = document.getElementById("profile-pic");
         model.getProfileOnly(profileImage);
+        view.loadName();
+        view.loadToggleLocalStats();
 
         if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")) !== null) {
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
@@ -96,6 +99,15 @@ const initialise = evt => {
                 symptomsButton.style.color = "#e96b64";
             }
         }
+    }
+    //Signup page
+    if (document.URL.includes("signup.html")) {
+        const imgSelectBox = document.getElementById("image-select");
+        const profileImage = document.getElementById("signup-profile-pic");
+
+        imgSelectBox.addEventListener("change", () => {
+            model.imageChange(imgSelectBox, profileImage);
+        });
     }
 
     //Symptoms form page
@@ -111,7 +123,6 @@ const initialise = evt => {
         const lossOfSmell = document.getElementById("lossOfSmell");
         const shortnessOfBreath = document.getElementById("shortnessOfBreath");
         const noneOfTheAbove = document.getElementById("noneOfTheAbove");
-
 
         const clearFormInput = function () {
             highTemperature.checked = false;
@@ -365,14 +376,17 @@ const initialise = evt => {
         const profileImage = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
-        const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
-        const dailySymptomsCheckSettingBtn = document.getElementById("dailysymptomscheck-settings-btn");
+        const weeklySymptomsCheckSettingText = document.getElementById("weeklysymptomscheck-settings-text");
+        const weeklySymptomsCheckSettingBtn = document.getElementById("weeklysymptomscheck-settings-btn");
         const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
+        view.loadThemeSettings();
+        view.loadLocalStatSettings();
+        view.loadWeeklyCheckSetting();
         model.getProfilePicture(imgSelectBox,profileImage);
 
         imgSelectBox.addEventListener("change", () => {
@@ -394,11 +408,10 @@ const initialise = evt => {
             model.refreshLocation();
         });
 
-
-        dailySymptomsCheckSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(dailySymptomsCheckSettingText, dailySymptomsCheckSettingBtn);
-            model.saveSettingCheckbox("dailySymptomsBox",dailySymptomsCheckSettingBtn);
-            model.saveSettingText("dailySymptomsText",dailySymptomsCheckSettingText);
+        weeklySymptomsCheckSettingBtn.addEventListener("click", () => {
+            model.toggleSettingEnabledOrDisabled(weeklySymptomsCheckSettingText, weeklySymptomsCheckSettingBtn);
+            model.saveSettingCheckbox("weeklySymptomsBox",weeklySymptomsCheckSettingBtn);
+            model.saveSettingText("weeklySymptomsText",weeklySymptomsCheckSettingText);
         });
 
         themeBtn.addEventListener("click",() =>{
@@ -492,7 +505,7 @@ const initialise = evt => {
         };
 
         const searchFunctionality = function () {
-            let search = searchbarInput.value.toLowerCase();
+            let search = searchbarInput.value.trimEnd().toLowerCase();
             if (search !== "") {
                 let infoResultsArr = [];
                 let statsResultsArr = [];
@@ -532,9 +545,7 @@ const initialise = evt => {
                 //Only display containers for which corresponding arrays aren't empty
                 if (infoResultsArr.length === 0 && statsResultsArr.length === 0 && newsResultsArr.length === 0) {
                     //No results found
-                    model.hideDiv(infoResultsDiv);
-                    model.hideDiv(statsResultsDiv);
-                    model.hideDiv(newsResultsDiv);
+                    hideContainers();
                     model.showDiv(noResultsFound);
                 } else {
                     //Results found
