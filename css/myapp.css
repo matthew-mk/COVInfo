@@ -132,28 +132,40 @@ nav span {
 
 /* SEARCH BAR */
 
-.search-bar__container{
+.search-bar__container {
     position: fixed !important;
-    top: 0; /* 2vh */
-    left: 2.5vw;
-    margin-top: 2vh !important;
-    padding: 0.65rem !important;
+    top: 0;
+    padding: 3vh 0 0 0 !important;
+    width: 100vw;
     margin: 0;
     z-index: 10;
-    justify-content: space-between;
+    background-color: white;
+}
+
+.search-bar__box{
+    padding: 1.25vh !important;
+    justify-content: space-between !important;
 
     color: #63676C;
 }
 
-.search-bar__container .horizontal__container {
-    justify-content: stretch !important;
+.search-bar__box .horizontal__container {
+    justify-content: space-between !important;
 }
 
-.search-bar__container .horizontal__container > span {
+.search-bar__box span {
+    font-size: 2.5vh;
+}
+
+.search-bar__box p {
+    font-size: 2vh;
+}
+
+.search-bar__box .horizontal__container > span {
     margin-right: 0.5rem;
 }
 
-.search-bar__container a {
+.search-bar__box a {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -209,11 +221,11 @@ nav span {
     font-size: 2.5vh;
 }
 
-.box:first-child:not(.search-bar__container) {
+.box:first-child:not(.search-bar__box) {
     margin-left: 0;
 }
 
-.box:last-child:not(.search-bar__container) {
+.box:last-child:not(.search-bar__box) {
     margin-right: 0;
 }
 
