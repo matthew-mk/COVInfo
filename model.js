@@ -99,8 +99,68 @@ class Model{
         }
     }
 
-    removeIMG(picturePreview){
-        picturePreview.src = "res/graphics/default-profile.png";
+    imageChange(selectOption, preview){
+        const selected = selectOption.value;
+
+        if (selected === "grey"){
+            preview.src = "res/graphics/default-profile.png";
+            localStorage.setItem("profileImg","grey");
+        } else if (selected === "blue"){
+            preview.src = "res/graphics/blue-profile.png";
+            localStorage.setItem("profileImg","blue");
+        }  else if (selected === "green"){
+            preview.src = "res/graphics/mind-profile.png";
+            localStorage.setItem("profileImg","green");
+        } else if (selected === "orange"){
+            preview.src = "res/graphics/orange-profile.png";
+            localStorage.setItem("profileImg","orange");
+        } else if (selected === "purple"){
+            preview.src = "res/graphics/purple-profile.png";
+            localStorage.setItem("profileImg","purple");
+        } else if (selected === "red"){
+            preview.src = "res/graphics/red-profile.png";
+            localStorage.setItem("profileImg","red");
+        }
+    }
+
+    getProfilePicture(selectOption,preview){
+        const savedIMG = localStorage.getItem("profileImg");
+        if (savedIMG === "grey"){
+            preview.src = "res/graphics/default-profile.png";
+            selectOption.value = "grey";
+        } else if (savedIMG === "blue"){
+            preview.src = "res/graphics/blue-profile.png";
+            selectOption.value = "blue";
+        }  else if (savedIMG === "green"){
+            preview.src = "res/graphics/mind-profile.png";
+            selectOption.value = "green";
+        } else if (savedIMG === "orange"){
+            preview.src = "res/graphics/orange-profile.png";
+            selectOption.value = "orange";
+        } else if (savedIMG === "purple"){
+            preview.src = "res/graphics/purple-profile.png";
+            selectOption.value = "purple";
+        } else if (savedIMG === "red"){
+            preview.src = "res/graphics/red-profile.png";
+            selectOption.value = "red";
+        }
+    }
+
+    getProfileIndex(preview){
+        const savedIMG = localStorage.getItem("profileImg");
+        if (savedIMG === "grey"){
+            preview.src = "res/graphics/default-profile.png";
+        } else if (savedIMG === "blue"){
+            preview.src = "res/graphics/blue-profile.png";
+        }  else if (savedIMG === "green"){
+            preview.src = "res/graphics/mind-profile.png";
+        } else if (savedIMG === "orange"){
+            preview.src = "res/graphics/orange-profile.png";
+        } else if (savedIMG === "purple"){
+            preview.src = "res/graphics/purple-profile.png";
+        } else if (savedIMG === "red"){
+            preview.src = "res/graphics/red-profile.png";
+        }
     }
 
     refreshLocation(){

@@ -82,6 +82,9 @@ const initialise = evt => {
     if (document.URL.includes("index.html")) {
         const symptomsButton = document.getElementById("symptoms-btn");
 
+        const profileImage = document.getElementById("profile-pic");
+        model.getProfileIndex(profileImage);
+
         if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")) !== null) {
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
             if (numberOfSymptoms > 0) {
@@ -343,8 +346,8 @@ const initialise = evt => {
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
-        const removeIMGbtn = document.getElementById("removeIMGbtn");
-        const profileIMG = document.getElementById("profile-pic");
+        const imgSelectBox = document.getElementById("image-select");
+        const profileImage = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
@@ -355,8 +358,10 @@ const initialise = evt => {
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
-        removeIMGbtn.addEventListener("click" , () => {
-            model.removeIMG(profileIMG);
+        model.getProfilePicture(imgSelectBox,profileImage);
+
+        imgSelectBox.addEventListener("change", () => {
+            model.imageChange(imgSelectBox,profileImage);
         });
 
         nameChangeBtn.addEventListener("click", () => {
