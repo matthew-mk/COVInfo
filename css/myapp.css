@@ -120,20 +120,19 @@ nav span {
 /* SEARCH BAR */
 
 .search-bar__container{
-    position: sticky !important;
-    display: flex;
+    position: fixed !important;
     top: 0; /* 2vh */
-    left: 0;
+    left: 2.5vw;
     margin-top: 2vh !important;
-    padding: 0.75rem 0.75rem !important;
+    padding: 0.65rem !important;
     margin: 0;
     z-index: 10;
+    justify-content: space-between;
 
     color: #63676C;
 }
 
 .search-bar__container .horizontal__container {
-    width: 80%;
     justify-content: stretch;
 }
 
@@ -142,7 +141,6 @@ nav span {
 }
 
 .search-bar__container a {
-    width: 20%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -161,7 +159,7 @@ nav span {
     cursor: pointer;
 
     border-radius: 10px;
-    border: 1px solid #9c9c9c;
+    border: 1px solid #CDCDCD;
     box-shadow: 0 1px 6px 0 darkgrey;
 
     background-color: white;
@@ -184,11 +182,11 @@ nav span {
     font-size: 2.5vh;
 }
 
-.box:first-child {
+.box:first-child:not(.search-bar__container) {
     margin-left: 0;
 }
 
-.box:last-child {
+.box:last-child:not(.search-bar__container) {
     margin-right: 0;
 }
 
@@ -207,7 +205,7 @@ header {
     margin-bottom: 2vh !important;
     padding-bottom: 2vh;
     box-shadow: 0 1px 6px 0 darkgrey;
-    /* border: 0.5px solid #9c9c9c; */
+    /* border: 0.5px solid #CDCDCD; */
     width: 100%;
     background-color: white;
     z-index: 10;
@@ -223,6 +221,7 @@ header > * {
 
 .home {
     position: unset;
+    padding-top: 7.5vh;
     margin: 0;
 }
 
@@ -313,6 +312,7 @@ header > * {
 
 
 .d-flex {
+    padding: 0.5rem;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -331,7 +331,11 @@ header > * {
 
 
 
-#profile-main  .d-flex > .box {
+#profile-main .horizontal__container:first-child {
+    justify-content: space-between;
+}
+
+#profile-main .d-flex > .box {
     min-width: 12rem;
 }
 
@@ -1124,7 +1128,7 @@ body {
 
     text-align: center;
 
-    border: 1px solid #9c9c9c;
+    border: 1px solid #CDCDCD;
     border-radius: 5px;
     box-shadow: 0 1px 6px 0 darkgrey;
 }
@@ -1138,9 +1142,11 @@ body {
 }
 
 .signup-middle__container img:not(#signup-profile-pic) {
-    height: 80%;
     width: auto;
-    object-fit: cover;
+    height: auto;
+    max-width: auto;
+    max-height: auto;
+
     padding: 2vh 2vw;
 }
 
@@ -1181,7 +1187,7 @@ body {
     height: 1.1vh;
     margin: 1.1vw;
 
-    border: 1px solid #9C9C9C;
+    border: 1px solid #CDCDCD;
     background-color: #B4D5F9;
 
     -webkit-border-radius: 1.1vh;
@@ -1207,7 +1213,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    border: 1px solid #9c9c9c;
+    border: 1px solid #CDCDCD;
     border-radius: 5px;
     box-shadow: 0 1px 6px 0 darkgrey;
 }
@@ -1253,7 +1259,7 @@ body {
     padding: 0;
     font-size: 0.85rem;
     transition: all 0.2s;
-    color: #9c9c9c;
+    color: #CDCDCD;
 
     pointer-events: none;
 }
@@ -1261,7 +1267,7 @@ body {
 .signup-input {
     height: 2.5rem;
     padding: 0 3vw;
-    border: 1.5px solid #9c9c9c;
+    border: 1.5px solid #CDCDCD;
     border-radius: 5px;
     width: 100%;
     font-size: 0.95rem;
