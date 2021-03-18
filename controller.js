@@ -1,10 +1,10 @@
 'use strict';
 /*global Model, View */ /* a jshint hint */
 
+
 const initialise = evt => {
-    let model, view;
-    model = new Model();
-    view = new View();
+    let model = new Model();
+    let view = new View();
 
     //FUNCTIONS
     const displayLocalStats = function () {
