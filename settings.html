@@ -52,9 +52,9 @@
                 <h1 class="settings-title">Profile image</h1>
             </div>
             <div class="pic-settings-btns">
-                <button class="remove-button">Remove <i class="fa fa-trash" aria-hidden="true" style="margin-left: 1vw"></i></button>
+                <button class="remove-button" id = "removeIMGbtn">Remove <i class="fa fa-trash" aria-hidden="true" style="margin-left: 1vw"></i></button>
                 <label class ="change-button" for ="changeIMGbtn">Change Picture<span class="material-icons" style="font-size: 0.65rem;margin-left: 1vw">create</span></label>
-                <input id ="changeIMGbtn" type="file"  onchange="document.getElementById('profile-pic').src = window.URL.createObjectURL(this.files[0])" required="required" style="display: none"></input>
+                <input id ="changeIMGbtn" type="file"  onchange="document.getElementById('profile-pic').src = window.URL.createObjectURL(this.files[0])" required="required" style="display: none">
             </div>
         </div>
         <hr>

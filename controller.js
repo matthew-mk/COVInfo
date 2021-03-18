@@ -325,29 +325,20 @@ const initialise = evt => {
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
-        const changeIMGbtn = document.getElementById("changeIMGbtn");
+        const removeIMGbtn = document.getElementById("removeIMGbtn");
         const profileIMG = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
         const dailySymptomsCheckSettingBtn = document.getElementById("dailysymptomscheck-settings-btn");
-        /*
-        const symptomsCheckSettingText = document.getElementById("symptomscheck-settings-text");
-        const symptomsCheckSettingBtn = document.getElementById("symptomscheck-settings-btn");
-        const basicInfoSettingText = document.getElementById("basicinfo-settings-text");
-        const basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
-        const precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
-        const precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
-
-         */
         const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
-        changeIMGbtn.addEventListener("click",() => {
-            model.changeProfileimg(this,changeIMGbtn,profileIMG);
+        removeIMGbtn.addEventListener("click" , () => {
+            model.removeIMG(profileIMG);
         });
 
         nameChangeBtn.addEventListener("click", () => {
@@ -371,26 +362,6 @@ const initialise = evt => {
             model.saveSettingCheckbox("dailySymptomsBox",dailySymptomsCheckSettingBtn);
             model.saveSettingText("dailySymptomsText",dailySymptomsCheckSettingText);
         });
-        /*
-        symptomsCheckSettingBtn.addEventListener("click", () => {
-           model.toggleSettingEnabledOrDisabled(symptomsCheckSettingText, symptomsCheckSettingBtn);
-            model.saveSettingCheckbox("symptomsCheckBox",symptomsCheckSettingBtn);
-            model.saveSettingText("symptomsCheckText",symptomsCheckSettingText);
-        });
-
-        basicInfoSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(basicInfoSettingText, basicInfoSettingBtn);
-            model.saveSettingCheckbox("basicBox",basicInfoSettingBtn);
-            model.saveSettingText("basicText",basicInfoSettingText);
-        });
-
-        precautionInfoSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(precautionInfoSettingText, precautionInfoSettingBtn);
-            model.saveSettingCheckbox("precautionBox",precautionInfoSettingBtn);
-            model.saveSettingText("precautionText",precautionInfoSettingText);
-        });
-
-         */
 
         themeBtn.addEventListener("click",() =>{
             model.toggleTheme(themeText, themeBtn);

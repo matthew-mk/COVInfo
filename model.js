@@ -99,16 +99,8 @@ class Model{
         }
     }
 
-    changeProfileimg(input,btn,preview){
-            let reader;
-
-            if (input.files && input.files[0]) {
-                reader = new FileReader();
-                reader.onload = function(e){
-                    preview.setAttribute('src',e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    removeIMG(picturePreview){
+        picturePreview.src = "res/graphics/default-profile.png";
     }
 
     refreshLocation(){
