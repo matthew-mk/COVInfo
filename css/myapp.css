@@ -86,7 +86,12 @@ a, a:hover, a:visited, a:active {
 
 
 
-
+.profile-picture__image {
+    height: 20vh;
+    width: auto;
+    border-radius: 5000px;
+    box-shadow: 0 8px 25px 0 darkgrey;
+}
 
 
 
@@ -124,12 +129,8 @@ nav span {
     top: 0; /* 2vh */
     left: 2.5vw;
     margin-top: 2vh !important;
-<<<<<<< HEAD
     padding: 0.65rem !important;
     margin: 0;
-=======
-    padding: 0.75rem 0.75rem !important;
->>>>>>> 03d37923d4c89accc17c81c4b9ffc70029fa02a6
     z-index: 10;
     justify-content: space-between;
 
@@ -194,6 +195,14 @@ nav span {
     margin-right: 0;
 }
 
+.accent__box {
+    background-color: #B4D5F9 !important;
+}
+
+.opposite__box {
+    background-color: #F6BDBA !important;
+}
+
 
 .hidden {
     height: 0 !important;
@@ -254,11 +263,24 @@ header > * {
 
 
 
-#profile-header img {
-    height: 20vh;
-    width: auto;
-    border-radius: 5000px;
-    box-shadow: 0 8px 25px 0 darkgrey;
+
+.sub-menu__header {
+    padding: 4.5vh 2vw 3vw 2vw;
+}
+
+.sub-menu__header .horizontal__container {
+    justify-content: flex-start;
+}
+
+.sub-menu__header .horizontal__container > * {
+    padding: 0;
+    margin: 0 2.5vw;
+}
+
+.sub-menu__header a {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 
@@ -335,7 +357,8 @@ header > * {
 
 
 
-#profile-main .horizontal__container:first-child {
+#profile-main .horizontal__container:first-child,
+#profile-details-main .horizontal__container:first-child {
     justify-content: space-between;
 }
 
@@ -380,6 +403,29 @@ header > * {
     height: 5rem;
     width: 5rem;
     object-fit: cover;
+}
+
+
+
+#profile-details-main > * {
+    margin: 1vh 0 !important;
+}
+
+#profile-details-main .box.vertical__container {
+    justify-content: flex-start;
+}
+
+#profile-details-main .box.vertical__container > * {
+    width: 100%;
+    margin: 1vh 0;
+}
+
+#profile-details-main .box .small-title__text {
+    margin: 0;
+}
+
+#profile-details-main #display-checks-history > .horizontal__container {
+    justify-content: flex-end;
 }
 
 
@@ -490,6 +536,14 @@ header > * {
 
 .accent__color {
     color: #1086fc;
+}
+
+.opposite__color {
+    color: #e96b64;
+}
+
+.grey__color {
+    color: #7B7B7B
 }
 
 .virus-carousel {
@@ -957,10 +1011,6 @@ header > * {
     padding: 0;
 }
 
-.symptoms-ul {
-    margin-bottom: 0;
-}
-
 .symptoms-li {
     font-size: 0.9rem;
 }
@@ -1147,11 +1197,8 @@ body {
     padding: 2vh 2vw;
 }
 
-.signup-middle__sub-container img {
-    height: 80%;
-    width: auto;
-    border-radius: 5000px;
-    box-shadow: 0 8px 25px 0 darkgrey;
+.signup-middle__sub-container .profile-picture__image {
+    height: 80% impo !important;
 }
 
 .signup-bottom__container {

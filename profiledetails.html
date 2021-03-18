@@ -15,6 +15,7 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
@@ -36,75 +37,41 @@
     <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
-<header>
-    <a href="index.html"><i class="header-arrow fas fa-arrow-left fa-lg small-arrow-hover" aria-hidden="true"></i></a>
-    <h1 class="header-title">Details</h1>
+<header class="sub-menu__header">
+    <div class="horizontal__container">
+        <a href="index.html"><span class="grey__color material-icons-outlined">arrow_back</span></a>
+        <h1 class="small-title__text"> Your Name </h1>
+    </div>
 </header>
-<main>
-    <div class="settings-page-container">
-        <div class="details-img-container">
-            <img id="profile-pic" src="res/graphics/default-profile.png" alt="Profile picture" width="128px" height="128px">
+<main id="profile-details-main" class="vertical__container">
+    <img id="profile-pic" class="profile-picture__image" src="res/graphics/default-profile.png" alt="Profile picture">
+
+    <a href="settings.html">
+        <div class="box horizontal__container">
+            <p>Edit your profile in settings</p> 
+            <span class="accent__color material-icons-outlined form-control-left">arrow_forward</span>
         </div>
+    </a>
 
-        <div class="check-symptoms-container">
-            <div class="check-symptoms-text">
-                <a href="settings.html"><p>Edit your profile in settings</p></a>
-            </div>
-            <div class="check-symptoms-arrow">
-                <a href="settings.html"><i class="fas fa-arrow-right fa-lg dodgerblue-arrow" aria-hidden="true"></i></a>
-            </div>
+    <div id="display-negative-details" class="box accent__box accent__color vertical__container">
+        <div class="horizontal__container">
+            <h1 id="num-of-symptoms" class="small-title__text"> 0 symptoms </h1>
+            <span class="material-icons-outlined form-control-left">arrow_forward</span>
         </div>
-
-        <div id="display-nochecks" style="display: none">
-            <div class="settings-box-container">
-                <p class="settings-topic">Previous checks</p>
-                <h1 class="settings-title">You have not done any symptoms checks yet</h1>
-            </div>
+        <div>
+            <ul id="symptoms-list"></ul>
+            <p id="no-symptoms-description"> Feel free to use the symptoms checker whenever you're unwell. </p>
         </div>
+        <p class="small__text"> Last checked: DD/MM/YYYY </p>
+    </div>
 
-        <div id="display-negative-details" class="settings-box-container negative" style="display: none">
-            <div class="negative-top-section">
-                <div class="negative-title-container">
-                    <h1 id="num-of-symptoms" class="negative-title">2 symptoms</h1>
-                </div>
-                <div class="negative-arrow-container">
-                    <i class="fas fa-arrow-right fa-lg negative-arrow" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="negative-desc">
-                <ul id="symptoms-list" class="symptoms-ul">
-                </ul>
-            </div>
-            <p class="negative-last-checked">Last checked: DD/MM/YYYY</p>
+    <div id="display-checks-history" class="box vertical__container">
+        <p class="small__text">Previous checks</p>
+        <p id="no-checks-description"> You have not done any symptoms checks yet </p>
+        <div id="symptoms-history"></div>
+        <div class="horizontal__container">
+            <button id="erase-data-btn" class="button skip__button">Erase data             <span class="material-icons-outlined form-control-left">delete</span></button>
         </div>
-
-        <div id="display-positive-details" class="settings-box-container positive" style="display: none">
-            <div class="positive-top-section">
-                <div class="positive-title-container">
-                    <h1 class="positive-title">0 symptoms</h1>
-                </div>
-                <div class="positive-arrow-container">
-                    <i class="fas fa-arrow-right fa-lg positive-arrow" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="positive-desc">
-                <p>Feel free to use the symptoms checker whenever you're unwell.</p>
-            </div>
-            <p class="positive-last-checked">Last checked: </p>
-        </div>
-
-        <div id="display-checks-history">
-            <div class="settings-box-container">
-                <p class="settings-topic">Previous checks</p>
-                <div id="symptoms-history">
-
-                </div>
-                <div class="erase-data-container">
-                    <button id="erase-data-btn" class="erase-button">Erase data <i class="fa fa-trash" aria-hidden="true" style="margin-left: 4vw"></i></button>
-                </div>
-            </div>
-        </div>
-
     </div>
 </main>
 <!-- for simple javascript without MVC use myapp.js -->

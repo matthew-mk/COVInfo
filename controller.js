@@ -215,23 +215,23 @@ const initialise = evt => {
 
                 //Create h1 element
                 let h1 = document.createElement("h1");
-                h1.classList.add("settings-title");
+                h1.classList.add("small-title__text");
                 if (numSymptoms > 0) {
-                    h1.classList.add("negative-symptom");
+                    h1.classList.add("opposite__color");
                     if (numSymptoms === 1) {
                         h1.textContent = `1 symptom`;
                     } else {
                         h1.textContent = `${numSymptoms} symptoms`;
                     }
                 } else {
-                    h1.classList.add("positive-symptom");
-                    h1.textContent = "0 symptoms";
+                    h1.classList.add("accent__color");
+                    h1.textContent = "No symptoms";
                 }
 
 
                 //Create p element
                 let p = document.createElement("p");
-                p.classList.add("last-checked-date");
+                p.classList.add("small__text", "opposite__color");
                 p.textContent = `${date}`;
 
                 //Add elements to div

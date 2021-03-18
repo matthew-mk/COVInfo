@@ -56,10 +56,10 @@
                         if (localStorage.getItem("userName") === null){ localStorage.setItem("userName","Your Name")}
                         document.getElementById("usernameElement").innerHTML = localStorage.getItem("userName");</script> -->
                 </div>
-                <a href="profiledetails.html"><span class="accent__color material-icons-outlined form-control-left">arrow_forward</span></a>
+                <a href="profiledetails.html"><span class="accent__color material-icons-outlined">arrow_forward</span></a>
             </div>
             <div class="vertical__container">
-                <img id="profile-pic" src="res/graphics/default-profile.png" alt="Profile picture">
+                <img id="profile-pic" class="profile-picture__image" src="res/graphics/default-profile.png" alt="Profile picture">
                 <button id="symptoms-btn">No Symptoms</button>
             </div>
         </div>
@@ -71,7 +71,7 @@
                         <p id="stats-location" class="small__text"> Glasgow, Scotland </p>
                         <h1 id="stats-alert-level" class="signup__title"> Stage <span id="local-alert-level">0</span> </h1>
                     </div>
-                    <a href="profiledetails.html"><span class="accent__color material-icons-outlined form-control-left">arrow_forward</span></a>
+                    <a href="profiledetails.html"><span class="accent__color material-icons-outlined">arrow_forward</span></a>
                 </div>
                 <div class="vertical__container">
                     <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
