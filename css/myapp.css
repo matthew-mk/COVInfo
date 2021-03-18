@@ -379,7 +379,7 @@ input[type=search] {
     padding-bottom: 1vh !important; 
     border-bottom: 1.5px solid #a7a7a7;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 
 input[type=search]:focus {
@@ -387,7 +387,7 @@ input[type=search]:focus {
      
     border-bottom: 1.5px solid #282828;
 
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 
 ::-webkit-search-cancel-button {
@@ -1142,6 +1142,15 @@ input[type=search]:focus {
     color: dodgerblue;
 }
 
+.details-history-title {
+    margin: 1vh 0 0 0;
+}
+
+.details-history-date {
+    margin: 0 0 1vh 0;
+    color: dimgrey;
+}
+
 
 /* SIGNUP PAGES */
 
@@ -1260,7 +1269,7 @@ body {
 }
 
 .signup-middle__sub-container .profile-picture__image {
-    height: 80% impo !important;
+    height: 80% !important;
 }
 
 .signup-bottom__container {
