@@ -1,5 +1,7 @@
 /*jshint globalstrict: true*/
 /*global localStorage: false, console: false, $: false, document:false, location:false*/
+/*jshint esversion: 8 */
+
 'use strict';
 
 class Model{
@@ -12,7 +14,7 @@ class Model{
     displayDates(dates) {
         if (localStorage.getItem("statsLastUpdated")) {
             for (let d of dates) {
-                d.textContent = this.getDate();
+                d.textContent = localStorage.getItem("statsLastUpdated");
             }
         }
     }
@@ -97,16 +99,8 @@ class Model{
         }
     }
 
-    changeProfileimg(input,btn,preview){
-            let reader;
-
-            if (input.files && input.files[0]) {
-                reader = new FileReader();
-                reader.onload = function(e){
-                    preview.setAttribute('src',e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    removeIMG(picturePreview){
+        picturePreview.src = "res/graphics/default-profile.png";
     }
 
     refreshLocation(){
@@ -191,7 +185,6 @@ class Model{
     }
     
 } //END OF MODEL CLASS
-
 
 async function getNationalData(typeOfData) {
     //await the response of the fetch call

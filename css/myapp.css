@@ -105,7 +105,7 @@ nav {
 
     justify-content: space-around !important;
 
-    transition: all 0.5;
+    transition: all 0.5s;
 }
 
 nav > a {
@@ -124,8 +124,12 @@ nav span {
     top: 0; /* 2vh */
     left: 2.5vw;
     margin-top: 2vh !important;
+<<<<<<< HEAD
     padding: 0.65rem !important;
     margin: 0;
+=======
+    padding: 0.75rem 0.75rem !important;
+>>>>>>> 03d37923d4c89accc17c81c4b9ffc70029fa02a6
     z-index: 10;
     justify-content: space-between;
 
@@ -193,7 +197,7 @@ nav span {
 
 .hidden {
     height: 0 !important;
-    transition: all 0.3;
+    transition: all 0.3s;
 }
 
 /* HEADER */
@@ -212,7 +216,7 @@ header {
 
     max-height: 100vh;
 
-    transition: all 0.5;
+    transition: all 0.5s;
 }
 
 header > * {
@@ -578,13 +582,6 @@ header > * {
     font-weight: bold;
     font-size: 1.8rem;
     line-height: 1.8rem;
-}
-
-.box-date {
-    margin: 0;
-    padding: 0;
-    color: dimgray;
-    font-size: 0.8rem;
 }
 
 .global-details-buttons {

@@ -52,8 +52,9 @@
                 <h1 class="settings-title">Profile image</h1>
             </div>
             <div class="pic-settings-btns">
-                <button class="remove-button">Remove <i class="fa fa-trash" aria-hidden="true" style="margin-left: 1vw"></i></button>
-                <input class="change-button" id ="changeIMGbtn" type="file"  onchange="document.getElementById('profile-pic').src = window.URL.createObjectURL(this.files[0])" required="required">Change <span class="material-icons-outlined" style="font-size: 0.65rem;margin-left: 1vw">create</span></input>
+                <button class="remove-button" id = "removeIMGbtn">Remove <i class="fa fa-trash" aria-hidden="true" style="margin-left: 1vw"></i></button>
+                <label class ="change-button" for ="changeIMGbtn">Change Picture<span class="material-icons" style="font-size: 0.65rem;margin-left: 1vw">create</span></label>
+                <input id ="changeIMGbtn" type="file"  onchange="document.getElementById('profile-pic').src = window.URL.createObjectURL(this.files[0])" required="required" style="display: none">
             </div>
         </div>
         <hr>
@@ -122,7 +123,7 @@
                 </div>
             <div class="toggle-container-btn">
                 <div class="form-check form-switch">
-                    <p class="material-icons" onclick="location.reload();" style="font-size:1.5rem; margin: 3.2vw; color:#1266f1" >refresh</p></button>
+                    <p id="refreshLocation" class="material-icons" style="font-size:1.5rem; margin: 3.2vw; color:#1266f1" >refresh</p></button>
                 </div>
             </div>
         </div>
@@ -132,7 +133,7 @@
         <p class="settings-topic">Notifications</p>
         <div class="toggle-container">
             <div class="toggle-container-text">
-                <h1 class="settings-title">Daily symptoms check</h1>
+                <h1 class="settings-title">Weekly symptoms check</h1>
                 <p id="dailysymptomscheck-settings-text" class="settings-selected"></p>
                 <script type="text/javascript">
                     if (localStorage.getItem("dailySymptomsText") === null){ localStorage.setItem("dailySymptomsText","Enabled")}

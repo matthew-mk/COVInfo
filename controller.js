@@ -46,11 +46,12 @@ const initialise = evt => {
         //update stats daily and display the stats
         if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
             model.statUpdate();
+            localStorage.setItem("statsLastUpdated", model.getDate());
             displayAllStats();
         } else {
             displayAllStats();
         }
-        const statsDates = document.querySelectorAll(".box-date");
+        const statsDates = document.querySelectorAll(".stats-date");
         model.displayDates(statsDates);  //display the date when stats were updated under each statistic
     };
 
@@ -63,15 +64,17 @@ const initialise = evt => {
     if (document.URL.includes("index.html")) {
         const symptomsButton = document.getElementById("symptoms-btn");
 
-        let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
-        if (numberOfSymptoms > 0) {
-            if (numberOfSymptoms === 1) {
-                symptomsButton.textContent = `1 symptom`;
-            } else {
-                symptomsButton.textContent = `${numberOfSymptoms} symptoms`;
+        if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")) !== null) {
+            let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
+            if (numberOfSymptoms > 0) {
+                if (numberOfSymptoms === 1) {
+                    symptomsButton.textContent = `1 symptom`;
+                } else {
+                    symptomsButton.textContent = `${numberOfSymptoms} symptoms`;
+                }
+                symptomsButton.style.backgroundColor = "#f8c4c1";
+                symptomsButton.style.color = "#e96b64";
             }
-            symptomsButton.style.backgroundColor = "#f8c4c1";
-            symptomsButton.style.color = "#e96b64";
         }
     }
 
@@ -87,22 +90,24 @@ const initialise = evt => {
         const highTemperature = document.getElementById("highTemperature");
         const cough = document.getElementById("cough");
         const lossOfSmell = document.getElementById("lossOfSmell");
+        const shortnessOfBreath = document.getElementById("shortnessOfBreath");
         const noneOfTheAbove = document.getElementById("noneOfTheAbove");
-        const breathingYes = document.getElementById("breathingYes");
-        const breathingNo = document.getElementById("breathingNo");
+
 
         const clearFormInput = function () {
             highTemperature.checked = false;
             cough.checked = false;
             lossOfSmell.checked = false;
+            shortnessOfBreath.checked = false;
             noneOfTheAbove.checked = false;
-            breathingYes.checked = false;
-            breathingNo.checked = false;
             invalidInput.textContent = "";
         };
 
         const isFormInputValid = function () {
-            if ((highTemperature.checked || cough.checked || lossOfSmell.checked || noneOfTheAbove.checked) && (breathingYes.checked  || breathingNo.checked)) {
+            if ((!noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
+                return true;
+            }
+            if ((noneOfTheAbove.checked) && (!highTemperature.checked && !cough.checked && !lossOfSmell.checked && !shortnessOfBreath.checked)) {
                 return true;
             }
             return false;
@@ -119,10 +124,19 @@ const initialise = evt => {
             if (lossOfSmell.checked) {
                 symptoms.push("A loss of smell, or a loss of taste");
             }
-            if (breathingYes.checked) {
-                symptoms.push("Struggling to breath");
+            if (shortnessOfBreath.checked) {
+                symptoms.push("Shortness of breath");
             }
             return symptoms;
+        };
+
+        const displayInvalidInput = function () {
+            if (!noneOfTheAbove.checked && !highTemperature.checked && !cough.checked && !lossOfSmell.checked && !shortnessOfBreath.checked) {
+                invalidInput.textContent = "You must tick atleast one box before submitting.";
+            }
+            if ((noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
+                invalidInput.textContent = 'Invalid input. Cannot select both "none of the above" and one of the symptoms.';
+            }
         };
 
         const isFormInputPositive = function () {
@@ -175,7 +189,7 @@ const initialise = evt => {
                 }
             } else {
                 //Invalid input
-                invalidInput.textContent = "You must answer every question before submitting.";
+                displayInvalidInput();
             }
         });
 
@@ -311,31 +325,22 @@ const initialise = evt => {
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
-        const changeIMGbtn = document.getElementById("changeIMGbtn");
+        const removeIMGbtn = document.getElementById("removeIMGbtn");
         const profileIMG = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
         const dailySymptomsCheckSettingBtn = document.getElementById("dailysymptomscheck-settings-btn");
-        /*
-        const symptomsCheckSettingText = document.getElementById("symptomscheck-settings-text");
-        const symptomsCheckSettingBtn = document.getElementById("symptomscheck-settings-btn");
-        const basicInfoSettingText = document.getElementById("basicinfo-settings-text");
-        const basicInfoSettingBtn = document.getElementById("basicinfo-settings-btn");
-        const precautionInfoSettingText = document.getElementById("precautioninfo-settings-text");
-        const precautionInfoSettingBtn = document.getElementById("precautioninfo-settings-btn");
-
-         */
         const nameChangeBtn = document.getElementById("change-name-button");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
-
-        changeIMGbtn.addEventListener("click",() =>{
-            model.changeProfileimg(this,changeIMGbtn,profileIMG);
+        removeIMGbtn.addEventListener("click" , () => {
+            model.removeIMG(profileIMG);
         });
+
         nameChangeBtn.addEventListener("click", () => {
             model.nameChange();
         });
@@ -351,31 +356,12 @@ const initialise = evt => {
             model.refreshLocation();
         });
 
+
         dailySymptomsCheckSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(dailySymptomsCheckSettingText, dailySymptomsCheckSettingBtn);
             model.saveSettingCheckbox("dailySymptomsBox",dailySymptomsCheckSettingBtn);
             model.saveSettingText("dailySymptomsText",dailySymptomsCheckSettingText);
         });
-        /*
-        symptomsCheckSettingBtn.addEventListener("click", () => {
-           model.toggleSettingEnabledOrDisabled(symptomsCheckSettingText, symptomsCheckSettingBtn);
-            model.saveSettingCheckbox("symptomsCheckBox",symptomsCheckSettingBtn);
-            model.saveSettingText("symptomsCheckText",symptomsCheckSettingText);
-        });
-
-        basicInfoSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(basicInfoSettingText, basicInfoSettingBtn);
-            model.saveSettingCheckbox("basicBox",basicInfoSettingBtn);
-            model.saveSettingText("basicText",basicInfoSettingText);
-        });
-
-        precautionInfoSettingBtn.addEventListener("click", () => {
-            model.toggleSettingEnabledOrDisabled(precautionInfoSettingText, precautionInfoSettingBtn);
-            model.saveSettingCheckbox("precautionBox",precautionInfoSettingBtn);
-            model.saveSettingText("precautionText",precautionInfoSettingText);
-        });
-
-         */
 
         themeBtn.addEventListener("click",() =>{
             model.toggleTheme(themeText, themeBtn);
