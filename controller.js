@@ -85,8 +85,8 @@ const initialise = evt => {
         const positiveResultsDiv = document.getElementById("display-positive-results");
         const negativeResultsDiv = document.getElementById("display-negative-results");
         const invalidInput = document.getElementById("invalid-input");
-        const submitButton = document.querySelector(".submit-button");
-        const clearButton = document.querySelector(".clear-button");
+        const submitButton = document.querySelector("#submit-button");
+        const clearButton = document.querySelector("#clear-button");
         const highTemperature = document.getElementById("highTemperature");
         const cough = document.getElementById("cough");
         const lossOfSmell = document.getElementById("lossOfSmell");
