@@ -470,14 +470,16 @@ input[type=search]:focus {
 
 
 #search-main > *,
-#symptoms-form-main > * {
+#symptoms-form-main > *,
+#settings-main > * {
     margin: 2.5vh 0 !important;
 }
 
 #profile-details-main #display-checks-history > .horizontal__container,
 #symptoms-form-main #form-action-buttons.horizontal__container,
 #symptoms-form-main #symptoms-results .horizontal__container,
-#search-main #search-action-buttons.horizontal__container {
+#search-main #search-action-buttons.horizontal__container,
+#settings-main .box:first-child .horizontal__container {
     justify-content: flex-end;
 }
 
@@ -489,6 +491,67 @@ input[type=search]:focus {
 #search-main .box .small-title__text {
     font-size: 2.15vh;
 }
+
+
+#settings-main .box > .horizontal__container {
+    width: 100%;
+    justify-content: space-between;
+}
+
+#settings-main .box > .horizontal__container > .vertical__container {
+    justify-content: flex-start;
+}
+
+#settings-main .profile-picture__image {
+    height: 13vh;
+    margin-bottom: 1.5vh;
+}
+
+#settings-main select {
+    width: 100%;
+
+    border: none;
+    background: transparent;
+
+    font-size: 1.75vh;
+    text-indent: -3px;
+    overflow: visible !important;
+    color: #7B7B7B;
+
+    position: relative;
+}
+
+#settings-main select::after {
+    color: #1086fc;
+}
+
+#settings-main .signup-input__container {
+    width: 100%;
+    height: 2.5rem;
+    margin: unset;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+
+
+
+.form-switch .form-check-input {
+    /* width: 2rem; */
+    margin-top: unset;
+    margin-right: unset;
+}
+
+.form-check-input[type=checkbox]:checked, 
+.form-check-input[type=checkbox]:checked:focus,
+.form-check-input:checked {
+    background-color: #aed6fd;
+}
+
+.form-switch .form-check-input:checked[type=checkbox]::after {
+    background-color: #1086fc;
+}
+
+
 
 
 /* HOME PAGE */
@@ -848,18 +911,13 @@ input[type=search]:focus {
     box-shadow: 0 1px 6px 0 darkgrey;
 }
 
-.change-button {
-    display: inline;
-    margin: 0;
-    padding: 1vh 3vw;
-    font-size: 0.65rem;
-    text-align: center;
-    background-color: #aed6fd;
-    color: dodgerblue;
-    border: 0;
-    border-radius: 8px;
-    box-shadow: 0 1px 6px 0 darkgrey;
-}
+
+
+
+
+
+
+
 
 .pic-settings-container {
     margin: 0 0 2vh 0;
@@ -1369,7 +1427,6 @@ body {
 }
 
 .signup-input__container {
-    height: 4.5vh;
     text-align: left !important;
     margin: 1rem;
 }
