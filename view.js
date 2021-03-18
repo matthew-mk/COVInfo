@@ -137,5 +137,75 @@ class View{
             document.getElementById("global-total-cases").innerText = cases;
         }
     }
+    //INDEX
+
+    loadName(){
+        if (localStorage.getItem("userName") === null){
+            localStorage.setItem("userName","Your Name");
+        }
+        document.getElementById("profile-name").innerHTML = localStorage.getItem("userName");
+    }
+
+    loadToggleLocalStats(){
+        if(localStorage.getItem("localBox") === "false"){
+            document.getElementById("profile-location").style.visibility = "hidden";
+        }
+
+        let x = document.getElementById("local-stats");
+        if(localStorage.getItem("localBox") === "false"){
+            x.style.display = "none";
+        }
+        else{
+            x.style.display = "block";
+        }
+    }
+
+
+
+    //SETTINGS
+    loadThemeSettings(){
+        let checked = JSON.parse(localStorage.getItem("theme-btn"));
+        document.getElementById("theme-btn").checked = checked;
+
+        if (localStorage.getItem("theme-text") === null){
+            localStorage.setItem("theme-text","Light");
+        }
+        document.getElementById("theme-Text").innerHTML = localStorage.getItem("theme-text");
+    }
+
+    loadLocalStatSettings(){
+        let setting1 = JSON.parse(localStorage.getItem("localBox"));
+        if (setting1 === null){
+            setting1 = true;
+        }
+        document.getElementById("localstats-setting-btn").checked = setting1;
+        if (setting1 === false){
+            document.getElementById("active-location").style.display="none";
+        }
+        if (localStorage.getItem("localText") === null){
+            localStorage.setItem("localText","Enabled");
+        }
+        document.getElementById("localstats-setting-text").innerHTML = localStorage.getItem("localText");
+    }
+
+    loadWeeklyCheckSetting(){
+        let setting2 = JSON.parse(localStorage.getItem("weeklySymptomsBox"));
+        if (setting2 === null){
+            setting2 = true;
+        }
+        document.getElementById("weeklysymptomscheck-settings-btn").checked = setting2;
+        if (localStorage.getItem("weeklySymptomsText") === null){
+            localStorage.setItem("weeklySymptomsText","Enabled");
+        }
+        document.getElementById("weeklysymptomscheck-settings-text").innerHTML = localStorage.getItem("weeklySymptomsText") ;
+    }
+
+    //Load Theme
+
+    loadTheme(){
+        if (localStorage.getItem("theme") !== null) {
+            document.getElementById("themeSheet").href = localStorage.getItem("theme");
+        }
+    }
 
 }
