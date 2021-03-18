@@ -137,16 +137,26 @@ nav span {
     top: 0; /* 2vh */
     left: 2.5vw;
     margin-top: 2vh !important;
-    padding: 0.65rem !important;
+    padding: 1.25vh !important;
     margin: 0;
     z-index: 10;
-    justify-content: space-between;
+    justify-content: space-between !important;
+
+    background-clip: border-box;
 
     color: #63676C;
 }
 
 .search-bar__container .horizontal__container {
-    justify-content: stretch !important;
+    justify-content: space-between !important;
+}
+
+.search-bar__container span {
+    font-size: 2.5vh;
+}
+
+.search-bar__container p {
+    font-size: 2vh;
 }
 
 .search-bar__container .horizontal__container > span {
