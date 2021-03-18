@@ -146,7 +146,7 @@ class Model{
         }
     }
 
-    getProfileIndex(preview){
+    getProfileOnly(preview){
         const savedIMG = localStorage.getItem("profileImg");
         if (savedIMG === "grey"){
             preview.src = "res/graphics/default-profile.png";

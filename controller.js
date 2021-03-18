@@ -82,7 +82,7 @@ const initialise = evt => {
         const symptomsButton = document.getElementById("symptoms-btn");
 
         const profileImage = document.getElementById("profile-pic");
-        model.getProfileIndex(profileImage);
+        model.getProfileOnly(profileImage);
 
         if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")) !== null) {
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
@@ -230,6 +230,9 @@ const initialise = evt => {
         const symptomsDetailsDiv = document.getElementById("display-symptoms-details");
         const symptomsHistoryDiv = document.getElementById("symptoms-history");
         const eraseDataBtn = document.getElementById("erase-data-btn");
+
+        const profileImage = document.getElementById("profile-pic");
+        model.getProfileOnly(profileImage);
 
         const displayPositiveDetails = function () {
             document.getElementById("details-last-checked").classList.add("positive-last-checked");
