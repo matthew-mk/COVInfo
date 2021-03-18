@@ -405,6 +405,195 @@ const initialise = evt => {
             model.toggleTheme(themeText, themeBtn);
         });
     }
+
+    //Search Page
+    if (document.URL.includes("search.html")) {
+        const recentSearchesContainer = document.getElementById("recent-searches");
+        const infoResultsDiv = document.getElementById("information-results");
+        const statsResultsDiv = document.getElementById("stats-results");
+        const newsResultsDiv = document.getElementById("news-results");
+        const noResultsFound = document.getElementById("no-results-found");
+        const searchbarInput = document.getElementById("searchbar-input");
+        const searchButton = document.getElementById("submit-button");
+        const clearSearchesButton = document.getElementById("clear-button");
+        const searchData = [
+            {title: "What is novel coronavirus?", subtitle: "4 minute read", parent: "information", tags: ""},
+            {title: "Does the vaccine work?", subtitle: "4 minute read", parent: "information", tags: ""},
+            {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalCases"))} total cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("nationalTotalCases"))} total cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalTotalCases"))} total cases`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths"))} new deaths`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("nationalNewDeaths"))} new deaths`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalDeaths"))} total deaths`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: "UK Biobank scans aim to reveal health legacy ", subtitle: "BBC News", parent: "news", tags: ""},
+        ];
+
+        //Functions
+        const getRecentSearches = function () {
+            if (localStorage.getItem("recentSearches") === null) {
+                localStorage.setItem("recentSearches", JSON.stringify([]));
+                return [];
+            } else {
+                return JSON.parse(localStorage.getItem("recentSearches"));
+            }
+        };
+
+        const addSearchToRecentSearches = function (search) {
+            if (search !== "") {
+                let recentSearches = getRecentSearches();
+                recentSearches.unshift(search);
+                if (recentSearches.length > 5) {
+                    recentSearches.pop();
+                }
+                localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+            }
+        };
+
+        const displayRecentSearches = function () {
+            recentSearchesContainer.innerHTML = `<p class="small__text"> Recent searches </p>`;
+            let recentSearches = getRecentSearches();
+            for (let i = 0; i < recentSearches.length; i++) {
+                let a = document.createElement("a");
+                let p = document.createElement("p");
+                a.append(p);
+                p.append(recentSearches[i]);
+                recentSearchesContainer.append(a);
+                if (i !== recentSearches.length - 1) {
+                    let hr = document.createElement("hr");
+                    recentSearchesContainer.append(hr);
+                }
+            }
+        };
+
+        const addResultsToParentContainer = function (resultsArray, container) {
+            for (let i = 0; i < resultsArray.length; i++) {
+                let newResult = `<a><div>
+                                    <h1 class="small-title__text"> ${resultsArray[i].title} </h1>
+                                    <p class="grey__color"> ${resultsArray[i].subtitle} </p>
+                                </div></a>`;
+                container.innerHTML += newResult;
+                if (i !== resultsArray.length - 1) {
+                    let hr = document.createElement("hr");
+                    container.append(hr);
+                }
+            }
+        };
+
+        const hideContainers = function () {
+            model.hideDiv(infoResultsDiv);
+            model.hideDiv(statsResultsDiv);
+            model.hideDiv(newsResultsDiv);
+        };
+
+        const searchFunctionality = function () {
+            let search = searchbarInput.value.toLowerCase();
+            if (search !== "") {
+                let infoResultsArr = [];
+                let statsResultsArr = [];
+                let newsResultsArr = [];
+
+                //Reset the contents of each container
+                infoResultsDiv.innerHTML = `<p class="small__text"> Information </p>`;
+                statsResultsDiv.innerHTML = `<p class="small__text"> Statistics </p>`;
+                newsResultsDiv.innerHTML = `<p class="small__text"> News </p>`;
+
+                //Add objects to corresponding arrays
+                for (let i = 0; i < searchData.length; i++) {
+                    let searchResultTitle = searchData[i].title.toLowerCase();
+                    let searchResultSubtitle = searchData[i].subtitle.toLowerCase();
+                    let searchResultParent = searchData[i].parent;
+                    let searchResultTags = searchData[i].tags;
+
+                    if (searchResultTitle.includes(search) || searchResultSubtitle.includes(search) || searchResultParent.includes(search) || searchResultTags.includes(search)) {
+                        //Append result to its parent div
+                        if (searchResultParent === "information") {
+                            infoResultsArr.push(searchData[i]);
+                        }
+                        if (searchResultParent === "statistics") {
+                            statsResultsArr.push(searchData[i]);
+                        }
+                        if (searchResultParent === "news") {
+                            newsResultsArr.push(searchData[i]);
+                        }
+                    }
+                }
+
+                //Add results to their parent containers
+                addResultsToParentContainer(infoResultsArr, infoResultsDiv);
+                addResultsToParentContainer(statsResultsArr, statsResultsDiv);
+                addResultsToParentContainer(newsResultsArr, newsResultsDiv);
+
+                //Only display containers for which corresponding arrays aren't empty
+                if (infoResultsArr.length === 0 && statsResultsArr.length === 0 && newsResultsArr.length === 0) {
+                    //No results found
+                    model.hideDiv(infoResultsDiv);
+                    model.hideDiv(statsResultsDiv);
+                    model.hideDiv(newsResultsDiv);
+                    model.showDiv(noResultsFound);
+                } else {
+                    //Results found
+                    model.hideDiv(noResultsFound);
+                    if (infoResultsArr.length === 0) {
+                        model.hideDiv(infoResultsDiv);
+                    } else {
+                        model.showDiv(infoResultsDiv);
+                    }
+
+                    if (statsResultsArr.length === 0) {
+                        model.hideDiv(statsResultsDiv);
+                    } else {
+                        model.showDiv(statsResultsDiv);
+                    }
+
+                    if (newsResultsArr.length === 0) {
+                        model.hideDiv(newsResultsDiv);
+                    } else {
+                        model.showDiv(newsResultsDiv);
+                    }
+                }
+
+                //Add the search to the recent searches and display it in recent searches
+                addSearchToRecentSearches(search);
+                displayRecentSearches();
+
+            } else {
+                //User tried to search without typing anything
+                defaultDisplay();
+            }
+        };
+
+        const clearRecentSearches = function () {
+            localStorage.setItem("recentSearches", JSON.stringify([]));
+            recentSearchesContainer.innerHTML = `<p class="small__text"> Recent searches </p>`;
+            model.hideDiv(noResultsFound);
+            searchbarInput.value = "";
+        };
+
+        const defaultDisplay = function () {
+            searchbarInput.focus();
+            displayRecentSearches();
+        };
+
+        //Init
+        defaultDisplay();
+
+        //Event listeners
+        searchButton.addEventListener("click", () => {
+            searchFunctionality();
+        });
+
+        clearSearchesButton.addEventListener("click", () => {
+            clearRecentSearches();
+            defaultDisplay();
+            hideContainers();
+        });
+    }
 };
 
 window.addEventListener("load", initialise);
