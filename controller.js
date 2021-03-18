@@ -98,12 +98,11 @@ const initialise = evt => {
     //Symptoms form page
     if (document.URL.includes("symptomsform.html")) {
         const symptomsFormDiv = document.getElementById("symptoms-form-container");
-        const symptomsResultsDiv = document.getElementById("symptoms-results-container");
-        const positiveResultsDiv = document.getElementById("display-positive-results");
-        const negativeResultsDiv = document.getElementById("display-negative-results");
-        const invalidInput = document.getElementById("invalid-input");
-        const submitButton = document.querySelector("#submit-button");
-        const clearButton = document.querySelector("#clear-button");
+        const symptomsResultsContainer = document.getElementById("symptoms-results-container");
+        const symptomsDetailsDiv = document.getElementById("symptoms-details");
+        const symptomsResultsDiv = document.getElementById("symptoms-results");
+        const submitButton = document.getElementById("submit-button");
+        const clearButton = document.getElementById("clear-button");
         const highTemperature = document.getElementById("highTemperature");
         const cough = document.getElementById("cough");
         const lossOfSmell = document.getElementById("lossOfSmell");
@@ -117,7 +116,6 @@ const initialise = evt => {
             lossOfSmell.checked = false;
             shortnessOfBreath.checked = false;
             noneOfTheAbove.checked = false;
-            invalidInput.textContent = "";
         };
 
         const isFormInputValid = function () {
@@ -147,20 +145,34 @@ const initialise = evt => {
             return symptoms;
         };
 
-        const displayInvalidInput = function () {
-            if (!noneOfTheAbove.checked && !highTemperature.checked && !cough.checked && !lossOfSmell.checked && !shortnessOfBreath.checked) {
-                invalidInput.textContent = "You must tick atleast one box before submitting.";
-            }
-            if ((noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
-                invalidInput.textContent = 'Invalid input. Cannot select both "none of the above" and one of the symptoms.';
-            }
+        const isFormInputPositive = function () {
+            return getSymptoms().length <= 0;
         };
 
-        const isFormInputPositive = function () {
-            if (getSymptoms().length > 0) {
-                return false;
-            }
-            return true;
+        const displayPositiveResults = function () {
+            symptomsDetailsDiv.classList.remove("opposite__color", "opposite__box");
+            symptomsDetailsDiv.classList.add("accent__color", "accent__box");
+            document.getElementById("symptoms-results-title").innerHTML = `Your answers <span class="accent__color"> do not </span> suggest you have the coronavirus infection.`;
+            document.getElementById("symptoms-details-title").innerText = "Consider calling NHS 111";
+            document.getElementById("symptoms-details-description").innerHTML = `                
+                <p> If you are unwell, consider calling 111 and tell them that: </p>
+                <ul>
+                    <li> You have done this self help guide.</li>
+                    <li> Your answers do not suggest that you might be at risk of having coronavirus, but you still feel unwell.</li>
+                </ul>`;
+        };
+
+        const displayNegativeResults = function () {
+            symptomsDetailsDiv.classList.remove("accent__color", "accent__box");
+            symptomsDetailsDiv.classList.add("opposite__color", "opposite__box");
+            document.getElementById("symptoms-results-title").innerHTML = `Your answers suggest you <span style="color: red"> may be at risk</span> of having the coronavirus infection.`;
+            document.getElementById("symptoms-details-title").innerText = "Call NHS 111";
+            document.getElementById("symptoms-details-description").innerHTML = `                
+                <p> Please phone 111 now and tell them: </p>
+                <ul>
+                    <li> You have done this self help guide.</li>
+                    <li> Your answers suggest that you might be at risk of having coronavirus, because you have 1 or more of the coronavirus symptoms.</li>
+                </ul>`;
         };
 
         submitButton.addEventListener("click", () => {
@@ -194,19 +206,14 @@ const initialise = evt => {
 
                 //Display results
                 if (isFormInputPositive()) {
-                    //Display positive results
-                    model.hideDiv(symptomsFormDiv);
-                    model.showDiv(symptomsResultsDiv);
-                    model.showDiv(positiveResultsDiv);
+                    displayPositiveResults();
                 } else {
-                    //Display negative results
-                    model.hideDiv(symptomsFormDiv);
-                    model.showDiv(symptomsResultsDiv);
-                    model.showDiv(negativeResultsDiv);
+                    displayNegativeResults();
                 }
+
             } else {
                 //Invalid input
-                displayInvalidInput();
+                console.log("Invalid input");
             }
         });
 
@@ -217,12 +224,22 @@ const initialise = evt => {
 
     //Details Page
     if (document.URL.includes("profiledetails.html")) {
-        const noChecksDiv = document.getElementById("display-nochecks");
-        const positiveDetailsDiv = document.getElementById("display-positive-details");
-        const negativeDetailsDiv = document.getElementById("display-negative-details");
-        const previousChecksDiv = document.getElementById("display-checks-history");
+        const symptomsDetailsDiv = document.getElementById("display-symptoms-details");
         const symptomsHistoryDiv = document.getElementById("symptoms-history");
         const eraseDataBtn = document.getElementById("erase-data-btn");
+
+        const displayPositiveDetails = function () {
+            document.getElementById("details-last-checked").classList.add("positive-last-checked");
+            document.querySelector(".positive-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+
+        };
+
+        const displayNegativeDetails = function () {
+            symptomsDetailsDiv.classList.remove("accent__box", "accent__color");
+            symptomsDetailsDiv.classList.add("opposite__box", "opposite__color");
+            document.getElementById("details-last-checked").classList.add("negative-last-checked");
+            document.querySelector(".negative-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+        };
 
         const displaySymptomsHistory = function () {
             let symptomsCheckHistory = JSON.parse(localStorage.getItem("symptomsCheckHistory"));
@@ -232,7 +249,7 @@ const initialise = evt => {
 
                 //Create h1 element
                 let h1 = document.createElement("h1");
-                h1.classList.add("small-title__text");
+                h1.classList.add("small-title__text", "details-history-title");
                 if (numSymptoms > 0) {
                     h1.classList.add("opposite__color");
                     if (numSymptoms === 1) {
@@ -245,10 +262,9 @@ const initialise = evt => {
                     h1.textContent = "No symptoms";
                 }
 
-
                 //Create p element
                 let p = document.createElement("p");
-                p.classList.add("small__text", "opposite__color");
+                p.classList.add("small__text", "details-history-date");
                 p.textContent = `${date}`;
 
                 //Add elements to div
@@ -265,12 +281,11 @@ const initialise = evt => {
 
         //Display appropriate content
         if (localStorage.getItem("lastSymptomsCheckDate") === null) {
-            model.hideDiv(previousChecksDiv);
-            model.showDiv(noChecksDiv);
+            model.hideDiv(symptomsDetailsDiv);
+            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
         } else if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length === 0) {
-            document.querySelector(".positive-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+            displayPositiveDetails();
             displaySymptomsHistory();
-            model.showDiv(positiveDetailsDiv);
         } else {
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
             if (numberOfSymptoms === 1) {
@@ -287,9 +302,8 @@ const initialise = evt => {
                 symptomsList.append(listElement);
             }
             //Add symptoms check date to div
-            document.querySelector(".negative-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+            displayNegativeDetails();
             displaySymptomsHistory();
-            model.showDiv(negativeDetailsDiv);
         }
 
         //Event Listeners
@@ -297,10 +311,9 @@ const initialise = evt => {
             localStorage.removeItem("lastSymptomsCheckDate");
             localStorage.removeItem("lastSymptomsCheckResults");
             localStorage.removeItem("symptomsCheckHistory");
-            model.hideDiv(positiveDetailsDiv);
-            model.hideDiv(negativeDetailsDiv);
-            model.hideDiv(previousChecksDiv);
-            model.showDiv(noChecksDiv);
+            model.hideDiv(symptomsDetailsDiv);
+            symptomsHistoryDiv.innerHTML = "";
+            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
         });
     }
 
