@@ -47,7 +47,7 @@
         <div class="box vertical__container">
             <p class="small__text"> Symptoms </p>
             <h1 class="small-title__text"> Select which of the following symptoms you have. </h1>
-            
+
             <div class="horizontal__container">
                 <p class="grey__color"> A high temperature (fever) </p>
                 <input type="checkbox" id="highTemperature" />
@@ -80,19 +80,19 @@
 
         <div id="symptoms-results" class="box vertical__container">
             <p class="small__text"> Results </p>
-            <h1 class="small-title__text"> Your answers <span class="accent__color"> do not </span> suggest you have the coronavirus infection. </h1>
+            <h1 id="symptoms-results-title" class="small-title__text"> Your answers <span class="accent__color"> do not </span> suggest you have the coronavirus infection. </h1>
 
             <div class="horizontal__container">
                 <button class="button small__button next__button" onClick="window.open('https://www.nhs.uk/conditions/coronavirus-covid-19/','_blank')">Help <span class="material-icons-outlined">arrow_forward</span></button>
             </div>
         </div>
 
-        <div id="symtoms-details" class="box accent__box accent__color vertical__container">
+        <div id="symptoms-details" class="box accent__box accent__color vertical__container">
             <div class="horizontal__container">
-                <h1 class="small-title__text"> Consider calling NHS 111 </h1>
+                <h1 id="symptoms-details-title" class="small-title__text"> Consider calling NHS 111 </h1>
                 <span class="material-icons-outlined form-control-left">arrow_forward</span>
             </div>
-            <div>
+            <div id="symptoms-details-description">
                 <p> If you are unwell, consider calling 111 and tell them that: </p>
                 <ul>
                     <li> You have done this self help guide.</li>

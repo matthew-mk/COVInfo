@@ -53,10 +53,20 @@
                 <div class="pic-settings-text">
                     <h1 class="settings-title">Profile image</h1>
                 </div>
-                <div class="pic-settings-btns">
-                    <button class="remove-button" id = "removeIMGbtn">Remove <i class="fa fa-trash" aria-hidden="true" style="margin-left: 1vw"></i></button>
-                    <label class ="change-button" for ="changeIMGbtn">Change Picture<span class="material-icons" style="font-size: 0.65rem;margin-left: 1vw">create</span></label>
-                    <input id ="changeIMGbtn" type="file"  onchange="document.getElementById('profile-pic').src = window.URL.createObjectURL(this.files[0])" required="required" style="display: none">
+                <div class="dropdown">
+                    <select id="image-select" class="change-button"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                            style = "font-size:1rem; width: 40%; margin-top: 1vw;">
+                        <option value ="grey">Grey</option>
+                        <option value ="green">Green</option>
+                        <option value ="blue">Blue</option>
+                        <option value ="orange">Orange</option>
+                        <option value ="purple">Purple</option>
+                        <option value ="red">Red</option>
+                    </select>
                 </div>
             </div>
             <hr>

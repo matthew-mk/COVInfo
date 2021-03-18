@@ -39,18 +39,12 @@
     <header id="search-header" class="sub-menu__header">
         <div class="horizontal__container">
             <a href="index.html"><span class="grey__color material-icons-outlined">arrow_back</span></a>
-            <input type="search" placeholder="Type here...">
+            <input id="searchbar-input" type="search" placeholder="Type here..." value="">
         </div>
     </header>
     <main id="search-main">
         <div id="recent-searches" class="box vertical__container">
             <p class="small__text"> Recent searches </p>
-            
-            <a><p> Search query 1 </p></a>
-            <hr>
-            <a><p> Search query 2 </p></a>
-            <hr>
-            <a><p> Search query 3 </p></a>
         </div>
 
         <div id="search-action-buttons" class="horizontal__container">
@@ -58,46 +52,18 @@
             <button id="submit-button" class="button next__button">Search <span class="material-icons-outlined">search</span></button> <!-- Hides the keyboard. -->
         </div>
 
-        <div id="information-results" class="box vertical__container">
+        <p id="no-results-found" style="display: none">No results found.</p>
+
+        <div id="information-results" style="display: none" class="box vertical__container">
             <p class="small__text"> Information </p> <!-- Search results link directly to external articles -->
-            
-            <a><div>
-                <h1 class="small-title__text"> What is novel coronavirus? </h1>
-                <p class="grey__color"> 4 minute read </p>
-            </div></a>
-            <hr>
-            <a><div>
-                <h1 class="small-title__text"> Does the vaccine work? </h1>
-                <p class="grey__color"> 6 minute read </p>
-            </div></a>
         </div>
 
-        <div id="stats-results" class="box vertical__container">
+        <div id="stats-results" style="display: none" class="box vertical__container">
             <p class="small__text"> Statistics </p> <!-- Search results link to stats page. -->
-            
-            <a><div>
-                <h1 class="small-title__text"> 000 new cases </h1>
-                <p class="grey__color"> Nationwide </p>
-            </div></a>
-            <hr>
-            <a><div>
-                <h1 class="small-title__text"> 000 vaccinations </h1>
-                <p class="grey__color"> Worldwide </p>
-            </div></a>
-            <hr>
-            <a><div>
-                <h1 class="small-title__text"> 000 new deaths </h1>
-                <p class="grey__color"> Worldwide </p>
-            </div></a>
         </div>
 
-        <div id="news-results" class="box vertical__container">
+        <div id="news-results" style="display: none" class="box vertical__container">
             <p class="small__text"> News </p> <!-- Search results link directly to external articles. -->
-            
-            <a><div>
-                <h1 class="small-title__text"> UK Biobank scans aim to reveal health legacy </h1>
-                <p class="grey__color"> BBC News </p>
-            </div></a>
         </div>
     </main>
 <!-- for simple javascript without MVC use myapp.js -->

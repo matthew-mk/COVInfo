@@ -1,11 +1,10 @@
 'use strict';
 /*global Model, View */ /* a jshint hint */
 
-let model, view;
 
 const initialise = evt => {
-    model = new Model();
-    view = new View();
+    let model = new Model();
+    let view = new View();
 
     //FUNCTIONS
     const displayLocalStats = function () {
@@ -82,6 +81,9 @@ const initialise = evt => {
     if (document.URL.includes("index.html")) {
         const symptomsButton = document.getElementById("symptoms-btn");
 
+        const profileImage = document.getElementById("profile-pic");
+        model.getProfileOnly(profileImage);
+
         if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")) !== null) {
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
             if (numberOfSymptoms > 0) {
@@ -99,12 +101,11 @@ const initialise = evt => {
     //Symptoms form page
     if (document.URL.includes("symptomsform.html")) {
         const symptomsFormDiv = document.getElementById("symptoms-form-container");
-        const symptomsResultsDiv = document.getElementById("symptoms-results-container");
-        const positiveResultsDiv = document.getElementById("display-positive-results");
-        const negativeResultsDiv = document.getElementById("display-negative-results");
-        const invalidInput = document.getElementById("invalid-input");
-        const submitButton = document.querySelector("#submit-button");
-        const clearButton = document.querySelector("#clear-button");
+        const symptomsResultsContainer = document.getElementById("symptoms-results-container");
+        const symptomsDetailsDiv = document.getElementById("symptoms-details");
+        const symptomsResultsDiv = document.getElementById("symptoms-results");
+        const submitButton = document.getElementById("submit-button");
+        const clearButton = document.getElementById("clear-button");
         const highTemperature = document.getElementById("highTemperature");
         const cough = document.getElementById("cough");
         const lossOfSmell = document.getElementById("lossOfSmell");
@@ -118,7 +119,6 @@ const initialise = evt => {
             lossOfSmell.checked = false;
             shortnessOfBreath.checked = false;
             noneOfTheAbove.checked = false;
-            invalidInput.textContent = "";
         };
 
         const isFormInputValid = function () {
@@ -148,20 +148,34 @@ const initialise = evt => {
             return symptoms;
         };
 
-        const displayInvalidInput = function () {
-            if (!noneOfTheAbove.checked && !highTemperature.checked && !cough.checked && !lossOfSmell.checked && !shortnessOfBreath.checked) {
-                invalidInput.textContent = "You must tick atleast one box before submitting.";
-            }
-            if ((noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
-                invalidInput.textContent = 'Invalid input. Cannot select both "none of the above" and one of the symptoms.';
-            }
+        const isFormInputPositive = function () {
+            return getSymptoms().length <= 0;
         };
 
-        const isFormInputPositive = function () {
-            if (getSymptoms().length > 0) {
-                return false;
-            }
-            return true;
+        const displayPositiveResults = function () {
+            symptomsDetailsDiv.classList.remove("opposite__color", "opposite__box");
+            symptomsDetailsDiv.classList.add("accent__color", "accent__box");
+            document.getElementById("symptoms-results-title").innerHTML = `Your answers <span class="accent__color"> do not </span> suggest you have the coronavirus infection.`;
+            document.getElementById("symptoms-details-title").innerText = "Consider calling NHS 111";
+            document.getElementById("symptoms-details-description").innerHTML = `                
+                <p> If you are unwell, consider calling 111 and tell them that: </p>
+                <ul>
+                    <li> You have done this self help guide.</li>
+                    <li> Your answers do not suggest that you might be at risk of having coronavirus, but you still feel unwell.</li>
+                </ul>`;
+        };
+
+        const displayNegativeResults = function () {
+            symptomsDetailsDiv.classList.remove("accent__color", "accent__box");
+            symptomsDetailsDiv.classList.add("opposite__color", "opposite__box");
+            document.getElementById("symptoms-results-title").innerHTML = `Your answers suggest you <span style="color: red"> may be at risk</span> of having the coronavirus infection.`;
+            document.getElementById("symptoms-details-title").innerText = "Call NHS 111";
+            document.getElementById("symptoms-details-description").innerHTML = `                
+                <p> Please phone 111 now and tell them: </p>
+                <ul>
+                    <li> You have done this self help guide.</li>
+                    <li> Your answers suggest that you might be at risk of having coronavirus, because you have 1 or more of the coronavirus symptoms.</li>
+                </ul>`;
         };
 
         submitButton.addEventListener("click", () => {
@@ -195,19 +209,14 @@ const initialise = evt => {
 
                 //Display results
                 if (isFormInputPositive()) {
-                    //Display positive results
-                    model.hideDiv(symptomsFormDiv);
-                    model.showDiv(symptomsResultsDiv);
-                    model.showDiv(positiveResultsDiv);
+                    displayPositiveResults();
                 } else {
-                    //Display negative results
-                    model.hideDiv(symptomsFormDiv);
-                    model.showDiv(symptomsResultsDiv);
-                    model.showDiv(negativeResultsDiv);
+                    displayNegativeResults();
                 }
+
             } else {
                 //Invalid input
-                displayInvalidInput();
+                console.log("Invalid input");
             }
         });
 
@@ -218,12 +227,25 @@ const initialise = evt => {
 
     //Details Page
     if (document.URL.includes("profiledetails.html")) {
-        const noChecksDiv = document.getElementById("display-nochecks");
-        const positiveDetailsDiv = document.getElementById("display-positive-details");
-        const negativeDetailsDiv = document.getElementById("display-negative-details");
-        const previousChecksDiv = document.getElementById("display-checks-history");
+        const symptomsDetailsDiv = document.getElementById("display-symptoms-details");
         const symptomsHistoryDiv = document.getElementById("symptoms-history");
         const eraseDataBtn = document.getElementById("erase-data-btn");
+
+        const profileImage = document.getElementById("profile-pic");
+        model.getProfileOnly(profileImage);
+
+        const displayPositiveDetails = function () {
+            document.getElementById("details-last-checked").classList.add("positive-last-checked");
+            document.querySelector(".positive-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+
+        };
+
+        const displayNegativeDetails = function () {
+            symptomsDetailsDiv.classList.remove("accent__box", "accent__color");
+            symptomsDetailsDiv.classList.add("opposite__box", "opposite__color");
+            document.getElementById("details-last-checked").classList.add("negative-last-checked");
+            document.querySelector(".negative-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+        };
 
         const displaySymptomsHistory = function () {
             let symptomsCheckHistory = JSON.parse(localStorage.getItem("symptomsCheckHistory"));
@@ -233,7 +255,7 @@ const initialise = evt => {
 
                 //Create h1 element
                 let h1 = document.createElement("h1");
-                h1.classList.add("small-title__text");
+                h1.classList.add("small-title__text", "details-history-title");
                 if (numSymptoms > 0) {
                     h1.classList.add("opposite__color");
                     if (numSymptoms === 1) {
@@ -246,10 +268,9 @@ const initialise = evt => {
                     h1.textContent = "No symptoms";
                 }
 
-
                 //Create p element
                 let p = document.createElement("p");
-                p.classList.add("small__text", "opposite__color");
+                p.classList.add("small__text", "details-history-date");
                 p.textContent = `${date}`;
 
                 //Add elements to div
@@ -266,12 +287,11 @@ const initialise = evt => {
 
         //Display appropriate content
         if (localStorage.getItem("lastSymptomsCheckDate") === null) {
-            model.hideDiv(previousChecksDiv);
-            model.showDiv(noChecksDiv);
+            model.hideDiv(symptomsDetailsDiv);
+            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
         } else if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length === 0) {
-            document.querySelector(".positive-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+            displayPositiveDetails();
             displaySymptomsHistory();
-            model.showDiv(positiveDetailsDiv);
         } else {
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
             if (numberOfSymptoms === 1) {
@@ -288,9 +308,8 @@ const initialise = evt => {
                 symptomsList.append(listElement);
             }
             //Add symptoms check date to div
-            document.querySelector(".negative-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
+            displayNegativeDetails();
             displaySymptomsHistory();
-            model.showDiv(negativeDetailsDiv);
         }
 
         //Event Listeners
@@ -298,10 +317,9 @@ const initialise = evt => {
             localStorage.removeItem("lastSymptomsCheckDate");
             localStorage.removeItem("lastSymptomsCheckResults");
             localStorage.removeItem("symptomsCheckHistory");
-            model.hideDiv(positiveDetailsDiv);
-            model.hideDiv(negativeDetailsDiv);
-            model.hideDiv(previousChecksDiv);
-            model.showDiv(noChecksDiv);
+            model.hideDiv(symptomsDetailsDiv);
+            symptomsHistoryDiv.innerHTML = "";
+            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
         });
     }
 
@@ -343,8 +361,8 @@ const initialise = evt => {
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
-        const removeIMGbtn = document.getElementById("removeIMGbtn");
-        const profileIMG = document.getElementById("profile-pic");
+        const imgSelectBox = document.getElementById("image-select");
+        const profileImage = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const dailySymptomsCheckSettingText = document.getElementById("dailysymptomscheck-settings-text");
@@ -355,8 +373,10 @@ const initialise = evt => {
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
-        removeIMGbtn.addEventListener("click" , () => {
-            model.removeIMG(profileIMG);
+        model.getProfilePicture(imgSelectBox,profileImage);
+
+        imgSelectBox.addEventListener("change", () => {
+            model.imageChange(imgSelectBox,profileImage);
         });
 
         nameChangeBtn.addEventListener("click", () => {
@@ -383,6 +403,195 @@ const initialise = evt => {
 
         themeBtn.addEventListener("click",() =>{
             model.toggleTheme(themeText, themeBtn);
+        });
+    }
+
+    //Search Page
+    if (document.URL.includes("search.html")) {
+        const recentSearchesContainer = document.getElementById("recent-searches");
+        const infoResultsDiv = document.getElementById("information-results");
+        const statsResultsDiv = document.getElementById("stats-results");
+        const newsResultsDiv = document.getElementById("news-results");
+        const noResultsFound = document.getElementById("no-results-found");
+        const searchbarInput = document.getElementById("searchbar-input");
+        const searchButton = document.getElementById("submit-button");
+        const clearSearchesButton = document.getElementById("clear-button");
+        const searchData = [
+            {title: "What is novel coronavirus?", subtitle: "4 minute read", parent: "information", tags: ""},
+            {title: "Does the vaccine work?", subtitle: "4 minute read", parent: "information", tags: ""},
+            {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalCases"))} total cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("nationalTotalCases"))} total cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalTotalCases"))} total cases`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths"))} new deaths`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("nationalNewDeaths"))} new deaths`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalDeaths"))} total deaths`, subtitle: "Local", parent: "statistics", tags: "stats"},
+            {title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
+            {title: "UK Biobank scans aim to reveal health legacy ", subtitle: "BBC News", parent: "news", tags: ""},
+        ];
+
+        //Functions
+        const getRecentSearches = function () {
+            if (localStorage.getItem("recentSearches") === null) {
+                localStorage.setItem("recentSearches", JSON.stringify([]));
+                return [];
+            } else {
+                return JSON.parse(localStorage.getItem("recentSearches"));
+            }
+        };
+
+        const addSearchToRecentSearches = function (search) {
+            if (search !== "") {
+                let recentSearches = getRecentSearches();
+                recentSearches.unshift(search);
+                if (recentSearches.length > 5) {
+                    recentSearches.pop();
+                }
+                localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+            }
+        };
+
+        const displayRecentSearches = function () {
+            recentSearchesContainer.innerHTML = `<p class="small__text"> Recent searches </p>`;
+            let recentSearches = getRecentSearches();
+            for (let i = 0; i < recentSearches.length; i++) {
+                let a = document.createElement("a");
+                let p = document.createElement("p");
+                a.append(p);
+                p.append(recentSearches[i]);
+                recentSearchesContainer.append(a);
+                if (i !== recentSearches.length - 1) {
+                    let hr = document.createElement("hr");
+                    recentSearchesContainer.append(hr);
+                }
+            }
+        };
+
+        const addResultsToParentContainer = function (resultsArray, container) {
+            for (let i = 0; i < resultsArray.length; i++) {
+                let newResult = `<a><div>
+                                    <h1 class="small-title__text"> ${resultsArray[i].title} </h1>
+                                    <p class="grey__color"> ${resultsArray[i].subtitle} </p>
+                                </div></a>`;
+                container.innerHTML += newResult;
+                if (i !== resultsArray.length - 1) {
+                    let hr = document.createElement("hr");
+                    container.append(hr);
+                }
+            }
+        };
+
+        const hideContainers = function () {
+            model.hideDiv(infoResultsDiv);
+            model.hideDiv(statsResultsDiv);
+            model.hideDiv(newsResultsDiv);
+        };
+
+        const searchFunctionality = function () {
+            let search = searchbarInput.value.toLowerCase();
+            if (search !== "") {
+                let infoResultsArr = [];
+                let statsResultsArr = [];
+                let newsResultsArr = [];
+
+                //Reset the contents of each container
+                infoResultsDiv.innerHTML = `<p class="small__text"> Information </p>`;
+                statsResultsDiv.innerHTML = `<p class="small__text"> Statistics </p>`;
+                newsResultsDiv.innerHTML = `<p class="small__text"> News </p>`;
+
+                //Add objects to corresponding arrays
+                for (let i = 0; i < searchData.length; i++) {
+                    let searchResultTitle = searchData[i].title.toLowerCase();
+                    let searchResultSubtitle = searchData[i].subtitle.toLowerCase();
+                    let searchResultParent = searchData[i].parent;
+                    let searchResultTags = searchData[i].tags;
+
+                    if (searchResultTitle.includes(search) || searchResultSubtitle.includes(search) || searchResultParent.includes(search) || searchResultTags.includes(search)) {
+                        //Append result to its parent div
+                        if (searchResultParent === "information") {
+                            infoResultsArr.push(searchData[i]);
+                        }
+                        if (searchResultParent === "statistics") {
+                            statsResultsArr.push(searchData[i]);
+                        }
+                        if (searchResultParent === "news") {
+                            newsResultsArr.push(searchData[i]);
+                        }
+                    }
+                }
+
+                //Add results to their parent containers
+                addResultsToParentContainer(infoResultsArr, infoResultsDiv);
+                addResultsToParentContainer(statsResultsArr, statsResultsDiv);
+                addResultsToParentContainer(newsResultsArr, newsResultsDiv);
+
+                //Only display containers for which corresponding arrays aren't empty
+                if (infoResultsArr.length === 0 && statsResultsArr.length === 0 && newsResultsArr.length === 0) {
+                    //No results found
+                    model.hideDiv(infoResultsDiv);
+                    model.hideDiv(statsResultsDiv);
+                    model.hideDiv(newsResultsDiv);
+                    model.showDiv(noResultsFound);
+                } else {
+                    //Results found
+                    model.hideDiv(noResultsFound);
+                    if (infoResultsArr.length === 0) {
+                        model.hideDiv(infoResultsDiv);
+                    } else {
+                        model.showDiv(infoResultsDiv);
+                    }
+
+                    if (statsResultsArr.length === 0) {
+                        model.hideDiv(statsResultsDiv);
+                    } else {
+                        model.showDiv(statsResultsDiv);
+                    }
+
+                    if (newsResultsArr.length === 0) {
+                        model.hideDiv(newsResultsDiv);
+                    } else {
+                        model.showDiv(newsResultsDiv);
+                    }
+                }
+
+                //Add the search to the recent searches and display it in recent searches
+                addSearchToRecentSearches(search);
+                displayRecentSearches();
+
+            } else {
+                //User tried to search without typing anything
+                defaultDisplay();
+            }
+        };
+
+        const clearRecentSearches = function () {
+            localStorage.setItem("recentSearches", JSON.stringify([]));
+            recentSearchesContainer.innerHTML = `<p class="small__text"> Recent searches </p>`;
+            model.hideDiv(noResultsFound);
+            searchbarInput.value = "";
+        };
+
+        const defaultDisplay = function () {
+            searchbarInput.focus();
+            displayRecentSearches();
+        };
+
+        //Init
+        defaultDisplay();
+
+        //Event listeners
+        searchButton.addEventListener("click", () => {
+            searchFunctionality();
+        });
+
+        clearSearchesButton.addEventListener("click", () => {
+            clearRecentSearches();
+            defaultDisplay();
+            hideContainers();
         });
     }
 };
