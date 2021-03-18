@@ -1,9 +1,8 @@
 'use strict';
 /*global Model, View */ /* a jshint hint */
 
-let model, view;
-
 const initialise = evt => {
+    let model, view;
     model = new Model();
     view = new View();
 
