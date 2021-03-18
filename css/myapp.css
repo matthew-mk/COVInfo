@@ -305,6 +305,7 @@ header > * {
 }
 
 
+
 #stats-header > *:last-child {
     margin: 0;
 }
@@ -344,6 +345,41 @@ header > * {
     height: 1px;
     width: 50%;
     border-bottom: 3px solid #1086fc;
+}
+
+
+#search-header .horizontal__container {
+    width: 100%;
+}
+
+
+
+
+
+input[type=search] {
+    width: 100%;
+
+    font-size: 2.75vh;
+    color: #7B7B7B;
+
+    border: none;
+    outline: none;
+    padding-bottom: 1vh !important; 
+    border-bottom: 1.5px solid #a7a7a7;
+
+    transition: all 0.2;
+}
+
+input[type=search]:focus {
+    color: #282828;
+     
+    border-bottom: 1.5px solid #282828;
+
+    transition: all 0.2;
+}
+
+::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
 }
 
 
@@ -415,25 +451,31 @@ header > * {
 }
 
 
-
 #profile-details-main > * {
-    margin: 1vh 0 !important;
+    margin: 1.5vh 0 !important;
+}
+
+
+
+#search-main > *,
+#symptoms-form-main > * {
+    margin: 2.5vh 0 !important;
 }
 
 #profile-details-main #display-checks-history > .horizontal__container,
 #symptoms-form-main #form-action-buttons.horizontal__container,
-#symptoms-form-main #symptoms-results .horizontal__container {
+#symptoms-form-main #symptoms-results .horizontal__container,
+#search-main #search-action-buttons.horizontal__container {
     justify-content: flex-end;
 }
 
-
-
-#symptoms-form-main > * {
-    margin: 3vh 0;
+#symptoms-form-main #form-action-buttons.horizontal__container > *,
+#search-main #search-action-buttons.horizontal__container > * {
+    margin: 0 2vw;
 }
 
-#symptoms-form-main #form-action-buttons.horizontal__container > * {
-    margin: 0 2vw;
+#search-main .box .small-title__text {
+    font-size: 2.15vh;
 }
 
 
@@ -551,7 +593,7 @@ header > * {
 }
 
 .grey__color {
-    color: #7B7B7B
+    color: #7B7B7B !important;
 }
 
 .virus-carousel {
