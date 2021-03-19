@@ -60,16 +60,24 @@ const initialise = evt => {
     };
 
     const initStats = function () {
-        //update stats daily and display the stats
-        if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
-            model.statUpdate();
-            localStorage.setItem("statsLastUpdated", model.getDate());
-            displayAllStats();
-        } else {
-            displayAllStats();
+        check(); //we have to wait for local storage to be populated before we can call the view or else we pass null data
+        function check(){
+            if(localStorage.getItem("userLocality") === null){
+                setTimeout(check, 0);
+            }
+            else{
+                //update stats daily and display the stats
+                if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
+                    model.statUpdate();
+                    localStorage.setItem("statsLastUpdated", model.getDate());
+                    displayAllStats();
+                } else {
+                    displayAllStats();
+                }
+                const statsDates = document.querySelectorAll(".stats-date");
+                model.displayDates(statsDates);  //display the date when stats were updated under each statistic
+            }
         }
-        const statsDates = document.querySelectorAll(".stats-date");
-        model.displayDates(statsDates);  //display the date when stats were updated under each statistic
     };
 
 

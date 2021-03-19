@@ -6,9 +6,7 @@
 
 class Model{
     constructor() {
-        if (localStorage.getItem("statsLastUpdated") !== this.getDate()) {
-            this.statUpdate();
-        }
+
     }
 
     displayDates(dates) {
@@ -225,11 +223,11 @@ class Model{
         getNationalData("newDeaths28DaysByPublishDate").then(data => localStorage.setItem("nationalNewDeaths", Number(data)));
         getNationalData("cumPeopleVaccinatedFirstDoseByPublishDate").then(data => localStorage.setItem("firstDoseVaccinated", Number(data)));
         getNationalData("cumCasesByPublishDate").then(data => localStorage.setItem("nationalTotalCases", Number(data)));
-        setLocalData("Glasgow City", "newCasesByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewCases", Number(data)));
-        setLocalData("Glasgow City", "newDeaths28DaysByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewDeaths", Number(data)));
-        setLocalData("Glasgow City", "alertLevel").then(data => localStorage.setItem("userDefinedLocationAlertLevel", Number(data)));
-        setLocalData("Glasgow City", "cumCasesByPublishDate").then(data => localStorage.setItem("userDefinedTotalCases", Number(data)));
-        setLocalData("Glasgow City", "cumDeaths28DaysByPublishDate").then(data => localStorage.setItem("userDefinedTotalDeaths", Number(data)));
+        setLocalData(localStorage.getItem("userLocality"), "newCasesByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewCases", Number(data)));
+        setLocalData(localStorage.getItem("userLocality"), "newDeaths28DaysByPublishDate").then(data => localStorage.setItem("userDefinedLocationNewDeaths", Number(data)));
+        setLocalData(localStorage.getItem("userLocality"), "alertLevel").then(data => localStorage.setItem("userDefinedLocationAlertLevel", Number(data)));
+        setLocalData(localStorage.getItem("userLocality"), "cumCasesByPublishDate").then(data => localStorage.setItem("userDefinedTotalCases", Number(data)));
+        setLocalData(localStorage.getItem("userLocality"), "cumDeaths28DaysByPublishDate").then(data => localStorage.setItem("userDefinedTotalDeaths", Number(data)));
         setGlobalData("newCases").then(data => localStorage.setItem("globalNewCases", Number(data)));
         setGlobalData("newDeaths").then(data => localStorage.setItem("globalNewDeaths", Number(data)));
         setGlobalData("totalDeaths").then(data => localStorage.setItem("globalTotalDeaths", Number(data)));
@@ -263,6 +261,9 @@ async function getNationalData(typeOfData) {
 }
 
 async function setLocalData(location, typeOfData){
+    if(location === "Glasgow"){ //api doesnt recognise glasgow only glasgow city
+        location = "Glasgow City";
+    }
     //await the response of the fetch call
    let response = await fetch("https://api.coronavirus.data.gov.uk/v1/data?filters=areaName="+location+"&structure={%22date%22:%22date%22,%22"+typeOfData+"%22:%22"+typeOfData+"%22}");
     //proceed once the first promise is resolved.
