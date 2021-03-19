@@ -13,13 +13,13 @@ class View{
     updateUserDefinedLocationNewCases(cases, yesterday) {
         if(document.getElementById("user-defined-location-new-cases")!==null){ //checks that the page actually has the div so it doesnt try it on the wrong page
             if(cases > yesterday){
-                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
             }
             else if(cases === yesterday){
-                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span class='material-icons grey__color'>arrow_right_alt</span>";
             }
             else{
-                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("user-defined-location-new-cases").innerHTML = cases + " <span class='material-icons green__color'>trending_down</span>";
             }
           }
     }
@@ -27,13 +27,13 @@ class View{
     updateUserDefinedLocationNewDeaths(cases, yesterday) {
         if(document.getElementById("user-defined-location-new-deaths")!==null){
             if(cases > yesterday){
-                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
             }
             else if(cases === yesterday){
-                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span class='material-icons grey__color'>arrow_right_alt</span>";
             }
             else{
-                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("user-defined-location-new-deaths").innerHTML = cases + " <span class='material-icons green__color'>trending_down</span>";
             }
         }
     }
@@ -59,13 +59,13 @@ class View{
     updateNationalNewCases(cases, yesterday){
         if(document.getElementById("national-new-cases")!==null){
             if(cases > yesterday){
-                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
             }
             else if(cases === yesterday){
-                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons grey__color'>arrow_right_alt</span>";
             }
             else{
-                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("national-new-cases").innerHTML = cases + " <span class='material-icons green__color'>trending_down</span>";
             }
         }
     }
@@ -79,13 +79,13 @@ class View{
     updateNationalNewDeaths(cases, yesterday){
         if(document.getElementById("national-new-deaths")!==null){
             if(cases > yesterday){
-                document.getElementById("national-new-deaths").innerHTML = cases + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("national-new-deaths").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
             }
             else if(cases === yesterday){
-                document.getElementById("national-new-deaths").innerHTML = cases + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("national-new-deaths").innerHTML = cases + " <span class='material-icons grey__color'>arrow_right_alt</span>";
             }
             else{
-                document.getElementById("national-new-deaths").innerHTML = cases + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("national-new-deaths").innerHTML = cases + " <span class='material-icons green__color'>trending_down</span>";
             }
         }
     }
@@ -101,13 +101,13 @@ class View{
     updateGlobalNewCases(cases, yesterday){
         if(document.getElementById("global-new-cases") !== null){
             if(cases > yesterday){
-                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
             }
             else if(cases === yesterday){
-                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons grey__color'>arrow_right_alt</span>";
             }
             else{
-                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("global-new-cases").innerHTML = cases + " <span class='material-icons green__color'>trending_down</span>";
             }
         }
     }
@@ -115,13 +115,13 @@ class View{
     updateGlobalNewDeaths(deaths, yesterday){
         if(document.getElementById("global-new-deaths") !== null){
             if(deaths > yesterday){
-                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:red'>keyboard_arrow_up</span>";
+                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons opposite__color'>trending_up</span>";
             }
             else if(deaths === yesterday){
-                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:grey'>remove</span>";
+                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons grey__color'>arrow_right_alt</span>";
             }
             else{
-                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons' style='color:green'>keyboard_arrow_down</span>";
+                document.getElementById("global-new-deaths").innerHTML = deaths + " <span class='material-icons green__color'>trending_down</span>";
             }
         }
     }

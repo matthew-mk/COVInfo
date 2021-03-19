@@ -428,6 +428,15 @@ input[type=search]:focus {
 }
 
 
+#stats-header .small-title__text,
+#stats-main .small-title__text {
+    justify-content: flex-start !important;
+}
+
+#stats-header .small-title__text > span,
+#stats-main .small-title__text > span {
+    margin-left: 1.5vw;
+}
 
 #stats-main .vertical__container > *{
     margin: 1vh 0 !important;
@@ -665,6 +674,10 @@ input[type=search]:focus {
 
 .opposite__color {
     color: #e96b64;
+}
+
+.green__color {
+    color: #00E575;
 }
 
 .grey__color {
@@ -1213,19 +1226,19 @@ input[type=search]:focus {
 /* SIGNUP PAGES */
 
 body {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
 }
 
 .blue-theme {
     background-color: #1086fc;
 
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
 }
 
 .blue-theme .carrousel-circle__active {
