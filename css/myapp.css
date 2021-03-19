@@ -1244,7 +1244,7 @@ input[type=search]:focus {
     transition: background-color 0.5s ease;
 }
 
-.blue-theme .carrousel-circle__active {
+.blue-theme .carousel-circle__active {
     background-color: #FFFFFF;
 }
 
@@ -1286,7 +1286,7 @@ input[type=search]:focus {
 }
 
 #signup-main img:not(#signup-profile-pic) {
-    width: 100%;
+    width: 87.5%;
     height: auto;
 
     padding: 2vh 2vw;
@@ -1333,23 +1333,23 @@ input[type=search]:focus {
     font-size: 2.15vh;
 }
 
-.carrousel-circle {
-    width: 1.1vh;
-    height: 1.1vh;
-    margin: 1.1vw;
+.carousel-circle {
+    width: 1vh;
+    height: 1vh;
+    margin: 1.75vw;
 
     border: 1px solid #CDCDCD;
     background-color: #B4D5F9;
 
-    -webkit-border-radius: 1.1vh;
-    -moz-border-radius: 1.1vh;
-    border-radius: 1.1vh;
+    -webkit-border-radius: 1vh;
+    -moz-border-radius: 1vh;
+    border-radius: 1vh;
 
     transition: all 0.2s;
 }
 
-.carrousel-circle__active {
-    border: 1px solid #282828;
+.carousel-circle__active {
+    border: none;
     background-color: #1086fc;
 
     transition: all 0.2s;

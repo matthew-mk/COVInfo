@@ -49,8 +49,8 @@ $(document).ready(function(){
             }
         }
 
-        $(".carrousel-circle__active").removeClass("carrousel-circle__active");
-        $(".carrousel-circle").eq(page.value).addClass("carrousel-circle__active");
+        $(".carousel-circle__active").removeClass("carousel-circle__active");
+        $(".carousel-circle").eq(page.value).addClass("carousel-circle__active");
 
         // Change page:
         if (page.value === 1) {
