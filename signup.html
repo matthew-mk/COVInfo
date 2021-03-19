@@ -33,32 +33,27 @@
     </head>
 
     <body class="blue-theme">
-        <main class="signup__page">
+        <main id="signup-main">
             <div id="welcome">
-                <div class="signup-top__container">
-                    <h1 class="signup__title">Welcome</h1>
-                    <p class="signup__subtitle">All of your COVID-19 statistics, news and information in one place.</p>
+                <div class="vertical__container">
+                    <h1 class="title__text"> Welcome </h1>
+                    <p class="sub-title__text"> All of your COVID-19 statistics, news and information in one place. </p>
                 </div>
-                <div class="signup-middle__container">
+                <div class="vertical__container">
                     <img src="res/graphics/swinging.png">
                 </div>
             </div>
 
             <div id="profile">
-                <div class="signup-top__container">
-                    <h1 class="signup__title">Create a profile</h1>
-                    <p class="signup__subtitle">Create a profile to access personalized information on the homescreen.</p>
+                <div class="vertical__container">
+                    <h1 class="title__text"> Create a profile </h1>
+                    <p class="sub-title__text"> Create a profile to access personalized information on the homescreen. </p>
                 </div>
-                <div class="signup-middle__container">
-                    <div class="signup-middle__sub-container">
+                <div class="vertical__container">
+                    <div class="vertical__container">
                         <img id="signup-profile-pic" class="profile-picture__image" src="res/graphics/default-profile.png" width="128px" height="128px">
                         <div class="dropdown">
-                            <select id="image-select" class="change-button"
-                                    type="button"
-                                    id="dropdownMenuButton"
-                                    data-mdb-toggle="dropdown"
-                                    aria-expanded="false"
-                                    style = "font-size:1rem; width: 100%; margin-top: 1vw;">
+                            <select id="image-select" class="button edit__button change-button" id="dropdownMenuButton" data-mdb-toggle="dropdown" >
                                 <option value selected ="grey">Grey</option>
                                 <option value ="green">Green</option>
                                 <option value ="blue">Blue</option>
@@ -68,7 +63,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="signup-middle__sub-container" id="signup-form">
+                    <div class="vertical__container" id="signup-form">
                         <div class="signup-input__container">
                             <input id="profile__first-name" class="signup-input" type="text" required>
                             <label for="profile__first-name"> First name </label>
@@ -82,39 +77,49 @@
             </div>
 
             <div id="perms">
-                <div class="signup-top__container">
-                    <h1 class="signup__title">Permissions</h1>
-                    <p class="signup__subtitle">Granting permissions enabled the app to function better and enhances your overall experience.</p>
+                <div class="vertical__container">
+                    <h1 class="title__text"> Permissions</h1>
+                    <p class="sub-title__text"> Granting permissions enabled the app to function better and enhances your overall experience. </p>
                 </div>
-                <div class="signup-middle__container">
-                    <div class="signup-middle__sub-container" id="location-perm">
-                        <span class="material-icons-outlined signup-subtitle">room</span>
-                        <h1 class="signup__subtitle"> Location access</h1>
-                        <p class="signup__subtext">Allows you to get stats and information specific to your city.</p>
+                <div class="vertical__container">
+                    <div class="horizontal__container box" id="location-perm">
+                        <div class="horizontal__container">
+                            <span class="material-icons-outlined signup-subtitle">room</span>
+                            <div class="vertical__container">
+                                <h1 class="sub-title__text"> Location access </h1>
+                                <p class="grey__color"> Allows you to get stats and information specific to your city. </p>
+                            </div>
+                        </div>
+                        <span class="accent__color material-icons-outlined">arrow_forward</span>
                     </div>
-                    <div class="signup-middle__sub-container" id="notification-perm">
-                        <span class="material-icons-outlined signup-subtitle">notification_important</span>
-                        <h1 class="signup__subtitle">Notifications</h1>
-                        <p class="signup__subtext">Enables a weekly reminder to do your symptoms check.</p>
+                    <div class="horizontal__container box" id="notification-perm">
+                        <div class="horizontal__container">
+                            <span class="material-icons-outlined signup-subtitle">notifications_active</span> 
+                            <div class="vertical__container">
+                                <h1 class="sub-title__text"> Notifications </h1>
+                                <p class="grey__color"> Enables a weekly reminder to do your symptoms check. </p>
+                            </div>
+                        </div>
+                        <span class="accent__color material-icons-outlined">arrow_forward</span>
                     </div>
                 </div>
             </div>
 
-            <div id="done" class="signup-page-container">
-                <div class="signup-top__container">
-                    <h1 class="signup__title">All set!</h1>
-                    <p class="signup__subtitle">Enjoy using our app to stay informed about COVID-19, stress free!</p>
+            <div id="done">
+                <div class="vertical__container">
+                    <h1 class="title__text"> All set! </h1>
+                    <p class="sub-title__text"> Enjoy using our app to stay informed about COVID-19, stress free! </p>
                 </div>
-                <div class="signup-middle__container">
+                <div class="vertical__container">
                     <img src="res/graphics/zombieing.png">
                 </div>
             </div>
 
-            <div class="signup-bottom__container">
-                <div class="signup-carrousel-indicators__container">
+            <div class="vertical__container">
+                <div class="horizontal__container">
                     <div class="carrousel-circle__active carrousel-circle"></div> <div class="carrousel-circle"></div> <div class="carrousel-circle"></div> <div class="carrousel-circle"></div>
                 </div>
-                <div class="signup-actions__container">
+                <div class="horizontal__container">
                     <button class="button next__button" id="next-button">Next <span class='material-icons-outlined'>arrow_forward</span></i></button>
                 </div>
             </div>
