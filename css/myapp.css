@@ -364,6 +364,8 @@ header > * {
     height: 1px;
     width: 50%;
     border-bottom: 3px solid #1086fc;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 
