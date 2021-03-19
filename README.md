@@ -3,7 +3,7 @@
 # Created By
 * Jonathan Kerr
 * Matthew King
-* Jusin Leung
+* Justin Leung
 * Hares Mahmood
 
 # APIs Used
