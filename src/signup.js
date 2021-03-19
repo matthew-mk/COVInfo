@@ -83,11 +83,23 @@ $(document).ready(function(){
         }
     }
 
-    function saveLocation(position) {
+    async function saveLocation(position) {
         //window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
         var location = [{latitude: position.coords.latitude, longitude: position.coords.longitude}];
 
+        let response = await fetch("https://api.bigdatacloud.net/data/reverse-geocode-client?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude+"&localityLanguage=en");
+        let data = await response.json();
+
         localStorage.setItem("location", JSON.stringify(location));
+        
+        console.log(data.locality);
+        console.log(data.city);
+        console.log(data.principalSubdivision);
+        //storing the location data for future use
+        localStorage.setItem("userLocality", data.locality);
+        localStorage.setItem("userCity", data.city);
+        localStorage.setItem("userCountry", data.principalSubdivision);
+
 
         $("#next-button").removeClass("skip__button")
         .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>")
@@ -104,3 +116,31 @@ $(document).ready(function(){
         */
     }
 });
+
+function getUserLocation() {
+    var startPos;
+    var geoSuccess = async function(position) {
+        var startPos;
+        startPos = position;
+        //longitude and latitude
+        let lat = startPos.coords.latitude;
+        let long = startPos.coords.longitude;
+        console.log(lat);
+        console.log(long);
+
+        //using the bigdatacloud api to convert long and lat into a city
+        let response = await fetch("https://api.bigdatacloud.net/data/reverse-geocode-client?latitude="+lat+"&longitude="+long+"&localityLanguage=en");
+        let data = await response.json();
+
+        console.log(data.locality);
+        console.log(data.city);
+        console.log(data.principalSubdivision);
+        //storing the location data for future use
+        localStorage.setItem("userLocality", data.locality);
+        localStorage.setItem("userCity", data.city);
+        localStorage.setItem("userCountry", data.principalSubdivision);
+        return data;
+
+    };
+    navigator.geolocation.getCurrentPosition(geoSuccess);
+}
