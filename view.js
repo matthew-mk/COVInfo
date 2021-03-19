@@ -173,6 +173,12 @@ class View{
         document.getElementById("theme-Text").innerHTML = localStorage.getItem("theme-text");
     }
 
+    loadLocation(element){
+        let city = localStorage.getItem("userLocality");
+        let country = localStorage.getItem("userCountry");
+
+        element.innerHTML = city + ", " + country;
+    }
     loadLocalStatSettings(){
         let setting1 = JSON.parse(localStorage.getItem("localBox"));
         if (setting1 === null){
