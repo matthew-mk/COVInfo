@@ -1,5 +1,6 @@
-'use strict';
 /*global Model, View */ /* a jshint hint */
+/*global localStorage: false, setTimeout:false, document:false, console:false, window:false*/
+'use strict';
 
 
 const initialise = evt => {

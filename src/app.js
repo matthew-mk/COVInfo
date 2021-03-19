@@ -1,3 +1,5 @@
+'use strict';
+/*global $:false, document:false*/
 $(document).ready(function(){
     let counter = 1;
 
@@ -23,10 +25,10 @@ $(document).ready(function(){
             $("#profile-link").append("<p class='accent__color'>For you</p>");
             $("#profile-link span").addClass("accent__color");
 
-            $("#stats-link").children().not("span").remove()
+            $("#stats-link").children().not("span").remove();
             $("#stats-link span").removeClass("accent__color");
 
-            $("#news-link").children().not("span").remove()
+            $("#news-link").children().not("span").remove();
             $("#news-link span").removeClass("accent__color");
         }
     });
@@ -38,7 +40,7 @@ $(document).ready(function(){
             $("#profile-main").fadeOut(300);
             $("#news-main").fadeOut(300);
             $("#stats-main").fadeIn(300);
-            $("#nationwide-stats").hide()
+            $("#nationwide-stats").hide();
 
             $("#profile-header").fadeOut(300);
             $("#stats-header").delay(300).fadeIn(300);
@@ -48,10 +50,10 @@ $(document).ready(function(){
             $("#stats-link").append("<p class='accent__color'>Statistics</p>");
             $("#stats-link span").addClass("accent__color");
 
-            $("#profile-link").children().not("span").remove()
+            $("#profile-link").children().not("span").remove();
             $("#profile-link span").removeClass("accent__color");
 
-            $("#news-link").children().not("span").remove()
+            $("#news-link").children().not("span").remove();
             $("#news-link span").removeClass("accent__color");
         }
     });
@@ -63,7 +65,7 @@ $(document).ready(function(){
             $("#profile-main").fadeOut(300);
             $("#stats-main").fadeOut(300);
             $("#news-main").fadeIn(300);
-            $("#nationwide-news").hide()
+            $("#nationwide-news").hide();
 
             $("#profile-header").fadeOut(300);
             $("#stats-header").fadeOut(300);
@@ -73,10 +75,10 @@ $(document).ready(function(){
             $("#news-link").append("<p class='accent__color'>News</p>");
             $("#news-link span").addClass("accent__color");
 
-            $("#profile-link").children().not("span").remove()
+            $("#profile-link").children().not("span").remove();
             $("#profile-link span").removeClass("accent__color");
 
-            $("#stats-link").children().not("span").remove()
+            $("#stats-link").children().not("span").remove();
             $("#stats-link span").removeClass("accent__color");
         }
     });

@@ -1,5 +1,5 @@
 /*jshint globalstrict: true*/
-/*global localStorage: false, console: false, $: false, document:false, location:false*/
+/*global localStorage: false, console: false, $: false, document:false, location:false, confirm:false, alert:false, fetch:false, navigator:false*/
 /*jshint esversion: 8 */
 
 'use strict';

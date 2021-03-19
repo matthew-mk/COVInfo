@@ -1,7 +1,9 @@
+'use strict';
+/*global $:false, document:false, navigator:false, fetch:false, localStorage:false, console:false*/
 $(document).ready(function(){
     var currentPage = {
         value: 0
-    }
+    };
 
     var empty = false;
 
@@ -66,7 +68,7 @@ $(document).ready(function(){
             $("#perms").delay(500).fadeIn(500);
 
             $("#next-button").addClass("skip__button")
-            .html("Skip <span class='material-icons-outlined' style='margin-left: 1.5vw'>clear</span>")
+            .html("Skip <span class='material-icons-outlined' style='margin-left: 1.5vw'>clear</span>");
         }
         else if (page.value === 3) {
             $("body").addClass("blue-theme");
@@ -79,9 +81,9 @@ $(document).ready(function(){
             $("#next-button")
             .removeClass("skip__button")
             .wrap("<a href='./index.html'</a>")
-            .html("Done <span class='material-icons-outlined' style='margin-left: 1.5vw'>done</span>")
+            .html("Done <span class='material-icons-outlined' style='margin-left: 1.5vw'>done</span>");
         }
-    }
+    };
 
     async function saveLocation(position) {
         //window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
@@ -102,7 +104,7 @@ $(document).ready(function(){
 
 
         $("#next-button").removeClass("skip__button")
-        .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>")
+        .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>");
 
         /*
         location = true; notification = true;
