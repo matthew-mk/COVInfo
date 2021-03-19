@@ -372,13 +372,14 @@ const initialise = evt => {
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
-        const imgSelectBox = document.getElementById("image-select");
+        const imgSelectBox = document.getElementById("dropdownMenuButton");
         const profileImage = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const weeklySymptomsCheckSettingText = document.getElementById("weeklysymptomscheck-settings-text");
         const weeklySymptomsCheckSettingBtn = document.getElementById("weeklysymptomscheck-settings-btn");
-        const nameChangeBtn = document.getElementById("change-name-button");
+        const nameChangeBtn = document.getElementById("settings-name-button");
+        const nameInput = document.getElementById("profile__first-name");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
         const locationDiv = document.getElementById("active-location");
@@ -387,6 +388,7 @@ const initialise = evt => {
         view.loadThemeSettings();
         view.loadLocalStatSettings();
         view.loadWeeklyCheckSetting();
+        view.loaduserName();
         model.getProfilePicture(imgSelectBox,profileImage);
 
         imgSelectBox.addEventListener("change", () => {
@@ -394,7 +396,7 @@ const initialise = evt => {
         });
 
         nameChangeBtn.addEventListener("click", () => {
-            model.nameChange();
+            model.saveName(nameInput);
         });
 
         localStatsSettingBtn.addEventListener("click", () => {

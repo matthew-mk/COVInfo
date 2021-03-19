@@ -200,6 +200,14 @@ class View{
         document.getElementById("weeklysymptomscheck-settings-text").innerHTML = localStorage.getItem("weeklySymptomsText") ;
     }
 
+    loaduserName(){
+        let username = localStorage.getItem("userName");
+        if (username === null){
+            username = "Your Name";
+        }
+        document.getElementById("profile__first-name").value = username;
+    }
+
     //Load Theme
 
     loadTheme(){
