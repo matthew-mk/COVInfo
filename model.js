@@ -207,6 +207,12 @@ class Model{
         console.log(day + "/" + month + "/" + year);
         return (day + "/" + month + "/" + year);
     }
+
+    getHour() {
+        let date = new Date();
+        console.log(date.getHours());
+        return date.getHours();
+    }
     
     // adds commas to numbers & formats
     formatNumber(num){

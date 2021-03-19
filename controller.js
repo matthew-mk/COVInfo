@@ -68,7 +68,7 @@ const initialise = evt => {
             }
             else{
                 //update stats daily and display the stats
-                if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
+                if (localStorage.getItem("statsLastUpdated") !== model.getDate() && model.getHour() > 6) {
                     model.statUpdate();
                     localStorage.setItem("statsLastUpdated", model.getDate());
                     displayAllStats();
