@@ -102,7 +102,7 @@ const initialise = evt => {
     }
     //Signup page
     if (document.URL.includes("signup.html")) {
-        const imgSelectBox = document.getElementById("image-select");
+        const imgSelectBox = document.getElementById("dropdownMenuButton");
         const profileImage = document.getElementById("signup-profile-pic");
 
         imgSelectBox.addEventListener("change", () => {
