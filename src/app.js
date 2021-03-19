@@ -96,6 +96,7 @@ $(document).ready(function(){
     });
 
     $("#worldwide-tab").click(function() {
+        $("#nationwide-tab").addClass("selected-tab");
         $("#nationwide-tab").removeClass("selected-tab");
         $("#worldwide-tab").addClass("selected-tab");
 
