@@ -450,8 +450,9 @@ const initialise = evt => {
         const clearSearchesButton = document.getElementById("clear-button");
         const searchData = [
             {title: "What is novel coronavirus?", subtitle: "4 minute read", parent: "information", tags: ""},
-            {title: "Does the vaccine work?", subtitle: "4 minute read", parent: "information", tags: ""},
+            {title: "Does the vaccine work?", subtitle: "4 minute read", parent: "information", tags: "vaccination"},
             {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level"},
+            {title: `${model.formatNumber(localStorage.getItem("firstDoseVaccinated"))} first dose vaccinations`, subtitle: "Nationwide", parent: "statistics", tags: "stats, vaccine"},
             {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
             {title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
             {title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`, subtitle: "Global", parent: "statistics", tags: "stats"},
