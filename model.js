@@ -64,6 +64,11 @@ class Model{
        }
     }
 
+    saveSignupinfo(fName,lName,image){
+        localStorage.setItem("userName", fName.value + " " + lName.value);
+        localStorage.setItem("profileImg", image.value);
+    }
+
     toggleTheme(text,btn){
         let sheet = "";
         let setTheme = localStorage.getItem("theme");

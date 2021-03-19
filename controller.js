@@ -104,9 +104,16 @@ const initialise = evt => {
     if (document.URL.includes("signup.html")) {
         const imgSelectBox = document.getElementById("dropdownMenuButton");
         const profileImage = document.getElementById("signup-profile-pic");
+        const firstName = document.getElementById("profile__first-name");
+        const lastName = document.getElementById("profile__last-name");
+        const nextBtn = document.getElementById("next-button");
 
         imgSelectBox.addEventListener("change", () => {
             model.imageChange(imgSelectBox, profileImage);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            model.saveSignupinfo(firstName,lastName,imgSelectBox);
         });
     }
 
