@@ -39,14 +39,13 @@
     <main id="settings-main">
         <div id="profile-pic-selection" class="box vertical__container">
             <p class="small__text"> Profile </p>
-
             <div class="vertical__container">
                 <img id="profile-pic" class="profile-picture__image" src="res/graphics/default-profile.png" alt="Profile picture">
             </div>
             <hr>
             <div>
                 <h1 class="small-title__text"> Profile image </h1>
-                <select id="image-select" class="change-button" id="dropdownMenuButton" data-mdb-toggle="dropdown">
+                <select class="change-button" id="dropdownMenuButton" data-mdb-toggle="dropdown">
                     <option value="grey"> Grey </option>
                     <option value="green"> Green </option>
                     <option value="blue"> Blue </option>
@@ -75,16 +74,9 @@
                 <div>
                     <h1 class="small-title__text"> Theme </h1>
                     <p id="theme-Text" class="grey__color"></p>
-                    <script type="text/javascript">
-                        if (localStorage.getItem("theme-text") === null){ localStorage.setItem("theme-text","Light")}
-                        document.getElementById("theme-Text").innerHTML = localStorage.getItem("theme-text");</script>
                 </div>
                 <div class="form-check form-switch">
                     <input id="theme-btn" class="form-check-input" type="checkbox" />
-                    <script type = "text/javascript">
-                        let checked = JSON.parse(localStorage.getItem("theme-btn"));
-                        document.getElementById("theme-btn").checked = checked;
-                    </script>
                 </div>
             </div>
         </div>
@@ -96,113 +88,34 @@
                 <div>
                     <h1 class="small-title__text"> Local statistics </h1>
                     <p id="localstats-setting-text" class="grey__color"></p>
-                    <script type="text/javascript">
-                       </script>
                 </div>
                 <div class="form-check form-switch">
                     <input id="localstats-setting-btn" class="form-check-input" type="checkbox" />
-                    <script type = "text/javascript">
-                        let setting1 = JSON.parse(localStorage.getItem("localBox"));
-                            if (setting1 === null){setting1 = true}
-                            document.getElementById("localstats-setting-btn").checked = setting1;
-                    </script>
                 </div>
             </div>
             <hr>
-            <div class="horizontal__container">
+            <div class="horizontal__container" id ="active-location">
                 <div>
                     <h1 class="small-title__text"> City </h1>
-                    <p id="localstats-setting-text" class="grey__color">Glasgow, Scotland</p>
+                    <p id="locationText" class="grey__color">Glasgow City, Scotland</p>
                 </div>
-                <span class="accent__color material-icons-outlined">refresh</span>
+                <span class="accent__color material-icons-outlined" id = "refreshLocation">refresh</span>
             </div>
         </div>
-
         <div id="profile-pic-selection" class="box vertical__container">
             <p class="small__text"> Notifications </p>
             
             <div class="horizontal__container">
                 <div>
                     <h1 class="small-title__text"> Weekly symptom check </h1>
-                    <p id="dailysymptomscheck-settings-text" class="grey__color"></p>
-                    <script type="text/javascript">
-                        if (localStorage.getItem("dailySymptomsText") === null){ localStorage.setItem("dailySymptomsText","Enabled")}
-                        document.getElementById("dailysymptomscheck-settings-text").innerHTML = localStorage.getItem("dailySymptomsText");</script>
+                    <p id="weeklysymptomscheck-settings-text" class="grey__color"></p>
                 </div>
                 <div class="form-check form-switch">
-                    <input id="dailysymptomscheck-settings-btn" class="form-check-input" type="checkbox"  />
-                    <script type="text/javascript">
-                        let setting2 = JSON.parse(localStorage.getItem("dailySymptomsBox"));
-                        if (setting2 === null){setting2 = true}
-                        document.getElementById("dailysymptomscheck-settings-btn").checked = setting2;
-                    </script>
-                </div>
-            </div>
-        </div>
-
-        <!-- COMMENTED OUT FOR YOU SETTINGS TEMPORARILY
-
-        <div class="settings-box-container">
-            <p class="settings-topic">For you</p>
-            <div class="toggle-container">
-                <div class="toggle-container-text">
-                    <h1 class="settings-title">Symptoms check</h1>
-                    <p id="symptomscheck-settings-text" class="settings-selected"></p>
-                    <script type="text/javascript">
-                        if (localStorage.getItem("symptomsCheckText") === null){ localStorage.setItem("symptomsCheckText","Enabled")}
-                        document.getElementById("symptomscheck-settings-text").innerHTML = localStorage.getItem("symptomsCheckText");</script>
-                </div>
-                <div class="toggle-container-btn">
-                    <div class="form-check form-switch">
-                        <input id="symptomscheck-settings-btn" class="form-check-input" type="checkbox"  />
-                        <script type="text/javascript">
-                            let setting3 = JSON.parse(localStorage.getItem("symptomsCheckBox"));
-                            if (setting3 === null){setting3 = true}
-                            document.getElementById("symptomscheck-settings-btn").checked = setting3;
-                        </script>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="toggle-container">
-                <div class="toggle-container-text">
-                    <h1 class="settings-title">Basic information</h1>
-                    <p id="basicinfo-settings-text" class="settings-selected"></p>
-                    <script type="text/javascript">
-                        if (localStorage.getItem("basicText") === null){ localStorage.setItem("basicText","Enabled")}
-                        document.getElementById("basicinfo-settings-text").innerHTML = localStorage.getItem("basicText");</script>
-                </div>
-                <div class="toggle-container-btn">
-                    <div class="form-check form-switch">
-                        <input id="basicinfo-settings-btn" class="form-check-input" type="checkbox"  />
-                        <script type="text/javascript">
-                            let setting4 = JSON.parse(localStorage.getItem("basicBox"));
-                            if (setting4 === null){setting4 = true}
-                            document.getElementById("basicinfo-settings-btn").checked = setting4;
-                        </script>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="toggle-container">
-                <div class="toggle-container-text">
-                    <h1 class="settings-title">Precaution information</h1>
-                    <p id="precautioninfo-settings-text" class="settings-selected" type="checkbox"  ></p>
-                    <script type="text/javascript">
-                        if (localStorage.getItem("precautionText") === null){ localStorage.setItem("precautionText","Enabled")}
-                        document.getElementById("precautioninfo-settings-text").innerHTML = localStorage.getItem("precautionText");</script>
-                </div>
-                <div class="toggle-container-btn">
-                    <div class="form-check form-switch">
-                        <input id="weeklysymptomscheck-settings-btn" class="form-check-input" type="checkbox"  />
-                        <script type="text/javascript">
-                        </script>
-                    </div>
+                    <input id="weeklysymptomscheck-settings-btn" class="form-check-input" type="checkbox"  />
                 </div>
             </div>
         </div>
     </main>
-<!-- for simple javascript without MVC use myapp.js -->
 <script src="model.js"></script>
 <script src="view.js"></script>
 <script src="controller.js"></script>

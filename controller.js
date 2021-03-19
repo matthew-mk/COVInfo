@@ -83,7 +83,12 @@ const initialise = evt => {
         const symptomsButton = document.getElementById("symptoms-btn");
 
         const profileImage = document.getElementById("profile-pic");
+        const profilelocationText = document.getElementById("profile-location");
+        const statslocationText = document.getElementById("stats-location");
+
         model.getProfileOnly(profileImage);
+        view.loadLocation(profilelocationText);
+        view.loadLocation(statslocationText);
         view.loadName();
         view.loadToggleLocalStats();
 
@@ -102,11 +107,18 @@ const initialise = evt => {
     }
     //Signup page
     if (document.URL.includes("signup.html")) {
-        const imgSelectBox = document.getElementById("image-select");
+        const imgSelectBox = document.getElementById("dropdownMenuButton");
         const profileImage = document.getElementById("signup-profile-pic");
+        const firstName = document.getElementById("profile__first-name");
+        const lastName = document.getElementById("profile__last-name");
+        const nextBtn = document.getElementById("next-button");
 
         imgSelectBox.addEventListener("change", () => {
             model.imageChange(imgSelectBox, profileImage);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            model.saveSignupinfo(firstName,lastName,imgSelectBox);
         });
     }
 
@@ -339,6 +351,9 @@ const initialise = evt => {
         const nationwideStatsButton = document.getElementById("nationwideStatsBtn");
         const worldwideStatsButton = document.getElementById("worldwideStatsBtn");
 
+        const locationText = document.getElementById("stats-location");
+        view.loadLocation(locationText);
+
         nationwideStatsButton.addEventListener("click", () => {
             model.toggleNationwide(nationwideStatsButton, worldwideStatsButton);
             displayNationwideStats();
@@ -372,13 +387,15 @@ const initialise = evt => {
 
     //Settings Page
     if (document.URL.includes("settings.html")) {
-        const imgSelectBox = document.getElementById("image-select");
+        const imgSelectBox = document.getElementById("dropdownMenuButton");
         const profileImage = document.getElementById("profile-pic");
         const localStatsSettingText = document.getElementById("localstats-setting-text");
+        const locationText = document.getElementById("locationText");
         const localStatsSettingBtn = document.getElementById("localstats-setting-btn");
         const weeklySymptomsCheckSettingText = document.getElementById("weeklysymptomscheck-settings-text");
         const weeklySymptomsCheckSettingBtn = document.getElementById("weeklysymptomscheck-settings-btn");
-        const nameChangeBtn = document.getElementById("change-name-button");
+        const nameChangeBtn = document.getElementById("settings-name-button");
+        const nameInput = document.getElementById("profile__first-name");
         const themeBtn = document.getElementById("theme-btn");
         const themeText = document.getElementById("theme-Text");
         const locationDiv = document.getElementById("active-location");
@@ -387,6 +404,8 @@ const initialise = evt => {
         view.loadThemeSettings();
         view.loadLocalStatSettings();
         view.loadWeeklyCheckSetting();
+        view.loaduserName();
+        view.loadLocation(locationText);
         model.getProfilePicture(imgSelectBox,profileImage);
 
         imgSelectBox.addEventListener("change", () => {
@@ -394,7 +413,7 @@ const initialise = evt => {
         });
 
         nameChangeBtn.addEventListener("click", () => {
-            model.nameChange();
+            model.saveName(nameInput);
         });
 
         localStatsSettingBtn.addEventListener("click", () => {

@@ -57,17 +57,16 @@ class Model{
         }
     }
 
-    nameChange(){
-        let name;
-        let namePrompt = prompt("Please enter your new name:", "Enter New Name");
+    saveName(input){
+       let confirmation = confirm("Would you like to save your name?");
+       if (confirmation === true){
+           localStorage.setItem("userName",input.value);
+       }
+    }
 
-        if (namePrompt === null || namePrompt === "" || namePrompt === "Enter New Name"){
-            window.alert("Name not changed");
-        } else {
-            name = namePrompt;
-            localStorage.setItem("userName", name);
-            location.reload();
-        }
+    saveSignupinfo(fName,lName,image){
+        localStorage.setItem("userName", fName.value + " " + lName.value);
+        localStorage.setItem("profileImg", image.value);
     }
 
     toggleTheme(text,btn){
@@ -171,11 +170,6 @@ class Model{
         } else{
             alert("Cancelled Refresh");
         }
-    }
-
-    save() {
-        let themeBox = document.getElementById("theme-btn");
-        localStorage.setItem("theme-btn",themeBox.checked);
     }
 
     toggleShowElement(element){
