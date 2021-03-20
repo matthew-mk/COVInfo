@@ -18,7 +18,7 @@ class Model{
     }
 
     showDiv(element) {
-        element.style.display = "block";
+        element.style.display = "flex";
     }
 
     hideDiv(element) {
@@ -168,15 +168,15 @@ class Model{
         if (promptBox === true) {
             location.reload();
             alert("Location refreshed");
-        } else{
-            alert("Cancelled Refresh");
         }
     }
 
     toggleShowElement(element){
         if (element.style.display === "none" ){
-            element.style.display = "block";
+            element.previousElementSibling.style.display = "flex";
+            element.style.display = "flex";
         } else {
+            element.previousElementSibling.style.display = "none";
             element.style.display = "none";
         }
     }
