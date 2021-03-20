@@ -1,5 +1,6 @@
-'use strict';
 /*global Model, View */ /* a jshint hint */
+/*global localStorage: false, setTimeout:false, document:false, console:false, window:false*/
+'use strict';
 
 
 const initialise = evt => {
@@ -60,16 +61,24 @@ const initialise = evt => {
     };
 
     const initStats = function () {
-        //update stats daily and display the stats
-        if (localStorage.getItem("statsLastUpdated") !== model.getDate()) {
-            model.statUpdate();
-            localStorage.setItem("statsLastUpdated", model.getDate());
-            displayAllStats();
-        } else {
-            displayAllStats();
+        check(); //we have to wait for local storage to be populated before we can call the view or else we pass null data
+        function check(){
+            if(localStorage.getItem("userLocality") === null){
+                setTimeout(check, 0);
+            }
+            else{
+                //update stats daily and display the stats
+                if (localStorage.getItem("statsLastUpdated") !== model.getDate() && model.getHour() > 6) {
+                    model.statUpdate();
+                    localStorage.setItem("statsLastUpdated", model.getDate());
+                    displayAllStats();
+                } else {
+                    displayAllStats();
+                }
+                const statsDates = document.querySelectorAll(".stats-date");
+                model.displayDates(statsDates);  //display the date when stats were updated under each statistic
+            }
         }
-        const statsDates = document.querySelectorAll(".stats-date");
-        model.displayDates(statsDates);  //display the date when stats were updated under each statistic
     };
 
 
@@ -96,12 +105,17 @@ const initialise = evt => {
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
             if (numberOfSymptoms > 0) {
                 if (numberOfSymptoms === 1) {
-                    symptomsButton.textContent = `1 symptom`;
+                    symptomsButton.textContent = `1 Symptom`;
                 } else {
-                    symptomsButton.textContent = `${numberOfSymptoms} symptoms`;
+                    symptomsButton.textContent = `${numberOfSymptoms} Symptoms`;
                 }
-                symptomsButton.style.backgroundColor = "#f8c4c1";
-                symptomsButton.style.color = "#e96b64";
+                if (localStorage.getItem("theme-text") === "light"){
+                    symptomsButton.style.backgroundColor = "#f8c4c1";
+                    symptomsButton.style.color = "#e96b64";
+                } else  if (localStorage.getItem("theme-text") === "Dark"){
+                    symptomsButton.style.backgroundColor = "#D32F2F";
+                    symptomsButton.style.color = "white";
+                }
             }
         }
     }
@@ -181,7 +195,7 @@ const initialise = evt => {
             document.getElementById("symptoms-results-title").innerHTML = `Your answers <span class="accent__color"> do not </span> suggest you have the coronavirus infection.`;
             document.getElementById("symptoms-details-title").innerText = "Consider calling NHS 111";
             document.getElementById("symptoms-details-description").innerHTML = `                
-                <p> If you are unwell, consider calling 111 and tell them that: </p>
+                <p > If you are unwell, consider calling 111 and tell them that: </p>
                 <ul>
                     <li> You have done this self help guide.</li>
                     <li> Your answers do not suggest that you might be at risk of having coronavirus, but you still feel unwell.</li>
@@ -194,7 +208,7 @@ const initialise = evt => {
             document.getElementById("symptoms-results-title").innerHTML = `Your answers suggest you <span style="color: red"> may be at risk</span> of having the coronavirus infection.`;
             document.getElementById("symptoms-details-title").innerText = "Call NHS 111";
             document.getElementById("symptoms-details-description").innerHTML = `                
-                <p> Please phone 111 now and tell them: </p>
+                <p style="color: red"> Please phone 111 now and tell them: </p>
                 <ul>
                     <li> You have done this self help guide.</li>
                     <li> Your answers suggest that you might be at risk of having coronavirus, because you have 1 or more of the coronavirus symptoms.</li>
@@ -282,13 +296,13 @@ const initialise = evt => {
                 if (numSymptoms > 0) {
                     h1.classList.add("opposite__color");
                     if (numSymptoms === 1) {
-                        h1.textContent = `1 symptom`;
+                        h1.textContent = `1 Symptom`;
                     } else {
-                        h1.textContent = `${numSymptoms} symptoms`;
+                        h1.textContent = `${numSymptoms} Symptoms`;
                     }
                 } else {
                     h1.classList.add("accent__color");
-                    h1.textContent = "No symptoms";
+                    h1.textContent = "No Symptoms";
                 }
 
                 //Create p element
@@ -450,8 +464,9 @@ const initialise = evt => {
         const clearSearchesButton = document.getElementById("clear-button");
         const searchData = [
             {title: "What is novel coronavirus?", subtitle: "4 minute read", parent: "information", tags: ""},
-            {title: "Does the vaccine work?", subtitle: "4 minute read", parent: "information", tags: ""},
+            {title: "Does the vaccine work?", subtitle: "4 minute read", parent: "information", tags: "vaccination"},
             {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level"},
+            {title: `${model.formatNumber(localStorage.getItem("firstDoseVaccinated"))} first dose vaccinations`, subtitle: "Nationwide", parent: "statistics", tags: "stats, vaccine"},
             {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
             {title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
             {title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`, subtitle: "Global", parent: "statistics", tags: "stats"},

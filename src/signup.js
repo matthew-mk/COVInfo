@@ -1,7 +1,9 @@
+'use strict';
+/*global $:false, document:false, navigator:false, fetch:false, localStorage:false, console:false*/
 $(document).ready(function(){
     var currentPage = {
         value: 0
-    }
+    };
 
     var empty = false;
 
@@ -79,7 +81,7 @@ $(document).ready(function(){
             .wrap("<a href='./index.html'</a>")
             .html("Done <span class='material-icons-outlined'>done</span>")
         }
-    }
+    };
 
     async function saveLocation(position) {
         //window.alert(`${position.coords.latitude}, ${position.coords.longitude}`); // Debug
