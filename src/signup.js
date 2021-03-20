@@ -34,7 +34,7 @@ $(document).ready(function(){
 
         empty = $('input[type="text"]').get().every(item => item.value !== '');
 
-        if (page.value !== 1) {
+        if (page.value !== 2) {
             page.value++;
         }
         else {
@@ -55,31 +55,29 @@ $(document).ready(function(){
         // Change page:
         if (page.value === 1) {
             $("body").removeClass("blue-theme");
-
-            //$("#next-button").removeAttr("type").attr("type", "submit").attr("form", "signup-form")
         
             $("#welcome").fadeOut(500);
-            $("#profile").delay(500).fadeIn(500);
-        }
-        else if (page.value === 2) {
-            $("#profile").fadeOut(500);
             $("#perms").delay(500).fadeIn(500);
 
             $("#next-button").addClass("skip__button")
-            .html("Skip <span class='material-icons-outlined' style='margin-left: 1.5vw'>clear</span>")
+            .html("Skip <span class='material-icons-outlined'>clear</span>")
+        }
+        else if (page.value === 2) {
+            $("#perms").fadeOut(500);
+            $("#profile").delay(500).fadeIn(500);
+
+            $("#next-button").removeClass("skip__button")
+            .html("Next <span class='material-icons-outlined'>arrow_forward</span>")
         }
         else if (page.value === 3) {
             $("body").addClass("blue-theme");
                     
-            $("#perms").fadeOut(500);
+            $("#profile").fadeOut(500);
             $("#done").delay(500).fadeIn(500);
-                    
-            $("#skip-button").fadeOut(500);
         
             $("#next-button")
-            .removeClass("skip__button")
             .wrap("<a href='./index.html'</a>")
-            .html("Done <span class='material-icons-outlined' style='margin-left: 1.5vw'>done</span>")
+            .html("Done <span class='material-icons-outlined'>done</span>")
         }
     }
 
@@ -102,7 +100,7 @@ $(document).ready(function(){
 
 
         $("#next-button").removeClass("skip__button")
-        .html("Next <span class='material-icons-outlined' style='margin-left: 1.5vw'>arrow_forward</span>")
+        .html("Next <span class='material-icons-outlined'>arrow_forward</span>")
 
         /*
         location = true; notification = true;
