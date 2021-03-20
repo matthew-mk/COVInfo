@@ -57,7 +57,10 @@ class Model{
 
     saveName(input){
        let confirmation = confirm("Would you like to save your name?");
-       if (confirmation === true){
+       if (input.value === null || input.value === "") {
+           alert("Empty Value, Please enter your new name");
+           location.reload();
+       } else if (confirmation === true){
            localStorage.setItem("userName",input.value);
        }
     }
