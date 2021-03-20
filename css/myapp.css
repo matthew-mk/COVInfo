@@ -1310,7 +1310,7 @@ input[type=search]:focus {
     align-items: flex-start;
 }
 
-#signup-main  #perms .horizontal__container:not(#signup-main  #perms > div:last-child) {
+#signup-main  #perms .horizontal__container:not(#signup-main  #perms div:last-child) {
     justify-content: flex-start;
     width: 100%;
 }
