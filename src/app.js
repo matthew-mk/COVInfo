@@ -22,14 +22,11 @@ $(document).ready(function(){
             $("#tabs-header").fadeOut(300);
             $("#profile-header").delay(300).fadeIn(300);
 
-            $("#profile-link").append("<p class='regular__text accent__color'>For you</p>");
-            $("#profile-link span").addClass("accent__color");
+            $("nav p").remove();
+            $("nav span.accent__color").removeClass("accent__color");
 
-            $("#stats-link").children().not("span").remove();
-            $("#stats-link span").removeClass("accent__color");
-
-            $("#news-link").children().not("span").remove();
-            $("#news-link span").removeClass("accent__color");
+            $(this).append("<p class='regular__text accent__color'> For you </p>");
+            $(this).find("span").addClass("accent__color");
         }
     });
 
@@ -47,14 +44,11 @@ $(document).ready(function(){
             $("#tabs-header").fadeIn(300);
             $("#nationwide-tab").trigger("click");
 
-            $("#stats-link").append("<p class='regular__text accent__color'>Statistics</p>");
-            $("#stats-link span").addClass("accent__color");
+            $("nav p").remove();
+            $("nav span.accent__color").removeClass("accent__color");
 
-            $("#profile-link").children().not("span").remove();
-            $("#profile-link span").removeClass("accent__color");
-
-            $("#news-link").children().not("span").remove();
-            $("#news-link span").removeClass("accent__color");
+            $(this).append("<p class='regular__text accent__color'> Statistics </p>");
+            $(this).find("span").addClass("accent__color");
         }
     });
 
@@ -72,14 +66,11 @@ $(document).ready(function(){
             $("#tabs-header").delay(300).fadeIn(300);
             $("#nationwide-tab").trigger("click");
 
-            $("#news-link").append("<p class='regular__text accent__color'>News</p>");
-            $("#news-link span").addClass("accent__color");
+            $("nav p").remove();
+            $("nav span.accent__color").removeClass("accent__color");
 
-            $("#profile-link").children().not("span").remove();
-            $("#profile-link span").removeClass("accent__color");
-
-            $("#stats-link").children().not("span").remove();
-            $("#stats-link span").removeClass("accent__color");
+            $(this).append("<p class='regular__text accent__color'> News </p>");
+            $(this).find("span").addClass("accent__color");
         }
     });
 
