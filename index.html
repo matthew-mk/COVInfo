@@ -19,8 +19,14 @@
     <link rel="stylesheet" href="css/mdb.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/darkMode.css">
-    <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
+    <link rel="stylesheet" href="css/myapp.css">
+    <link id = "themeSheet" rel="stylesheet" href="">
+      <script type = "text/javascript">function loadStyle(){
+          if (localStorage.getItem("theme") !== null)
+              document.getElementById("themeSheet").href = localStorage.getItem("theme")
+      }
+      window.onload = loadStyle();
+      </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- User scalable=0 prevents double tap but is accessibility problem -->
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon128.png">
