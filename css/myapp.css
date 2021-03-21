@@ -31,7 +31,8 @@ body {
 
 main {
     margin: 0;
-    padding: 0 5vw 3vh 5vw;
+    padding-top: 0 !important;
+    padding: 3vmax;
 }
 
 hr {
@@ -59,7 +60,7 @@ ul {
 
 p,
 li {
-    font-size: 1.75vh;
+    font-size: 1.75vmax;
 }
 
 .small-arrow-hover:hover{
@@ -67,14 +68,20 @@ li {
 }
 
 
+.regular__text {
+    font-size: 1.75vmax;
+}
 
+span.regular__text {
+    font-size: 2.75vmax;
+}
 
 .small__text {
-    font-size: 0.7rem;
+    font-size: 1.35vmax;
 }
 
 .small-title__text {
-    font-size: 3vh;
+    font-size: 3vmax;
     font-weight: bolder;
 }
 
@@ -114,7 +121,7 @@ li {
 
 nav {
     width: 100%;
-    padding: 0.25rem;
+    padding: 2vmin;
 
     position: fixed;
     display: flex;
@@ -161,11 +168,11 @@ nav span {
 }
 
 .search-bar__box span {
-    font-size: 2.5vh;
+    font-size: 2.5vmax;
 }
 
 .search-bar__box p {
-    font-size: 2vh;
+    font-size: 2vmax;
 }
 
 .search-bar__box .horizontal__container > span {
@@ -225,7 +232,7 @@ nav span {
 }
 
 .box .small-title__text {
-    font-size: 2.5vh;
+    font-size: 2.5vmax;
 }
 
 .box:first-child:not(.search-bar__box) {
@@ -334,7 +341,7 @@ header > * {
 }
 
 #stats-header .d-flex > .box {
-    min-width: 30vw;
+    min-width: 30vmin;
 }
 
 
@@ -380,7 +387,7 @@ header > * {
 input[type=search] {
     width: 100%;
 
-    font-size: 2.75vh;
+    font-size: 2.75vmax;
     color: #7B7B7B;
 
     border: none;
@@ -417,13 +424,16 @@ input[type=search]:focus {
 
 
 .home__main > * {
-    margin: 1.5vh 0 !important;
+    margin: 1vmax 0 !important;
 }
 
 .home__main .vertical__container {
     align-items: flex-start;
 }
 
+.home__main > .vertical__container > * {
+    margin: 0.65vmax 0 !important;
+}
 
 
 #profile-main .horizontal__container:first-child,
@@ -433,7 +443,7 @@ input[type=search]:focus {
 }
 
 #profile-main .d-flex > .box {
-    min-width: 50vw;
+    min-width: 50vmin;
 }
 
 
@@ -452,7 +462,7 @@ input[type=search]:focus {
 }
 
 #stats-main .box .small-title__text {
-    font-size: 3.5vh;
+    font-size: 3.5vmax;
 }
 
 #news-main .box > * {
@@ -471,7 +481,7 @@ input[type=search]:focus {
 #news-main .box .small-title__text,
 #symptoms-form-main .box:first-child .small-title__text {
     margin-bottom: 0.5vh;
-    font-size: 2.15vh;
+    font-size: 2.15vmax;
 }
 
 #news-main .box img {
@@ -507,7 +517,7 @@ input[type=search]:focus {
 }
 
 #search-main .box .small-title__text {
-    font-size: 2.15vh;
+    font-size: 2.15vmax;
 }
 
 
@@ -531,7 +541,7 @@ input[type=search]:focus {
     border: none;
     background: transparent;
 
-    font-size: 1.75vh;
+    font-size: 1.75vmax;
     text-indent: -1px;
     overflow: visible !important;
     color: #7B7B7B;
@@ -1325,12 +1335,12 @@ input[type=search]:focus {
 }
 
 .title__text {
-    font-size: 4.5vh;
+    font-size: 4.5vmax;
     font-weight: bolder;
 }
 
 .sub-title__text {
-    font-size: 2.15vh;
+    font-size: 2.15vmax;
 }
 
 .carousel-circle {
@@ -1356,8 +1366,8 @@ input[type=search]:focus {
 }
 
 .button {
-    padding: 1vh 3vw;
-    font-size: 2vh;
+    padding: 2vmin;
+    font-size: 2vmax;
     text-align: center;
 
     display: flex;
@@ -1369,18 +1379,22 @@ input[type=search]:focus {
     box-shadow: 0 1px 6px 0 darkgrey;
 }
 
+.button.horizontal__container {
+    justify-content: space-evenly;
+}
+
 .button span {
-    font-size: 2.5vh;
-    margin-left: 2.75vw;
+    margin-left: 2vmax;
+    font-size: 2.5vmax;
 }
 
 .small__button {
-    font-size: 1.5vh !important;
+    font-size: 1.5vmax !important;
 }
 
 .small__button span {
-    font-size: 1.75vh !important;
-    margin-left: 2vw !important;
+    margin-left: 1.6vmax !important;
+    font-size: 1.75vmax !important;
 }
 
 .next__button {
@@ -1394,7 +1408,7 @@ input[type=search]:focus {
 }
 
 .edit__button {
-    padding: 1vh 4vw;
+    padding: 3vmin;
     position: relative;
     bottom: 2vh;
 
