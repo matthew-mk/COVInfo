@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/mdb.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/darkMode.css">
     <link id = "themeSheet" rel="stylesheet" href="css/myapp.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- User scalable=0 prevents double tap but is accessibility problem -->
@@ -52,7 +53,7 @@
         <div id="profile-header" class="home__header">
             <div class="horizontal__container">
                 <div class="vertical__container">
-                    <p id="profile-location" class="small__text"> Glasgow City, Scotland </p>
+                    <p id="profile-location" class="small__text grey__color"> Glasgow City, Scotland </p>
                     <h1 id="profile-name" class="title__text"> Your Name </h1>
                 </div>
 
@@ -60,7 +61,7 @@
             </div>
             <div class="vertical__container">
                 <img id="profile-pic" class="profile-picture__image" src="res/graphics/default-profile.png" alt="Profile picture">
-                <button id="symptoms-btn">No Symptoms</button>
+                <button id="symptoms-btn" class="button next__button"> No Symptoms </button>
             </div>
         </div>
 
@@ -68,7 +69,7 @@
             <div id="local-stats">
                 <div class="horizontal__container">
                     <div class="vertical__container">
-                        <p id="stats-location" class="small__text"> asd, Scotland </p>
+                        <p id="stats-location" class="small__text grey__color"> asd, Scotland </p>
                         <h1 id="stats-alert-level" class="title__text"> Stage <span id="local-alert-level">0</span> </h1>
                     </div>
                     <a href="profiledetails.html"><span class="accent__color material-icons-outlined">arrow_forward</span></a>
@@ -76,24 +77,24 @@
                 <div class="vertical__container">
                     <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
                         <div class="box vertical__container">
-                            <p class="small__text"> New cases </p>
+                            <p class="small__text grey__color"> New cases </p>
                             <h2 class="small-title__text horizontal__container" id="user-defined-location-new-cases"> 0000 </h2>
-                            <p class="small__text accent__color stats-date"> 00 Jan </p>
+                            <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                         </div>
                         <div class="box vertical__container">
-                            <p class="small__text"> New deaths </p>
+                            <p class="small__text grey__color"> New deaths </p>
                             <h2 class="small-title__text horizontal__container" id="user-defined-location-new-deaths"> 0000 </h2>
-                            <p class="small__text accent__color stats-date"> 00 Jan </p>
+                            <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                         </div>
                         <div class="box vertical__container">
-                            <p class="small__text"> Total cases </p>
+                            <p class="small__text grey__color"> Total cases </p>
                             <h2 class="small-title__text horizontal__container" id="user-defined-total-cases"> 0000 </h2>
-                            <p class="small__text accent__color stats-date"> 00 Jan </p>
+                            <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                         </div>
                         <div class="box vertical__container">
-                            <p class="small__text"> Total deaths </p>
+                            <p class="small__text grey__color"> Total deaths </p>
                             <h2 class="small-title__text horizontal__container" id="user-defined-total-deaths"> 0000 </h2>
-                            <p class="small__text accent__color stats-date"> 00 Jan </p>
+                            <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                         </div>
                     </div>
                 </div>
@@ -117,21 +118,21 @@
                 <h1 class="small-title__text"> Stay informed </h1>
                 <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
                     <div class="box vertical__container">
-                        <p class="small__text"> 4 minute read </p>
+                        <p class="small__text grey__color"> 4 minute read </p>
                         <h2 class="small-title__text"> What is novel coronavirus? </h2>
-                        <p class="small__text accent__color"> Basics </p>
+                        <p class="small__text grey__color accent__color"> Basics </p>
                         <img class="box-image" src="res/graphics/virus.png" />
                     </div>
                     <div class="box vertical__container">
-                        <p class="small__text"> 6 minute read </p>
+                        <p class="small__text grey__color"> 6 minute read </p>
                         <h2 class="small-title__text"> Does the vaccine work? </h2>
-                        <p class="small__text accent__color"> Vaccine </p>
+                        <p class="small__text grey__color accent__color"> Vaccine </p>
                         <img class="box-image" src="res/graphics/syringe.png" />
                     </div>
                     <div class="box vertical__container">
-                        <p class="small__text"> 4 minute read </p>
+                        <p class="small__text grey__color"> 4 minute read </p>
                         <h2 class="small-title__text"> What is novel coronavirus? </h2>
-                        <p class="small__text accent__color"> Basics </p>
+                        <p class="small__text grey__color accent__color"> Basics </p>
                         <img class="box-image" src="res/graphics/virus.png" />
                     </div>
                 </div>
@@ -141,21 +142,21 @@
                 <h1 class="small-title__text"> Prevention </h1>
                 <div class="d-flex flex-row flex-nowrap overflow-auto" style="width:100%;">
                     <div class="box vertical__container">
-                        <p class="small__text"> 4 minute read </p>
+                        <p class="small__text grey__color"> 4 minute read </p>
                         <h2 class="small-title__text"> What is novel coronavirus? </h2>
-                        <p class="small__text accent__color"> Basics </p>
+                        <p class="small__text grey__color accent__color"> Basics </p>
                         <img class="box-image" src="res/graphics/virus.png" />
                     </div>
                     <div class="box vertical__container">
-                        <p class="small__text"> 4 minute read </p>
+                        <p class="small__text grey__color"> 4 minute read </p>
                         <h2 class="small-title__text"> What is novel coronavirus? </h2>
-                        <p class="small__text accent__color"> Basics </p>
+                        <p class="small__text grey__color accent__color"> Basics </p>
                         <img class="box-image" src="res/graphics/virus.png" />
                     </div>
                     <div class="box vertical__container">
-                        <p class="small__text"> 4 minute read </p>
+                        <p class="small__text grey__color"> 4 minute read </p>
                         <h2 class="small-title__text"> What is novel coronavirus? </h2>
-                        <p class="small__text accent__color"> Basics </p>
+                        <p class="small__text grey__color accent__color"> Basics </p>
                         <img class="box-image" src="res/graphics/virus.png" />
                     </div>
                 </div>
@@ -165,62 +166,62 @@
         <div id="stats-main" class="home__main">
             <div id="nationwide-stats" class="vertical__container">
                 <div class="box vertical__container">
-                    <p class="small__text"> New cases </p>
+                    <p class="small__text grey__color"> New cases </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="national-new-cases"> 0000 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
                 <div class="box vertical__container">
-                    <p class="small__text"> New deaths </p>
+                    <p class="small__text grey__color"> New deaths </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="national-new-deaths"> 0000 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
                 <div class="box vertical__container">
-                    <p class="small__text"> First-dose vaccinations </p>
+                    <p class="small__text grey__color"> First-dose vaccinations </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="first-dose-vaccinated"> 0000 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
                 <div class="box vertical__container">
-                    <p class="small__text"> Total cases </p>
+                    <p class="small__text grey__color"> Total cases </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="fourth-box-data"> 0000 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
             </div>
 
             <div id="worldwide-stats" class="vertical__container">
                 <div class="box vertical__container">
-                    <p class="small__text"> New cases </p>
+                    <p class="small__text grey__color"> New cases </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="global-new-cases"> 1111 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
                 <div class="box vertical__container">
-                    <p class="small__text"> New deaths </p>
+                    <p class="small__text grey__color"> New deaths </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="global-new-deaths"> 1111 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
                 <div class="box vertical__container">
-                    <p class="small__text"> Total Deaths </p>
+                    <p class="small__text grey__color"> Total Deaths </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="global-total-deaths"> 1111 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
                 <div class="box vertical__container">
-                    <p class="small__text"> Total cases </p>
+                    <p class="small__text grey__color"> Total cases </p>
                     <div>
                         <h2 class="small-title__text horizontal__container" id="global-total-cases"> 1111 </h2>
-                        <p class="small__text accent__color stats-date"> 00 Jan </p>
+                        <p class="small__text grey__color accent__color stats-date"> 00 Jan </p>
                     </div>
                 </div>
             </div>
@@ -230,10 +231,10 @@
             <div id="nationwide-news">
                 <div class="box horizontal__container">
                     <div class="vertical__container">
-                        <p class="small__text"> BBC News <strong>·</strong> 8 hours ago </p>
+                        <p class="small__text grey__color"> BBC News <strong>·</strong> 8 hours ago </p>
                         <div>
                             <h2 class="small-title__text"> UK Biobank scans aim to reveal health legacy </h2>
-                            <p class="small__text"> A major study by biomedical database UK Biobank will examine the long-term impacts of coronavirus. </p>
+                            <p class="small__text grey__color"> A major study by biomedical database UK Biobank will examine the long-term impacts of coronavirus. </p>
                         </div>
                     </div>
                     <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/134EA/production/_117528097_whatsubject.jpg" />
@@ -242,10 +243,10 @@
             <div id="worldwide-news">
                 <div class="box horizontal__container">
                     <div class="vertical__container">
-                        <p class="small__text"> 5 BBC News <strong>·</strong> 8 hours ago </p>
+                        <p class="small__text grey__color"> 5 BBC News <strong>·</strong> 8 hours ago </p>
                         <div>
                             <h2 class="small-title__text"> UK Biobank scans aim to reveal health legacy </h2>
-                            <p class="small__text"> A major study by biomedical database UK Biobank will examine the long-term impacts of coronavirus. </p>
+                            <p class="small__text grey__color"> A major study by biomedical database UK Biobank will examine the long-term impacts of coronavirus. </p>
                         </div>
                     </div>
                     <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/134EA/production/_117528097_whatsubject.jpg" />
@@ -255,15 +256,15 @@
     </main>
     <div style="height: calc(3rem + 3vh)"></div>
     <nav class="horizontal__container">
-        <a id="profile-link" class="vertical__container">
-            <span class="regular__text accent__color material-icons-outlined">perm_identity</span>
-            <p class="regular__text accent__color">For you</p>
+        <a id="profile-link" class="accent__color vertical__container">
+            <span class="regular__text material-icons-outlined">perm_identity</span>
+            <p class="regular__text">For you</p>
         </a>
         <a id="stats-link" class="vertical__container" >
-            <span class="regular__text material-icons-outlined">analytics</span>
+            <span class="grey__color regular__text material-icons-outlined">analytics</span>
         </a>
         <a id="news-link" class="vertical__container" >
-            <span class="regular__text material-icons-outlined">feed</span>
+            <span class="grey__color regular__text material-icons-outlined">feed</span>
         </a>
     </nav>
     <!-- for simple javascript without MVC use myapp.js -->

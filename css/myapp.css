@@ -143,10 +143,6 @@ nav > a {
     flex-wrap: wrap;
 }
 
-nav span {
-    color: #7B7B7B;
-}
-
 /* SEARCH BAR */
 
 .search-bar__container {
@@ -156,14 +152,11 @@ nav span {
     width: 100vw;
     margin: 0;
     z-index: 10;
-    background-color: #FFFFFF;
 }
 
 .search-bar__box{
     padding: 1.25vh !important;
     justify-content: space-between !important;
-
-    color: #63676C;
 }
 
 .search-bar__box .horizontal__container {
@@ -247,11 +240,11 @@ nav span {
 }
 
 .accent__box {
-    background-color: #B4D5F9 !important;
+    background-color: #B4D5F9;
 }
 
 .opposite__box {
-    background-color: #F6BDBA !important;
+    background-color: #F6BDBA;
 }
 
 
@@ -344,7 +337,7 @@ header > * {
 }
 
 #stats-header .d-flex > .box {
-    min-width: 30vmin;
+    min-width: 25vmin;
 }
 
 
@@ -391,7 +384,6 @@ input[type=search] {
     width: 100%;
 
     font-size: 2.75vmax;
-    color: #7B7B7B;
 
     border: none;
     outline: none;
@@ -446,7 +438,12 @@ input[type=search]:focus {
 }
 
 #profile-main .d-flex > .box {
-    min-width: 50vmin;
+    min-width: 45vmin;
+}
+
+#profile-main #symtoms-btn {
+    border-radius: 5000%;
+    cursor: default;
 }
 
 
@@ -547,7 +544,6 @@ input[type=search]:focus {
     font-size: 1.75vmax;
     text-indent: -1px;
     overflow: visible !important;
-    color: #7B7B7B;
 
     position: relative;
 }
@@ -703,7 +699,7 @@ input[type=search]:focus {
 }
 
 .grey__color {
-    color: #7B7B7B !important;
+    color: #7B7B7B;
 }
 
 .virus-carousel {

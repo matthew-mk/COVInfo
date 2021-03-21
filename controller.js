@@ -307,7 +307,7 @@ const initialise = evt => {
 
                 //Create p element
                 let p = document.createElement("p");
-                p.classList.add("small__text", "details-history-date");
+                p.classList.add("small__text grey__color", "details-history-date");
                 p.textContent = `${date}`;
 
                 //Add elements to div
@@ -503,7 +503,7 @@ const initialise = evt => {
         };
 
         const displayRecentSearches = function () {
-            recentSearchesContainer.innerHTML = `<p class="small__text"> Recent searches </p>`;
+            recentSearchesContainer.innerHTML = `<p class="small__text grey__color"> Recent searches </p>`;
             let recentSearches = getRecentSearches();
             for (let i = 0; i < recentSearches.length; i++) {
                 let a = document.createElement("a");
@@ -546,9 +546,9 @@ const initialise = evt => {
                 let newsResultsArr = [];
 
                 //Reset the contents of each container
-                infoResultsDiv.innerHTML = `<p class="small__text"> Information </p>`;
-                statsResultsDiv.innerHTML = `<p class="small__text"> Statistics </p>`;
-                newsResultsDiv.innerHTML = `<p class="small__text"> News </p>`;
+                infoResultsDiv.innerHTML = `<p class="small__text grey__color"> Information </p>`;
+                statsResultsDiv.innerHTML = `<p class="small__text grey__color"> Statistics </p>`;
+                newsResultsDiv.innerHTML = `<p class="small__text grey__color"> News </p>`;
 
                 //Add objects to corresponding arrays
                 for (let i = 0; i < searchData.length; i++) {
@@ -615,7 +615,7 @@ const initialise = evt => {
 
         const clearRecentSearches = function () {
             localStorage.setItem("recentSearches", JSON.stringify([]));
-            recentSearchesContainer.innerHTML = `<p class="small__text"> Recent searches </p>`;
+            recentSearchesContainer.innerHTML = `<p class="small__text grey__color"> Recent searches </p>`;
             model.hideDiv(noResultsFound);
             searchbarInput.value = "";
         };

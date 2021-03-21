@@ -1,0 +1,148 @@
+body {
+    background-color: #202125 !important;
+    color: #E9EAEE !important;
+}
+
+header {
+    border: 1px solid #303030 !important;
+    background-color: #202125 !important;
+    box-shadow: 0 1px 16px 0 #1A1A1A !important;
+}
+
+nav {
+    border: 1px solid #303030 !important;
+    background-color: #202125 !important;
+    box-shadow: 0 -1px 16px 0 #1A1A1A !important;
+}
+
+input[type=search] { 
+    border-bottom: 1.5px solid #a7a7a7; /* TODO */
+}
+
+input[type=search]:focus {
+    border-bottom: 1.5px solid #282828; /* TODO */
+}
+
+.accent__color {
+    color: #89B4F8 !important;
+}
+
+.opposite__color {
+    color: #E95F59 !important;
+}
+
+.green__color {
+    color: #3dc081 !important;
+}
+
+.grey__color {
+    color: #9BA0A6 !important;
+}
+
+.box, .button {
+    border: 1px solid #303030 !important;
+    box-shadow: 0 1px 16px 0 #1A1A1A !important;
+    background-color: #303135 !important;
+}
+
+.accent__box {
+    background-color: #2C3240 !important;
+}
+
+.opposite__box {
+    background-color: #523635 !important;
+}
+
+.search-bar__container {
+    background-color: #202125 !important;
+}
+
+.box .box-image {
+    opacity: 0.25 !important;
+}
+
+.next__button {
+    background-color: #2C3240 !important;
+    color: #89B4F8 !important;
+}
+
+.skip__button {
+    background-color: #523635 !important;
+    color: #E95F59 !important;
+}
+
+.edit__button {
+    color: #89B4F8 !important;
+}
+
+
+
+
+.form-check-input[type=checkbox]:checked, 
+.form-check-input[type=checkbox]:checked:focus,
+.form-check-input:checked {
+    background-color: #2C3240 !important;
+}
+
+.form-switch .form-check-input:checked[type=checkbox]::after {
+    background-color: #89B4F8 !important;
+}
+
+
+
+.profile-picture__image {
+    box-shadow: 0 8px 25px 0 #1A1A1A !important;
+}
+
+
+
+
+.selected-tab::after {
+    border-bottom: 3px solid #89B4F8 !important;
+}
+
+
+
+.blue-theme {
+    background-color: #89B4F8 !important;
+    color: #E9EAEE !important;
+}
+
+.blue-theme .carousel-circle__active {
+    background-color: #E9EAEE !important;
+}
+
+.carousel-circle {
+    border: 1px solid #303030 !important;
+    background-color: #2C3240 !important;
+}
+
+.carousel-circle__active {
+    background-color: #89B4F8 !important;
+}
+
+.signup-input__container > label {
+    background-color: #202125 !important;
+    color: #9BA0A6 !important;
+}
+
+.signup-input {
+    box-shadow: 0 1px 16px 0 #1A1A1A !important;
+    background-color: #202125 !important;
+}
+
+.signup-input-error {
+    border: 2px solid #E95F59 !important;
+}
+
+.signup-input:focus, .signup-input:valid {
+    border: 2px solid #89B4F8 !important;
+}
+  
+.signup-input:focus~label, .signup-input:valid~label {
+    color: #89B4F8 !important;
+}
+
+.signup-input-error + label {
+    color: #E95F59 !important;
+}
