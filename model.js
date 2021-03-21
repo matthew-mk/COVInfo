@@ -84,7 +84,7 @@ class Model{
 
         if (btn.checked === true){
             text.textContent = "Dark";
-            sheet = "css/darkTheme.css";
+            sheet = "css/darkMode.css";
             localStorage.setItem("theme",sheet);
             localStorage.setItem("theme-text","Dark");
             localStorage.setItem("theme-btn",themeBox.checked);
