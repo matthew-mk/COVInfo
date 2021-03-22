@@ -2,6 +2,7 @@
 /*global $:false, document:false*/
 $(document).ready(function(){
     let counter = 1;
+    let resized = false;
 
 
     $("#stats-header").hide();
@@ -54,23 +55,27 @@ $(document).ready(function(){
             $(this).removeClass("grey__color");
             $(this).addClass("accent__color");
 
-            $(".dynamic__text").each(function() {
-                var element = $(this);
-                var textLength = element.text().replace(/[^0-9]/g, '').length;
-        
-                if (textLength >= 7) {
-                    let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                    element.css("font-size", (original - 0.4) + "vmax");
-                }
-                else if (textLength >= 9) {
-                    let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                    element.css("font-size", (original - 0.8) + "vmax");
-                }
-                else if (textLength >= 12) {
-                    let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                    element.css("font-size", (original - 1.3) + "vmax");
-                }
-           });
+            if (resized === false) {
+                $(".dynamic__text").each(function() {
+                    var element = $(this);
+                    var textLength = element.text().replace(/[^0-9]/g, '').length;
+            
+                    if (textLength >= 7) {
+                        let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
+                        element.css("font-size", (original - 0.4) + "vmax");
+                    }
+                    else if (textLength >= 9) {
+                        let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
+                        element.css("font-size", (original - 0.8) + "vmax");
+                    }
+                    else if (textLength >= 12) {
+                        let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
+                        element.css("font-size", (original - 1.3) + "vmax");
+                    }
+
+                    resized = true;
+                });
+            }
         }
     });
 
