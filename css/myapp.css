@@ -120,7 +120,6 @@ span.regular__text {
 /* NAVIGATION */
 
 nav {
-    height: 7.5vmax;
     width: 100%;
     padding: 2vmin;
 
@@ -1483,10 +1482,6 @@ input[type=search]:focus {
 
 
 @media screen and (min-width: 500px) {
-    nav {
-        height: 7.5vmin;
-    }
-
     nav a {
         flex-direction: row !important;
     }
