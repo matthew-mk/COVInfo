@@ -440,8 +440,11 @@ input[type=search]:focus {
     min-width: 45vmin;
 }
 
-#profile-main #symtoms-btn {
-    border-radius: 5000%;
+#profile-header #symptoms-btn {
+    padding: 2vmin 3vmin;
+    margin-top: 2vmax;
+    border-radius: 5000px !important;
+    box-shadow: none !important;
     cursor: default;
 }
 
@@ -615,18 +618,6 @@ input[type=search]:focus {
 #profile-pic-section {
     margin: 2vh 0;
     text-align: center;
-}
-
-#symptoms-btn {
-    margin: 2vh 0 0 0;
-    padding: 1vh 3vw;
-    font-size: 0.75rem;
-    text-align: center;
-    background-color: #aed6fd;
-    color: dodgerblue;
-    border: 0;
-    border-radius: 25px;
-    box-shadow: 0 1px 6px 0 darkgrey;
 }
 
 .check-symptoms-container {
