@@ -468,8 +468,8 @@ input[type=search]:focus {
     font-size: 3.5vmax;
 }
 
-#news-main .box > * {
-    margin: 0 2.5vw !important;
+#news-main .box {
+    margin: 2vmax 0 !important;
 }
 
 #news-main .vertical__container > * {
