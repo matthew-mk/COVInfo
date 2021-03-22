@@ -51,9 +51,16 @@ a,
 a:hover, 
 a:visited, 
 a:active {
-    color: inherit;
+    color: unset;
     text-decoration: none;
     height: fit-content;
+}
+
+a.accent__color, 
+a.accent__color:hover, 
+a.accent__color:visited, 
+a.accent__color:active {
+    color: #1086fc;
 }
 
 p,
@@ -213,7 +220,7 @@ nav > a {
     bottom: calc(-7.5rem / 3);
     right: calc(-7.5rem / 3);
 
-    opacity: 0.35;
+    opacity: 0.3;
 }
 
 .box.vertical__container {
@@ -425,7 +432,7 @@ input[type=search]:focus {
 }
 
 .home__main > .vertical__container > * {
-    margin: 0.65vmax 0 !important;
+    margin: 1vmax 0 !important;
 }
 
 
@@ -436,7 +443,7 @@ input[type=search]:focus {
 }
 
 #profile-main .d-flex > .box {
-    min-width: 50vmin;
+    min-width: 37.5vmin;
     justify-content: space-between !important;
 }
 
@@ -465,12 +472,15 @@ input[type=search]:focus {
     margin-left: 1.5vw;
 }
 
-#stats-main .vertical__container > *{
-    margin: 1vh 0 !important;
+#stats-main,
+#stats-main > *,
+#stats-main .horizontal__container {
+    width: 100%;
 }
 
 #stats-main .box .small-title__text {
-    font-size: 3.5vmax;
+    font-size: 3.25vmax;
+    text-overflow: ellipsis;
 }
 
 #news-main .box {

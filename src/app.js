@@ -23,11 +23,11 @@ $(document).ready(function(){
             $("#profile-header").delay(300).fadeIn(300);
 
             $("nav p").remove();
-            $("nav a.accent__color").find("span").addClass("grey__color");
+            $("nav a.accent__color").addClass("grey__color");
             $("nav a.accent__color").removeClass("accent__color");
 
             $(this).append("<p class='regular__text'> For you </p>");
-            $(this).find("span").removeClass("grey__color");
+            $(this).removeClass("grey__color");
             $(this).addClass("accent__color");
         }
     });
@@ -47,11 +47,11 @@ $(document).ready(function(){
             $("#nationwide-tab").trigger("click");
 
             $("nav p").remove();
-            $("nav a.accent__color").find("span").addClass("grey__color");
+            $("nav a.accent__color").addClass("grey__color");
             $("nav a.accent__color").removeClass("accent__color");
 
             $(this).append("<p class='regular__text'> Statistics </p>");
-            $(this).find("span").removeClass("grey__color");
+            $(this).removeClass("grey__color");
             $(this).addClass("accent__color");
         }
     });
@@ -71,11 +71,11 @@ $(document).ready(function(){
             $("#nationwide-tab").trigger("click");
 
             $("nav p").remove();
-            $("nav a.accent__color").find("span").addClass("grey__color");
+            $("nav a.accent__color").addClass("grey__color");
             $("nav a.accent__color").removeClass("accent__color");
 
             $(this).append("<p class='regular__text'> News </p>");
-            $(this).find("span").removeClass("grey__color");
+            $(this).removeClass("grey__color");
             $(this).addClass("accent__color");
         }
     });
