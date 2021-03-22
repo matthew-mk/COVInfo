@@ -233,7 +233,7 @@ nav > a {
 }
 
 .box .small-title__text {
-    font-size: 2.5vmax;
+    font-size: 2.4vmax;
 }
 
 .box:first-child:not(.search-bar__box) {
@@ -342,7 +342,7 @@ header > * {
 }
 
 #stats-header .d-flex > .box {
-    min-width: 30vmin;
+    min-width: 35vmin;
 }
 
 
@@ -443,7 +443,7 @@ input[type=search]:focus {
 }
 
 #profile-main .d-flex > .box {
-    min-width: 37.5vmin;
+    min-width: 40vmin;
     justify-content: space-between !important;
 }
 
@@ -476,6 +476,10 @@ input[type=search]:focus {
 #stats-main > *,
 #stats-main .horizontal__container {
     width: 100%;
+}
+
+#stats-main > .horizontal__container > .vertical__container {
+    height: 100%;
 }
 
 #stats-main .box .small-title__text {
