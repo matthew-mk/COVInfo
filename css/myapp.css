@@ -503,6 +503,7 @@ input[type=search]:focus {
 }
 
 #news-main .box img {
+    margin-left: 3vmin;
     height: 5rem;
     width: 5rem;
     object-fit: cover;
