@@ -40,22 +40,20 @@ hr {
     padding: 0;
 }
 
-h1 {
+p, 
+h1, 
+h2, 
+ul {
     margin: 0;
 }
 
-p {
-    margin: 0;
-}
-
-a, a:hover, a:visited, a:active {
+a, 
+a:hover, 
+a:visited, 
+a:active {
     color: inherit;
     text-decoration: none;
     height: fit-content;
-}
-
-ul {
-    margin: 0;
 }
 
 p,
@@ -439,7 +437,14 @@ input[type=search]:focus {
 
 #profile-main .d-flex > .box {
     min-width: 50vmin;
+    justify-content: space-between !important;
 }
+
+#profile-main .d-flex > .box > div > p {
+    margin-bottom: 0.5vmax;
+}
+
+
 
 #profile-header #symptoms-btn {
     padding: 2vmin 3vmin;
