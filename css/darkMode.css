@@ -120,6 +120,7 @@ input[type=search]:focus {
 
 .signup-input {
     box-shadow: 0 1px 16px 0 #1A1A1A !important;
+    border: 1.5px solid #9BA0A6 !important;
 }
 
 .signup-input-error {

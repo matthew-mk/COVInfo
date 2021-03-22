@@ -188,32 +188,6 @@ const initialise = evt => {
             return getSymptoms().length <= 0;
         };
 
-        const displayPositiveResults = function () {
-            symptomsDetailsDiv.classList.remove("opposite__color", "opposite__box");
-            symptomsDetailsDiv.classList.add("accent__color", "accent__box");
-            document.getElementById("symptoms-results-title").innerHTML = `Your answers <span class="accent__color"> do not </span> suggest you have the coronavirus infection.`;
-            document.getElementById("symptoms-details-title").innerText = "Consider calling NHS 111";
-            document.getElementById("symptoms-details-description").innerHTML = `                
-                <p > If you are unwell, consider calling 111 and tell them that: </p>
-                <ul>
-                    <li> You have done this self help guide.</li>
-                    <li> Your answers do not suggest that you might be at risk of having coronavirus, but you still feel unwell.</li>
-                </ul>`;
-        };
-
-        const displayNegativeResults = function () {
-            symptomsDetailsDiv.classList.remove("accent__color", "accent__box");
-            symptomsDetailsDiv.classList.add("opposite__color", "opposite__box");
-            document.getElementById("symptoms-results-title").innerHTML = `Your answers suggest you <span style="color: red"> may be at risk</span> of having the coronavirus infection.`;
-            document.getElementById("symptoms-details-title").innerText = "Call NHS 111";
-            document.getElementById("symptoms-details-description").innerHTML = `                
-                <p style="color: red"> Please phone 111 now and tell them: </p>
-                <ul>
-                    <li> You have done this self help guide.</li>
-                    <li> Your answers suggest that you might be at risk of having coronavirus, because you have 1 or more of the coronavirus symptoms.</li>
-                </ul>`;
-        };
-
         submitButton.addEventListener("click", () => {
             if (isFormInputValid()) {
                 //Valid input
