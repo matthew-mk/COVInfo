@@ -160,6 +160,7 @@ nav > a {
 }
 
 .search-bar__box{
+    width: 90vw !important;
     padding: 1.25vh !important;
     justify-content: space-between !important;
 }
@@ -194,9 +195,8 @@ nav > a {
 /* REGULAR BOX */
 
 .box {
+    width: 100%;
     position: relative;
-
-    width: 90vw;
 
     margin: 0 2vw;
     padding: 2vh 5vw;
@@ -483,7 +483,6 @@ input[type=search]:focus {
 }
 
 #news-main .box {
-    width: 100%;
     margin: 2vmax 0 !important;
 }
 
