@@ -267,6 +267,7 @@ const initialise = evt => {
         const symptomsDetailsDiv = document.getElementById("display-symptoms-details");
         const symptomsHistoryDiv = document.getElementById("symptoms-history");
         const eraseDataBtn = document.getElementById("erase-data-btn");
+        const noChecksDesc = document.getElementById("no-checks-description");
 
         const profileImage = document.getElementById("profile-pic");
         model.getProfileOnly(profileImage);
@@ -325,11 +326,14 @@ const initialise = evt => {
         //Display appropriate content
         if (localStorage.getItem("lastSymptomsCheckDate") === null) {
             model.hideDiv(symptomsDetailsDiv);
-            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
+            noChecksDesc.textContent = " You have not done any symptoms checks yet. ";
+            model.showDiv(noChecksDesc);
         } else if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length === 0) {
+            model.hideDiv(noChecksDesc);
             displayPositiveDetails();
             displaySymptomsHistory();
         } else {
+            model.hideDiv(noChecksDesc);
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
             if (numberOfSymptoms === 1) {
                 document.getElementById("num-of-symptoms").textContent = "1 symptom";
@@ -356,7 +360,8 @@ const initialise = evt => {
             localStorage.removeItem("symptomsCheckHistory");
             model.hideDiv(symptomsDetailsDiv);
             symptomsHistoryDiv.innerHTML = "";
-            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
+            noChecksDesc.textContent = " You have not done any symptoms checks yet. ";
+            model.showDiv(noChecksDesc);
         });
     }
 
@@ -463,35 +468,33 @@ const initialise = evt => {
         const searchButton = document.getElementById("submit-button");
         const clearSearchesButton = document.getElementById("clear-button");
         const searchData = [
-            {title: "What is the coronavirus?", subtitle: "World Health Organization", parent: "information", tags: ""},
-            {title: "Face Coverings", subtitle: "Gov.uk", parent: "information", tags: "masks"},
-            {title: "Lockdown Rules", subtitle: "Gov.uk", parent: "information", tags: ""},
-            {title: "Coronavirus Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations"},
-            {title: "Book/Manage Your Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations"},
-            {title: "Guide to Self Isolation", subtitle: "NHS", parent: "information", tags: "lockdown"},
-            {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level"},
-            {title: `${model.formatNumber(localStorage.getItem("firstDoseVaccinated"))} first dose vaccinations`, subtitle: "Nationwide", parent: "statistics", tags: "stats, vaccine"},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`, subtitle: "Global", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalCases"))} total cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("nationalTotalCases"))} total cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("globalTotalCases"))} total cases`, subtitle: "Global", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths"))} new deaths`, subtitle: "Local", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("nationalNewDeaths"))} new deaths`, subtitle: "Nationwide", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalDeaths"))} total deaths`, subtitle: "Local", parent: "statistics", tags: "stats"},
-            {title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
-            {title: "UK Biobank scans aim to reveal health legacy", subtitle: "BBC News", parent: "news", tags: ""},
-            {title: "France eases travel for UK and six other countries", subtitle: "BBC News", parent: "news", tags: ""},
-            {title: "Homeless people to be prioritised", subtitle: "BBC News", parent: "news", tags: ""},
-            {title: "Antibody drug cuts Covid ‘hospital admissions and deaths by 85%", subtitle: "The Times", parent: "news", tags: ""},
-            {title: "Oklahoma latest state to drop all Covid-19 restrictions", subtitle: "The Independent", parent: "news", tags: ""},
-            {title: "Biden Takes First Tentative Steps to Address Global Vaccine Shortage", subtitle: "The New York Times", parent: "news", tags: ""},
-            {title: "Global impact of the COVID-19 pandemic: 1 year on", subtitle: "Medical News Today", parent: "news", tags: ""},
-            {title: "China's 'vaccine favouritism' risks damaging global fight against pandemic, says expert", subtitle: "Sky News", parent: "news", tags: ""},
-
-
+            {title: "What is the coronavirus?", subtitle: "World Health Organization", parent: "information", tags: "", isLink: true},
+            {title: "Face Coverings", subtitle: "Gov.uk", parent: "information", tags: "masks", isLink: true},
+            {title: "Lockdown Rules", subtitle: "Gov.uk", parent: "information", tags: "", isLink: true},
+            {title: "Coronavirus Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations", isLink: true},
+            {title: "Book/Manage Your Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations", isLink: true},
+            {title: "Guide to Self Isolation", subtitle: "NHS", parent: "information", tags: "lockdown", isLink: true},
+            {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("firstDoseVaccinated"))} first dose vaccinations`, subtitle: "Nationwide", parent: "statistics", tags: "stats, vaccine", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalCases"))} total cases`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("nationalTotalCases"))} total cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("globalTotalCases"))} total cases`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths"))} new deaths`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("nationalNewDeaths"))} new deaths`, subtitle: "Nationwide", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalDeaths"))} total deaths`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
+            {title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
+            {title: "UK Biobank scans aim to reveal health legacy", subtitle: "BBC News", parent: "news", tags: "", isLink: true},
+            {title: "France eases travel for UK and six other countries", subtitle: "BBC News", parent: "news", tags: "", isLink: true},
+            {title: "Homeless people to be prioritised", subtitle: "BBC News", parent: "news", tags: "", isLink: true},
+            {title: "Antibody drug cuts Covid ‘hospital admissions and deaths by 85%", subtitle: "The Times", parent: "news", tags: "", isLink: true},
+            {title: "Oklahoma latest state to drop all Covid-19 restrictions", subtitle: "The Independent", parent: "news", tags: "", isLink: true},
+            {title: "Biden Takes First Tentative Steps to Address Global Vaccine Shortage", subtitle: "The New York Times", parent: "news", tags: "", isLink: true},
+            {title: "Global impact of the COVID-19 pandemic: 1 year on", subtitle: "Medical News Today", parent: "news", tags: "", isLink: true},
+            {title: "China's 'vaccine favouritism' risks damaging global fight against pandemic, says expert", subtitle: "Sky News", parent: "news", tags: "", isLink: true},
         ];
 
         //Functions
@@ -522,17 +525,37 @@ const initialise = evt => {
                 recentSearchesContainer.innerHTML += `<p id="no-recent-searches">No recent searches.</p>`;
             } else {
                 for (let i = 0; i < recentSearches.length; i++) {
-                    let a = document.createElement("a");
-                    let p = document.createElement("p");
-                    a.append(p);
-                    p.append(recentSearches[i]);
-                    recentSearchesContainer.append(a);
+                    let recentSearch = document.createElement("a");
+                    recentSearch.innerHTML += `<p>${recentSearches[i]}</p>`;
+                    recentSearch.addEventListener("click", () => {
+                        clickRecentSearch(i);
+                    });
+                    recentSearchesContainer.append(recentSearch);
                     if (i !== recentSearches.length - 1) {
                         let hr = document.createElement("hr");
                         recentSearchesContainer.append(hr);
                     }
                 }
             }
+        };
+
+        const clickRecentSearch = function (index) {
+            //Get recent searches and the search that was clicked
+            let recentSearches = getRecentSearches();
+            let search = recentSearches[index];
+
+            //Remove the search from the search list and save the new search list in local storage
+            recentSearches.splice(index, 1);
+            localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+
+            //Set searchbar input value to be the search
+            searchbarInput.value = search;
+
+            //Do the search
+            searchFunctionality(search);
+
+            //Update recent searches display
+            displayRecentSearches();
         };
 
         const addResultsToParentContainer = function (resultsArray, container) {
@@ -555,8 +578,7 @@ const initialise = evt => {
             model.hideDiv(newsResultsDiv);
         };
 
-        const searchFunctionality = function () {
-            let search = searchbarInput.value.trimEnd().toLowerCase();
+        const searchFunctionality = function (search) {
             if (search !== "") {
                 let infoResultsArr = [];
                 let statsResultsArr = [];
@@ -647,7 +669,8 @@ const initialise = evt => {
 
         //Event listeners
         searchButton.addEventListener("click", () => {
-            searchFunctionality();
+            let search = searchbarInput.value.trimEnd().toLowerCase();
+            searchFunctionality(search);
         });
 
         clearSearchesButton.addEventListener("click", () => {
