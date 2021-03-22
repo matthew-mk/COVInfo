@@ -337,7 +337,7 @@ header > * {
 }
 
 #stats-header .d-flex > .box {
-    min-width: 25vmin;
+    min-width: 30vmin;
 }
 
 
@@ -438,7 +438,7 @@ input[type=search]:focus {
 }
 
 #profile-main .d-flex > .box {
-    min-width: 45vmin;
+    min-width: 50vmin;
 }
 
 #profile-header #symptoms-btn {
