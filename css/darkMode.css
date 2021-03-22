@@ -76,12 +76,20 @@ input[type=search]:focus {
 }
 
 
+.form-check-input[type=checkbox], 
+.form-check-input[type=checkbox]:focus,
+.form-check-input {
+    background-color: #636466 !important;
+}
 
+.form-switch .form-check-input:checked[type=checkbox]::after {
+    background-color: #B9B9B9 !important;
+}
 
 .form-check-input[type=checkbox]:checked, 
 .form-check-input[type=checkbox]:checked:focus,
 .form-check-input:checked {
-    background-color: #7a87a9 !important;
+    background-color: #414D65 !important;
 }
 
 .form-switch .form-check-input:checked[type=checkbox]::after {
@@ -137,7 +145,7 @@ input[type=search]:focus {
 
 .signup-input:focus, .signup-input:valid {
     border: 2px solid #89B4F8 !important;
-    color: white; !important;
+    color: #E9EAEE !important;
 }
   
 .signup-input:focus~label, .signup-input:valid~label {
