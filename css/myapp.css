@@ -465,6 +465,12 @@ input[type=search]:focus {
     cursor: default;
 }
 
+#profile-header #profile-name {
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 #stats-header .small-title__text,
 #stats-main .small-title__text {
