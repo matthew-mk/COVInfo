@@ -1484,6 +1484,27 @@ input[type=search]:focus {
 
 
 
+.checkbox-input-error {
+    position: relative;
+}
+
+.checkbox-input-error::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 2px;
+    border: 2px solid #e96b64;
+}
+
+input[type="checkbox"]:checked::after {
+    border: none !important;
+}
+
+
 
 
 

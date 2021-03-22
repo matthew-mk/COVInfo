@@ -44,7 +44,7 @@
         </div>
     </header>
     <main id="symptoms-form-main">
-        <div class="box vertical__container">
+        <div id="symptoms-form" class="box vertical__container">
             <p class="small__text grey__color"> Symptoms </p>
             <h1 class="small-title__text"> Select which of the following symptoms you have. </h1>
 
@@ -92,11 +92,11 @@
                 <h1 id="symptoms-details-title" class="small-title__text"> Consider calling NHS 111 </h1>
                 <span class="material-icons-outlined form-control-left">arrow_forward</span>
             </div>
-            <div id="symptoms-details-description">
-                <p class = symptoms-call-text> If you are unwell, consider calling 111 and tell them that: </p>
+            <div>
+                <p id=symptoms-details-description> If you are unwell, consider calling 111 and tell them that: </p>
                 <ul>
                     <li> You have done this self help guide.</li>
-                    <li> Your answers do not suggest that you might be at risk of having coronavirus, but you still feel unwell.</li>
+                    <li id=symptoms-details-point> Your answers do not suggest that you might be at risk of having coronavirus, but you still feel unwell.</li>
                 </ul>
             </div>
             <p class="opposite__color"> Only contact NHS 111 if you are feeling unwell. </p>
@@ -107,5 +107,6 @@
 <script src="model.js"></script>
 <script src="view.js"></script>
 <script src="controller.js"></script>
+<script src="src/form.js"></script>
 </body>
 </html>
