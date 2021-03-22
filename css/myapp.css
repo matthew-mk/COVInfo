@@ -443,7 +443,7 @@ input[type=search]:focus {
 }
 
 #profile-main a:first-child p {
-    max-width: 80%;;
+    max-width: 80%;
 }
 
 #profile-main .d-flex > .box {
@@ -466,7 +466,7 @@ input[type=search]:focus {
 }
 
 #profile-header #profile-name {
-    max-width: 90%;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -1470,10 +1470,11 @@ input[type=search]:focus {
     width: 100%;
     font-size: 0.95rem;
     transition: all 0.2s;
+    background-color: transparent;
 }
 
 .signup-input-error {
-    border: 2px solid #E96B82;
+    border: 2px solid #E96B82 !important;
 
     transition: all 0.2s;
 }
@@ -1494,7 +1495,7 @@ input[type=search]:focus {
 }
 
 .signup-input-error + label {
-    color: #E96B82;
+    color: #E96B82 !important;
 
     transition: all 0.2s;
 }
