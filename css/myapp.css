@@ -483,6 +483,7 @@ input[type=search]:focus {
 }
 
 #news-main .box {
+    width: 100%;
     margin: 2vmax 0 !important;
 }
 
