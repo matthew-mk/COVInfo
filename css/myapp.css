@@ -442,6 +442,10 @@ input[type=search]:focus {
     justify-content: space-between;
 }
 
+#profile-main a:first-child p {
+    max-width: 80%;;
+}
+
 #profile-main .d-flex > .box {
     min-width: 40vmin;
     justify-content: space-between !important;
