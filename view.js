@@ -153,7 +153,7 @@ class View{
     }
 
     loadToggleLocalStats(){
-        if(localStorage.getItem("localBox") === "false"){
+        if(localStorage.getItem("localBox") === "false" || localStorage.getItem("userLocality") === null){
             document.getElementById("profile-location").style.visibility = "hidden";
         }
 
@@ -189,7 +189,7 @@ class View{
     loadLocalStatSettings(){
         let setting1 = JSON.parse(localStorage.getItem("localBox"));
         if (setting1 === null){
-            setting1 = true;
+            setting1 = false;
         }
         document.getElementById("localstats-setting-btn").checked = setting1;
         if (setting1 === false){
@@ -197,7 +197,7 @@ class View{
             document.getElementById("localSettingLine").style.display= "none";
         }
         if (localStorage.getItem("localText") === null){
-            localStorage.setItem("localText","Enabled");
+            localStorage.setItem("localText","Disabled");
         }
         document.getElementById("localstats-setting-text").innerHTML = localStorage.getItem("localText");
     }
