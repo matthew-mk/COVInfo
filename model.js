@@ -213,7 +213,6 @@ class Model{
 
     getHour() {
         let date = new Date();
-        console.log(date.getHours());
         return date.getHours();
     }
     

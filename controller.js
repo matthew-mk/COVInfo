@@ -298,13 +298,13 @@ const initialise = evt => {
                 if (numSymptoms > 0) {
                     h1.classList.add("opposite__color");
                     if (numSymptoms === 1) {
-                        h1.textContent = `1 Symptom`;
+                        h1.textContent = `1 symptom`;
                     } else {
-                        h1.textContent = `${numSymptoms} Symptoms`;
+                        h1.textContent = `${numSymptoms} symptoms`;
                     }
                 } else {
                     h1.classList.add("accent__color");
-                    h1.textContent = "No Symptoms";
+                    h1.textContent = "No symptoms";
                 }
 
                 //Create p element
