@@ -109,13 +109,8 @@ const initialise = evt => {
                 } else {
                     symptomsButton.textContent = `${numberOfSymptoms} Symptoms`;
                 }
-                if (localStorage.getItem("theme-text") === "light"){
-                    symptomsButton.style.backgroundColor = "#f8c4c1";
-                    symptomsButton.style.color = "#e96b64";
-                } else  if (localStorage.getItem("theme-text") === "Dark"){
-                    symptomsButton.style.backgroundColor = "#D32F2F";
-                    symptomsButton.style.color = "white";
-                }
+                symptomsButton.classList.remove("next__button");
+                symptomsButton.classList.add("skip__button");
             }
         }
     }
@@ -268,17 +263,23 @@ const initialise = evt => {
         const symptomsHistoryDiv = document.getElementById("symptoms-history");
         const eraseDataBtn = document.getElementById("erase-data-btn");
         const noChecksDesc = document.getElementById("no-checks-description");
-
+        const noSymptomsDesc = document.getElementById("no-symptoms-description");
+        const detailsTitle = document.getElementById("details-title");
         const profileImage = document.getElementById("profile-pic");
+
+        //Display user's chosen name and profile picture on page
+        detailsTitle.textContent = localStorage.getItem("userName");
         model.getProfileOnly(profileImage);
 
+        //Functions
         const displayPositiveDetails = function () {
             document.getElementById("details-last-checked").classList.add("positive-last-checked");
             document.querySelector(".positive-last-checked").textContent = `Last checked: ${localStorage.getItem("lastSymptomsCheckDate")}`;
-
+            model.showDiv(noSymptomsDesc);
         };
 
         const displayNegativeDetails = function () {
+            model.hideDiv(noSymptomsDesc);
             symptomsDetailsDiv.classList.remove("accent__box", "accent__color");
             symptomsDetailsDiv.classList.add("opposite__box", "opposite__color");
             document.getElementById("details-last-checked").classList.add("negative-last-checked");
