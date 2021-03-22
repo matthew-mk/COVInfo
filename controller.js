@@ -540,7 +540,7 @@ const initialise = evt => {
             let search = recentSearches[index];
 
             //Remove the search from the search list and save the new search list in local storage
-            recentSearches.splice(index);
+            recentSearches.splice(index, 1);
             localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 
             //Set searchbar input value to be the search
@@ -551,7 +551,6 @@ const initialise = evt => {
 
             //Update recent searches display
             displayRecentSearches();
-
         };
 
         const addResultsToParentContainer = function (resultsArray, container) {
