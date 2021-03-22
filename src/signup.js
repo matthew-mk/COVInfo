@@ -34,7 +34,7 @@ $(document).ready(function(){
     var increment = function(page) {
         // TODO: Save profile info in localStorage?
 
-        empty = $('input[type="text"]').get().every(item => item.value !== '');
+        empty = $('input[type="text"]').get().every(item => item.value.trim() !== '');
 
         if (page.value !== 2) {
             page.value++;
