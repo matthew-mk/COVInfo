@@ -267,6 +267,7 @@ const initialise = evt => {
         const symptomsDetailsDiv = document.getElementById("display-symptoms-details");
         const symptomsHistoryDiv = document.getElementById("symptoms-history");
         const eraseDataBtn = document.getElementById("erase-data-btn");
+        const noChecksDesc = document.getElementById("no-checks-description");
 
         const profileImage = document.getElementById("profile-pic");
         model.getProfileOnly(profileImage);
@@ -325,11 +326,14 @@ const initialise = evt => {
         //Display appropriate content
         if (localStorage.getItem("lastSymptomsCheckDate") === null) {
             model.hideDiv(symptomsDetailsDiv);
-            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
+            noChecksDesc.textContent = " You have not done any symptoms checks yet. ";
+            model.showDiv(noChecksDesc);
         } else if (JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length === 0) {
+            model.hideDiv(noChecksDesc);
             displayPositiveDetails();
             displaySymptomsHistory();
         } else {
+            model.hideDiv(noChecksDesc);
             let numberOfSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
             if (numberOfSymptoms === 1) {
                 document.getElementById("num-of-symptoms").textContent = "1 symptom";
@@ -356,7 +360,8 @@ const initialise = evt => {
             localStorage.removeItem("symptomsCheckHistory");
             model.hideDiv(symptomsDetailsDiv);
             symptomsHistoryDiv.innerHTML = "";
-            document.getElementById("no-checks-description").textContent = "You have not done any symptoms checks yet.";
+            noChecksDesc.textContent = " You have not done any symptoms checks yet. ";
+            model.showDiv(noChecksDesc);
         });
     }
 
