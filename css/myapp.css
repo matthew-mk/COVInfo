@@ -145,6 +145,7 @@ nav > a {
 /* SEARCH BAR */
 
 .search-bar__container {
+    background-color: #FFFFFF;
     position: fixed !important;
     top: 0;
     padding: 3vh 0 0 0 !important;
