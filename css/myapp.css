@@ -517,6 +517,14 @@ input[type=search]:focus {
     margin: 1.5vh 0 !important;
 }
 
+#profile-details-main a {
+    width: 100%;
+}
+
+#profile-details-main #symptoms-history .small-title__text {
+    font-size: 2.25vmax;
+}
+
 
 
 #search-main > *,
@@ -1455,7 +1463,6 @@ input[type=search]:focus {
     border-radius: 5px;
     width: 100%;
     font-size: 0.95rem;
-    background-color: #FFFFFF;
     transition: all 0.2s;
 }
 
