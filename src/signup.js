@@ -62,14 +62,14 @@ $(document).ready(function(){
             $("#perms").delay(500).fadeIn(500);
 
             $("#next-button").addClass("skip__button")
-            .html("Skip <span class='material-icons-outlined'>clear</span>")
+            .html("Skip <span class='material-icons-outlined'>clear</span>");
         }
         else if (page.value === 2) {
             $("#perms").fadeOut(500);
             $("#profile").delay(500).fadeIn(500);
 
             $("#next-button").removeClass("skip__button")
-            .html("Next <span class='material-icons-outlined'>arrow_forward</span>")
+            .html("Next <span class='material-icons-outlined'>arrow_forward</span>");
         }
         else if (page.value === 3) {
             $("body").addClass("blue-theme");
@@ -79,7 +79,7 @@ $(document).ready(function(){
         
             $("#next-button")
             .wrap("<a href='./index.html'</a>")
-            .html("Done <span class='material-icons-outlined'>done</span>")
+            .html("Done <span class='material-icons-outlined'>done</span>");
         }
     };
 
@@ -102,7 +102,7 @@ $(document).ready(function(){
 
 
         $("#next-button").removeClass("skip__button")
-        .html("Next <span class='material-icons-outlined'>arrow_forward</span>")
+        .html("Next <span class='material-icons-outlined'>arrow_forward</span>");
 
         /*
         location = true; notification = true;
