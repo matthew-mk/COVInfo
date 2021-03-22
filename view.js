@@ -222,12 +222,4 @@ class View{
         document.getElementById("profile__first-name").value = username;
     }
 
-    //Load Theme
-
-    loadTheme(){
-        if (localStorage.getItem("theme") !== null) {
-            document.getElementById("themeSheet").href = localStorage.getItem("theme");
-        }
-    }
-
 }

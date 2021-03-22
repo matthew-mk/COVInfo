@@ -84,7 +84,6 @@ const initialise = evt => {
 
     //INITIALISATION
     initStats();
-    view.loadTheme();
 
     //EVENT LISTENERS
     //Index page
