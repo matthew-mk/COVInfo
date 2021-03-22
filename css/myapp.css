@@ -492,10 +492,6 @@ input[type=search]:focus {
     height: 100%;
 }
 
-#stats-main .box .small-title__text {
-    font-size: 3.25vmax;
-}
-
 #news-main .box {
     margin: 2vmax 0 !important;
 }

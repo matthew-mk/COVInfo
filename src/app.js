@@ -62,15 +62,15 @@ $(document).ready(function(){
 
                     if (textLength >= 5 && textLength < 7) {
                         let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                        element.css("font-size", (original - 0.45) + "vmax");
+                        element.css("font-size", (original - 0.25) + "vmax");
                     }
                     else if (textLength >= 7 && textLength < 9) {
                         let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                        element.css("font-size", (original - 0.85) + "vmax");
+                        element.css("font-size", (original - 0.45) + "vmax");
                     }
                     else if (textLength >= 9) {
                         let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                        element.css("font-size", (original - 1.1) + "vmax");
+                        element.css("font-size", (original - 0.65) + "vmax");
                     }
 
                     resized = true;
