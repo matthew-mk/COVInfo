@@ -217,14 +217,6 @@ const initialise = evt => {
                     }
                     localStorage.setItem("symptomsCheckHistory", JSON.stringify(symptomsCheckHistory));
                 }
-
-                //Display results
-                if (isFormInputPositive()) {
-                    displayPositiveResults();
-                } else {
-                    displayNegativeResults();
-                }
-
             } else {
                 //Invalid input
                 console.log("Invalid input");
