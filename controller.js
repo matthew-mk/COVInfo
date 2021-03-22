@@ -539,6 +539,11 @@ const initialise = evt => {
             let recentSearches = getRecentSearches();
             let search = recentSearches[index];
 
+            //Remove the search from the search list and save the new search list in local storage
+            recentSearches.splice(index);
+            localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+
+            //Set searchbar input value to be the search
             searchbarInput.value = search;
 
             //Do the search
