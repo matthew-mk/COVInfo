@@ -46,13 +46,13 @@ class View{
 
     updateUserDefinedTotalCases(cases){
         if(document.getElementById("user-defined-total-cases")!==null){
-            document.getElementById("user-defined-total-cases").innerText = cases;
+            document.getElementById("user-defined-total-cases").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
         }
     }
 
     updateUserDefinedTotalDeaths(deaths){
         if(document.getElementById("user-defined-total-deaths")!==null){
-            document.getElementById("user-defined-total-deaths").innerText = deaths;
+            document.getElementById("user-defined-total-deaths").innerHTML = deaths + " <span class='material-icons opposite__color'>trending_up</span>";
         }
     }
 
@@ -72,7 +72,7 @@ class View{
 
     updateNationalTotalCases(cases){
         if(document.getElementById("fourth-box-data")!==null){
-            document.getElementById("fourth-box-data").innerHTML = cases;
+            document.getElementById("fourth-box-data").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
         }
     }
 
@@ -92,7 +92,7 @@ class View{
 
     updateFirstDoseVaccinated(total, yesterday){
         if(document.getElementById("first-dose-vaccinated")!==null){
-            document.getElementById("first-dose-vaccinated").innerHTML = total;
+            document.getElementById("first-dose-vaccinated").innerHTML = total + " <span class='material-icons green__color'>trending_up</span>";
         }
     }
 
@@ -128,13 +128,13 @@ class View{
 
     updateGlobalTotalDeaths(deaths){
         if(document.getElementById("global-total-deaths") !== null){
-            document.getElementById("global-total-deaths").innerText = deaths;
+            document.getElementById("global-total-deaths").innerHTML = deaths + " <span class='material-icons opposite__color'>trending_up</span>";
         }
     }
 
     updateGlobalTotalCases(cases){
         if(document.getElementById("global-total-cases") !== null){
-            document.getElementById("global-total-cases").innerText = cases;
+            document.getElementById("global-total-cases").innerHTML = cases + " <span class='material-icons opposite__color'>trending_up</span>";
         }
     }
     //INDEX

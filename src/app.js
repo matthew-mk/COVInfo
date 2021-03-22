@@ -66,11 +66,11 @@ $(document).ready(function(){
                     }
                     else if (textLength >= 7 && textLength < 9) {
                         let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                        element.css("font-size", (original - 0.75) + "vmax");
+                        element.css("font-size", (original - 0.85) + "vmax");
                     }
                     else if (textLength >= 9) {
                         let original = parseInt(element.css("font-size")) * (100 / Math.max($(window).height(), $(window).height()));
-                        element.css("font-size", (original - 1) + "vmax");
+                        element.css("font-size", (original - 1.1) + "vmax");
                     }
 
                     resized = true;
