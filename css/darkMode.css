@@ -115,31 +115,14 @@ input[type=search]:focus {
 
 
 
-.blue-theme {
-    background-color: #89B4F8 !important;
-    color: #E9EAEE !important;
-}
-
-.blue-theme .carousel-circle__active {
-    background-color: #E9EAEE !important;
-}
-
-.carousel-circle {
-    border: 1px solid #303030 !important;
-    background-color: #2C3240 !important;
-}
-
-.carousel-circle__active {
-    background-color: #89B4F8 !important;
-}
-
 .signup-input__container > label {
-    background-color: #202125 !important;
+    background-color: #303135 !important;
     color: #9BA0A6 !important;
 }
 
 .signup-input {
     box-shadow: 0 1px 16px 0 #1A1A1A !important;
+    border: 1.5px solid #9BA0A6 !important;
 }
 
 .signup-input-error {
