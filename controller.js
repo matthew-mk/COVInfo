@@ -95,6 +95,7 @@ const initialise = evt => {
         const profilelocationText = document.getElementById("profile-location");
         const statslocationText = document.getElementById("stats-location");
 
+        view.loadFirstTimeSetup();
         model.getProfileOnly(profileImage);
         view.loadLocation(profilelocationText);
         view.loadLocation(statslocationText);
@@ -133,6 +134,9 @@ const initialise = evt => {
 
     //Symptoms form page
     if (document.URL.includes("symptomsform.html")) {
+
+        view.loadFirstTimeSetup();
+
         const symptomsFormDiv = document.getElementById("symptoms-form-container");
         const symptomsResultsContainer = document.getElementById("symptoms-results-container");
         const symptomsDetailsDiv = document.getElementById("symptoms-details");
@@ -269,6 +273,7 @@ const initialise = evt => {
 
         //Display user's chosen name and profile picture on page
         detailsTitle.textContent = localStorage.getItem("userName");
+        view.loadFirstTimeSetup();
         model.getProfileOnly(profileImage);
 
         //Functions
@@ -372,6 +377,7 @@ const initialise = evt => {
         const worldwideStatsButton = document.getElementById("worldwideStatsBtn");
 
         const locationText = document.getElementById("stats-location");
+        view.loadFirstTimeSetup();
         view.loadLocation(locationText);
 
         nationwideStatsButton.addEventListener("click", () => {
@@ -391,6 +397,8 @@ const initialise = evt => {
         const worldwideNewsButton = document.getElementById("worldwideNewsBtn");
         const nationwideNewsDiv = document.getElementById("nationwide-news");
         const worldwideNewsDiv = document.getElementById("worldwide-news");
+
+        view.loadFirstTimeSetup();
 
         nationwideNewsButton.addEventListener("click", () => {
             model.toggleNationwide(nationwideNewsButton, worldwideNewsButton);
@@ -421,6 +429,7 @@ const initialise = evt => {
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
+        view.loadFirstTimeSetup();
         view.loadThemeSettings();
         view.loadLocalStatSettings();
         view.loadWeeklyCheckSetting();
@@ -460,6 +469,9 @@ const initialise = evt => {
 
     //Search Page
     if (document.URL.includes("search.html")) {
+
+        view.loadFirstTimeSetup();
+
         const recentSearchesContainer = document.getElementById("recent-searches");
         const infoResultsDiv = document.getElementById("information-results");
         const statsResultsDiv = document.getElementById("stats-results");

@@ -139,8 +139,14 @@ class View{
     }
     //INDEX
 
+    loadFirstTimeSetup(){
+        if (localStorage.getItem("userName") === null || localStorage.getItem("userName") === "Your Name" ){
+            location.replace("signup.html");
+        }
+    }
+
     loadName(){
-        if (localStorage.getItem("userName") === null){
+        if (localStorage.getItem("userName") === null) {
             localStorage.setItem("userName","Your Name");
         }
         document.getElementById("profile-name").innerHTML = localStorage.getItem("userName");
@@ -179,6 +185,7 @@ class View{
 
         element.innerHTML = city + ", " + country;
     }
+
     loadLocalStatSettings(){
         let setting1 = JSON.parse(localStorage.getItem("localBox"));
         if (setting1 === null){
@@ -186,7 +193,8 @@ class View{
         }
         document.getElementById("localstats-setting-btn").checked = setting1;
         if (setting1 === false){
-            document.getElementById("active-location").style.display="none";
+            document.getElementById("active-location").style.display = "none";
+            document.getElementById("localSettingLine").style.display= "none";
         }
         if (localStorage.getItem("localText") === null){
             localStorage.setItem("localText","Enabled");
