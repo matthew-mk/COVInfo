@@ -307,7 +307,7 @@ const initialise = evt => {
 
                 //Create p element
                 let p = document.createElement("p");
-                p.classList.add("small__text grey__color", "details-history-date");
+                p.classList.add("small__text", "grey__color", "details-history-date");
                 p.textContent = `${date}`;
 
                 //Add elements to div
@@ -463,8 +463,12 @@ const initialise = evt => {
         const searchButton = document.getElementById("submit-button");
         const clearSearchesButton = document.getElementById("clear-button");
         const searchData = [
-            {title: "What is novel coronavirus?", subtitle: "4 minute read", parent: "information", tags: ""},
-            {title: "Does the vaccine work?", subtitle: "4 minute read", parent: "information", tags: "vaccination"},
+            {title: "What is the coronavirus?", subtitle: "World Health Organization", parent: "information", tags: ""},
+            {title: "Face Coverings", subtitle: "Gov.uk", parent: "information", tags: "masks"},
+            {title: "Lockdown Rules", subtitle: "Gov.uk", parent: "information", tags: ""},
+            {title: "Coronavirus Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations"},
+            {title: "Book/Manage Your Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations"},
+            {title: "Guide to Self Isolation", subtitle: "NHS", parent: "information", tags: "lockdown"},
             {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level"},
             {title: `${model.formatNumber(localStorage.getItem("firstDoseVaccinated"))} first dose vaccinations`, subtitle: "Nationwide", parent: "statistics", tags: "stats, vaccine"},
             {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats"},
@@ -478,7 +482,16 @@ const initialise = evt => {
             {title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
             {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalDeaths"))} total deaths`, subtitle: "Local", parent: "statistics", tags: "stats"},
             {title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`, subtitle: "Global", parent: "statistics", tags: "stats"},
-            {title: "UK Biobank scans aim to reveal health legacy ", subtitle: "BBC News", parent: "news", tags: ""},
+            {title: "UK Biobank scans aim to reveal health legacy", subtitle: "BBC News", parent: "news", tags: ""},
+            {title: "France eases travel for UK and six other countries", subtitle: "BBC News", parent: "news", tags: ""},
+            {title: "Homeless people to be prioritised", subtitle: "BBC News", parent: "news", tags: ""},
+            {title: "Antibody drug cuts Covid ‘hospital admissions and deaths by 85%", subtitle: "The Times", parent: "news", tags: ""},
+            {title: "Oklahoma latest state to drop all Covid-19 restrictions", subtitle: "The Independent", parent: "news", tags: ""},
+            {title: "Biden Takes First Tentative Steps to Address Global Vaccine Shortage", subtitle: "The New York Times", parent: "news", tags: ""},
+            {title: "Global impact of the COVID-19 pandemic: 1 year on", subtitle: "Medical News Today", parent: "news", tags: ""},
+            {title: "China's 'vaccine favouritism' risks damaging global fight against pandemic, says expert", subtitle: "Sky News", parent: "news", tags: ""},
+
+
         ];
 
         //Functions
@@ -505,15 +518,19 @@ const initialise = evt => {
         const displayRecentSearches = function () {
             recentSearchesContainer.innerHTML = `<p class="small__text grey__color"> Recent searches </p>`;
             let recentSearches = getRecentSearches();
-            for (let i = 0; i < recentSearches.length; i++) {
-                let a = document.createElement("a");
-                let p = document.createElement("p");
-                a.append(p);
-                p.append(recentSearches[i]);
-                recentSearchesContainer.append(a);
-                if (i !== recentSearches.length - 1) {
-                    let hr = document.createElement("hr");
-                    recentSearchesContainer.append(hr);
+            if (recentSearches.length === 0) {
+                recentSearchesContainer.innerHTML += `<p id="no-recent-searches">No recent searches.</p>`;
+            } else {
+                for (let i = 0; i < recentSearches.length; i++) {
+                    let a = document.createElement("a");
+                    let p = document.createElement("p");
+                    a.append(p);
+                    p.append(recentSearches[i]);
+                    recentSearchesContainer.append(a);
+                    if (i !== recentSearches.length - 1) {
+                        let hr = document.createElement("hr");
+                        recentSearchesContainer.append(hr);
+                    }
                 }
             }
         };
