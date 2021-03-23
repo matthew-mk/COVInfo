@@ -5,11 +5,16 @@ $(document).ready(function(){
     let resized = false;
 
 
+    $("#profile-header").hide();
     $("#stats-header").hide();
     $("#tabs-header").hide();
 
+    $("#profile-main").hide();
     $("#stats-main").hide();
     $("#news-main").hide();
+
+    $("#profile-header").fadeIn(300);
+    $("#profile-main").fadeIn(300);
 
     $("#profile-link").click(function() {
         if (counter !== 1) {
