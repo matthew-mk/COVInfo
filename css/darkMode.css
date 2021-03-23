@@ -131,13 +131,16 @@ input[type=search]:focus {
     border: 2px solid #E95F59 !important;
 }
 
-.signup-input:focus, .signup-input:valid {
+.signup-input:focus {
     border: 2px solid #89B4F8 !important;
     color: #E9EAEE !important;
-    background-color: #202125 !important;
+}
+
+.signup-input:not(:focus):valid {
+    color: #9BA0A6 !important;
 }
   
-.signup-input:focus~label, .signup-input:valid~label {
+.signup-input:focus~label {
     color: #89B4F8 !important;
 }
 
