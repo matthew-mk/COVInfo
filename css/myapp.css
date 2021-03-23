@@ -119,6 +119,10 @@ span.regular__text {
 .small__text {
     font-weight: bold;
     font-size: 1.35vmax;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
@@ -512,6 +516,10 @@ header > * {
 
 #profile-details-main a {
     width: 100%;
+}
+
+#profile-details-main #symptoms-history > * {
+    margin: 0.75vmax 0;
 }
 
 #profile-details-main #symptoms-history .small-title__text {
