@@ -453,10 +453,11 @@ header > * {
 
 
 #profile-header #symptoms-btn {
-    padding: 1.5vmin 3vmin;
+    padding: 2vmin 2.5vmin;
     margin-top: 2vmax;
     border-radius: 5000px !important;
     box-shadow: none !important;
+    border: 1px solid #1086fc;
     cursor: default;
 }
 
