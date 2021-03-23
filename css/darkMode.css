@@ -105,6 +105,10 @@ input[type=search]:focus {
     border: 1px solid #89B4F8 !important;
 }
 
+#profile-header #symptoms-btn.skip__button {
+    border: 1px solid #E95F59 !important;
+}
+
 #settings-main select {
     background-color: #303135 !important;
 }

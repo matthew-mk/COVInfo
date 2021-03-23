@@ -461,6 +461,10 @@ header > * {
     cursor: default;
 }
 
+#profile-header #symptoms-btn.skip__button {
+    border: 1px solid #e96b64;
+}
+
 #profile-header #profile-name {
     max-width: 75vw;
     overflow: hidden;
