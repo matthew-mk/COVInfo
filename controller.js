@@ -425,7 +425,6 @@ const initialise = evt => {
             model.saveSettingCheckbox("localBox", localStatsSettingBtn);
             model.saveSettingText("localText", localStatsSettingText);
             model.toggleShowElement(locationDiv);
-            model.refreshLocation();
         });
 
         refreshBtn.addEventListener("click", () => {
@@ -441,7 +440,7 @@ const initialise = evt => {
         themeBtn.addEventListener("click", () => {
             model.toggleTheme(themeText, themeBtn);
         });
-
+    }
         //Search Page
         if (document.URL.includes("search.html")) {
 
@@ -817,7 +816,6 @@ const initialise = evt => {
                 hideContainers();
             });
         }
-    }
 
 };
 window.addEventListener("load", initialise);
