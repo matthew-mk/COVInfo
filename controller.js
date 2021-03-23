@@ -495,7 +495,7 @@ const initialise = evt => {
                     parent: "information",
                     tags: "vaccinations",
                     isLink: true,
-                    link: "https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/"
+                    link: "https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/book-coronavirus-vaccination/"
                 },
                 {
                     title: "Self-isolating",
