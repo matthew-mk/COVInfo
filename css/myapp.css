@@ -575,7 +575,6 @@ header > * {
     background: transparent;
 
     font-size: 1.75vmax;
-    text-indent: -1px;
     overflow: visible !important;
 
     position: relative;

@@ -292,12 +292,10 @@ const initialise = evt => {
                 p.textContent = `${date}`;
 
                 //Add elements to div
-                let div1 = document.createElement("div");
-                let div2 = document.createElement("div");
-                div1.append(h1);
-                symptomsHistoryDiv.append(div1);
-                div2.append(p);
-                symptomsHistoryDiv.append(div2);
+                let div = document.createElement("div");
+                div.append(h1);
+                div.append(p);
+                symptomsHistoryDiv.append(div);
 
                 //Add hr unless the element is the last element in the list
                 if (i !== symptomsCheckHistory.length - 1) {
