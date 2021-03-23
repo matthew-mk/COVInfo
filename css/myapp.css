@@ -521,7 +521,7 @@ header > * {
 }
 
 #profile-details-main #symptoms-history > * {
-    margin: 0.75vmax 0;
+    margin: 1vmax 0;
 }
 
 #profile-details-main #symptoms-history .small-title__text {
