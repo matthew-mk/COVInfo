@@ -1,8 +1,14 @@
 'use strict';
 /*global $:false, document:false*/
-$(document).ready(function() {
+$(document).ready(function(){
     let counter = 1;
     let resized = false;
+
+    $("#stats-header").hide();
+    $("#tabs-header").hide();
+
+    $("#stats-main").hide();
+    $("#news-main").hide();
 
     $("#profile-link").click(function() {
         if (counter !== 1) {
@@ -125,3 +131,8 @@ $(document).ready(function() {
         }
     });
 });
+
+window.onbeforeunload = function() {
+    $("header").fadeOut(50);
+    $("main").fadeOut(50);  
+}
