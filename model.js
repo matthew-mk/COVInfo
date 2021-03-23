@@ -56,12 +56,14 @@ class Model{
     }
 
     saveName(input){
-       let confirmation = confirm("Would you like to save your name?");
        if (input.value === null || input.value === "") {
-           alert("Empty Value, Please enter your new name");
+           alert("Empty Value, Please enter your name");
            location.reload();
-       } else if (confirmation === true){
+       }else if (input.value === localStorage.getItem("userName")){
+            alert("Username already in use");
+       } else{
            localStorage.setItem("userName",input.value);
+           alert("Name Changed to " + input.value);
        }
     }
 
@@ -164,12 +166,14 @@ class Model{
     }
 
     refreshLocation(){
-        const promptBox = confirm("Would you like to refresh your location?");
-        if (promptBox === true) {
+            getUserLocation();
+            let city = localStorage.getItem("userLocality");
+            let country = localStorage.getItem("userCountry");
+
+            document.getElementById("locationText").innerHTML = city + ", " + country;
             location.reload();
-            alert("Location refreshed");
         }
-    }
+
 
     toggleShowElement(element){
         if (element.style.display === "none" ){

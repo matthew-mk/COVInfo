@@ -1,5 +1,5 @@
 /*global Model, View */ /* a jshint hint */
-/*global localStorage: false, setTimeout:false, document:false, console:false, window:false*/
+/*global localStorage: false, setTimeout:false, document:false, console:false, window:false, navigator:false*/
 'use strict';
 
 
@@ -10,11 +10,10 @@ const initialise = evt => {
     //FUNCTIONS
     const displayLocalStats = function () {
         check(); //we have to wait for local storage to be populated before we can call the view or else we pass null data
-        function check(){
-            if(localStorage.getItem("userDefinedTotalDeaths") === null || localStorage.getItem("userDefinedTotalCases") === null || localStorage.getItem("userDefinedLocationAlertLevel") === null || localStorage.getItem("userDefinedLocationNewDeaths") === null || localStorage.getItem("userDefinedLocationNewCases") === null){
+        function check() {
+            if (localStorage.getItem("userDefinedTotalDeaths") === null || localStorage.getItem("userDefinedTotalCases") === null || localStorage.getItem("userDefinedLocationAlertLevel") === null || localStorage.getItem("userDefinedLocationNewDeaths") === null || localStorage.getItem("userDefinedLocationNewCases") === null) {
                 setTimeout(check, 0);
-            }
-            else{
+            } else {
                 view.updateUserDefinedLocationNewCases(model.formatNumber(localStorage.getItem("userDefinedLocationNewCases")), model.formatNumber(localStorage.getItem("userDefinedLocationNewCasesYesterday")));
                 view.updateUserDefinedLocationNewDeaths(model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths")), model.formatNumber(localStorage.getItem("userDefinedLocationNewDeathsYesterday")));
                 view.updateUserDefinedLocationAlertLevel(model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel")));
@@ -26,11 +25,10 @@ const initialise = evt => {
 
     const displayNationwideStats = function () {
         check(); //we have to wait for local storage to be populated before we can call the view or else we pass null data
-        function check(){
-            if(localStorage.getItem("nationalTotalCases") === null || localStorage.getItem("firstDoseVaccinated") === null || localStorage.getItem("nationalNewDeaths") === null || localStorage.getItem("nationalTotalCases") === null || localStorage.getItem("nationalNewCases") === null){
+        function check() {
+            if (localStorage.getItem("nationalTotalCases") === null || localStorage.getItem("firstDoseVaccinated") === null || localStorage.getItem("nationalNewDeaths") === null || localStorage.getItem("nationalTotalCases") === null || localStorage.getItem("nationalNewCases") === null) {
                 setTimeout(check, 0);
-            }
-            else{
+            } else {
                 view.updateNationalNewCases(model.formatNumber(localStorage.getItem("nationalNewCases")), model.formatNumber(localStorage.getItem("nationalNewCasesYesterday"))); //we only want the last day of data not the week
                 view.updateNationalNewDeaths(model.formatNumber(localStorage.getItem("nationalNewDeaths")), model.formatNumber(localStorage.getItem("nationalNewDeathsYesterday")));
                 view.updateFirstDoseVaccinated(model.formatNumber(localStorage.getItem("firstDoseVaccinated")));
@@ -41,11 +39,10 @@ const initialise = evt => {
 
     const displayWorldwideStats = function () {
         check(); //we have to wait for local storage to be populated before we can call the view or else we pass null data
-        function check(){
-            if(localStorage.getItem("globalTotalCases") === null || localStorage.getItem("globalTotalDeaths") === null || localStorage.getItem("globalNewDeaths") === null || localStorage.getItem("globalNewCases") === null){
+        function check() {
+            if (localStorage.getItem("globalTotalCases") === null || localStorage.getItem("globalTotalDeaths") === null || localStorage.getItem("globalNewDeaths") === null || localStorage.getItem("globalNewCases") === null) {
                 setTimeout(check, 0);
-            }
-            else{
+            } else {
                 view.updateGlobalNewCases(model.formatNumber(localStorage.getItem("globalNewCases")), model.formatNumber(localStorage.getItem("globalNewCasesYesterday")));
                 view.updateGlobalNewDeaths(model.formatNumber(localStorage.getItem("globalNewDeaths")), model.formatNumber(localStorage.getItem("globalNewDeathsYesterday")));
                 view.updateGlobalTotalDeaths(model.formatNumber(localStorage.getItem("globalTotalDeaths")));
@@ -62,11 +59,10 @@ const initialise = evt => {
 
     const initStats = function () {
         check(); //we have to wait for local storage to be populated before we can call the view or else we pass null data
-        function check(){
-            if(localStorage.getItem("userLocality") === null){
+        function check() {
+            if (localStorage.getItem("userLocality") === null) {
                 setTimeout(check, 0);
-            }
-            else{
+            } else {
                 //update stats daily and display the stats
                 if (localStorage.getItem("statsLastUpdated") !== model.getDate() && model.getHour() > 6) {
                     model.statUpdate();
@@ -84,7 +80,6 @@ const initialise = evt => {
 
     //INITIALISATION
     initStats();
-    view.loadTheme();
 
     //EVENT LISTENERS
     //Index page
@@ -128,7 +123,7 @@ const initialise = evt => {
         });
 
         nextBtn.addEventListener("click", () => {
-            model.saveSignupinfo(firstName,lastName,imgSelectBox);
+            model.saveSignupinfo(firstName, lastName, imgSelectBox);
         });
     }
 
@@ -156,6 +151,13 @@ const initialise = evt => {
             shortnessOfBreath.checked = false;
             noneOfTheAbove.checked = false;
         };
+
+        if (noneOfTheAbove.checked ===true) {
+            highTemperature.checked = false;
+            cough.checked = false;
+            lossOfSmell.checked = false;
+            shortnessOfBreath.checked = false;
+        }
 
         const isFormInputValid = function () {
             if ((!noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
@@ -199,7 +201,10 @@ const initialise = evt => {
                     localStorage.setItem("lastSymptomsCheckDate", model.getFullDate());
                     let lastSymptomsCheckNumSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
                     let lastSymptomsCheckDate = localStorage.getItem("lastSymptomsCheckDate");
-                    let historyObject = [{"numberOfSymptoms": lastSymptomsCheckNumSymptoms, "date": lastSymptomsCheckDate}];
+                    let historyObject = [{
+                        "numberOfSymptoms": lastSymptomsCheckNumSymptoms,
+                        "date": lastSymptomsCheckDate
+                    }];
                     localStorage.setItem("symptomsCheckHistory", JSON.stringify(historyObject));
                 } else {
                     //User has done checks before, so append the results of this check to the history
@@ -208,7 +213,10 @@ const initialise = evt => {
                     let lastSymptomsCheckNumSymptoms = JSON.parse(localStorage.getItem("lastSymptomsCheckResults")).length;
                     let lastSymptomsCheckDate = localStorage.getItem("lastSymptomsCheckDate");
                     let symptomsCheckHistory = JSON.parse(localStorage.getItem("symptomsCheckHistory"));
-                    let newHistoryObject = {"numberOfSymptoms": lastSymptomsCheckNumSymptoms, "date": lastSymptomsCheckDate};
+                    let newHistoryObject = {
+                        "numberOfSymptoms": lastSymptomsCheckNumSymptoms,
+                        "date": lastSymptomsCheckDate
+                    };
                     symptomsCheckHistory.unshift(newHistoryObject);
                     //If history has more than 5 elements, remove the last element in the history
                     if (symptomsCheckHistory.length > 5) {
@@ -216,14 +224,6 @@ const initialise = evt => {
                     }
                     localStorage.setItem("symptomsCheckHistory", JSON.stringify(symptomsCheckHistory));
                 }
-
-                //Display results
-                if (isFormInputPositive()) {
-                    displayPositiveResults();
-                } else {
-                    displayNegativeResults();
-                }
-
             } else {
                 //Invalid input
                 console.log("Invalid input");
@@ -403,16 +403,17 @@ const initialise = evt => {
         const locationDiv = document.getElementById("active-location");
         const refreshBtn = document.getElementById("refreshLocation");
 
+
         view.loadFirstTimeSetup();
         view.loadThemeSettings();
         view.loadLocalStatSettings();
         view.loadWeeklyCheckSetting();
         view.loaduserName();
         view.loadLocation(locationText);
-        model.getProfilePicture(imgSelectBox,profileImage);
+        model.getProfilePicture(imgSelectBox, profileImage);
 
         imgSelectBox.addEventListener("change", () => {
-            model.imageChange(imgSelectBox,profileImage);
+            model.imageChange(imgSelectBox, profileImage);
         });
 
         nameChangeBtn.addEventListener("click", () => {
@@ -421,8 +422,8 @@ const initialise = evt => {
 
         localStatsSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(localStatsSettingText, localStatsSettingBtn);
-            model.saveSettingCheckbox("localBox",localStatsSettingBtn);
-            model.saveSettingText("localText",localStatsSettingText);
+            model.saveSettingCheckbox("localBox", localStatsSettingBtn);
+            model.saveSettingText("localText", localStatsSettingText);
             model.toggleShowElement(locationDiv);
         });
 
@@ -432,240 +433,389 @@ const initialise = evt => {
 
         weeklySymptomsCheckSettingBtn.addEventListener("click", () => {
             model.toggleSettingEnabledOrDisabled(weeklySymptomsCheckSettingText, weeklySymptomsCheckSettingBtn);
-            model.saveSettingCheckbox("weeklySymptomsBox",weeklySymptomsCheckSettingBtn);
-            model.saveSettingText("weeklySymptomsText",weeklySymptomsCheckSettingText);
+            model.saveSettingCheckbox("weeklySymptomsBox", weeklySymptomsCheckSettingBtn);
+            model.saveSettingText("weeklySymptomsText", weeklySymptomsCheckSettingText);
         });
 
-        themeBtn.addEventListener("click",() =>{
+        themeBtn.addEventListener("click", () => {
             model.toggleTheme(themeText, themeBtn);
         });
     }
+        //Search Page
+        if (document.URL.includes("search.html")) {
 
-    //Search Page
-    if (document.URL.includes("search.html")) {
+            view.loadFirstTimeSetup();
 
-        view.loadFirstTimeSetup();
+            const recentSearchesContainer = document.getElementById("recent-searches");
+            const infoResultsDiv = document.getElementById("information-results");
+            const statsResultsDiv = document.getElementById("stats-results");
+            const newsResultsDiv = document.getElementById("news-results");
+            const noResultsFound = document.getElementById("no-results-found");
+            const searchbarInput = document.getElementById("searchbar-input");
+            const searchButton = document.getElementById("submit-button");
+            const clearSearchesButton = document.getElementById("clear-button");
+            const searchData = [
+                {
+                    title: "What is the coronavirus?",
+                    subtitle: "World Health Organization",
+                    parent: "information",
+                    tags: "",
+                    isLink: true
+                },
+                {title: "Face Coverings", subtitle: "Gov.uk", parent: "information", tags: "masks", isLink: true},
+                {title: "Lockdown Rules", subtitle: "Gov.uk", parent: "information", tags: "", isLink: true},
+                {
+                    title: "Coronavirus Vaccine",
+                    subtitle: "NHS",
+                    parent: "information",
+                    tags: "vaccinations",
+                    isLink: true
+                },
+                {
+                    title: "Book/Manage Your Vaccine",
+                    subtitle: "NHS",
+                    parent: "information",
+                    tags: "vaccinations",
+                    isLink: true
+                },
+                {
+                    title: "Guide to Self Isolation",
+                    subtitle: "NHS",
+                    parent: "information",
+                    tags: "lockdown",
+                    isLink: true
+                },
+                {
+                    title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`,
+                    subtitle: "Local",
+                    parent: "statistics",
+                    tags: "stats, tier, level",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("firstDoseVaccinated"))} first dose vaccinations`,
+                    subtitle: "Nationwide",
+                    parent: "statistics",
+                    tags: "stats, vaccine",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`,
+                    subtitle: "Local",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`,
+                    subtitle: "Nationwide",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`,
+                    subtitle: "Global",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("userDefinedTotalCases"))} total cases`,
+                    subtitle: "Local",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("nationalTotalCases"))} total cases`,
+                    subtitle: "Nationwide",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("globalTotalCases"))} total cases`,
+                    subtitle: "Global",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths"))} new deaths`,
+                    subtitle: "Local",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("nationalNewDeaths"))} new deaths`,
+                    subtitle: "Nationwide",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`,
+                    subtitle: "Global",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("userDefinedTotalDeaths"))} total deaths`,
+                    subtitle: "Local",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`,
+                    subtitle: "Global",
+                    parent: "statistics",
+                    tags: "stats",
+                    isLink: false
+                },
+                {
+                    title: "UK Biobank scans aim to reveal health legacy",
+                    subtitle: "BBC News",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+                {
+                    title: "France eases travel for UK and six other countries",
+                    subtitle: "BBC News",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+                {
+                    title: "Homeless people to be prioritised",
+                    subtitle: "BBC News",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+                {
+                    title: "Antibody drug cuts Covid ‘hospital admissions and deaths by 85%",
+                    subtitle: "The Times",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+                {
+                    title: "Oklahoma latest state to drop all Covid-19 restrictions",
+                    subtitle: "The Independent",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+                {
+                    title: "Biden Takes First Tentative Steps to Address Global Vaccine Shortage",
+                    subtitle: "The New York Times",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+                {
+                    title: "Global impact of the COVID-19 pandemic: 1 year on",
+                    subtitle: "Medical News Today",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+                {
+                    title: "China's 'vaccine favouritism' risks damaging global fight against pandemic, says expert",
+                    subtitle: "Sky News",
+                    parent: "news",
+                    tags: "",
+                    isLink: true
+                },
+            ];
 
-        const recentSearchesContainer = document.getElementById("recent-searches");
-        const infoResultsDiv = document.getElementById("information-results");
-        const statsResultsDiv = document.getElementById("stats-results");
-        const newsResultsDiv = document.getElementById("news-results");
-        const noResultsFound = document.getElementById("no-results-found");
-        const searchbarInput = document.getElementById("searchbar-input");
-        const searchButton = document.getElementById("submit-button");
-        const clearSearchesButton = document.getElementById("clear-button");
-        const searchData = [
-            {title: "What is the coronavirus?", subtitle: "World Health Organization", parent: "information", tags: "", isLink: true},
-            {title: "Face Coverings", subtitle: "Gov.uk", parent: "information", tags: "masks", isLink: true},
-            {title: "Lockdown Rules", subtitle: "Gov.uk", parent: "information", tags: "", isLink: true},
-            {title: "Coronavirus Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations", isLink: true},
-            {title: "Book/Manage Your Vaccine", subtitle: "NHS", parent: "information", tags: "vaccinations", isLink: true},
-            {title: "Guide to Self Isolation", subtitle: "NHS", parent: "information", tags: "lockdown", isLink: true},
-            {title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`, subtitle: "Local", parent: "statistics", tags: "stats, tier, level", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("firstDoseVaccinated"))} first dose vaccinations`, subtitle: "Nationwide", parent: "statistics", tags: "stats, vaccine", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewCases"))} new cases`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("nationalNewCases"))} new cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalCases"))} total cases`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("nationalTotalCases"))} total cases`, subtitle: "Nationwide", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("globalTotalCases"))} total cases`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedLocationNewDeaths"))} new deaths`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("nationalNewDeaths"))} new deaths`, subtitle: "Nationwide", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("userDefinedTotalDeaths"))} total deaths`, subtitle: "Local", parent: "statistics", tags: "stats", isLink: false},
-            {title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`, subtitle: "Global", parent: "statistics", tags: "stats", isLink: false},
-            {title: "UK Biobank scans aim to reveal health legacy", subtitle: "BBC News", parent: "news", tags: "", isLink: true},
-            {title: "France eases travel for UK and six other countries", subtitle: "BBC News", parent: "news", tags: "", isLink: true},
-            {title: "Homeless people to be prioritised", subtitle: "BBC News", parent: "news", tags: "", isLink: true},
-            {title: "Antibody drug cuts Covid ‘hospital admissions and deaths by 85%", subtitle: "The Times", parent: "news", tags: "", isLink: true},
-            {title: "Oklahoma latest state to drop all Covid-19 restrictions", subtitle: "The Independent", parent: "news", tags: "", isLink: true},
-            {title: "Biden Takes First Tentative Steps to Address Global Vaccine Shortage", subtitle: "The New York Times", parent: "news", tags: "", isLink: true},
-            {title: "Global impact of the COVID-19 pandemic: 1 year on", subtitle: "Medical News Today", parent: "news", tags: "", isLink: true},
-            {title: "China's 'vaccine favouritism' risks damaging global fight against pandemic, says expert", subtitle: "Sky News", parent: "news", tags: "", isLink: true},
-        ];
-
-        //Functions
-        const getRecentSearches = function () {
-            if (localStorage.getItem("recentSearches") === null) {
-                localStorage.setItem("recentSearches", JSON.stringify([]));
-                return [];
-            } else {
-                return JSON.parse(localStorage.getItem("recentSearches"));
-            }
-        };
-
-        const addSearchToRecentSearches = function (search) {
-            if (search !== "") {
-                let recentSearches = getRecentSearches();
-                recentSearches.unshift(search);
-                if (recentSearches.length > 5) {
-                    recentSearches.pop();
+            //Functions
+            const getRecentSearches = function () {
+                if (localStorage.getItem("recentSearches") === null) {
+                    localStorage.setItem("recentSearches", JSON.stringify([]));
+                    return [];
+                } else {
+                    return JSON.parse(localStorage.getItem("recentSearches"));
                 }
-                localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
-            }
-        };
+            };
 
-        const displayRecentSearches = function () {
-            recentSearchesContainer.innerHTML = `<p class="small__text grey__color"> Recent searches </p>`;
-            let recentSearches = getRecentSearches();
-            if (recentSearches.length === 0) {
-                recentSearchesContainer.innerHTML += `<p id="no-recent-searches">No recent searches.</p>`;
-            } else {
-                for (let i = 0; i < recentSearches.length; i++) {
-                    let recentSearch = document.createElement("a");
-                    recentSearch.innerHTML += `<p>${recentSearches[i]}</p>`;
-                    recentSearch.addEventListener("click", () => {
-                        clickRecentSearch(i);
-                    });
-                    recentSearchesContainer.append(recentSearch);
-                    if (i !== recentSearches.length - 1) {
-                        let hr = document.createElement("hr");
-                        recentSearchesContainer.append(hr);
+            const addSearchToRecentSearches = function (search) {
+                if (search !== "") {
+                    let recentSearches = getRecentSearches();
+                    recentSearches.unshift(search);
+                    if (recentSearches.length > 5) {
+                        recentSearches.pop();
+                    }
+                    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+                }
+            };
+
+            const displayRecentSearches = function () {
+                recentSearchesContainer.innerHTML = `<p class="small__text grey__color"> Recent searches </p>`;
+                let recentSearches = getRecentSearches();
+                if (recentSearches.length === 0) {
+                    recentSearchesContainer.innerHTML += `<p id="no-recent-searches">No recent searches.</p>`;
+                } else {
+                    for (let i = 0; i < recentSearches.length; i++) {
+                        let recentSearch = document.createElement("a");
+                        recentSearch.innerHTML += `<p>${recentSearches[i]}</p>`;
+                        recentSearch.addEventListener("click", () => {
+                            clickRecentSearch(i);
+                        });
+                        recentSearchesContainer.append(recentSearch);
+                        if (i !== recentSearches.length - 1) {
+                            let hr = document.createElement("hr");
+                            recentSearchesContainer.append(hr);
+                        }
                     }
                 }
-            }
-        };
+            };
 
-        const clickRecentSearch = function (index) {
-            //Get recent searches and the search that was clicked
-            let recentSearches = getRecentSearches();
-            let search = recentSearches[index];
+            const clickRecentSearch = function (index) {
+                //Get recent searches and the search that was clicked
+                let recentSearches = getRecentSearches();
+                let search = recentSearches[index];
 
-            //Remove the search from the search list and save the new search list in local storage
-            recentSearches.splice(index, 1);
-            localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+                //Remove the search from the search list and save the new search list in local storage
+                recentSearches.splice(index, 1);
+                localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 
-            //Set searchbar input value to be the search
-            searchbarInput.value = search;
+                //Set searchbar input value to be the search
+                searchbarInput.value = search;
 
-            //Do the search
-            searchFunctionality(search);
+                //Do the search
+                searchFunctionality(search);
 
-            //Update recent searches display
-            displayRecentSearches();
-        };
+                //Update recent searches display
+                displayRecentSearches();
+            };
 
-        const addResultsToParentContainer = function (resultsArray, container) {
-            for (let i = 0; i < resultsArray.length; i++) {
-                let newResult = `<a><div>
+            const addResultsToParentContainer = function (resultsArray, container) {
+                for (let i = 0; i < resultsArray.length; i++) {
+                    let newResult = `<a><div>
                                     <h1 class="small-title__text"> ${resultsArray[i].title} </h1>
                                     <p class="grey__color"> ${resultsArray[i].subtitle} </p>
                                 </div></a>`;
-                container.innerHTML += newResult;
-                if (i !== resultsArray.length - 1) {
-                    let hr = document.createElement("hr");
-                    container.append(hr);
-                }
-            }
-        };
-
-        const hideContainers = function () {
-            model.hideDiv(infoResultsDiv);
-            model.hideDiv(statsResultsDiv);
-            model.hideDiv(newsResultsDiv);
-        };
-
-        const searchFunctionality = function (search) {
-            if (search !== "") {
-                let infoResultsArr = [];
-                let statsResultsArr = [];
-                let newsResultsArr = [];
-
-                //Reset the contents of each container
-                infoResultsDiv.innerHTML = `<p class="small__text grey__color"> Information </p>`;
-                statsResultsDiv.innerHTML = `<p class="small__text grey__color"> Statistics </p>`;
-                newsResultsDiv.innerHTML = `<p class="small__text grey__color"> News </p>`;
-
-                //Add objects to corresponding arrays
-                for (let i = 0; i < searchData.length; i++) {
-                    let searchResultTitle = searchData[i].title.toLowerCase();
-                    let searchResultSubtitle = searchData[i].subtitle.toLowerCase();
-                    let searchResultParent = searchData[i].parent;
-                    let searchResultTags = searchData[i].tags;
-
-                    if (searchResultTitle.includes(search) || searchResultSubtitle.includes(search) || searchResultParent.includes(search) || searchResultTags.includes(search)) {
-                        //Append result to its parent div
-                        if (searchResultParent === "information") {
-                            infoResultsArr.push(searchData[i]);
-                        }
-                        if (searchResultParent === "statistics") {
-                            statsResultsArr.push(searchData[i]);
-                        }
-                        if (searchResultParent === "news") {
-                            newsResultsArr.push(searchData[i]);
-                        }
+                    container.innerHTML += newResult;
+                    if (i !== resultsArray.length - 1) {
+                        let hr = document.createElement("hr");
+                        container.append(hr);
                     }
                 }
+            };
 
-                //Add results to their parent containers
-                addResultsToParentContainer(infoResultsArr, infoResultsDiv);
-                addResultsToParentContainer(statsResultsArr, statsResultsDiv);
-                addResultsToParentContainer(newsResultsArr, newsResultsDiv);
+            const hideContainers = function () {
+                model.hideDiv(infoResultsDiv);
+                model.hideDiv(statsResultsDiv);
+                model.hideDiv(newsResultsDiv);
+            };
 
-                //Only display containers for which corresponding arrays aren't empty
-                if (infoResultsArr.length === 0 && statsResultsArr.length === 0 && newsResultsArr.length === 0) {
-                    //No results found
-                    hideContainers();
-                    model.showDiv(noResultsFound);
+            const searchFunctionality = function (search) {
+                if (search !== "") {
+                    let infoResultsArr = [];
+                    let statsResultsArr = [];
+                    let newsResultsArr = [];
+
+                    //Reset the contents of each container
+                    infoResultsDiv.innerHTML = `<p class="small__text grey__color"> Information </p>`;
+                    statsResultsDiv.innerHTML = `<p class="small__text grey__color"> Statistics </p>`;
+                    newsResultsDiv.innerHTML = `<p class="small__text grey__color"> News </p>`;
+
+                    //Add objects to corresponding arrays
+                    for (let i = 0; i < searchData.length; i++) {
+                        let searchResultTitle = searchData[i].title.toLowerCase();
+                        let searchResultSubtitle = searchData[i].subtitle.toLowerCase();
+                        let searchResultParent = searchData[i].parent;
+                        let searchResultTags = searchData[i].tags;
+
+                        if (searchResultTitle.includes(search) || searchResultSubtitle.includes(search) || searchResultParent.includes(search) || searchResultTags.includes(search)) {
+                            //Append result to its parent div
+                            if (searchResultParent === "information") {
+                                infoResultsArr.push(searchData[i]);
+                            }
+                            if (searchResultParent === "statistics") {
+                                statsResultsArr.push(searchData[i]);
+                            }
+                            if (searchResultParent === "news") {
+                                newsResultsArr.push(searchData[i]);
+                            }
+                        }
+                    }
+
+                    //Add results to their parent containers
+                    addResultsToParentContainer(infoResultsArr, infoResultsDiv);
+                    addResultsToParentContainer(statsResultsArr, statsResultsDiv);
+                    addResultsToParentContainer(newsResultsArr, newsResultsDiv);
+
+                    //Only display containers for which corresponding arrays aren't empty
+                    if (infoResultsArr.length === 0 && statsResultsArr.length === 0 && newsResultsArr.length === 0) {
+                        //No results found
+                        hideContainers();
+                        model.showDiv(noResultsFound);
+                    } else {
+                        //Results found
+                        model.hideDiv(noResultsFound);
+                        if (infoResultsArr.length === 0) {
+                            model.hideDiv(infoResultsDiv);
+                        } else {
+                            model.showDiv(infoResultsDiv);
+                        }
+
+                        if (statsResultsArr.length === 0) {
+                            model.hideDiv(statsResultsDiv);
+                        } else {
+                            model.showDiv(statsResultsDiv);
+                        }
+
+                        if (newsResultsArr.length === 0) {
+                            model.hideDiv(newsResultsDiv);
+                        } else {
+                            model.showDiv(newsResultsDiv);
+                        }
+                    }
+
+                    //Add the search to the recent searches and display it in recent searches
+                    addSearchToRecentSearches(search);
+                    displayRecentSearches();
+
                 } else {
-                    //Results found
-                    model.hideDiv(noResultsFound);
-                    if (infoResultsArr.length === 0) {
-                        model.hideDiv(infoResultsDiv);
-                    } else {
-                        model.showDiv(infoResultsDiv);
-                    }
-
-                    if (statsResultsArr.length === 0) {
-                        model.hideDiv(statsResultsDiv);
-                    } else {
-                        model.showDiv(statsResultsDiv);
-                    }
-
-                    if (newsResultsArr.length === 0) {
-                        model.hideDiv(newsResultsDiv);
-                    } else {
-                        model.showDiv(newsResultsDiv);
-                    }
+                    //User tried to search without typing anything
+                    defaultDisplay();
                 }
+            };
 
-                //Add the search to the recent searches and display it in recent searches
-                addSearchToRecentSearches(search);
+            const clearRecentSearches = function () {
+                localStorage.setItem("recentSearches", JSON.stringify([]));
+                recentSearchesContainer.innerHTML = `<p class="small__text grey__color"> Recent searches </p>`;
+                model.hideDiv(noResultsFound);
+                searchbarInput.value = "";
+            };
+
+            const defaultDisplay = function () {
+                searchbarInput.focus();
                 displayRecentSearches();
+            };
 
-            } else {
-                //User tried to search without typing anything
-                defaultDisplay();
-            }
-        };
-
-        const clearRecentSearches = function () {
-            localStorage.setItem("recentSearches", JSON.stringify([]));
-            recentSearchesContainer.innerHTML = `<p class="small__text grey__color"> Recent searches </p>`;
-            model.hideDiv(noResultsFound);
-            searchbarInput.value = "";
-        };
-
-        const defaultDisplay = function () {
-            searchbarInput.focus();
-            displayRecentSearches();
-        };
-
-        //Init
-        defaultDisplay();
-
-        //Event listeners
-        searchButton.addEventListener("click", () => {
-            let search = searchbarInput.value.trimEnd().toLowerCase();
-            searchFunctionality(search);
-        });
-
-        clearSearchesButton.addEventListener("click", () => {
-            clearRecentSearches();
+            //Init
             defaultDisplay();
-            hideContainers();
-        });
-    }
-};
 
+            //Event listeners
+            searchButton.addEventListener("click", () => {
+                let search = searchbarInput.value.trimEnd().toLowerCase();
+                searchFunctionality(search);
+            });
+
+            clearSearchesButton.addEventListener("click", () => {
+                clearRecentSearches();
+                defaultDisplay();
+                hideContainers();
+            });
+        }
+
+};
 window.addEventListener("load", initialise);

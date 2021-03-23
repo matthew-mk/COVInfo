@@ -17,10 +17,12 @@ nav {
 
 input[type=search] { 
     border-bottom: 1.5px solid #a7a7a7; /* TODO */
+    background-color: #202125 !important;
 }
 
 input[type=search]:focus {
     border-bottom: 1.5px solid #282828; /* TODO */
+    background-color: #202125 !important;
 }
 
 .accent__color {
@@ -103,7 +105,9 @@ input[type=search]:focus {
 }
 
 
-
+#settings-main select {
+    background-color: #303135; !important;
+}
 
 
 
@@ -130,6 +134,7 @@ input[type=search]:focus {
 .signup-input:focus, .signup-input:valid {
     border: 2px solid #89B4F8 !important;
     color: #E9EAEE !important;
+    background-color: #202125 !important;
 }
   
 .signup-input:focus~label, .signup-input:valid~label {
@@ -139,3 +144,4 @@ input[type=search]:focus {
 .signup-input-error + label {
     color: #E95F59 !important;
 }
+
