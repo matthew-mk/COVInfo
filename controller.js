@@ -458,7 +458,7 @@ const initialise = evt => {
             const clearSearchesButton = document.getElementById("clear-button");
             const searchData = [
                 {
-                    title: "What is the coronavirus?",
+                    title: "What is coronavirus?",
                     subtitle: "World Health Organization",
                     parent: "information",
                     tags: "",
@@ -466,7 +466,7 @@ const initialise = evt => {
                     link: "https://www.who.int/health-topics/coronavirus#tab=tab_1"
                 },
                 {
-                    title: "Face Coverings",
+                    title: "Face coverings",
                     subtitle: "GOV.UK",
                     parent: "information",
                     tags: "masks",
@@ -474,15 +474,15 @@ const initialise = evt => {
                     link: "https://www.gov.uk/government/publications/face-coverings-when-to-wear-one-and-how-to-make-your-own/face-coverings-when-to-wear-one-and-how-to-make-your-own"
                 },
                 {
-                    title: "Lockdown Rules",
+                    title: "Lockdown rules",
                     subtitle: "GOV.UK",
                     parent: "information",
-                    tags: "",
+                    tags: "isolation, isolating",
                     isLink: true,
                     link: "https://www.gov.uk/guidance/national-lockdown-stay-at-home"
                 },
                 {
-                    title: "Coronavirus Vaccine",
+                    title: "Coronavirus vaccine",
                     subtitle: "NHS",
                     parent: "information",
                     tags: "vaccinations",
@@ -490,18 +490,18 @@ const initialise = evt => {
                     link: "https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/coronavirus-vaccine/"
                 },
                 {
-                    title: "Book/Manage Your Vaccine",
+                    title: "Booking a vaccine",
                     subtitle: "NHS",
                     parent: "information",
                     tags: "vaccinations",
                     isLink: true,
-                    link: "https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/"
+                    link: "https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/book-coronavirus-vaccination/"
                 },
                 {
-                    title: "Guide to Self Isolation",
+                    title: "Self-isolating",
                     subtitle: "NHS",
                     parent: "information",
-                    tags: "lockdown",
+                    tags: "lockdown, isolation",
                     isLink: true,
                     link: "https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/"
                 },
