@@ -117,6 +117,7 @@ span.regular__text {
 }
 
 .small__text {
+    font-weight: bold;
     font-size: 1.35vmax;
 }
 
