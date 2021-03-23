@@ -460,30 +460,48 @@ const initialise = evt => {
                     subtitle: "World Health Organization",
                     parent: "information",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.who.int/health-topics/coronavirus#tab=tab_1"
                 },
-                {title: "Face Coverings", subtitle: "Gov.uk", parent: "information", tags: "masks", isLink: true},
-                {title: "Lockdown Rules", subtitle: "Gov.uk", parent: "information", tags: "", isLink: true},
+                {
+                    title: "Face Coverings",
+                    subtitle: "GOV.UK",
+                    parent: "information",
+                    tags: "masks",
+                    isLink: true,
+                    link: "https://www.gov.uk/government/publications/face-coverings-when-to-wear-one-and-how-to-make-your-own/face-coverings-when-to-wear-one-and-how-to-make-your-own"
+                },
+                {
+                    title: "Lockdown Rules",
+                    subtitle: "GOV.UK",
+                    parent: "information",
+                    tags: "",
+                    isLink: true,
+                    link: "https://www.gov.uk/guidance/national-lockdown-stay-at-home"
+                },
                 {
                     title: "Coronavirus Vaccine",
                     subtitle: "NHS",
                     parent: "information",
                     tags: "vaccinations",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/coronavirus-vaccine/"
                 },
                 {
                     title: "Book/Manage Your Vaccine",
                     subtitle: "NHS",
                     parent: "information",
                     tags: "vaccinations",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/"
                 },
                 {
                     title: "Guide to Self Isolation",
                     subtitle: "NHS",
                     parent: "information",
                     tags: "lockdown",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/"
                 },
                 {
                     title: `Stage ${model.formatNumber(localStorage.getItem("userDefinedLocationAlertLevel"))}`,
@@ -581,56 +599,64 @@ const initialise = evt => {
                     subtitle: "BBC News",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.bbc.co.uk/news/health-56352138"
                 },
                 {
                     title: "France eases travel for UK and six other countries",
                     subtitle: "BBC News",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.bbc.co.uk/news/world-europe-56364290"
                 },
                 {
                     title: "Homeless people to be prioritised",
                     subtitle: "BBC News",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.bbc.co.uk/news/health-56364339"
                 },
                 {
                     title: "Antibody drug cuts Covid ‘hospital admissions and deaths by 85%",
                     subtitle: "The Times",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.thetimes.co.uk/article/antibody-drug-cuts-covid-hospital-admissions-and-deaths-by-85-pnxdr7dmn"
                 },
                 {
                     title: "Oklahoma latest state to drop all Covid-19 restrictions",
                     subtitle: "The Independent",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.independent.co.uk/news/world/americas/us-politics/oklahoma-covid-restrictions-latest-coronavirus-b1815961.html"
                 },
                 {
                     title: "Biden Takes First Tentative Steps to Address Global Vaccine Shortage",
                     subtitle: "The New York Times",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.nytimes.com/2021/03/12/us/politics/covid-19-vaccine-global-shortage.html"
                 },
                 {
                     title: "Global impact of the COVID-19 pandemic: 1 year on",
                     subtitle: "Medical News Today",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://www.medicalnewstoday.com/articles/global-impact-of-the-covid-19-pandemic-1-year-on"
                 },
                 {
                     title: "China's 'vaccine favouritism' risks damaging global fight against pandemic, says expert",
                     subtitle: "Sky News",
                     parent: "news",
                     tags: "",
-                    isLink: true
+                    isLink: true,
+                    link: "https://news.sky.com/story/covid-19-chinas-vaccine-favouritism-risks-damaging-global-fight-against-pandemic-says-expert-12243343"
                 },
             ];
 
@@ -697,11 +723,22 @@ const initialise = evt => {
 
             const addResultsToParentContainer = function (resultsArray, container) {
                 for (let i = 0; i < resultsArray.length; i++) {
-                    let newResult = `<a><div>
+                    if (resultsArray[i].isLink) {
+                        //Result links to a page
+                        let newResult = `<a><div onclick="window.open('${resultsArray[i].link}','_blank')">
                                     <h1 class="small-title__text"> ${resultsArray[i].title} </h1>
                                     <p class="grey__color"> ${resultsArray[i].subtitle} </p>
                                 </div></a>`;
-                    container.innerHTML += newResult;
+                        container.innerHTML += newResult;
+                    } else {
+                        //Result does not link to a page
+                        let newResult = `<a><div>
+                                    <h1 class="small-title__text"> ${resultsArray[i].title} </h1>
+                                    <p class="grey__color"> ${resultsArray[i].subtitle} </p>
+                                </div></a>`;
+                        container.innerHTML += newResult;
+                    }
+                    //
                     if (i !== resultsArray.length - 1) {
                         let hr = document.createElement("hr");
                         container.append(hr);
