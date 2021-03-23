@@ -4,25 +4,20 @@ body {
 }
 
 header {
-    border: 1px solid #303030 !important;
+    border: 1px solid #212121 !important;
     background-color: #202125 !important;
     box-shadow: 0 1px 16px 0 #1A1A1A !important;
 }
 
 nav {
-    border: 1px solid #303030 !important;
+    border: 1px solid #212121 !important;
     background-color: #202125 !important;
     box-shadow: 0 -1px 16px 0 #1A1A1A !important;
 }
 
-input[type=search] { 
-    border-bottom: 1.5px solid #a7a7a7; /* TODO */
-    background-color: #202125 !important;
-}
-
 input[type=search]:focus {
-    border-bottom: 1.5px solid #282828; /* TODO */
-    background-color: #202125 !important;
+    color: #E9EAEE !important;
+    border-bottom: 1.5px solid #E9EAEE !important;
 }
 
 .accent__color {
@@ -42,7 +37,7 @@ input[type=search]:focus {
 }
 
 .box, .button {
-    border: 1px solid #303030 !important;
+    border: 1px solid #212121 !important;
     box-shadow: 0 1px 16px 0 #1A1A1A !important;
     background-color: #303135 !important;
 }
