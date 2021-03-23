@@ -152,6 +152,13 @@ const initialise = evt => {
             noneOfTheAbove.checked = false;
         };
 
+        if (noneOfTheAbove.checked ===true) {
+            highTemperature.checked = false;
+            cough.checked = false;
+            lossOfSmell.checked = false;
+            shortnessOfBreath.checked = false;
+        }
+
         const isFormInputValid = function () {
             if ((!noneOfTheAbove.checked) && (highTemperature.checked || cough.checked || lossOfSmell.checked || shortnessOfBreath.checked)) {
                 return true;
