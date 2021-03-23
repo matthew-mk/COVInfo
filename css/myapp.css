@@ -807,7 +807,7 @@ nav > a {
     padding: 0;
     font-size: 0.85rem;
     transition: all 0.2s;
-    color: #CDCDCD;
+    color: #7B7B7B;
 
     pointer-events: none;
 }
@@ -815,7 +815,7 @@ nav > a {
 .signup-input {
     height: 2.5rem;
     padding: 0 3vw;
-    border: 1.5px solid #CDCDCD;
+    border: 1.5px solid #7B7B7B;
     border-radius: 5px;
     width: 100%;
     font-size: 0.95rem;
@@ -836,7 +836,7 @@ nav > a {
 }
 
 .signup-input:not(:focus):valid {
-    color: #CDCDCD;
+    color: #7B7B7B;
 }
 
 .signup-input:focus~label {
