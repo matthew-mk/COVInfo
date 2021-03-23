@@ -623,6 +623,10 @@ nav > a {
     flex-wrap: wrap;
 }
 
+nav p {
+    font-weight: bold;
+}
+
 
 /* SIGNUP PAGES */
 
