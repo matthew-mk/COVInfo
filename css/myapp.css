@@ -119,10 +119,6 @@ span.regular__text {
 .small__text {
     font-weight: bold;
     font-size: 1.35vmax;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 
@@ -462,6 +458,12 @@ header > * {
     text-overflow: ellipsis;
 }
 
+#stats-main .small__text {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 #stats-header .small-title__text,
 #stats-main .small-title__text {
