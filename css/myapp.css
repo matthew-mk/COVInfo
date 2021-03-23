@@ -199,6 +199,13 @@ span.regular__text {
     font-size: 2.4vmax;
 }
 
+.box .small__text:first-child {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .box:first-child:not(.search-bar__box) {
     margin-left: 0;
 }
@@ -454,13 +461,7 @@ header > * {
 }
 
 #profile-header #profile-name {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#stats-main .small__text {
-    width: 100%;
+    max-width: 75vw;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
