@@ -190,6 +190,8 @@ class View{
         let setting1 = JSON.parse(localStorage.getItem("localBox"));
         if (setting1 === null){
             setting1 = false;
+        } else{
+            setting1 = true;
         }
         document.getElementById("localstats-setting-btn").checked = setting1;
         if (setting1 === false){
@@ -198,6 +200,10 @@ class View{
         }
         if (localStorage.getItem("localText") === null){
             localStorage.setItem("localText","Disabled");
+            localStorage.setItem("localBox", "false");
+        } else{
+            localStorage.setItem("localText","Enabled");
+            localStorage.setItem("localBox", "true");
         }
         document.getElementById("localstats-setting-text").innerHTML = localStorage.getItem("localText");
     }
