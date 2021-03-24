@@ -260,6 +260,10 @@ span.regular__text {
     justify-content: space-between !important;
 }
 
+.search-bar__box .horizontal__container:first-child > * {
+    margin: 0 1vmin;
+}
+
 .search-bar__box .horizontal__container:not(:first-child) {
     justify-content: space-between !important;
 }
