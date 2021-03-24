@@ -23,12 +23,18 @@
 <body>
     <header class="home tab__header vertical__container">
         <div class="search-bar__container vertical__container">
-            <div class="box search-bar__box horizontal__container" onclick="location.href='search.html'">
-                <div class=" horizontal__container">
-                    <span class="grey__color material-icons-outlined">search</span>
-                    <p class="grey__color"> Search for information... </p>
+            <div class="box search-bar__box">
+                <div id="search-logo" class="horizontal__container">
+                    <img src="res/graphics/icon128.png" />
+                    <p> COVInfo </p>
                 </div>
-                <a href="settings.html"><span class="grey__color material-icons-outlined">settings</span></a>
+                <div id="search-container" class="horizontal__container" onclick="location.href='search.html'">
+                    <div class=" horizontal__container">
+                        <span class="grey__color material-icons-outlined">search</span>
+                        <p class="grey__color"> Search for information... </p>
+                    </div>
+                    <a href="settings.html"><span class="grey__color material-icons-outlined">settings</span></a>
+                </div>
             </div>
         </div>
         <div class="search-bar__filler search-bar__container vertical__container">

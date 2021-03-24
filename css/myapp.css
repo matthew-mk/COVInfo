@@ -260,8 +260,13 @@ span.regular__text {
     justify-content: space-between !important;
 }
 
-.search-bar__box .horizontal__container {
+.search-bar__box .horizontal__container:not(:first-child) {
     justify-content: space-between !important;
+}
+
+.search-bar__box img {
+    height: 2vmax;
+    width: auto;
 }
 
 .search-bar__box span {
