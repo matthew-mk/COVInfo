@@ -154,7 +154,7 @@ class View{
 
     loadToggleLocalStats(){
         if(localStorage.getItem("localBox") === "false" || localStorage.getItem("userLocality") === null){
-            document.getElementById("profile-location").style.visibility = "hidden";
+            document.getElementById("profile-location").style.display = "none";
         }
 
         let x = document.getElementById("local-stats");
