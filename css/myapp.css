@@ -699,10 +699,10 @@ nav p {
 }
 
 #signup-main img:not(#signup-profile-pic) {
-    width: 87.5%;
-    height: auto;
+    width: auto;
+    height: 50vh;
 
-    padding: 2vh 2vw;
+    padding: 5vmax;
 }
 
 #signup-main #profile .vertical__container:not(:first-child) {
