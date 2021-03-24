@@ -14,7 +14,7 @@ $(document).ready(function(){
     $("#search-logo").hide();
 
     $("#search-logo").fadeIn(300).delay(900).fadeOut(300);
-    $("#search-container").delay(1490).fadeIn(300);
+    $("#search-container").delay(1500).fadeIn(300);
 
     $("#profile-link").click(function() {
         if (counter !== 1) {
