@@ -277,6 +277,10 @@ span.regular__text {
     font-size: 2.5vmax;
 }
 
+.search-bar__box p:first-child {
+    font-weight: bolder;
+}
+
 .search-bar__box p {
     font-size: 2vmax;
 }
