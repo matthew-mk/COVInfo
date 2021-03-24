@@ -446,6 +446,7 @@ header > * {
 
 #profile-main .horizontal__container:first-child,
 #profile-details-main .horizontal__container:first-child,
+#symptoms-form-main a .horizontal__container,
 #symptoms-form-main > .box:not(:nth-child(2)) > .horizontal__container {
     justify-content: space-between;
 }
@@ -517,8 +518,8 @@ header > * {
 }
 
 #news-main .box .small-title__text,
-#symptoms-form-main .box:first-child .small-title__text {
-    margin-bottom: 0.5vh;
+#symptoms-form-main > .box:first-child .small-title__text {
+    margin-bottom: 2vh;
     font-size: 2.15vmax;
 }
 
