@@ -535,9 +535,9 @@ const initialise = evt => {
                 },
                 {
                     title: `${model.formatNumber(localStorage.getItem("globalNewCases"))} new cases`,
-                    subtitle: "Global",
+                    subtitle: "Worldwide",
                     parent: "statistics",
-                    tags: "stats",
+                    tags: "stats, global",
                     isLink: false
                 },
                 {
@@ -556,9 +556,9 @@ const initialise = evt => {
                 },
                 {
                     title: `${model.formatNumber(localStorage.getItem("globalTotalCases"))} total cases`,
-                    subtitle: "Global",
+                    subtitle: "Worldwide",
                     parent: "statistics",
-                    tags: "stats",
+                    tags: "stats, global",
                     isLink: false
                 },
                 {
@@ -577,9 +577,9 @@ const initialise = evt => {
                 },
                 {
                     title: `${model.formatNumber(localStorage.getItem("globalNewDeaths"))} new deaths`,
-                    subtitle: "Global",
+                    subtitle: "Worldwide",
                     parent: "statistics",
-                    tags: "stats",
+                    tags: "stats, global",
                     isLink: false
                 },
                 {
@@ -591,9 +591,9 @@ const initialise = evt => {
                 },
                 {
                     title: `${model.formatNumber(localStorage.getItem("globalTotalDeaths"))} total deaths`,
-                    subtitle: "Global",
+                    subtitle: "Worldwide",
                     parent: "statistics",
-                    tags: "stats",
+                    tags: "stats, global",
                     isLink: false
                 },
                 {
