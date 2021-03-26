@@ -517,6 +517,10 @@ header > * {
     justify-content: space-between;
 }
 
+#news-main > .box > .horizontal__container {
+    max-width: 85%;
+}
+
 #news-main .box .small-title__text,
 #symptoms-form-main > .box:first-child .small-title__text {
     margin-bottom: 2vh;
