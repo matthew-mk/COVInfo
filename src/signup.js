@@ -99,7 +99,8 @@ $(document).ready(function(){
         localStorage.setItem("userLocality", data.locality);
         localStorage.setItem("userCity", data.city);
         localStorage.setItem("userCountry", data.principalSubdivision);
-
+        localStorage.setItem("localBox", "true");
+        localStorage.setItem("localText", "Enabled");
 
         $("#next-button").removeClass("skip__button")
         .html("Next <span class='material-icons-outlined'>arrow_forward</span>");
